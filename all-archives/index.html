@@ -65,7 +65,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+            <img class="header-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -83,7 +83,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
                 </a>
                 <h4 class="sidebar-profile-name">Abner</h4>
                 
@@ -115,7 +115,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
-                        <span class="sidebar-button-desc">Kategorien</span>
+                        <span class="sidebar-button-desc">Categories</span>
                     </a>
             </li>
             
@@ -139,7 +139,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
-                        <span class="sidebar-button-desc">Archiv</span>
+                        <span class="sidebar-button-desc">Archives</span>
                     </a>
             </li>
             
@@ -151,7 +151,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-search"></i>
-                        <span class="sidebar-button-desc">Suche</span>
+                        <span class="sidebar-button-desc">Search</span>
                     </a>
             </li>
             
@@ -163,7 +163,7 @@
                         >
                     
                         <i class="sidebar-button-icon fa fa-lg fa-question"></i>
-                        <span class="sidebar-button-desc">Über</span>
+                        <span class="sidebar-button-desc">About</span>
                     </a>
             </li>
             
@@ -193,12 +193,12 @@
                 
 <div id="archives" class="main-content-wrap">
     <form id="filter-form" action="#">
-        <input name="date" type="text" class="form-control input--xlarge" placeholder="Such Datum (YYYY/MM/DD)" autofocus="autofocus">
+        <input name="date" type="text" class="form-control input--xlarge" placeholder="Search date (YYYY/MM/DD)" autofocus="autofocus">
     </form>
     <h5 class="archive-result text-color-base text-xlarge"
-        data-message-zero="keinen Beitrag gefunden"
-        data-message-one="1 Beitrag gefunden"
-        data-message-other="{n} Einträge gefunden"></h5>
+        data-message-zero="no post found"
+        data-message-one="1 post found"
+        data-message-other="{n} posts found"></h5>
     <section class="boxes">
         
             
@@ -215,13 +215,31 @@
                 
                 <ul class="archive-posts archive-month" data-date="201707">
                     <h5 class="archive-title">
-                        <a class="link-unstyled" href="/archives/2017/07">July</a>
+                        <a class="link-unstyled" href="/archives/2017/07">七月</a>
                     </h5>
                 
             
             <li class="archive-post archive-day" data-date="20170709">
+                <a class="archive-post-title" href="/2017/07/09/Hello-Abner/">Hello,Abner</a>
+                <span class="archive-post-date"> - 7月 09, 2017</span>
+            </li>
+        
+            
+            
+            
+            
+            <li class="archive-post archive-day" data-date="20170709">
+                <a class="archive-post-title" href="/2017/07/09/test/">test</a>
+                <span class="archive-post-date"> - 7月 09, 2017</span>
+            </li>
+        
+            
+            
+            
+            
+            <li class="archive-post archive-day" data-date="20170709">
                 <a class="archive-post-title" href="/2017/07/09/hello-world/">Hello World</a>
-                <span class="archive-post-date"> - 09 7月 2017</span>
+                <span class="archive-post-date"> - 7月 09, 2017</span>
             </li>
         
     </section>
@@ -249,7 +267,7 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Abner</h4>
         
@@ -290,7 +308,7 @@
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">keinen Beitrag gefunden</div>
+            <div class="no-result text-color-light text-center">no post found</div>
             <div class="results">
                 
                 <div class="media">
@@ -312,14 +330,52 @@
                     <hr>
                 </div>
                 
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/07/09/test/">
+                            <h3 class="media-heading">test</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年7月9日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/07/09/Hello-Abner/">
+                            <h3 class="media-heading">Hello,Abner</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年7月9日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
             </div>
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="keinen Beitrag gefunden"
-                data-message-one="1 Beitrag gefunden"
-                data-message-other="{n} Einträge gefunden">
-                1 Beitrag gefunden
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                3 posts found
             </p>
         </div>
     </div>
