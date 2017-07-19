@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>Archiv: 2017/7 - Abner&#39;s blog</title>
+    <title>Archives: 2017/7 - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
@@ -64,7 +64,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+            <img class="header-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -82,7 +82,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
                 </a>
                 <h4 class="sidebar-profile-name">Abner</h4>
                 
@@ -207,7 +207,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-19T08:36:15+08:00">
 	
-		    19 7月 2017
+		    7月 19, 2017
     	
     </time>
     
@@ -216,7 +216,8 @@
             </div>
             
                 <div class="postShorten-content" itemprop="articleBody">
-                    <p>#拖了这么久的解题报告#</p>
+                    <p>拖了这么久的解题报告</p>
+<hr>
 <p>##Day1 水水的题水水的题解##</p>
 <p>A题<br>&emsp;&emsp;是个简单的贪心题，如果题目要求改成要求是不同的素数的和要就稍微需要考虑一点东西了，很遗憾，一开始就题目读错了，水题反而wa了。<br>&emsp;&emsp;因为是要拆分成最多个数的素数和，所以以2和3去拆就好，做到O（1）的并不难。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line"></div><div class="line">#define LL long long</div><div class="line">using namespace std;</div><div class="line">const int maxn = 1e6+10;</div><div class="line"></div><div class="line">bool check[maxn];</div><div class="line">int main()&#123;</div><div class="line">int n;</div><div class="line">vector&lt;int&gt;v;</div><div class="line">for(int i = 2;i &lt;=maxn; i++)&#123;</div><div class="line">	int k = (int)sqrt(i);</div><div class="line">	for(int j = i+1;j &lt;= k;j++)&#123;</div><div class="line">		if(i%j==0)&#123;</div><div class="line">			check[i] = false;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	check[i]= true;</div><div class="line">&#125;</div><div class="line">int ans,sign;</div><div class="line">while(cin&gt;&gt;n)&#123;</div><div class="line">	if(n &amp; 1)&#123;</div><div class="line">		ans = (n-3)/2 + 1;</div><div class="line">		sign = 1;</div><div class="line">	&#125;else &#123;</div><div class="line">		ans = n/2;</div><div class="line">		sign = 2;</div><div class="line">	&#125;</div><div class="line">	printf(&quot;%d\n&quot;,ans);</div><div class="line">	if(sign == 1)&#123;</div><div class="line">		for(int i = 1;i &lt; ans;i++)&#123;</div><div class="line">			printf(&quot;2 &quot;);</div><div class="line">		&#125;</div><div class="line">		printf(&quot;3\n&quot;);</div><div class="line">	&#125;else &#123;</div><div class="line">		for(int i =1;i&lt; ans;i++)&#123;</div><div class="line">			printf(&quot;2 &quot;);</div><div class="line">		&#125;</div><div class="line">		printf(&quot;2\n&quot;);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125; </div><div class="line"></div><div class="line">return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -241,7 +242,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/19/小学期ACM解题报告/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -266,7 +267,7 @@ f(1) = f(2) = f(3) = t;
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-14T00:35:17+08:00">
 	
-		    14 7月 2017
+		    7月 14, 2017
     	
     </time>
     
@@ -308,7 +309,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/14/写于大二小学期课程最后一天/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -333,7 +334,7 @@ f(1) = f(2) = f(3) = t;
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-09T23:59:38+08:00">
 	
-		    09 7月 2017
+		    7月 09, 2017
     	
     </time>
     
@@ -351,7 +352,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/09/Hello-Abner/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -376,7 +377,7 @@ f(1) = f(2) = f(3) = t;
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-09T00:14:32+08:00">
 	
-		    09 7月 2017
+		    7月 09, 2017
     	
     </time>
     
@@ -401,7 +402,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/09/hello-world/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -415,7 +416,7 @@ f(1) = f(2) = f(3) = t;
     <ul class="pagination">
         
         
-        <li class="pagination-number">Seite 1 von 1</li>
+        <li class="pagination-number">page 1 of 1</li>
     </ul>
 </div>
 
@@ -445,7 +446,7 @@ f(1) = f(2) = f(3) = t;
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Abner</h4>
         
@@ -486,7 +487,7 @@ f(1) = f(2) = f(3) = t;
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">keinen Beitrag gefunden</div>
+            <div class="no-result text-color-light text-center">no post found</div>
             <div class="results">
                 
                 <div class="media">
@@ -569,10 +570,10 @@ f(1) = f(2) = f(3) = t;
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="keinen Beitrag gefunden"
-                data-message-one="1 Beitrag gefunden"
-                data-message-other="{n} Einträge gefunden">
-                4 Einträge gefunden
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                4 posts found
             </p>
         </div>
     </div>
