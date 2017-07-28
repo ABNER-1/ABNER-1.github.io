@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>Archives: 2017/7 - Abner&#39;s blog</title>
+    <title>Archiv: 2017/7 - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
@@ -64,7 +64,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+            <img class="header-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
         
         </a>
     
@@ -82,7 +82,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
                 </a>
                 <h4 class="sidebar-profile-name">Abner</h4>
                 
@@ -199,6 +199,200 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2017/07/28/7-22网络赛补题报告/">
+                            7.22网络赛补题报告
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-07-28T16:32:54+08:00">
+	
+		    28 7月 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>#补题报告#<br>&emsp;&emsp;之所以交补题报告，当然是之后补题的心路历程咯。比较遗憾，当时开了两题都因为莫名bug WA了，感觉自己贼菜。</p>
+<p>##A题##<br>题目给个链接吧<a href="https://oj.neu.edu.cn/problem/1203" target="_blank" rel="external">A题</a></p>
+<pre><code>题意大概就是要你解决            
+    1）两个字符串的包含问题
+    2）字符串的最大长度
+</code></pre><p>&emsp;&emsp;其实真正理解了题意将两个小问题拆开真的是两个不难的问题。<br>&emsp;&emsp;第1）问其实就是KMP匹配，只不过要注意的就是字符a的特殊性，其实也就是匹配的时候字符a可以直接匹配，稍微改改KMP模板就可以实现。<br>&emsp;&emsp;第2）问其实更水啦，就是一个简单的dp，即使暴力去搞其实也是可以的，当然啦，一不小心还是会跪的。<br>&emsp;&emsp;菜菜的我当时就是倒在第2）问上，但一直在抠KMP，也是醉醉的。其实我当时一直在怀疑我对KMP的理解是不是出现了什么差错。</p>
+<p>###AC代码：###</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;    
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+const int maxn = 2e5+20;
+int fail[maxn];
+int n;
+void makefail(string s){
+    for(int i = 1, j= 0; s[i]; ++i){
+        while(j &amp; s[i] != s[j])j = fail[j-1];
+        if(s[i] == s[j])fail[i] = ++j;
+        else fail[i] = 0;
+    }
+}
+int search(string str,string s){
+    str += str;
+    int ans = 0;
+    for(int i = 0, j = 0;str[i]; ++i){
+        while(j &amp;&amp; str[i]!=&apos;a&apos; &amp;&amp; str[i] != s[j])j = fail[j-1];
+        if((str[i]==&apos;a&apos;||str[i] == s[j]) &amp;&amp; !s[++j]){
+            ++ans;
+            j = 0;
+        }
+    }
+    return ans;
+}
+int num(string s) {
+    s = s + s;
+    int ret = 0, tmp = 0, last = -1;
+    char cur = &apos;a&apos;;
+    for(int i =0; i &lt; n*2-1; ++i){ 
+        if (cur == s[i] || s[i] == &apos;a&apos; || cur == &apos;a&apos;) {
+            tmp++;
+            if (s[i] != &apos;a&apos;) {
+                cur = s[i];
+                last = i;
+            }
+            ret = max(tmp, ret);
+            if (ret &gt;= n) return n;
+        } else {
+            tmp = i-last;
+            cur = s[i];
+            last = i;
+        }
+    }
+    return ret;
+}
+int main(){
+//    freopen(&quot;a.in&quot;,&quot;r&quot;,stdin);
+
+    string a,b;
+    while(cin&gt;&gt;n){
+        int sign = 0;
+        cin&gt;&gt;a&gt;&gt;b;
+        makefail(a);
+        if(search(b,a) &gt; 0)sign += 1;
+        makefail(b);
+        if(search(a,b) &gt; 0)sign += 2;
+        if(sign == 1)printf(&quot;Y-WIN\n&quot;);
+        else if(sign == 2)printf(&quot;X-WIN\n&quot;);
+        else if(sign == 3)printf(&quot;DRAW\n&quot;);
+        else printf(&quot;PEACE\n&quot;);
+
+        printf(&quot;%d\n&quot;,num(a));  
+        printf(&quot;%d\n&quot;,num(b));
+
+
+    }
+    return 0;
+}
+</code></pre><p>##H题##<br>照样上链接<a href="https://oj.neu.edu.cn/problem/1211" target="_blank" rel="external">H题</a></p>
+<pre><code>题意大致如下：
+    给你n个工作时间段，每一个时间段有着开始时间，结束时间和报酬，要求你找出两个时间段满足其报酬之和为m且工作时间最短。
+</code></pre><p>&emsp;&emsp;很明显，这是一个dp，当然贪心也可以处理。<br>&emsp;&emsp;我的做法有点非常规，和标程有点区别。毕竟这也是一道简单题，随便搞搞就过了。<br>&emsp;&emsp;因为是找两个时间段且其和确定，那我们是否可以考虑折半一下，即枚举前m/2个时间段去后m/2中找符合的那个并维护一下最小时间。时间复杂度O （ nlogn + m/2 * logm/2）。显然理论上肯定是可以过的。</p>
+<p>&emsp;&emsp;因为当时处理的时候写跪了，在维护当前m-i的最小值时用了while语句，大概是被卡了，时间爆表，空间爆表，还是靠队友才过了，白白浪费了那么长的时间。之后补题时有点不甘心，优化了一下，在每个时间段排序时我直接把时间长度也作为优先级加进去，竟然就过了。hhhhh，当时怎么就没。。。</p>
+<p>###AC代码：###</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+const int INF = 1e8+10;
+const int maxn = 2e5+10;
+struct work{
+    int st;
+    int et;
+    int len; 
+    int w;
+    bool operator &lt; (const work &amp;a)const{
+        if(w == a.w)return len &lt; a.len;
+        return w &lt; a.w;
+    }
+
+}job[maxn];
+
+int n,m;
+int minn;
+int vec[maxn];
+inline void cal(work i,work j){
+    int time = -1; 
+    if(i.st &lt; j.st &amp;&amp;i.et &lt; j.st){
+        time = i.et - i.st + j.et - j.st+2;
+    }else if(i.st&gt;j.st &amp;&amp; i.st &gt; j.et){
+        time = i.et - i.st + j.et - j.st+2;    
+    }
+    if(time != -1 &amp;&amp; time &lt; minn)minn= time;
+}
+
+int main(){
+    while(scanf(&quot;%d %d&quot;,&amp;n,&amp;m)!=EOF){
+        minn = INF;
+        for(int i = 0; i &lt; n; ++i){
+            scanf(&quot;%d %d %d&quot;,&amp;job[i].st,&amp;job[i].et,&amp;job[i].w);
+            job[i].len = job[i].et - job[i].st;
+        }
+        sort(job,job+n);
+
+        for(int i = 0; i &lt;n; ++i){
+            vec[i] = job[i].w;
+        }
+        int mid = upper_bound(vec,vec+n,m/2) - vec;
+        int k = upper_bound(vec,vec+n,m) - vec;
+
+        for(int i = 0; i &lt; mid; ++i){
+            int term = lower_bound(vec + mid,vec + k, m - vec[i]) - vec;
+//            while(job[term].w &lt;= m - job[i].w){
+//                if(job[term].w == m - job[i].w){
+//                    cal(job[term],job[i]);    
+//                }
+//                ++term;
+//            }
+            if(job[term].w == m - job[i].w)
+                cal(job[term],job[i]);
+        }
+        if(minn != INF)printf(&quot;%d\n&quot;,minn);
+        else printf(&quot;oh no!\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre><hr>
+<p>其他题后续再更新，先占个坑。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/07/28/7-22网络赛补题报告/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2017/07/28/test/">
                             test
                         </a>
@@ -207,7 +401,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-28T16:25:04+08:00">
 	
-		    7月 28, 2017
+		    28 7月 2017
     	
     </time>
     
@@ -225,7 +419,7 @@ weclome!
                     
                         <p>
                             <a href="/2017/07/28/test/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -250,7 +444,7 @@ weclome!
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-21T15:24:43+08:00">
 	
-		    7月 21, 2017
+		    21 7月 2017
     	
     </time>
     
@@ -273,7 +467,7 @@ weclome!
                     
                         <p>
                             <a href="/2017/07/21/有点感受想说/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -298,7 +492,7 @@ weclome!
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-19T08:36:15+08:00">
 	
-		    7月 19, 2017
+		    19 7月 2017
     	
     </time>
     
@@ -332,7 +526,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/19/小学期ACM解题报告/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -357,7 +551,7 @@ f(1) = f(2) = f(3) = t;
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-14T00:35:17+08:00">
 	
-		    7月 14, 2017
+		    14 7月 2017
     	
     </time>
     
@@ -399,7 +593,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/14/写于大二小学期课程最后一天/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -424,7 +618,7 @@ f(1) = f(2) = f(3) = t;
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-09T23:59:38+08:00">
 	
-		    7月 09, 2017
+		    09 7月 2017
     	
     </time>
     
@@ -442,7 +636,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/09/Hello-Abner/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -467,7 +661,7 @@ f(1) = f(2) = f(3) = t;
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-09T00:14:32+08:00">
 	
-		    7月 09, 2017
+		    09 7月 2017
     	
     </time>
     
@@ -492,7 +686,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/09/hello-world/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -506,7 +700,7 @@ f(1) = f(2) = f(3) = t;
     <ul class="pagination">
         
         
-        <li class="pagination-number">page 1 of 1</li>
+        <li class="pagination-number">Seite 1 von 1</li>
     </ul>
 </div>
 
@@ -536,7 +730,7 @@ f(1) = f(2) = f(3) = t;
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
         
             <h4 id="about-card-name">Abner</h4>
         
@@ -577,7 +771,7 @@ f(1) = f(2) = f(3) = t;
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="no-result text-color-light text-center">keinen Beitrag gefunden</div>
             <div class="results">
                 
                 <div class="media">
@@ -694,14 +888,33 @@ f(1) = f(2) = f(3) = t;
                     <hr>
                 </div>
                 
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/07/28/7-22网络赛补题报告/">
+                            <h3 class="media-heading">7.22网络赛补题报告</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年7月28日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
             </div>
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="no post found"
-                data-message-one="1 post found"
-                data-message-other="{n} posts found">
-                6 posts found
+                data-message-zero="keinen Beitrag gefunden"
+                data-message-one="1 Beitrag gefunden"
+                data-message-other="{n} Einträge gefunden">
+                7 Einträge gefunden
             </p>
         </div>
     </div>

@@ -6,24 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>Hello,Abner - Abner&#39;s blog</title>
+    <title>7.22网络赛补题报告 - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
         <link rel="icon" href="http://yoursite.com/assets/images/favicon.jpg">
     
     
-    <meta name="description" content="This is my first blog on Github Pages. May I have a good travel here.">
-<meta name="keywords" content="随笔">
+    <meta name="description" content="#补题报告#&amp;emsp;&amp;emsp;之所以交补题报告，当然是之后补题的心路历程咯。比较遗憾，当时开了两题都因为莫名bug WA了，感觉自己贼菜。 ##A题##题目给个链接吧A题 题意大概就是要你解决                 1）两个字符串的包含问题     2）字符串的最大长度 &amp;emsp;&amp;emsp;其实真正理解了题意将两个小问题拆开真的是两个不难的问题。&amp;emsp;&amp;emsp;第1）问">
+<meta name="keywords" content="解题报告">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Hello,Abner">
-<meta property="og:url" content="http://yoursite.com/2017/07/09/Hello-Abner/index.html">
+<meta property="og:title" content="7.22网络赛补题报告">
+<meta property="og:url" content="http://yoursite.com/2017/07/28/7-22网络赛补题报告/index.html">
 <meta property="og:site_name" content="Abner&#39;s blog">
-<meta property="og:description" content="This is my first blog on Github Pages. May I have a good travel here.">
-<meta property="og:updated_time" content="2017-07-09T16:34:09.871Z">
+<meta property="og:description" content="#补题报告#&amp;emsp;&amp;emsp;之所以交补题报告，当然是之后补题的心路历程咯。比较遗憾，当时开了两题都因为莫名bug WA了，感觉自己贼菜。 ##A题##题目给个链接吧A题 题意大概就是要你解决                 1）两个字符串的包含问题     2）字符串的最大长度 &amp;emsp;&amp;emsp;其实真正理解了题意将两个小问题拆开真的是两个不难的问题。&amp;emsp;&amp;emsp;第1）问">
+<meta property="og:updated_time" content="2017-07-28T08:41:16.858Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello,Abner">
-<meta name="twitter:description" content="This is my first blog on Github Pages. May I have a good travel here.">
+<meta name="twitter:title" content="7.22网络赛补题报告">
+<meta name="twitter:description" content="#补题报告#&amp;emsp;&amp;emsp;之所以交补题报告，当然是之后补题的心路历程咯。比较遗憾，当时开了两题都因为莫名bug WA了，感觉自己贼菜。 ##A题##题目给个链接吧A题 题意大概就是要你解决                 1）两个字符串的包含问题     2）字符串的最大长度 &amp;emsp;&amp;emsp;其实真正理解了题意将两个小问题拆开真的是两个不难的问题。&amp;emsp;&amp;emsp;第1）问">
     
     
         
@@ -198,14 +198,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Hello,Abner
+            7.22网络赛补题报告
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2017-07-09T23:59:38+08:00">
+    <time itemprop="datePublished" datetime="2017-07-28T16:32:54+08:00">
 	
-		    09 7月 2017
+		    28 7月 2017
     	
     </time>
     
@@ -216,8 +216,159 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>This is my first blog on Github Pages.</p>
-<p>May I have a good travel here.</p>
+            <p>#补题报告#<br>&emsp;&emsp;之所以交补题报告，当然是之后补题的心路历程咯。比较遗憾，当时开了两题都因为莫名bug WA了，感觉自己贼菜。</p>
+<p>##A题##<br>题目给个链接吧<a href="https://oj.neu.edu.cn/problem/1203" target="_blank" rel="external">A题</a></p>
+<pre><code>题意大概就是要你解决            
+    1）两个字符串的包含问题
+    2）字符串的最大长度
+</code></pre><p>&emsp;&emsp;其实真正理解了题意将两个小问题拆开真的是两个不难的问题。<br>&emsp;&emsp;第1）问其实就是KMP匹配，只不过要注意的就是字符a的特殊性，其实也就是匹配的时候字符a可以直接匹配，稍微改改KMP模板就可以实现。<br>&emsp;&emsp;第2）问其实更水啦，就是一个简单的dp，即使暴力去搞其实也是可以的，当然啦，一不小心还是会跪的。<br>&emsp;&emsp;菜菜的我当时就是倒在第2）问上，但一直在抠KMP，也是醉醉的。其实我当时一直在怀疑我对KMP的理解是不是出现了什么差错。</p>
+<p>###AC代码：###</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;    
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+const int maxn = 2e5+20;
+int fail[maxn];
+int n;
+void makefail(string s){
+    for(int i = 1, j= 0; s[i]; ++i){
+        while(j &amp; s[i] != s[j])j = fail[j-1];
+        if(s[i] == s[j])fail[i] = ++j;
+        else fail[i] = 0;
+    }
+}
+int search(string str,string s){
+    str += str;
+    int ans = 0;
+    for(int i = 0, j = 0;str[i]; ++i){
+        while(j &amp;&amp; str[i]!=&apos;a&apos; &amp;&amp; str[i] != s[j])j = fail[j-1];
+        if((str[i]==&apos;a&apos;||str[i] == s[j]) &amp;&amp; !s[++j]){
+            ++ans;
+            j = 0;
+        }
+    }
+    return ans;
+}
+int num(string s) {
+    s = s + s;
+    int ret = 0, tmp = 0, last = -1;
+    char cur = &apos;a&apos;;
+    for(int i =0; i &lt; n*2-1; ++i){ 
+        if (cur == s[i] || s[i] == &apos;a&apos; || cur == &apos;a&apos;) {
+            tmp++;
+            if (s[i] != &apos;a&apos;) {
+                cur = s[i];
+                last = i;
+            }
+            ret = max(tmp, ret);
+            if (ret &gt;= n) return n;
+        } else {
+            tmp = i-last;
+            cur = s[i];
+            last = i;
+        }
+    }
+    return ret;
+}
+int main(){
+//    freopen(&quot;a.in&quot;,&quot;r&quot;,stdin);
+
+    string a,b;
+    while(cin&gt;&gt;n){
+        int sign = 0;
+        cin&gt;&gt;a&gt;&gt;b;
+        makefail(a);
+        if(search(b,a) &gt; 0)sign += 1;
+        makefail(b);
+        if(search(a,b) &gt; 0)sign += 2;
+        if(sign == 1)printf(&quot;Y-WIN\n&quot;);
+        else if(sign == 2)printf(&quot;X-WIN\n&quot;);
+        else if(sign == 3)printf(&quot;DRAW\n&quot;);
+        else printf(&quot;PEACE\n&quot;);
+
+        printf(&quot;%d\n&quot;,num(a));  
+        printf(&quot;%d\n&quot;,num(b));
+
+
+    }
+    return 0;
+}
+</code></pre><p>##H题##<br>照样上链接<a href="https://oj.neu.edu.cn/problem/1211" target="_blank" rel="external">H题</a></p>
+<pre><code>题意大致如下：
+    给你n个工作时间段，每一个时间段有着开始时间，结束时间和报酬，要求你找出两个时间段满足其报酬之和为m且工作时间最短。
+</code></pre><p>&emsp;&emsp;很明显，这是一个dp，当然贪心也可以处理。<br>&emsp;&emsp;我的做法有点非常规，和标程有点区别。毕竟这也是一道简单题，随便搞搞就过了。<br>&emsp;&emsp;因为是找两个时间段且其和确定，那我们是否可以考虑折半一下，即枚举前m/2个时间段去后m/2中找符合的那个并维护一下最小时间。时间复杂度O （ nlogn + m/2 * logm/2）。显然理论上肯定是可以过的。</p>
+<p>&emsp;&emsp;因为当时处理的时候写跪了，在维护当前m-i的最小值时用了while语句，大概是被卡了，时间爆表，空间爆表，还是靠队友才过了，白白浪费了那么长的时间。之后补题时有点不甘心，优化了一下，在每个时间段排序时我直接把时间长度也作为优先级加进去，竟然就过了。hhhhh，当时怎么就没。。。</p>
+<p>###AC代码：###</p>
+<pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+const int INF = 1e8+10;
+const int maxn = 2e5+10;
+struct work{
+    int st;
+    int et;
+    int len; 
+    int w;
+    bool operator &lt; (const work &amp;a)const{
+        if(w == a.w)return len &lt; a.len;
+        return w &lt; a.w;
+    }
+
+}job[maxn];
+
+int n,m;
+int minn;
+int vec[maxn];
+inline void cal(work i,work j){
+    int time = -1; 
+    if(i.st &lt; j.st &amp;&amp;i.et &lt; j.st){
+        time = i.et - i.st + j.et - j.st+2;
+    }else if(i.st&gt;j.st &amp;&amp; i.st &gt; j.et){
+        time = i.et - i.st + j.et - j.st+2;    
+    }
+    if(time != -1 &amp;&amp; time &lt; minn)minn= time;
+}
+
+int main(){
+    while(scanf(&quot;%d %d&quot;,&amp;n,&amp;m)!=EOF){
+        minn = INF;
+        for(int i = 0; i &lt; n; ++i){
+            scanf(&quot;%d %d %d&quot;,&amp;job[i].st,&amp;job[i].et,&amp;job[i].w);
+            job[i].len = job[i].et - job[i].st;
+        }
+        sort(job,job+n);
+
+        for(int i = 0; i &lt;n; ++i){
+            vec[i] = job[i].w;
+        }
+        int mid = upper_bound(vec,vec+n,m/2) - vec;
+        int k = upper_bound(vec,vec+n,m) - vec;
+
+        for(int i = 0; i &lt; mid; ++i){
+            int term = lower_bound(vec + mid,vec + k, m - vec[i]) - vec;
+//            while(job[term].w &lt;= m - job[i].w){
+//                if(job[term].w == m - job[i].w){
+//                    cal(job[term],job[i]);    
+//                }
+//                ++term;
+//            }
+            if(job[term].w == m - job[i].w)
+                cal(job[term],job[i]);
+        }
+        if(minn != INF)printf(&quot;%d\n&quot;,minn);
+        else printf(&quot;oh no!\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre><hr>
+<p>其他题后续再更新，先占个坑。</p>
 
             
         </div>
@@ -227,7 +378,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">GETAGGT IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/all-tags/随笔/">随笔</a>
+    <a class="tag tag--primary tag--small t-link" href="/all-tags/解题报告/">解题报告</a>
 
             </div>
         
@@ -237,7 +388,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/14/写于大二小学期课程最后一天/"  data-tooltip="写于大二小学期课程最后一天">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">FRÜHER</span>
@@ -245,7 +396,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/09/hello-world/" data-tooltip="Hello World">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/28/test/" data-tooltip="test">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NÄCHSTER</span>
                     <i class="fa fa-angle-right"></i>
@@ -263,7 +414,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/28/7-22网络赛补题报告/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -271,7 +422,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/28/7-22网络赛补题报告/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -279,7 +430,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/28/7-22网络赛补题报告/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -319,7 +470,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/14/写于大二小学期课程最后一天/"  data-tooltip="写于大二小学期课程最后一天">
+                    <a class="post-action-btn btn btn--disabled">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">FRÜHER</span>
@@ -327,7 +478,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/09/hello-world/" data-tooltip="Hello World">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/28/test/" data-tooltip="test">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NÄCHSTER</span>
                     <i class="fa fa-angle-right"></i>
@@ -345,7 +496,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/28/7-22网络赛补题报告/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -353,7 +504,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/28/7-22网络赛补题报告/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -361,7 +512,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/28/7-22网络赛补题报告/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -386,7 +537,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/28/7-22网络赛补题报告/">
                     <i class="fa fa-facebook-official"></i><span>Teilen auf Facebook</span>
                 </a>
             </li>
@@ -394,7 +545,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/28/7-22网络赛补题报告/">
                     <i class="fa fa-twitter"></i><span>Teilen auf Twitter</span>
                 </a>
             </li>
@@ -402,7 +553,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/28/7-22网络赛补题报告/">
                     <i class="fa fa-google-plus"></i><span>Teilen auf Google Plus</span>
                 </a>
             </li>
