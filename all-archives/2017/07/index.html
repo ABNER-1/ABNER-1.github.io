@@ -217,7 +217,7 @@
             
                 <div class="postShorten-content" itemprop="articleBody">
                     <p>#补题报告#<br>&emsp;&emsp;之所以交补题报告，当然是之后补题的心路历程咯。比较遗憾，当时开了两题都因为莫名bug WA了，感觉自己贼菜。</p>
-<p>##A题##<br><strong><em>**</em></strong>有误<br>题目给个链接吧<a href="https://oj.neu.edu.cn/problem/1203" target="_blank" rel="external">A题</a></p>
+<p>##A题##<br><strong><em>**</em></strong>有误，得空发现这题出错了，所有AC代码都翻车。之后再补一发。<strong><strong>**</strong></strong><br>题目给个链接吧<a href="https://oj.neu.edu.cn/problem/1203" target="_blank" rel="external">A题</a></p>
 <pre><code>题意大概就是要你解决            
     1）两个字符串的包含问题
     2）字符串的最大长度
@@ -295,7 +295,8 @@ int main(){
     }
     return 0;
 }
-</code></pre><p>##H题##<br>照样上链接<a href="https://oj.neu.edu.cn/problem/1211" target="_blank" rel="external">H题</a></p>
+</code></pre><p>这题真的是出题人背锅，最后想了半天，交了一发O(n*n)的代码上去，竟然过了，敢信？而且过得贼快，比KMP都快，惊得我笑哭了。真心，标程这题都错了，而且没卡住暴力，当时都没几人开这题，简直开的玩笑。</p>
+<p>##H题##<br>照样上链接<a href="https://oj.neu.edu.cn/problem/1211" target="_blank" rel="external">H题</a></p>
 <pre><code>题意大致如下：
     给你n个工作时间段，每一个时间段有着开始时间，结束时间和报酬，要求你找出两个时间段满足其报酬之和为m且工作时间最短。
 </code></pre><p>&emsp;&emsp;很明显，这是一个dp，当然贪心也可以处理。<br>&emsp;&emsp;我的做法有点非常规，和标程有点区别。毕竟这也是一道简单题，随便搞搞就过了。<br>&emsp;&emsp;因为是找两个时间段且其和确定，那我们是否可以考虑折半一下，即枚举前m/2个时间段去后m/2中找符合的那个并维护一下最小时间。时间复杂度O （ nlogn + m/2 * logm/2）。显然理论上肯定是可以过的。</p>
