@@ -216,14 +216,13 @@
             </div>
             
                 <div class="postShorten-content" itemprop="articleBody">
-                    <p>#补题报告#<br>&emsp;&emsp;之所以交补题报告，当然是之后补题的心路历程咯。比较遗憾，当时开了两题都因为莫名bug WA了，感觉自己贼菜。</p>
-<p>##A题##<br><strong><em>**</em></strong>有误，得空发现这题出错了，所有AC代码都翻车。之后再补一发。<strong><strong>**</strong></strong><br>题目给个链接吧<a href="https://oj.neu.edu.cn/problem/1203" target="_blank" rel="external">A题</a></p>
+                    <h1 id="补题报告"><a href="#补题报告" class="headerlink" title="补题报告"></a>补题报告</h1><p>&emsp;&emsp;之所以交补题报告，当然是之后补题的心路历程咯。比较遗憾，当时开了两题都因为莫名bug WA了，感觉自己贼菜。</p>
+<h2 id="A题"><a href="#A题" class="headerlink" title="A题"></a>A题</h2><p><strong><em>**</em></strong>有误，得空发现这题出错了，所有AC代码都翻车。之后再补一发。<strong><strong>**</strong></strong><br>题目给个链接吧<a href="https://oj.neu.edu.cn/problem/1203" target="_blank" rel="external">A题</a></p>
 <pre><code>题意大概就是要你解决            
     1）两个字符串的包含问题
     2）字符串的最大长度
 </code></pre><p>&emsp;&emsp;其实真正理解了题意将两个小问题拆开真的是两个不难的问题。<br>&emsp;&emsp;第1）问其实就是KMP匹配，只不过要注意的就是字符a的特殊性，其实也就是匹配的时候字符a可以直接匹配，稍微改改KMP模板就可以实现。<br>&emsp;&emsp;第2）问其实更水啦，就是一个简单的dp，即使暴力去搞其实也是可以的，当然啦，一不小心还是会跪的。<br>&emsp;&emsp;菜菜的我当时就是倒在第2）问上，但一直在抠KMP，也是醉醉的。其实我当时一直在怀疑我对KMP的理解是不是出现了什么差错。</p>
-<p>###AC代码：###</p>
-<pre><code>#include&lt;iostream&gt;
+<h3 id="AC代码："><a href="#AC代码：" class="headerlink" title="AC代码："></a>AC代码：</h3><pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 #include&lt;bits/stdc++.h&gt;    
 #define lowbit(i) (i&amp;(-i))
@@ -296,13 +295,12 @@ int main(){
     return 0;
 }
 </code></pre><p>这题真的是出题人背锅，最后想了半天，交了一发O(n*n)的代码上去，竟然过了，敢信？而且过得贼快，比KMP都快，惊得我笑哭了。真心，标程这题都错了，而且没卡住暴力，当时都没几人开这题，简直开的玩笑。</p>
-<p>##H题##<br>照样上链接<a href="https://oj.neu.edu.cn/problem/1211" target="_blank" rel="external">H题</a></p>
+<h2 id="H题"><a href="#H题" class="headerlink" title="H题"></a>H题</h2><p>照样上链接<a href="https://oj.neu.edu.cn/problem/1211" target="_blank" rel="external">H题</a></p>
 <pre><code>题意大致如下：
     给你n个工作时间段，每一个时间段有着开始时间，结束时间和报酬，要求你找出两个时间段满足其报酬之和为m且工作时间最短。
 </code></pre><p>&emsp;&emsp;很明显，这是一个dp，当然贪心也可以处理。<br>&emsp;&emsp;我的做法有点非常规，和标程有点区别。毕竟这也是一道简单题，随便搞搞就过了。<br>&emsp;&emsp;因为是找两个时间段且其和确定，那我们是否可以考虑折半一下，即枚举前m/2个时间段去后m/2中找符合的那个并维护一下最小时间。时间复杂度O （ nlogn + m/2 * logm/2）。显然理论上肯定是可以过的。</p>
 <p>&emsp;&emsp;因为当时处理的时候写跪了，在维护当前m-i的最小值时用了while语句，大概是被卡了，时间爆表，空间爆表，还是靠队友才过了，白白浪费了那么长的时间。之后补题时有点不甘心，优化了一下，在每个时间段排序时我直接把时间长度也作为优先级加进去，竟然就过了。hhhhh，当时怎么就没。。。</p>
-<p>###AC代码：###</p>
-<pre><code>#include&lt;iostream&gt;
+<h3 id="AC代码：-1"><a href="#AC代码：-1" class="headerlink" title="AC代码："></a>AC代码：</h3><pre><code>#include&lt;iostream&gt;
 #include&lt;cstdio&gt;
 #include&lt;bits/stdc++.h&gt;
 
@@ -927,6 +925,25 @@ f(1) = f(2) = f(3) = t;
                     <hr>
                 </div>
                 
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/08/08/Pyrhon学习之路/">
+                            <h3 class="media-heading">Pyrhon学习之路</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年8月8日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
             </div>
         </div>
         <div class="modal-footer">
@@ -934,7 +951,7 @@ f(1) = f(2) = f(3) = t;
                 data-message-zero="keinen Beitrag gefunden"
                 data-message-one="1 Beitrag gefunden"
                 data-message-other="{n} Einträge gefunden">
-                8 Einträge gefunden
+                9 Einträge gefunden
             </p>
         </div>
     </div>
