@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>Archiv: 2017/8 - Abner&#39;s blog</title>
+    <title>Tag: 随感 - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
@@ -16,7 +16,7 @@
     <meta name="description" content="学习中进步。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Abner&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/all-archives/2017/08/index.html">
+<meta property="og:url" content="http://yoursite.com/all-tags/随感/index.html">
 <meta property="og:site_name" content="Abner&#39;s blog">
 <meta property="og:description" content="学习中进步。">
 <meta name="twitter:card" content="summary">
@@ -237,244 +237,6 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/08/08/Pyrhon学习之路/">
-                            Pyrhon学习之路
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-08-08T10:46:44+08:00">
-	
-		    08 8月 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="Python学习"><a href="#Python学习" class="headerlink" title="Python学习"></a>Python学习</h1><p>其实Python从很久之前就开始接触，这篇只是相当于自己的学习笔记。</p>
-<h3 id="Python基础"><a href="#Python基础" class="headerlink" title="Python基础"></a>Python基础</h3><p>序列：</p>
-<ul>
-<li>列表： 可变大小，可保存任何类型[]</li>
-<li>字符串： ‘’ . “”</li>
-<li>元组： 不可改变，任意类型()</li>
-<li><p>字典： 映射类型，可变、无序、大小可变的键值映射{}</p>
-<p>异常处理：</p>
-<pre><code>try:
-
-except Exception e:
-
-finally:
-</code></pre><p>raise抛出异常</p>
-</li>
-</ul>
-<p>文件读写</p>
-<p>函数</p>
-<p>正则表达式： re模块</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/08/08/Pyrhon学习之路/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/08/07/2017百度之星解题报告/">
-                            2017百度之星解题报告
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-08-07T21:57:38+08:00">
-	
-		    07 8月 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="2017百度之星资格赛解题报告"><a href="#2017百度之星资格赛解题报告" class="headerlink" title="2017百度之星资格赛解题报告"></a>2017百度之星资格赛解题报告</h1><p>这次的题目比我预想中要难一点，毕竟只是一个资格赛。当然，水题还是有的，AC一道就有资格进初赛还是可以的。</p>
-<p>不多说，先上链接<a href="http://bestcoder.hdu.edu.cn/contests/contest_show.php?cid=774" target="_blank" rel="external">2017百度之星资格赛</a></p>
-<hr>
-<h2 id="C题"><a href="#C题" class="headerlink" title="C题"></a>C题</h2><p>当然是水题优先啦。<br>从数据范围可以看出，这是一道极为暴力的dp，参考完全背包模型，最多就是需要dp一下11个防御值时候的情况，O(b<em>a</em>m)的复杂度，大概是10^7，妥妥的过。</p>
-<p>AC代码：</p>
-<pre><code> /*
-    time:234 MS 
-    Memory:3208 K
- */ 
-#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;bits/stdc++.h&gt;
-#define lowbit(i) (i&amp;(-i))
-#define LL long long
-using namespace std;
-
-int n,m;
-LL INF;
-vector&lt;pair&lt;int,int&gt; &gt;v;
-LL dp[12][1005];
-vector&lt;pair&lt;int,int &gt; &gt;sk;
-void DP(){
-    memset(dp,127,sizeof(dp));
-    INF = dp[0][0];
-    for(int i = 0; i&lt;= 10; ++i){
-        dp[i][0] = 0;
-        for(int j = 0; j &lt; m; ++j){
-            int termx = sk[j].first;
-            int termy = sk[j].second - i;
-            if(termy &lt;= 0)continue;
-            for(int k = 0; k &lt;= 1000; ++k){
-                LL term = k &gt;= termy ? dp[i][k - termy] : 0;
-                dp[i][k] = min(dp[i][k], term + termx);    
-            }
-        }
-    }
-}
-int main(){
-    while(scanf(&quot;%d %d&quot;,&amp;n,&amp;m)!= EOF){
-        int x,y;
-        v.clear();sk.clear();
-        for(int i = 0; i &lt; n; ++i){
-            scanf(&quot;%d %d&quot;,&amp;x,&amp;y);
-            v.push_back(make_pair(x,y));
-        } 
-        for(int i = 0; i &lt; m; ++i){
-            scanf(&quot;%d %d&quot;,&amp;x,&amp;y);
-            sk.push_back(make_pair(x,y));
-        } 
-        DP();
-        LL ans = 0;
-        bool ok = true;
-        for(int i = 0; i &lt; v.size(); ++i){
-            if(dp[v[i].second][v[i].first] != INF)
-                ans += dp[v[i].second][v[i].first];
-            else {
-                ok = false;
-                break;
-            } 
-        }
-        if(ok)printf(&quot;%lld\n&quot;,ans);
-        else printf(&quot;-1\n&quot;);
-    }
-
-    return 0;
-}
-</code></pre><h2 id="D题"><a href="#D题" class="headerlink" title="D题"></a>D题</h2><p>也是一道DP水题，参考01背包模型，只是多了个输出路径，其实也是水水的，本来以为至少会卡一下空间啥的，但是暴力vector直接过了，惊讶。</p>
-<p>AC代码：</p>
-<pre><code>/*
-    time:   0 MS  
-    memory: 1460 K
-*/
-#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;bits/stdc++.h&gt;
-
-#define lowbit(i) (i&amp;(-i))
-#define LL long long
-using namespace std;
-
-int B,N;
-int INF;
-vector&lt;pair&lt;int,int&gt; &gt;v;
-vector&lt;int&gt;ans;
-int dp[1005];
-struct point{
-    vector&lt;int&gt;vec;
-}p[1005];
-void DP(){
-    memset(dp,0,sizeof(dp));
-    INF = dp[0];
-    dp[0] = 0;
-    for(int i = 0; i &lt;= 1000; ++i)
-        p[i].vec.clear();
-    for(int i = 0;i &lt; N; ++i){
-        int x = v[i].first;
-        int y = v[i].second;
-        for(int j = B; j &gt;= y; --j){
-            if(dp[j] &lt; dp[j - y] + x){
-                dp[j] = dp[j - y] + x;
-                p[j].vec = p[j-y].vec;
-                p[j].vec.push_back(i);
-
-            }
-        }
-    }
-}
-int main(){
-    int T;
-    cin&gt;&gt;T;
-    int xu = 0;
-    while(++xu &lt;= T){
-        cin&gt;&gt;B&gt;&gt;N;
-        v.clear();
-        int x,y;
-        for(int i = 1; i &lt;= N; ++i){
-            scanf(&quot;%d %d&quot;,&amp;x,&amp;y);
-            v.push_back(make_pair(x,y));
-        }
-        DP();
-        int now = B;
-        LL sum = 0;
-        ans =p[B].vec; 
-
-        sort(ans.begin(),ans.end());
-        for(int i = 0; i &lt; ans.size(); ++i)sum += v[ans[i]].second;    
-        printf(&quot;Case #%d:\n%d %d\n&quot;,xu,dp[B],sum);
-        for(int i = 0; i &lt; ans.size(); ++i){
-            if(i == ans.size() -1)printf(&quot;%d\n&quot;,ans[i]+1);
-            else printf(&quot;%d &quot;,ans[i]+1);
-        }
-    }
-    return 0;
-}
-</code></pre><h2 id="B题"><a href="#B题" class="headerlink" title="B题"></a>B题</h2><p>这是一道出题人得气死的题。<br>本来看了数据范围和时间限制，根本就是个不可做题，全局最小割加优化大概才可以过。但在乱搞面前，什么都是浮云。<br>真心，出题人数据一开始卡死了认认真真写SW最小割的，但败在各种瞎搞的过题姿势下。<br>你能想像那种求每个点的边权和最小的就是正解？？？这么简单的漏洞，出题人都没卡，绝壁是道假题，吓得我当时题都不敢看。。<br>各种代码就不贴了，正解我还没搞懂，有空补，不过估计是没空了。</p>
-<h2 id="E题"><a href="#E题" class="headerlink" title="E题"></a>E题</h2><p>这是一道我认为的最有价值的题。学到了很多，难度应该是真B题之外最难的。<br>不过模型很常见：<a href="https://baike.baidu.com/item/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/6125746?fr=aladdin" target="_blank" rel="external">卡特兰数-百度百科</a>。<br>当时我是一点头绪都没有的，结束之后参考了几位大牛的博客，get了不少。<br><a href="http://blog.csdn.net/qq_36797743/article/details/76794804" target="_blank" rel="external">参考大牛OZY</a><br><a href="http://blog.csdn.net/jaihk662/article/details/76737701" target="_blank" rel="external">另一个大牛的</a><br>两位大牛的思路类似，又稍有区别，实现大同小异，值得学习一波。<br>AC代码就算了，这题也就思路很不错，仿照两位大牛的博客试试就行。</p>
-<h2 id="A题"><a href="#A题" class="headerlink" title="A题"></a>A题</h2><p>这题只是匆匆一瞥，大致的思路类似于凸包吧，看dalao们的AC代码都是求最小环，最后设边权为1的去跑floyd，也没深究，不是很感兴趣，有空会补上。<br>缺点太多，要补的东西成堆，都麻木了。<br>附上<a href="http://blog.csdn.net/qq_36346262/article/details/76851297" target="_blank" rel="external">dalao博客</a></p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/08/07/2017百度之星解题报告/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -484,7 +246,6 @@ int main(){
 </div>
 
 </section>
-
 
 
                 <footer id="footer" class="main-content-wrap">
