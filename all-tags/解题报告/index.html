@@ -199,6 +199,143 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2017/08/26/8-26练习赛/">
+                            8-26练习赛
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-08-26T23:37:20+08:00">
+	
+		    26 8月 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="8-26练习赛解题报告"><a href="#8-26练习赛解题报告" class="headerlink" title="8-26练习赛解题报告"></a>8-26练习赛解题报告</h1><p>一周的训练终于到了周末休息的时候，于是完美的把训练赛翘了，不过欠的总是要还的。</p>
+<h2 id="Snow"><a href="#Snow" class="headerlink" title="Snow"></a>Snow</h2><p><a href="https://nanti.jisuanke.com/t/16662" target="_blank" rel="external">Snow</a><br>签到题，贪心，总是取当前数目最大的三种，各种解法。</p>
+<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+#define mp make_pair
+#define pb push_back
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+struct point{
+    int num,cnt;
+    bool operator &lt; (const point &amp; a)const {
+        if(cnt == a.cnt)return num &lt; a.num; 
+        return cnt &lt; a.cnt;
+    }
+}; 
+priority_queue&lt;point&gt;q;
+vector&lt;int &gt;v;
+int main(){
+    std::ios::sync_with_stdio(false);
+    int T;
+    cin&gt;&gt;T;
+    while(T--){
+        int n,term;
+        v.clear(); 
+        while(q.size() &gt;0)q.pop();
+        cin&gt;&gt;n;
+        for(int i = 1; i &lt;= n ; ++i){
+            cin&gt;&gt;term;
+            v.pb(term);
+        }
+        sort(v.begin(), v.end());
+        int temp = -1; point nn;
+        for(auto i : v){
+            if(temp == -1){
+                temp = i;
+                nn.num = i; nn.cnt = 1;
+            }else if(temp != i){
+                q.push(nn);
+                nn.num = i; temp = i;
+                nn.cnt = 1;
+            }else ++nn.cnt; 
+        }
+        q.push(nn);
+        LL ans = 0;
+        while(q.size() &gt;= 3){
+            point a = q.top(); q.pop();
+            point b = q.top(); q.pop();
+            point c = q.top(); q.pop();
+        //    cout&lt;&lt;a.num&lt;&lt;&quot; &quot;&lt;&lt;b.num &lt;&lt;&quot; &quot;&lt;&lt;c.num&lt;&lt;endl;
+//每次只能取一个，不然不满足贪心正确性
+//            a.cnt -= c.cnt;
+//            b.cnt -= c.cnt;
+//            ans += c.cnt;
+            --a.cnt; --b.cnt;--c.cnt;
+            ++ans;
+            if(a.cnt &gt; 0)q.push(a);
+            if(b.cnt &gt; 0)q.push(b);
+            if(c.cnt &gt; 0)q.push(c); 
+        }
+        cout&lt;&lt;ans&lt;&lt;endl;
+
+    }
+
+    return 0;
+}
+</code></pre><h2 id="Plates"><a href="#Plates" class="headerlink" title="Plates"></a>Plates</h2><p><a href="https://nanti.jisuanke.com/t/16685" target="_blank" rel="external">Plates</a></p>
+<p>数学题，简单思维。<br>只要把n个圆的圆心围成正多边形,然后求出这个正多边形的外切圆半径再加上小圆的半径就解决了。记得特判一下n&lt;=2的情况。</p>
+<pre><code>### AC代码 ###
+#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+#define mp make_pair
+#define pb push_back
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+const double pi = acos(-1.0);
+
+int main(){
+    std::ios::sync_with_stdio(false);
+    int n,r,R;
+    while(cin&gt;&gt;n&gt;&gt;R&gt;&gt;r){
+        if(n &lt;= 2)cout&lt;&lt;(R &gt;= r * n ? &quot;yes&quot;:&quot;no&quot;) &lt;&lt;endl;
+        else{
+            double du = (n-2)*1.0/n * pi;
+            double m = r + r / cos(du/2);
+            //cout&lt;&lt;m&lt;&lt;endl;
+            if(m &gt; R)cout&lt;&lt;&quot;no&quot;&lt;&lt;endl;
+            else cout&lt;&lt;&quot;yes&quot;&lt;&lt;endl;    
+        }
+
+    } 
+    return 0;
+}
+</code></pre>
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/08/26/8-26练习赛/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2017/08/07/2017百度之星解题报告/">
                             2017百度之星解题报告
                         </a>
@@ -870,6 +1007,25 @@ f(1) = f(2) = f(3) = t;
                     <hr>
                 </div>
                 
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/08/24/博弈论-k倍取数/">
+                            <h3 class="media-heading">博弈论-k倍取数</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年8月24日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
             </div>
         </div>
         <div class="modal-footer">
@@ -877,7 +1033,7 @@ f(1) = f(2) = f(3) = t;
                 data-message-zero="keinen Beitrag gefunden"
                 data-message-one="1 Beitrag gefunden"
                 data-message-other="{n} Einträge gefunden">
-                9 Einträge gefunden
+                11 Einträge gefunden
             </p>
         </div>
     </div>

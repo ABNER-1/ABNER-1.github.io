@@ -6,24 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>写于大二小学期课程最后一天 - Abner&#39;s blog</title>
+    <title>博弈论-k倍取数 - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
         <link rel="icon" href="http://yoursite.com/assets/images/favicon.jpg">
     
     
-    <meta name="description" content="&amp;emsp;&amp;emsp;小学期课程今天下午之后就全部结束了，大部分小伙伴这周末也该回家了。也正式预示着我大二这一年的完结。毕竟也一年了，写点东西总结一下吧。 &amp;emsp;&amp;emsp;讲道理，进大学两年了，大学生活的点滴和我进入大学之前想象的完全不一样。没有日常的健身和运动，没有成为那个健壮的少年，没有高绩点，没有什么出彩的履历。拿得出手的还是我自己都不大看得上的几个奖状。当然我不后悔之前的时光，毕">
-<meta name="keywords" content="随笔">
+    <meta name="description" content="斐波那契取数&amp;emsp;&amp;emsp; 训练时遇到一道博弈题，经典博弈模型-k倍取数。直接入手比较难理解，于是去找了下 “k = 2” 的斐波那契取数模型先了解一波。 原理引入(1):齐肯多夫定理： 任意数可分解为斐波那契数列中数的和 (2)当石头总数n为斐波那契数的时候，后手必赢。 证明2参考 好像又说绕回来了。。。有点迷 k倍动态减法游戏&amp;emsp;&amp;emsp;原理详述 这篇博客讲的非常清晰。推">
+<meta name="keywords" content="ACM-博弈论">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="写于大二小学期课程最后一天">
-<meta property="og:url" content="http://yoursite.com/2017/07/14/写于大二小学期课程最后一天/index.html">
+<meta property="og:title" content="博弈论-k倍取数">
+<meta property="og:url" content="http://yoursite.com/2017/08/24/博弈论-k倍取数/index.html">
 <meta property="og:site_name" content="Abner&#39;s blog">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;小学期课程今天下午之后就全部结束了，大部分小伙伴这周末也该回家了。也正式预示着我大二这一年的完结。毕竟也一年了，写点东西总结一下吧。 &amp;emsp;&amp;emsp;讲道理，进大学两年了，大学生活的点滴和我进入大学之前想象的完全不一样。没有日常的健身和运动，没有成为那个健壮的少年，没有高绩点，没有什么出彩的履历。拿得出手的还是我自己都不大看得上的几个奖状。当然我不后悔之前的时光，毕">
-<meta property="og:updated_time" content="2017-07-13T17:13:00.120Z">
+<meta property="og:description" content="斐波那契取数&amp;emsp;&amp;emsp; 训练时遇到一道博弈题，经典博弈模型-k倍取数。直接入手比较难理解，于是去找了下 “k = 2” 的斐波那契取数模型先了解一波。 原理引入(1):齐肯多夫定理： 任意数可分解为斐波那契数列中数的和 (2)当石头总数n为斐波那契数的时候，后手必赢。 证明2参考 好像又说绕回来了。。。有点迷 k倍动态减法游戏&amp;emsp;&amp;emsp;原理详述 这篇博客讲的非常清晰。推">
+<meta property="og:updated_time" content="2017-08-24T03:04:14.235Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写于大二小学期课程最后一天">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;小学期课程今天下午之后就全部结束了，大部分小伙伴这周末也该回家了。也正式预示着我大二这一年的完结。毕竟也一年了，写点东西总结一下吧。 &amp;emsp;&amp;emsp;讲道理，进大学两年了，大学生活的点滴和我进入大学之前想象的完全不一样。没有日常的健身和运动，没有成为那个健壮的少年，没有高绩点，没有什么出彩的履历。拿得出手的还是我自己都不大看得上的几个奖状。当然我不后悔之前的时光，毕">
+<meta name="twitter:title" content="博弈论-k倍取数">
+<meta name="twitter:description" content="斐波那契取数&amp;emsp;&amp;emsp; 训练时遇到一道博弈题，经典博弈模型-k倍取数。直接入手比较难理解，于是去找了下 “k = 2” 的斐波那契取数模型先了解一波。 原理引入(1):齐肯多夫定理： 任意数可分解为斐波那契数列中数的和 (2)当石头总数n为斐波那契数的时候，后手必赢。 证明2参考 好像又说绕回来了。。。有点迷 k倍动态减法游戏&amp;emsp;&amp;emsp;原理详述 这篇博客讲的非常清晰。推">
     
     
         
@@ -198,14 +198,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            写于大二小学期课程最后一天
+            博弈论-k倍取数
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2017-07-14T00:35:17+08:00">
+    <time itemprop="datePublished" datetime="2017-08-24T09:28:42+08:00">
 	
-		    14 7月 2017
+		    24 8月 2017
     	
     </time>
     
@@ -216,33 +216,68 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>&emsp;&emsp;小学期课程今天下午之后就全部结束了，大部分小伙伴这周末也该回家了。也正式预示着我大二这一年的完结。<br>毕竟也一年了，写点东西总结一下吧。</p>
-<p>&emsp;&emsp;讲道理，进大学两年了，大学生活的点滴和我进入大学之前想象的完全不一样。没有日常的健身和运动，没有成为那个健壮的少年，没有高绩点，没有什么出彩的履历。拿得出手的还是我自己都不大看得上的几个奖状。当然我不后悔之前的时光，毕竟流逝的已经成为了过去，未来才是我生活的主旋律。</p>
-<p>&emsp;&emsp;大学以来我遇到了种种称心不称心的事：大一竞选班长时的哑口无言让我知道原来我不是想象中的无所不能，自此心中一直有了阴影，至今也没有完全好转；之后的考试，让我知道原来我的智商并不高，我可能需要付出应该付出的努力才能收获想要的结果，虽然绩点还是那么渣；一次次遇到心结无法跨过去，让我明白自己不是超人也不是主角，想要蜕变还需要更多的磨炼。</p>
-<p>&emsp;&emsp;当然啦，除了各种不足和遗憾，更多的肯定是收获：我试着做着我以前没有做过的事情，体验着之前想象不到的生活，交了好多朋友，参加了几次各种各样的比赛，对大学的意义有了更深的了解；对未来的规划，也从毫无头绪的瞎过变成了更有计划的执行。我真的变化很大。至少我觉得自己不再狭隘，变得大气了很多，也不再眼高手低，对生活充满了敬意，身边的任何人都值得我尊重，值得我学习。</p>
-<p>&emsp;&emsp;也许，我还有种种缺点：受不了别人的指责，时常犯的毛病，对自己能力以及过去的不自信；但一切似乎都在往更好的方向发展。是的，我在成长的道路上，而且成长的速度并不慢。</p>
-<hr>
-<p>&emsp;&emsp;说了这么多都是煽情的话，大概也该说说我的大二了。</p>
-<blockquote>
-<ul>
-<li><p>学分成绩有所下降且几乎已失去保研资格，进一步考虑考研和工作问题。</p>
-</li>
-<li><p>大二初的数学建模比赛获得了陕西省一等奖，体验了数模的流程，从中学到了点东西。</p>
-</li>
-<li><p>了解了网络安全方面知识，并正式接触了CTF比赛，了解了网安的一个大致框架。</p>
-</li>
-<li><p>了解了单片机，但因为兴趣及准备不足的原因，最终没有参加电子设计大赛选拔。</p>
-</li>
-<li><p>实验室面试因为紧张（不自信）表现的太不堪，导致被刷，计划over，但已联系其他实验室，准备学习一下并行计算理论与实践。</p>
-</li>
-<li><p>经历ACM校赛、小学期集训进入校队，进一步提升自己的算法理论与实现水平，并争取取得好的成绩。</p>
-</li>
-</ul>
-</blockquote>
-<hr>
-<p>再说点别的，算了太晚了，暂时就不提了，有空再补。还有最近一段时间的ACM题解和CTF writeup，提升一下自己git应用能力吧，也算是对这顿时间努力的一个交代。</p>
-<p>Tips：最近还要申请社团，也不知道能不能在开学之前搞定。搞定了开学才能招新哈，期待小学妹^_^。</p>
+            <h2 id="斐波那契取数"><a href="#斐波那契取数" class="headerlink" title="斐波那契取数"></a>斐波那契取数</h2><p>&emsp;&emsp; 训练时遇到一道博弈题，经典博弈模型-k倍取数。直接入手比较难理解，于是去找了下 “k = 2” 的斐波那契取数模型先了解一波。</p>
+<h3 id="原理引入"><a href="#原理引入" class="headerlink" title="原理引入"></a>原理引入</h3><pre><code>(1):齐肯多夫定理： 任意数可分解为斐波那契数列中数的和
+(2)当石头总数n为斐波那契数的时候，后手必赢。
+</code></pre><p><a href="http://blog.csdn.net/dgq8211/article/details/7602807" target="_blank" rel="external">证明2参考</a></p>
+<p>好像又说绕回来了。。。有点迷</p>
+<h2 id="k倍动态减法游戏"><a href="#k倍动态减法游戏" class="headerlink" title="k倍动态减法游戏"></a>k倍动态减法游戏</h2><p>&emsp;&emsp;<a href="http://blog.csdn.net/dgq8211/article/details/7602807" target="_blank" rel="external">原理详述</a> 这篇博客讲的非常清晰。推荐。<br>将k倍动态减数问题和斐波那契数列结合起来，仿照斐波那契数列来构造a数组。</p>
+<p>&emsp;&emsp;&emsp;&emsp;即  a[ i + 1 ] = a[ i ] + sgma( j = 1,a[j] <em>k &lt; a[i]&gt;)  ( a[ j ] + 1);<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;其中a[ j ] </em> k &lt; a[ i ]。<br>&emsp;&emsp;引入b数组表示a[ i ] + a[ j ], 表示a数组前i项所能构造的最大数.</p>
+<p>&emsp;&emsp;简化为</p>
+<p>&emsp;&emsp;&emsp;&emsp; a[ i + 1] = a[ i ] + b[ j ];<br>&emsp;&emsp;&emsp;&emsp;其中代表所有满足 a[j] * k &lt; a[i] 的a[ j ]和</p>
+<p>&emsp;&emsp;不过之后的确搞通了，感谢前行者们无私的分享。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code>//2008年北京区域赛B - A simple stone game 
+#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+#define mp make_pair
+#define pb push_back
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
 
+const int maxn = 3e7+10;
+int a[maxn],b[maxn];
+
+int main(){
+    int T,n,k,num = 0;
+    cin &gt;&gt; T;
+    while(++num &lt;= T){
+        cin&gt;&gt;n&gt;&gt;k;
+        a[0] = b[0] = 1;
+//        有误 
+//        int i = 0,j;
+//        while(a[i] &lt; n){
+//            ++i;
+//            a[i] = b[i-1] + 1;
+//            j = i-1;
+//            while(j &gt;= 0&amp;&amp;a[j] * k &gt;= a[i])--j;
+//            if(j &lt; 0)b[i] = a[i];
+//            else b[i] = a[i] + b[j];
+//        } 
+        int i = 0, j = 0;  
+        while(a[i]) &lt; n{         // 构建数列  
+            ++i;
+            a[i] = b[i - 1] + 1;  
+            while(a[j + 1] * k &lt; a[i])++j;  
+            if(k * a[j] &lt; a[i])  
+                b[i] = b[j] + a[i];  
+            else b[i] = a[i];  
+        }  
+        printf(&quot;Case %d: &quot;,num);
+        if(a[i] == n)printf(&quot;lose\n&quot;);
+        else {
+            int ans;
+            while(n){
+                if(n &gt;= a[i])n -= a[i],ans = a[i];
+                --i;
+            }
+            printf(&quot;%d\n&quot;,ans);
+        }
+    } 
+    return 0;
+}
+</code></pre>
             
         </div>
     </div>
@@ -251,7 +286,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">GETAGGT IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/all-tags/随笔/">随笔</a>
+    <a class="tag tag--primary tag--small t-link" href="/all-tags/ACM-博弈论/">ACM-博弈论</a>
 
             </div>
         
@@ -261,7 +296,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/19/小学期ACM解题报告/"  data-tooltip="小学期ACM解题报告">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/08/26/8-26练习赛/"  data-tooltip="8-26练习赛">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">FRÜHER</span>
@@ -269,7 +304,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/09/Hello-Abner/" data-tooltip="Hello,Abner">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/08/13/8-13随感/" data-tooltip="8-13随感">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NÄCHSTER</span>
                     <i class="fa fa-angle-right"></i>
@@ -287,7 +322,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/14/写于大二小学期课程最后一天/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/24/博弈论-k倍取数/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -295,7 +330,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/14/写于大二小学期课程最后一天/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/08/24/博弈论-k倍取数/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -303,7 +338,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/14/写于大二小学期课程最后一天/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/24/博弈论-k倍取数/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -343,7 +378,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/19/小学期ACM解题报告/"  data-tooltip="小学期ACM解题报告">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/08/26/8-26练习赛/"  data-tooltip="8-26练习赛">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">FRÜHER</span>
@@ -351,7 +386,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/09/Hello-Abner/" data-tooltip="Hello,Abner">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/08/13/8-13随感/" data-tooltip="8-13随感">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NÄCHSTER</span>
                     <i class="fa fa-angle-right"></i>
@@ -369,7 +404,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/14/写于大二小学期课程最后一天/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/24/博弈论-k倍取数/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -377,7 +412,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/14/写于大二小学期课程最后一天/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/08/24/博弈论-k倍取数/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -385,7 +420,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/14/写于大二小学期课程最后一天/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/24/博弈论-k倍取数/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -410,7 +445,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/14/写于大二小学期课程最后一天/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/08/24/博弈论-k倍取数/">
                     <i class="fa fa-facebook-official"></i><span>Teilen auf Facebook</span>
                 </a>
             </li>
@@ -418,7 +453,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/14/写于大二小学期课程最后一天/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/08/24/博弈论-k倍取数/">
                     <i class="fa fa-twitter"></i><span>Teilen auf Twitter</span>
                 </a>
             </li>
@@ -426,7 +461,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/14/写于大二小学期课程最后一天/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/08/24/博弈论-k倍取数/">
                     <i class="fa fa-google-plus"></i><span>Teilen auf Google Plus</span>
                 </a>
             </li>
