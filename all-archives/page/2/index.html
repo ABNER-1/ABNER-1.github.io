@@ -199,6 +199,306 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2017/07/28/7-22网络赛补题报告/">
+                            7.22网络赛补题报告
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-07-28T16:32:54+08:00">
+	
+		    28 7月 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="补题报告"><a href="#补题报告" class="headerlink" title="补题报告"></a>补题报告</h1><p>&emsp;&emsp;之所以交补题报告，当然是之后补题的心路历程咯。比较遗憾，当时开了两题都因为莫名bug WA了，感觉自己贼菜。</p>
+<h2 id="A题"><a href="#A题" class="headerlink" title="A题"></a>A题</h2><p><strong><em>**</em></strong>有误，得空发现这题出错了，所有AC代码都翻车。之后再补一发。<strong><strong>**</strong></strong><br>题目给个链接吧<a href="https://oj.neu.edu.cn/problem/1203" target="_blank" rel="external">A题</a></p>
+<pre><code>题意大概就是要你解决            
+    1）两个字符串的包含问题
+    2）字符串的最大长度
+</code></pre><p>&emsp;&emsp;其实真正理解了题意将两个小问题拆开真的是两个不难的问题。<br>&emsp;&emsp;第1）问其实就是KMP匹配，只不过要注意的就是字符a的特殊性，其实也就是匹配的时候字符a可以直接匹配，稍微改改KMP模板就可以实现。<br>&emsp;&emsp;第2）问其实更水啦，就是一个简单的dp，即使暴力去搞其实也是可以的，当然啦，一不小心还是会跪的。<br>&emsp;&emsp;菜菜的我当时就是倒在第2）问上，但一直在抠KMP，也是醉醉的。其实我当时一直在怀疑我对KMP的理解是不是出现了什么差错。</p>
+<h3 id="AC代码："><a href="#AC代码：" class="headerlink" title="AC代码："></a>AC代码：</h3><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;    
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+const int maxn = 2e5+20;
+int fail[maxn];
+int n;
+void makefail(string s){
+    for(int i = 1, j= 0; s[i]; ++i){
+        while(j &amp; s[i] != s[j])j = fail[j-1];
+        if(s[i] == s[j])fail[i] = ++j;
+        else fail[i] = 0;
+    }
+}
+int search(string str,string s){
+    str += str;
+    int ans = 0;
+    for(int i = 0, j = 0;str[i]; ++i){
+        while(j &amp;&amp; str[i]!=&apos;a&apos; &amp;&amp; str[i] != s[j])j = fail[j-1];
+        if((str[i]==&apos;a&apos;||str[i] == s[j]) &amp;&amp; !s[++j]){
+            ++ans;
+            j = 0;
+        }
+    }
+    return ans;
+}
+int num(string s) {
+    s = s + s;
+    int ret = 0, tmp = 0, last = -1;
+    char cur = &apos;a&apos;;
+    for(int i =0; i &lt; n*2-1; ++i){ 
+        if (cur == s[i] || s[i] == &apos;a&apos; || cur == &apos;a&apos;) {
+            tmp++;
+            if (s[i] != &apos;a&apos;) {
+                cur = s[i];
+                last = i;
+            }
+            ret = max(tmp, ret);
+            if (ret &gt;= n) return n;
+        } else {
+            tmp = i-last;
+            cur = s[i];
+            last = i;
+        }
+    }
+    return ret;
+}
+int main(){
+//    freopen(&quot;a.in&quot;,&quot;r&quot;,stdin);
+
+    string a,b;
+    while(cin&gt;&gt;n){
+        int sign = 0;
+        cin&gt;&gt;a&gt;&gt;b;
+        makefail(a);
+        if(search(b,a) &gt; 0)sign += 1;
+        makefail(b);
+        if(search(a,b) &gt; 0)sign += 2;
+        if(sign == 1)printf(&quot;Y-WIN\n&quot;);
+        else if(sign == 2)printf(&quot;X-WIN\n&quot;);
+        else if(sign == 3)printf(&quot;DRAW\n&quot;);
+        else printf(&quot;PEACE\n&quot;);
+
+        printf(&quot;%d\n&quot;,num(a));  
+        printf(&quot;%d\n&quot;,num(b));
+
+
+    }
+    return 0;
+}
+</code></pre><p>这题真的是出题人背锅，最后想了半天，交了一发O(n*n)的代码上去，竟然过了，敢信？而且过得贼快，比KMP都快，惊得我笑哭了。真心，标程这题都错了，而且没卡住暴力，当时都没几人开这题，简直开的玩笑。</p>
+<h2 id="H题"><a href="#H题" class="headerlink" title="H题"></a>H题</h2><p>照样上链接<a href="https://oj.neu.edu.cn/problem/1211" target="_blank" rel="external">H题</a></p>
+<pre><code>题意大致如下：
+    给你n个工作时间段，每一个时间段有着开始时间，结束时间和报酬，要求你找出两个时间段满足其报酬之和为m且工作时间最短。
+</code></pre><p>&emsp;&emsp;很明显，这是一个dp，当然贪心也可以处理。<br>&emsp;&emsp;我的做法有点非常规，和标程有点区别。毕竟这也是一道简单题，随便搞搞就过了。<br>&emsp;&emsp;因为是找两个时间段且其和确定，那我们是否可以考虑折半一下，即枚举前m/2个时间段去后m/2中找符合的那个并维护一下最小时间。时间复杂度O （ nlogn + m/2 * logm/2）。显然理论上肯定是可以过的。</p>
+<p>&emsp;&emsp;因为当时处理的时候写跪了，在维护当前m-i的最小值时用了while语句，大概是被卡了，时间爆表，空间爆表，还是靠队友才过了，白白浪费了那么长的时间。之后补题时有点不甘心，优化了一下，在每个时间段排序时我直接把时间长度也作为优先级加进去，竟然就过了。hhhhh，当时怎么就没。。。</p>
+<h3 id="AC代码：-1"><a href="#AC代码：-1" class="headerlink" title="AC代码："></a>AC代码：</h3><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+const int INF = 1e8+10;
+const int maxn = 2e5+10;
+struct work{
+    int st;
+    int et;
+    int len; 
+    int w;
+    bool operator &lt; (const work &amp;a)const{
+        if(w == a.w)return len &lt; a.len;
+        return w &lt; a.w;
+    }
+
+}job[maxn];
+
+int n,m;
+int minn;
+int vec[maxn];
+inline void cal(work i,work j){
+    int time = -1; 
+    if(i.st &lt; j.st &amp;&amp;i.et &lt; j.st){
+        time = i.et - i.st + j.et - j.st+2;
+    }else if(i.st&gt;j.st &amp;&amp; i.st &gt; j.et){
+        time = i.et - i.st + j.et - j.st+2;    
+    }
+    if(time != -1 &amp;&amp; time &lt; minn)minn= time;
+}
+
+int main(){
+    while(scanf(&quot;%d %d&quot;,&amp;n,&amp;m)!=EOF){
+        minn = INF;
+        for(int i = 0; i &lt; n; ++i){
+            scanf(&quot;%d %d %d&quot;,&amp;job[i].st,&amp;job[i].et,&amp;job[i].w);
+            job[i].len = job[i].et - job[i].st;
+        }
+        sort(job,job+n);
+
+        for(int i = 0; i &lt;n; ++i){
+            vec[i] = job[i].w;
+        }
+        int mid = upper_bound(vec,vec+n,m/2) - vec;
+        int k = upper_bound(vec,vec+n,m) - vec;
+
+        for(int i = 0; i &lt; mid; ++i){
+            int term = lower_bound(vec + mid,vec + k, m - vec[i]) - vec;
+//            while(job[term].w &lt;= m - job[i].w){
+//                if(job[term].w == m - job[i].w){
+//                    cal(job[term],job[i]);    
+//                }
+//                ++term;
+//            }
+            if(job[term].w == m - job[i].w)
+                cal(job[term],job[i]);
+        }
+        if(minn != INF)printf(&quot;%d\n&quot;,minn);
+        else printf(&quot;oh no!\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre><hr>
+<p>其他题后续再更新，先占个坑。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/07/28/7-22网络赛补题报告/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2017/07/21/有点感受想说/">
+                            有点感受想说
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-07-21T15:24:43+08:00">
+	
+		    21 7月 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="最近真的是糟心的事一堆堆"><a href="#最近真的是糟心的事一堆堆" class="headerlink" title="最近真的是糟心的事一堆堆"></a>最近真的是糟心的事一堆堆</h2><p>&emsp;&emsp;先是因为感冒的缘故难受了好几天，这几天稍微好过了一点，却因为一点小插曲度过了一个很奇妙的周五。</p>
+<p>&emsp;&emsp;要学会拒绝，这是我一进校时就被告知的话。拒绝不合理的要求，拒绝委屈自己的要求。当然啦，我虽然知道这句话，但本来就信奉多个朋友多条路的我又有点心软。这次这件事的确好好的给我上了深刻的一课。<br>&emsp;&emsp;帮人总是比得罪人来德容易。但为了之后不得罪人其实很多事情还是要一开始就决定不帮。</p>
+<p>&emsp;&emsp;其次，我其实很能说，真的，不自夸，我总是知道该说什么话。一直以来的表现其实只是因为我的心里那道坎自己还没跨过去。每次遇到哑口无言的场景，其实我是有话说的，或许脑子里空白过，但更多的还是我想说的话真的说不出来。极度烦恼着。</p>
+<p>&emsp;&emsp;可能真的是我的得失心太重，越是看重的越是想做到最完美，但最后甚至连最基本的要求都达不到。</p>
+<p>&emsp;&emsp;可能锻炼的还不够多，脸皮还不够厚。</p>
+<hr>
+<p>&emsp;&emsp;一段感受，一点牢骚，一些想说出来的话。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/07/21/有点感受想说/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2017/07/19/小学期ACM解题报告/">
+                            小学期ACM解题报告
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-07-19T08:36:15+08:00">
+	
+		    19 7月 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>#拖了这么久的解题报告#</p>
+<p>##Day1##</p>
+<p>##A题##<br>&emsp;&emsp;是个简单的贪心题，如果题目要求改成要求是不同的素数的和要就稍微需要考虑一点东西了，很遗憾，一开始就题目读错了，水题反而wa了。<br>&emsp;&emsp;因为是要拆分成最多个数的素数和，所以以2和3去拆就好，做到O（1）的并不难。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line"></div><div class="line">#define LL long long</div><div class="line">using namespace std;</div><div class="line">const int maxn = 1e6+10;</div><div class="line"></div><div class="line">bool check[maxn];</div><div class="line">int main()&#123;</div><div class="line">int n;</div><div class="line">vector&lt;int&gt;v;</div><div class="line">for(int i = 2;i &lt;=maxn; i++)&#123;</div><div class="line">	int k = (int)sqrt(i);</div><div class="line">	for(int j = i+1;j &lt;= k;j++)&#123;</div><div class="line">		if(i%j==0)&#123;</div><div class="line">			check[i] = false;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	check[i]= true;</div><div class="line">&#125;</div><div class="line">int ans,sign;</div><div class="line">while(cin&gt;&gt;n)&#123;</div><div class="line">	if(n &amp; 1)&#123;</div><div class="line">		ans = (n-3)/2 + 1;</div><div class="line">		sign = 1;</div><div class="line">	&#125;else &#123;</div><div class="line">		ans = n/2;</div><div class="line">		sign = 2;</div><div class="line">	&#125;</div><div class="line">	printf(&quot;%d\n&quot;,ans);</div><div class="line">	if(sign == 1)&#123;</div><div class="line">		for(int i = 1;i &lt; ans;i++)&#123;</div><div class="line">			printf(&quot;2 &quot;);</div><div class="line">		&#125;</div><div class="line">		printf(&quot;3\n&quot;);</div><div class="line">	&#125;else &#123;</div><div class="line">		for(int i =1;i&lt; ans;i++)&#123;</div><div class="line">			printf(&quot;2 &quot;);</div><div class="line">		&#125;</div><div class="line">		printf(&quot;2\n&quot;);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125; </div><div class="line"></div><div class="line">return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="B题"><a href="#B题" class="headerlink" title="B题"></a>B题</h2><p>这是一个纯粹新手题，不管是暴力枚举还是排序后二分查找思路都是很清晰的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line"></div><div class="line">#define LL long long</div><div class="line">using namespace std;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">int n;</div><div class="line">vector&lt;int&gt;v;</div><div class="line">int ans,term;</div><div class="line">	while(cin&gt;&gt;n)&#123;</div><div class="line">		for(int i =1; i&lt;= n;i++)&#123;</div><div class="line">			scanf(&quot;%d&quot;,&amp;term);</div><div class="line">			v.push_back(term);</div><div class="line">		&#125;</div><div class="line">		sort(v.begin(),v.end());</div><div class="line"></div><div class="line">		ans =  lower_bound(v.begin(),v.end(),v[n-1]) - upper_bound(v.begin(),v.end(),v[0]);</div><div class="line">		if(ans &lt; 0 )ans = 0;</div><div class="line">		cout&lt;&lt;ans&lt;&lt;endl;</div><div class="line">		v.clear();</div><div class="line">	&#125; </div><div class="line"></div><div class="line">return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="C题"><a href="#C题" class="headerlink" title="C题"></a>C题</h2><p>思路很好想，稍微写下几次操作之后就会发现6次一个循环，所以剩下的思路就是把opt次数模6然后剩下无论是暴力还是打表都是很轻松的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line"></div><div class="line">/*</div><div class="line">1 2 3</div><div class="line">2 1 3</div><div class="line">2 3 1</div><div class="line">3 2 1</div><div class="line">3 1 2</div><div class="line">1 3 2</div><div class="line">1 2 3</div><div class="line">*/</div><div class="line"></div><div class="line">#define LL long long</div><div class="line">using namespace std;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">int n;</div><div class="line">int a;</div><div class="line">int ans[7][3]=&#123;</div><div class="line">	1,2,3,</div><div class="line">	2,1,3,</div><div class="line">	2,3,1,</div><div class="line">	3,2,1,</div><div class="line">	3,1,2,</div><div class="line">	1,3,2</div><div class="line">&#125;;</div><div class="line">while(cin&gt;&gt;n&gt;&gt;a)&#123;</div><div class="line">	n = n%6;</div><div class="line">	cout&lt;&lt;ans[n][a]-1&lt;&lt;endl;	</div><div class="line">&#125;</div><div class="line">return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="D-题"><a href="#D-题" class="headerlink" title="D 题"></a>D 题</h2><p>&emsp;&emsp;Day1的题毕竟是为了营造友好氛围的，没什么难度。写题解不过是为了完整性。<br>&emsp;&emsp;这道题其实就是权重平衡之后最少的那个。很粗暴的计算就好。</p>
+<pre><code>ans = min(a,b/2,c/4)*7。
+</code></pre><h2 id="E-题"><a href="#E-题" class="headerlink" title="E 题"></a>E 题</h2><p>其实还是很有难度的，但对于时间不是很限制，那就是一个抖机灵的题。因为是按行按列翻转，所以很容易想到每行每列最多翻转一次。所以从行上考虑，只要保证不符合最终状态的都翻转1次，最后统计所有列是否是符合的就好。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line">#define LL long long</div><div class="line">using namespace std;</div><div class="line">vector&lt;vector&lt;int&gt; &gt;v;</div><div class="line">vector&lt;int &gt;h;</div><div class="line">int num;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">//freopen(&quot;a.in&quot;,&quot;r&quot;,stdin);</div><div class="line">int n,m,term;</div><div class="line">while(cin&gt;&gt;n&gt;&gt;m)&#123;</div><div class="line">	for(int i = 1; i&lt;= n;i++)&#123;</div><div class="line">		h.clear();</div><div class="line">		num = 0;</div><div class="line">		for(int j = 1; j &lt;= m;j ++)&#123;</div><div class="line">			scanf(&quot;%d&quot;,&amp;term);</div><div class="line">			h.push_back(term);</div><div class="line">			//if(term == 0)num++;</div><div class="line">		&#125;</div><div class="line">		v.push_back(h);</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	for(int i = 0 ;i &lt; m;i ++)&#123;</div><div class="line">		h[i] = 0;</div><div class="line">	&#125;</div><div class="line">	for(int i = 0 ;i &lt; m;i ++)&#123;</div><div class="line">		</div><div class="line">		if(v[0][i] == 0)h[i] = 1;</div><div class="line">		//cout&lt;&lt;i&lt;&lt;&quot; &quot;&lt;&lt;h[i]&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	int sign = 1;</div><div class="line">	for(int i = 1; i &lt; n; i++)&#123;</div><div class="line">		num = 0;</div><div class="line">		for(int j = 0; j &lt; m;j++)&#123;</div><div class="line">		//	cout&lt;&lt;i&lt;&lt;&quot; &quot;&lt;&lt;j&lt;&lt;&quot; &quot;&lt;&lt;v[i][j]&lt;&lt;&quot; &quot;&lt;&lt;h[j]&lt;&lt;&quot; &quot;&lt;&lt;num&lt;&lt;endl;</div><div class="line">			if( (v[i][j] == 0 &amp;&amp; h[j] == 0) || ( v[i][j] == 1 &amp;&amp; h[j] == 1) )num ++;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		if(num == 0||num == m);</div><div class="line">		else &#123;</div><div class="line">			sign = 0;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	if(sign == 0)cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;</div><div class="line">	else cout&lt;&lt;&quot;Yes&quot;&lt;&lt;endl;</div><div class="line">	v.clear();</div><div class="line">&#125; </div><div class="line">return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="F-题"><a href="#F-题" class="headerlink" title="F 题"></a>F 题</h2><p>这是一道裸的矩阵快速幂。</p>
+<pre><code>f(x) = a * f(x - 1)  + b * f(x - 2) + c * f(x - 3)
+
+f(1) = f(2) = f(3) = t;
+
+[f(x+1),f(x),f(x-1)]T = [a,b,c][f(x),f(x-1),f(x-2)]T
+</code></pre><p>上代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line"></div><div class="line">#define LL long long</div><div class="line">using namespace std;</div><div class="line"></div><div class="line"></div><div class="line">const LL mod = 1e9+7;</div><div class="line">const LL maxn = 3;</div><div class="line">struct matrix&#123;</div><div class="line">	LL a[maxn][maxn];</div><div class="line">&#125;;</div><div class="line"></div><div class="line">matrix arr_mul(matrix m, matrix n)&#123;</div><div class="line">	matrix ans;</div><div class="line">	for(LL i = 0; i &lt; maxn; i++)</div><div class="line">		for(LL j = 0;j &lt; maxn; j++)&#123;</div><div class="line">			LL sum = 0;</div><div class="line">			for(LL k = 0; k &lt; maxn; k ++)&#123;</div><div class="line">				sum += ( m.a[i][k] * n.a[k][j] )%mod; </div><div class="line">				sum %= mod;</div><div class="line">			&#125;</div><div class="line">			ans.a[i][j] = sum;</div><div class="line">		&#125;</div><div class="line">			return ans;</div><div class="line">	&#125;</div><div class="line">matrix mul(matrix m,LL n)&#123;</div><div class="line">	if(n == 1)return m;</div><div class="line">	if(n &amp; 1)&#123;</div><div class="line">		matrix temp = mul(m,n&gt;&gt;1);</div><div class="line">		return arr_mul(arr_mul(temp,temp),m);</div><div class="line">	&#125;else &#123;</div><div class="line">		matrix temp = mul(m,n&gt;&gt;1);</div><div class="line">		return arr_mul(temp,temp);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">LL qiu_val(matrix m, LL t,LL n)&#123;</div><div class="line">	LL term = n - 3;</div><div class="line">	if(term &lt;= 0)return t; </div><div class="line">	matrix temp = mul(m,term);</div><div class="line">	LL ans = 0;</div><div class="line">	ans += ( temp.a[0][0] * t )%mod;</div><div class="line">	ans += ( temp.a[0][1] * t )%mod;</div><div class="line">	ans += ( temp.a[0][2] * t )%mod;</div><div class="line">	ans %= mod;</div><div class="line">	return (LL )ans;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">LL a,b,c,t;</div><div class="line">LL n;</div><div class="line">LL x[3][3]=&#123;</div><div class="line">		0,0,0,</div><div class="line">		1,0,0,</div><div class="line">		0,1,0</div><div class="line">&#125;;</div><div class="line">matrix term;</div><div class="line"></div><div class="line">while(cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;t&gt;&gt;n)&#123;</div><div class="line">	x[0][0] = a;</div><div class="line">	x[0][1] = b; </div><div class="line">	x[0][2] = c;</div><div class="line">	for(LL i = 0;i &lt; 3; i++)&#123;</div><div class="line">		for(LL j = 0; j &lt; 3; j++)&#123;</div><div class="line">			term.a[i][j] = x[i][j];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	LL ans = qiu_val(term,t,n); </div><div class="line">	cout&lt;&lt;ans&lt;&lt;endl;	</div><div class="line">&#125;</div><div class="line">return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;写报告果然是个很麻烦的事，所以我先去做做题，过会儿再来补。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/07/19/小学期ACM解题报告/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2017/07/14/写于大二小学期课程最后一天/">
                             写于大二小学期课程最后一天
                         </a>
@@ -586,7 +886,7 @@
                 data-message-zero="keinen Beitrag gefunden"
                 data-message-one="1 Beitrag gefunden"
                 data-message-other="{n} Einträge gefunden">
-                12 Einträge gefunden
+                15 Einträge gefunden
             </p>
         </div>
     </div>
