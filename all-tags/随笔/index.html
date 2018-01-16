@@ -64,7 +64,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+            <img class="header-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -82,7 +82,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
                 </a>
                 <h4 class="sidebar-profile-name">Abner</h4>
                 
@@ -207,7 +207,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-01-15T20:55:34+08:00">
 	
-		    15 1月 2018
+		    1月 15, 2018
     	
     </time>
     
@@ -216,8 +216,57 @@
             </div>
             
                 <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="实习记录"><a href="#实习记录" class="headerlink" title="实习记录"></a>实习记录</h1><h2 id="时间-：-1-15-？"><a href="#时间-：-1-15-？" class="headerlink" title="时间 ： 1.15-？"></a>时间 ： 1.15-？</h2><h3 id="日期：1-15"><a href="#日期：1-15" class="headerlink" title="日期：1.15"></a>日期：1.15</h3><p>熟悉了项目的内容，搭建好了个人电脑的环境，并成功clone下项目代码，对其进行了大致的preview；<br>了解了项目需求与进度。<br>阅读了java规范，（2/3进度）。</p>
-<p>明天的进度计划：<br>    jvm、线程安全，JDK的 hashmap 和concurrenthashmap<br>    看spring IOC  MVC 的源码<br>    数据库postgreSQL<br>    还有hive </p>
+                    <h1 id="实习记录"><a href="#实习记录" class="headerlink" title="实习记录"></a>实习记录</h1><h2 id="时间-：-1-15-？"><a href="#时间-：-1-15-？" class="headerlink" title="时间 ： 1.15-？"></a>时间 ： 1.15-？</h2><h3 id="日期：1-15"><a href="#日期：1-15" class="headerlink" title="日期：1.15"></a>日期：1.15</h3><p>今天完成：</p>
+<blockquote>
+<p>熟悉了项目的内容，搭建好了个人电脑的环境，并成功clone下项目代码，对其进行了大致的preview；</p>
+<p>了解了项目需求与进度。</p>
+<p>阅读了java规范，（2/3进度）。</p>
+</blockquote>
+<p>明天的进度计划：</p>
+<blockquote>
+<p>jvm、线程安全，JDK的 hashmap 和concurrenthashmap </p>
+<p>看spring IOC  MVC 的源码   </p>
+<p>数据库postgreSQL     </p>
+<p>还有hive </p>
+</blockquote>
+<p>花费：<br>早饭：7 + 中饭： 15.56 + 晚饭16.25 + 夜宵：10 + 路费2  共计：50.81 </p>
+<h3 id="日期：1-16"><a href="#日期：1-16" class="headerlink" title="日期：1.16"></a>日期：1.16</h3><p>学习笔记：</p>
+<h4 id="jvm："><a href="#jvm：" class="headerlink" title="jvm："></a>jvm：</h4><pre><code>java虚拟机，java代码和硬件、系统的中间层，隔离了一切物理环境，为所有java代码运行提供相同的环境。（看博客，jvm的实现机制、涉及编译和系统）
+</code></pre><h4 id="线程安全："><a href="#线程安全：" class="headerlink" title="线程安全："></a>线程安全：</h4><ul>
+<li>最简单的方式，使用Synchronization关键字</li>
+<li>使用java.util.concurrent.atomic 包中的原子类，例如 AtomicInteger<ul>
+<li>使用java.util.concurrent.locks 包中的锁</li>
+</ul>
+</li>
+<li>使用线程安全的集合ConcurrentHashMap</li>
+<li>使用volatile关键字，保证变量可见性（直接从内存读，而不是从线程cache读）</li>
+</ul>
+<p>tips：线程安全往往要加synchronization修饰符保证数据安全，但降低了性能，所以不是并发（多线程时）不适用并发函数。</p>
+<h4 id="Hashmap和concurrentHashmaps实现的区别"><a href="#Hashmap和concurrentHashmaps实现的区别" class="headerlink" title="Hashmap和concurrentHashmaps实现的区别"></a>Hashmap和concurrentHashmaps实现的区别</h4><blockquote>
+<p>Hashmap</p>
+</blockquote>
+<p>线程不安全的实现方法。</p>
+<blockquote>
+<p>Hashtable</p>
+</blockquote>
+<p>在Hashmap的基础上，所有关于Hashmap中涉及到hash表的操作都加了Synchronization，效率变低了。</p>
+<blockquote>
+<p>ConcurrentHashmap</p>
+</blockquote>
+<ul>
+<li>jdk1.7版本：利用段锁进行优化。即段与段之间独立，段之内加锁，同时只允许一个操作。</li>
+<li><p>jdk1.8版本: CAS技术 ……</p>
+<p>  分段锁<br>  get不加锁，通过volatilex实现，较HashTable提高了效率<br>  put加锁。</p>
+</li>
+</ul>
+<h4 id="postgreSQL"><a href="#postgreSQL" class="headerlink" title="postgreSQL:"></a>postgreSQL:</h4><pre><code>没看到太多内容，基本的关于数据库的几条语句：select\add\delete\update
+</code></pre><h4 id="Spring框架：IoC和MVC源码"><a href="#Spring框架：IoC和MVC源码" class="headerlink" title="Spring框架：IoC和MVC源码"></a>Spring框架：IoC和MVC源码</h4><p>明天的进度计划：</p>
+<ul>
+<li>spring框架源码</li>
+<li>hive</li>
+<li>postgreSQL</li>
+</ul>
+<p>花费：早饭9.2 + 中饭：37 + 晚饭：14.5 + 车费：2  总计 62.7</p>
 
                     
                         
@@ -225,7 +274,7 @@
                     
                         <p>
                             <a href="/2018/01/15/实习记录-2018寒假/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -250,7 +299,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-01-12T22:51:03+08:00">
 	
-		    12 1月 2018
+		    1月 12, 2018
     	
     </time>
     
@@ -270,7 +319,7 @@
                     
                         <p>
                             <a href="/2018/01/12/flag：定时更新blog/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -295,7 +344,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-08-13T23:33:49+08:00">
 	
-		    13 8月 2017
+		    8月 13, 2017
     	
     </time>
     
@@ -315,7 +364,7 @@
                     
                         <p>
                             <a href="/2017/08/13/8-13随感/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -340,7 +389,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-21T15:24:43+08:00">
 	
-		    21 7月 2017
+		    7月 21, 2017
     	
     </time>
     
@@ -363,7 +412,7 @@
                     
                         <p>
                             <a href="/2017/07/21/有点感受想说/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -388,7 +437,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-14T00:35:17+08:00">
 	
-		    14 7月 2017
+		    7月 14, 2017
     	
     </time>
     
@@ -430,7 +479,7 @@
                     
                         <p>
                             <a href="/2017/07/14/写于大二小学期课程最后一天/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -455,7 +504,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-09T23:59:38+08:00">
 	
-		    09 7月 2017
+		    7月 09, 2017
     	
     </time>
     
@@ -473,7 +522,7 @@
                     
                         <p>
                             <a href="/2017/07/09/Hello-Abner/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -487,7 +536,7 @@
     <ul class="pagination">
         
         
-        <li class="pagination-number">Seite 1 von 1</li>
+        <li class="pagination-number">page 1 of 1</li>
     </ul>
 </div>
 
@@ -516,7 +565,7 @@
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Abner</h4>
         
@@ -557,7 +606,7 @@
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">keinen Beitrag gefunden</div>
+            <div class="no-result text-color-light text-center">no post found</div>
             <div class="results">
                 
                 <div class="media">
@@ -754,10 +803,10 @@
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="keinen Beitrag gefunden"
-                data-message-one="1 Beitrag gefunden"
-                data-message-other="{n} Einträge gefunden">
-                16 Einträge gefunden
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                16 posts found
             </p>
         </div>
     </div>
