@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>Archives - Abner&#39;s blog</title>
+    <title>Archiv - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
@@ -64,7 +64,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+            <img class="header-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
         
         </a>
     
@@ -82,7 +82,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
                 </a>
                 <h4 class="sidebar-profile-name">Abner</h4>
                 
@@ -199,6 +199,290 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2017/08/26/8-26练习赛/">
+                            8-26练习赛
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-08-26T23:37:20+08:00">
+	
+		    26 8月 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="8-26练习赛解题报告"><a href="#8-26练习赛解题报告" class="headerlink" title="8-26练习赛解题报告"></a>8-26练习赛解题报告</h1><p>一周的训练终于到了周末休息的时候，于是完美的把训练赛翘了，不过欠的总是要还的。</p>
+<h2 id="Snow"><a href="#Snow" class="headerlink" title="Snow"></a>Snow</h2><p><a href="https://nanti.jisuanke.com/t/16662" target="_blank" rel="external">Snow</a><br>签到题，贪心，总是取当前数目最大的三种，各种解法。</p>
+<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+#define mp make_pair
+#define pb push_back
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+struct point{
+    int num,cnt;
+    bool operator &lt; (const point &amp; a)const {
+        if(cnt == a.cnt)return num &lt; a.num; 
+        return cnt &lt; a.cnt;
+    }
+}; 
+priority_queue&lt;point&gt;q;
+vector&lt;int &gt;v;
+int main(){
+    std::ios::sync_with_stdio(false);
+    int T;
+    cin&gt;&gt;T;
+    while(T--){
+        int n,term;
+        v.clear(); 
+        while(q.size() &gt;0)q.pop();
+        cin&gt;&gt;n;
+        for(int i = 1; i &lt;= n ; ++i){
+            cin&gt;&gt;term;
+            v.pb(term);
+        }
+        sort(v.begin(), v.end());
+        int temp = -1; point nn;
+        for(auto i : v){
+            if(temp == -1){
+                temp = i;
+                nn.num = i; nn.cnt = 1;
+            }else if(temp != i){
+                q.push(nn);
+                nn.num = i; temp = i;
+                nn.cnt = 1;
+            }else ++nn.cnt; 
+        }
+        q.push(nn);
+        LL ans = 0;
+        while(q.size() &gt;= 3){
+            point a = q.top(); q.pop();
+            point b = q.top(); q.pop();
+            point c = q.top(); q.pop();
+        //    cout&lt;&lt;a.num&lt;&lt;&quot; &quot;&lt;&lt;b.num &lt;&lt;&quot; &quot;&lt;&lt;c.num&lt;&lt;endl;
+//每次只能取一个，不然不满足贪心正确性
+//            a.cnt -= c.cnt;
+//            b.cnt -= c.cnt;
+//            ans += c.cnt;
+            --a.cnt; --b.cnt;--c.cnt;
+            ++ans;
+            if(a.cnt &gt; 0)q.push(a);
+            if(b.cnt &gt; 0)q.push(b);
+            if(c.cnt &gt; 0)q.push(c); 
+        }
+        cout&lt;&lt;ans&lt;&lt;endl;
+
+    }
+
+    return 0;
+}
+</code></pre><h2 id="Plates"><a href="#Plates" class="headerlink" title="Plates"></a>Plates</h2><p><a href="https://nanti.jisuanke.com/t/16685" target="_blank" rel="external">Plates</a></p>
+<p>数学题，简单思维。<br>只要把n个圆的圆心围成正多边形,然后求出这个正多边形的外切圆半径再加上小圆的半径就解决了。记得特判一下n&lt;=2的情况。</p>
+<pre><code>### AC代码 ###
+#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+#define mp make_pair
+#define pb push_back
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+const double pi = acos(-1.0);
+
+int main(){
+    std::ios::sync_with_stdio(false);
+    int n,r,R;
+    while(cin&gt;&gt;n&gt;&gt;R&gt;&gt;r){
+        if(n &lt;= 2)cout&lt;&lt;(R &gt;= r * n ? &quot;yes&quot;:&quot;no&quot;) &lt;&lt;endl;
+        else{
+            double du = (n-2)*1.0/n * pi;
+            double m = r + r / cos(du/2);
+            //cout&lt;&lt;m&lt;&lt;endl;
+            if(m &gt; R)cout&lt;&lt;&quot;no&quot;&lt;&lt;endl;
+            else cout&lt;&lt;&quot;yes&quot;&lt;&lt;endl;    
+        }
+
+    } 
+    return 0;
+}
+</code></pre>
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/08/26/8-26练习赛/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2017/08/24/博弈论-k倍取数/">
+                            博弈论-k倍取数
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-08-24T09:28:42+08:00">
+	
+		    24 8月 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="斐波那契取数"><a href="#斐波那契取数" class="headerlink" title="斐波那契取数"></a>斐波那契取数</h2><p>&emsp;&emsp; 训练时遇到一道博弈题，经典博弈模型-k倍取数。直接入手比较难理解，于是去找了下 “k = 2” 的斐波那契取数模型先了解一波。</p>
+<h3 id="原理引入"><a href="#原理引入" class="headerlink" title="原理引入"></a>原理引入</h3><pre><code>(1):齐肯多夫定理： 任意数可分解为斐波那契数列中数的和
+(2)当石头总数n为斐波那契数的时候，后手必赢。
+</code></pre><p><a href="http://blog.csdn.net/dgq8211/article/details/7602807" target="_blank" rel="external">证明2参考</a></p>
+<p>好像又说绕回来了。。。有点迷</p>
+<h2 id="k倍动态减法游戏"><a href="#k倍动态减法游戏" class="headerlink" title="k倍动态减法游戏"></a>k倍动态减法游戏</h2><p>&emsp;&emsp;<a href="http://blog.csdn.net/dgq8211/article/details/7602807" target="_blank" rel="external">原理详述</a> 这篇博客讲的非常清晰。推荐。<br>将k倍动态减数问题和斐波那契数列结合起来，仿照斐波那契数列来构造a数组。</p>
+<p>&emsp;&emsp;&emsp;&emsp;即  a[ i + 1 ] = a[ i ] + sgma( j = 1,a[j] <em>k &lt; a[i]&gt;)  ( a[ j ] + 1);<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;其中a[ j ] </em> k &lt; a[ i ]。<br>&emsp;&emsp;引入b数组表示a[ i ] + a[ j ], 表示a数组前i项所能构造的最大数.</p>
+<p>&emsp;&emsp;简化为</p>
+<p>&emsp;&emsp;&emsp;&emsp; a[ i + 1] = a[ i ] + b[ j ];<br>&emsp;&emsp;&emsp;&emsp;其中代表所有满足 a[j] * k &lt; a[i] 的a[ j ]和</p>
+<p>&emsp;&emsp;不过之后的确搞通了，感谢前行者们无私的分享。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code>//2008年北京区域赛B - A simple stone game 
+#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+#define mp make_pair
+#define pb push_back
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+
+const int maxn = 3e7+10;
+int a[maxn],b[maxn];
+
+int main(){
+    int T,n,k,num = 0;
+    cin &gt;&gt; T;
+    while(++num &lt;= T){
+        cin&gt;&gt;n&gt;&gt;k;
+        a[0] = b[0] = 1;
+//        有误 
+//        int i = 0,j;
+//        while(a[i] &lt; n){
+//            ++i;
+//            a[i] = b[i-1] + 1;
+//            j = i-1;
+//            while(j &gt;= 0&amp;&amp;a[j] * k &gt;= a[i])--j;
+//            if(j &lt; 0)b[i] = a[i];
+//            else b[i] = a[i] + b[j];
+//        } 
+        int i = 0, j = 0;  
+        while(a[i]) &lt; n{         // 构建数列  
+            ++i;
+            a[i] = b[i - 1] + 1;  
+            while(a[j + 1] * k &lt; a[i])++j;  
+            if(k * a[j] &lt; a[i])  
+                b[i] = b[j] + a[i];  
+            else b[i] = a[i];  
+        }  
+        printf(&quot;Case %d: &quot;,num);
+        if(a[i] == n)printf(&quot;lose\n&quot;);
+        else {
+            int ans;
+            while(n){
+                if(n &gt;= a[i])n -= a[i],ans = a[i];
+                --i;
+            }
+            printf(&quot;%d\n&quot;,ans);
+        }
+    } 
+    return 0;
+}
+</code></pre>
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/08/24/博弈论-k倍取数/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2017/08/13/8-13随感/">
+                            8-13随感
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-08-13T23:33:49+08:00">
+	
+		    13 8月 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="这几天状态好差"><a href="#这几天状态好差" class="headerlink" title="这几天状态好差"></a>这几天状态好差</h2><p>打了几场比赛，要么就是读错题，要不就是思路跟不上或者代码实现bug，各种崩溃，好烦。</p>
+<p>过几天就要开始集训了，我这状态这么差，再不好好调整一下真的就GG了。</p>
+<p>一晃暑假就没了，时间其实过得真的还是挺快的，一直期待着的暑假就这样没有惊喜的结束了，细细数来，其实人生的暑假也没几个了，读个研最多也不过多了一两个。我也快步入社会去职场升级改造了，一想到这还是有一丝淡淡的忧伤的啊。</p>
+<p>真的好像大学以来真的没有什么值得拿出来骄傲的，不过人活着也不是为了在人前骄傲对吧，就是成就感还是不多，感觉自己的进阶之路还好远。<br>所以，我想成为什么样的人呢？<br>不得而知，大概又要用时间来回答自己。<br>就是打点字证明一下自己的存在，明确一下自己的目标。<br>我的征途是那遥远的星辰大海。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/08/13/8-13随感/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2017/08/08/Python学习之路/">
                             Python学习之路
                         </a>
@@ -207,7 +491,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-08-08T10:46:44+08:00">
 	
-		    8月 08, 2017
+		    08 8月 2017
     	
     </time>
     
@@ -235,6 +519,7 @@ finally:
 <p>文件读写</p>
 <p>函数</p>
 <p>正则表达式： re模块</p>
+<p>占坑。。。</p>
 
                     
                         
@@ -242,7 +527,7 @@ finally:
                     
                         <p>
                             <a href="/2017/08/08/Python学习之路/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -267,7 +552,7 @@ finally:
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-08-07T21:57:38+08:00">
 	
-		    8月 07, 2017
+		    07 8月 2017
     	
     </time>
     
@@ -420,7 +705,7 @@ int main(){
                     
                         <p>
                             <a href="/2017/08/07/2017百度之星解题报告/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -445,7 +730,7 @@ int main(){
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-28T16:32:54+08:00">
 	
-		    7月 28, 2017
+		    28 7月 2017
     	
     </time>
     
@@ -613,7 +898,7 @@ int main(){
                     
                         <p>
                             <a href="/2017/07/28/7-22网络赛补题报告/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -638,7 +923,7 @@ int main(){
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-21T15:24:43+08:00">
 	
-		    7月 21, 2017
+		    21 7月 2017
     	
     </time>
     
@@ -661,7 +946,7 @@ int main(){
                     
                         <p>
                             <a href="/2017/07/21/有点感受想说/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -686,7 +971,7 @@ int main(){
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-19T08:36:15+08:00">
 	
-		    7月 19, 2017
+		    19 7月 2017
     	
     </time>
     
@@ -720,7 +1005,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/19/小学期ACM解题报告/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -745,7 +1030,7 @@ f(1) = f(2) = f(3) = t;
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-14T00:35:17+08:00">
 	
-		    7月 14, 2017
+		    14 7月 2017
     	
     </time>
     
@@ -787,7 +1072,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/14/写于大二小学期课程最后一天/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -812,7 +1097,7 @@ f(1) = f(2) = f(3) = t;
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-09T23:59:38+08:00">
 	
-		    7月 09, 2017
+		    09 7月 2017
     	
     </time>
     
@@ -830,7 +1115,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/09/Hello-Abner/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -848,12 +1133,12 @@ f(1) = f(2) = f(3) = t;
                 <a class="btn btn--default btn--small" href="/ ">
             
                 <i class="fa fa-angle-left text-base icon-mr"></i>
-                    <span>NEWER POSTS</span>
+                    <span>NEUERE BEITRÄGE</span>
             </a>
         </li>
         
         
-        <li class="pagination-number">page 2 of 2</li>
+        <li class="pagination-number">Seite 2 von 2</li>
     </ul>
 </div>
 
@@ -883,7 +1168,7 @@ f(1) = f(2) = f(3) = t;
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
         
             <h4 id="about-card-name">Abner</h4>
         
@@ -924,7 +1209,7 @@ f(1) = f(2) = f(3) = t;
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="no-result text-color-light text-center">keinen Beitrag gefunden</div>
             <div class="results">
                 
                 <div class="media">
@@ -1121,10 +1406,10 @@ f(1) = f(2) = f(3) = t;
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="no post found"
-                data-message-one="1 post found"
-                data-message-other="{n} posts found">
-                17 posts found
+                data-message-zero="keinen Beitrag gefunden"
+                data-message-one="1 Beitrag gefunden"
+                data-message-other="{n} Einträge gefunden">
+                20 Einträge gefunden
             </p>
         </div>
     </div>
