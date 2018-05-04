@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>Archiv: 2018 - Abner&#39;s blog</title>
+    <title>Archives: 2018 - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
@@ -64,7 +64,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+            <img class="header-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -82,7 +82,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
                 </a>
                 <h4 class="sidebar-profile-name">Abner</h4>
                 
@@ -199,6 +199,425 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2018/05/04/SPRING-BOOT搭建网站/">
+                            SPRING-BOOT搭建网站笔记
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-05-04T00:35:17+08:00">
+	
+		    5月 04, 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="SPRING-BOOT搭建网站"><a href="#SPRING-BOOT搭建网站" class="headerlink" title="SPRING-BOOT搭建网站"></a>SPRING-BOOT搭建网站</h1><h2 id="spring-boot基本操作"><a href="#spring-boot基本操作" class="headerlink" title="spring-boot基本操作"></a>spring-boot基本操作</h2><p>基于maven的spring-boot</p>
+<p>关于Hql的使用（因为列名和表名出错）</p>
+<h2 id="服务器端数据库操作"><a href="#服务器端数据库操作" class="headerlink" title="服务器端数据库操作"></a>服务器端数据库操作</h2><p>安装下载mysql</p>
+<p>新建表</p>
+<p>修改mysql权限允许远程连接</p>
+<ul>
+<li>修改文件，找到 bind-address  =127.0.0.1  将其注释掉；//作用是使得不再只允许本地访问；</li>
+<li><p>新建一个用户并赋权</p>
+<p>  GRANT ALL PRIVILEGES ON <em>.</em> TO ‘myuser’@’%’ IDENTIFIED BY ‘mypassword’ WITH GRANT OPTION;<br>  FLUSH   PRIVILEGES;</p>
+</li>
+</ul>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/05/04/SPRING-BOOT搭建网站/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/04/20/华为网技相关eNSP学习笔记/">
+                            eNSP学习笔记
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-04-20T00:35:17+08:00">
+	
+		    4月 20, 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="组网练习命令记录"><a href="#组网练习命令记录" class="headerlink" title="组网练习命令记录"></a>组网练习命令记录</h2><h3 id="VLAN操作"><a href="#VLAN操作" class="headerlink" title="VLAN操作"></a>VLAN操作</h3><p> sys 进入系统模式</p>
+<p> 新建vlan</p>
+<p> 分配vlan到端口：</p>
+<ul>
+<li><p>第一种</p>
+<p>修改端口类型 改为access  :  port link-type access<br>分配端口vlan            :  port default vlan 100</p>
+</li>
+<li><p>第二种</p>
+<p>vlan 100<br>port ethernet 0/1   </p>
+</li>
+</ul>
+<p>进入vlanif接口（三层）分配ip</p>
+<pre><code>ip address 10.1.1.1 24
+</code></pre><h3 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h3><ul>
+<li><p>新建loopback口  </p>
+<pre><code>loopback0
+</code></pre></li>
+<li><p>配置router id</p>
+<pre><code>router id + ip地址（loopback地址）
+</code></pre></li>
+<li><p>新建ospf进程</p>
+<pre><code>ospf + 进程号
+</code></pre></li>
+<li><p>创建area</p>
+<pre><code>area + area号
+</code></pre></li>
+<li><p>network宣告  </p>
+<pre><code>network + 路由 + 反掩码
+</code></pre></li>
+<li><p>打印ospf信息</p>
+<pre><code>display ospf peer 
+</code></pre></li>
+</ul>
+<h3 id="VLAN"><a href="#VLAN" class="headerlink" title="VLAN"></a>VLAN</h3><p>vlan 隔离了二层广播域</p>
+<p>vlan头部</p>
+<p>目的地址 源地址 tag信息 + 报文</p>
+<p>基于端口的vlan</p>
+<p>端口类型 Access 、 Trunk 、 Hybrid端口</p>
+<p>Access类型端口只属于一个VLAN，有pvid（多面向主机）</p>
+<p>Trunk允许多个VLAN通过 （多面向交换机、路由器）</p>
+<p>VLAN间通信方式:单臂路由、三层交换机</p>
+<hr>
+<h3 id="单臂路由"><a href="#单臂路由" class="headerlink" title="单臂路由"></a>单臂路由</h3><pre><code>interface ethernet 0/1 .1   建立子接口
+control-vid 100 dot1q-termination   
+控制vlan  vlan编号100  协议
+
+dot1q termination vid 100
+
+arp broadcast enable
+ip address 192.168.10.1 255.255.255.0  分配网关
+</code></pre><h3 id="路由聚合"><a href="#路由聚合" class="headerlink" title="路由聚合"></a>路由聚合</h3><p>创建eth-trunk</p>
+<pre><code>interface Eth-Trunk1 
+</code></pre><p>进入interface 0/0/2并将其加入trunk1</p>
+<pre><code>interface G 0/0/2    
+eth-trunk 1      加入trunk1
+
+interface G 0/0/3
+eth-trunk 1 
+</code></pre><p>进入eth-trunk1接口进行配置</p>
+<pre><code>interface eth-trunk 1  
+port link-type trunk   端口类型为trunk
+port trunk allow-pass vlan 30
+     配置trunk允许vlan30 通过
+</code></pre><h3 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h3><pre><code>配置静态路由
+ip route-static 192.168.1.10 24 10.1.1.2
+                目的ip地址  子网掩码    下一跳地址
+或
+ip route-static 192.168.1.10 24 Ethernet 0/0/0
+                                下一跳出口
+打印路由表信息
+display ip routing-table
+</code></pre>
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/04/20/华为网技相关eNSP学习笔记/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/03/29/大数据学习笔记/">
+                            大数据学习笔记
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-03-29T21:17:29+08:00">
+	
+		    3月 29, 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>Hbase<br>基于google BigTable<br>基于Apache Hadoop的</p>
+<p>Hbase基本架构<br>Hmaster</p>
+<p>HRegionServer</p>
+<ul>
+<li>Hlog</li>
+<li>BlockCache</li>
+<li>HRegion</li>
+<li>MemStore</li>
+</ul>
+<p>Region 根据字典序<br>Region是Hbase调度的基本单位，被分配在HRegionServer<br>达到阈值，split再次分割，重分配，上线<br>Region数目最好不超过100 </p>
+<p>依赖Zookeeper</p>
+<p>公式 (regionserver * 0.4）/max<br>避免写入磁盘 </p>
+<p>上线：</p>
+<ul>
+<li>assign</li>
+<li>update meta  </li>
+<li>State Treansition</li>
+</ul>
+<p>meta表   ？？<br>meta表的地址存放在zookeeper</p>
+<p>一个Region  Store   Store file</p>
+<p>PUT upset  update+insert<br>DELETE 假删除</p>
+<p>GET<br>SCAN</p>
+<p>LSM ？？？</p>
+<p>内存中</p>
+<p>达到一定数量后异步磁盘</p>
+<p>Compaction  StoreFile合并</p>
+<p>minor compaction 合并部分<br>major compaction  合并所有 delete marker会被删除</p>
+<p>HBASE</p>
+<p>高可靠性、高可用性<br>不适合场景</p>
+<ul>
+<li>非关系型数据库、高度耦合的数据</li>
+<li>事务处理</li>
+<li>非主键索引</li>
+<li>大对象</li>
+<li>主键递增</li>
+</ul>
+<p>新特性：<br>multiWAL<br>ZK-less assignment<br>multi-tenancy<br>Read replica</p>
+<p>HDFS<br>Erasure Coding</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/03/29/大数据学习笔记/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/03/23/JAVA内存模型JMM/">
+                            Java内存模型
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-03-23T21:17:29+08:00">
+	
+		    3月 23, 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>JAVA内存模型</p>
+<p>JMM为JVM一部分</p>
+<p>并发编程 – 两个关键问题：线程之间的通信和同步</p>
+<p>线程间通信 –共享内存 和 消息传递</p>
+<p>共享对象：隐式通信 – 如共享对象</p>
+<p>消息传递： 显示通信  – wait()和notify()</p>
+<p>内存间交互操作</p>
+<ul>
+<li>Lock：锁定，作用于主内存的变量，他把变量标识为一个线程独占的状态。</li>
+<li>Unlock: 解锁，作用于主内存的变量，把一个变量的值从主内存读取到线程工作内存中，以便随后的load动作使用</li>
+<li>read：读取，作用于主内存的变量，把一个处于锁定状态的变量释放出来，释放后的变量才可以被其他线程锁定</li>
+<li>load：载入，作用于工作内存的变量，把read操作从主内存中得到的变量值放入工作内存的变量副本中</li>
+<li>use：使用，作用于工作内存的变量，把工作内存中一个变量的值传递给执行引擎，每当虚拟机遇到一个需要使用的变量的值的字节码指令将会之星这个操作</li>
+<li>assign：赋值，作用于工作内存的变量，把从执行引擎收到的值赋给工作内存的变量，每当虚拟机遇到一个给变量赋值的字节码指令时执行这个操作。</li>
+<li>store：存储，作用于工作内存的变量，把工作内存中的一个变量的值赋给主内存中，以便随后的write操作使用</li>
+<li>write：写入，作用于主内存的变量，把store操作从工作内存中得到的变量的值放入主内存的变量之中。</li>
+</ul>
+<h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><ul>
+<li><p>程序计数器</p>
+<p>  每个线程有要有一个独立的程序计数器，记录下一条要运行的指令。线程私有的内存区域。如果执行的是JAVA方法，计数器记录正在执行的java字节码地址，如果执行的是native方法，则计数器为空。</p>
+</li>
+<li><p>虚拟机栈</p>
+<p>  线程私有的，与线程在同一时间创建。管理JAVA方法执行的内存模型。</p>
+</li>
+<li><p>本地方法区</p>
+<p>  和虚拟机栈功能相似，但管理的不是JAVA方法，是本地方法</p>
+</li>
+<li><p>方法区</p>
+<p>  线程共享的，用于存放被虚拟机加载的类的元数据信息：如常量、静态变量、即时编译器编译后的代码。也称为永久代。</p>
+</li>
+<li><p>JAVA 堆</p>
+<p>  线程共享的，存放所有对象实例和数组。垃圾回收的主要区域。可以分为新生代和老年代(tenured)。</p>
+</li>
+</ul>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/03/23/JAVA内存模型JMM/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/03/23/Java基础整理篇/">
+                            Java基础整理篇
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-03-23T21:17:29+08:00">
+	
+		    3月 23, 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="Java基础整理"><a href="#Java基础整理" class="headerlink" title="Java基础整理"></a>Java基础整理</h1><h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><p>java所有类的基类是Object类</p>
+<p>方法列表</p>
+<pre><code>构造方法Object()
+finalize()方法 : 垃圾回收
+clone() ： native方法，实现对象的拷贝而不是new
+equals(): 判断相等
+getClass()：反回包名+类名  用于java反射机制
+hashCode() 用来获取对象的hash值
+toString() ：返回一个String标识自己，（一般重写，好像是序列化需要）
+notify()  : 多线程相关 ，唤醒一个线程
+notifyAll()
+wait()：使当前进程进入等待状态
+wait(long)
+wait(long, int)
+</code></pre><h2 id="多线程相关"><a href="#多线程相关" class="headerlink" title="多线程相关"></a>多线程相关</h2><p>实现方法</p>
+<pre><code>1：继承Thread类
+    需要重写run方法
+    PS ： 运行run()只是指执行一次该方法，和其他方法运行一样
+        而start()方法是将该进程变为就绪状态 --即加入线程队列
+2：实现Runnable接，口
+    实现run函数，
+    Thread(Runnable)创建Thread对象
+    start()
+3：进程池
+    new ThreadPoolExecutor(corePoolSize, maximumPoolSize,
+        keepAliveTime, milliseconds,runnableTaskQueue, threadFactory,handler);
+    首先线程池判断 __基本线程池__ 是否已满？没满，创建一个工作线程来执行任务。满了，则进入下个流程。
+    其次线程池判断 __ 工作队列 __ 是否已满？没满，则将新提交的任务存储在工作队列里。满了，则进入下个流程。
+    最后线程池判断整个__线程池__是否已满？没满，则创建一个新的工作线程来执行任务，满了，则交给饱和策略来处理这个任务。
+</code></pre><h2 id="异常Exception"><a href="#异常Exception" class="headerlink" title="异常Exception"></a>异常Exception</h2><ul>
+<li><p>Error和Exception</p>
+<p>  Throwable 代表是可抛出的.<br>  throws和throw的区别</p>
+<ul>
+<li><p>Error代表的是严重错误,这种错误程序员无法进行处理, 例如操作系统崩溃,jvm出错, 动态链接库失败等.Error并不是异常,不是本文的重点.</p>
+</li>
+<li><p>Exception代表的就是异常了.它下面很多派生类,其中它的派生类也分两种, </p>
+<ul>
+<li><p>一种是RuntimeException(运行时异常)</p>
+<ul>
+<li>RuntimeException  :包括除数为0, 数组下标超界等. 运行时异常的派生类有很多, 其产生频率较高.  它的派生类可以由程序处理或者抛给(throw) 给jvm处理. 例如上面的例子就是抛给了jvm处理, jvm把程序中断执行, 并把错误信息输出到终端上<br>类转换异常等，编译可以通过，虚拟机运行时抛出异常</li>
+</ul>
+</li>
+<li><p>其他的都是非运行时异常</p>
+<ul>
+<li>非RuntimeExcption :这种异常属于Excepion的派生类(上面红色的xxx), 但是不是RuntimeException的派生类,  这种异常必须由程序员手动处理,否则不通过编译.    编译异常、自定义的、IOException、SQLException</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Exception</p>
+<p>  参考博客 <a href="https://www.cnblogs.com/cvst/p/5822373.html" target="_blank" rel="external">https://www.cnblogs.com/cvst/p/5822373.html</a></p>
+<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>JAVA序列化，java是支持对象文件读写的，但那需要对其进行序列化(可以理解为规范化)</p>
+</li>
+</ul>
+<p>实现：<br>实现Serializable接口</p>
+<p>作用或原理<br>jre中规定 如果被写对象的类型是String，或数组，或Enum，或Serializable，那么就可以对该对象进行序列化，否则将抛出NotSerializableException。</p>
+<p>隐私数据不希望被序列化</p>
+<p>使用默认序列化不符合要求，重写toString（）方法，或者使用transient关键字<br>    参考博客 <a href="http://www.blogjava.net/jiangshachina/archive/2012/02/13/369898.html" target="_blank" rel="external">http://www.blogjava.net/jiangshachina/archive/2012/02/13/369898.html</a></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/03/23/Java基础整理篇/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2018/03/23/Java研发工程师面试之路/">
                             Java研发工程师面试之路
                         </a>
@@ -207,7 +626,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-03-23T19:57:34+08:00">
 	
-		    23 3月 2018
+		    3月 23, 2018
     	
     </time>
     
@@ -230,7 +649,12 @@
 }
 </code></pre><p>一个数学题，没计算说了个错答案，后来计算之后给了正确答案（有点紧张、当时很不确定）</p>
 <p>还没出结果，怀着侥幸心理愿过。</p>
-<hr>
+<p>更新： 3-27 官网上信息已更新为rejected  阿里算是无缘了。</p>
+<p>java面试题：<br>    java为什么是平台无关的？  （java虚拟机，.class字节码文件。半编译半解释）<br>    .class文件和.java文件的区别<br>    .class文件执行的过程（扯了半天没说对）<br>    classpath<br>    java异常<br>    面向对象语言的特点（继承、多态、封装）  多态 （编译时多态：函数重载  运行时多态：继承和接口）</p>
+<pre><code>树的遍历
+hash  hash冲突处理  （开放寻址法、再哈希法、链地址法、公共溢出区）
+tcp三次握手过程   （为什么非得三次握手      
+</code></pre><hr>
 <h1 id="momemta"><a href="#momemta" class="headerlink" title="momemta"></a>momemta</h1><h2 id="一面-1"><a href="#一面-1" class="headerlink" title="一面"></a>一面</h2><p>一面也是面了两个人。</p>
 <p>第一个面试官是做C++研发的，聊了点简历上的项目，知道我C++工程方面没接触过之后放弃了给我的代码题。</p>
 <p>第二个面试官是做视觉算法的，聊了点后，开始给我出算法题。</p>
@@ -246,6 +670,41 @@
 <p>其实最后两道题都是迷迷糊糊的没给出实际的正解，大概是沟通的不到位，可能误解了面试官的意思。总的来说面试官真的很和善的，没有太过于紧张。之后就是等结果了。</p>
 <p>就感觉momemta的面试官问的问题都给出了实际的应用场景，是属于需要解决的实际需求，然后自己也没给出实际的正解，第二道题满脑子想的全是骚骚的数学方法，醉醉的。后来自己都说不下去了。</p>
 <p>最近等面试打乱了自己的复习计划，有点累，有点忐忑。<br>可能这些就是找工作的痛吧。<br>如果这两家没过，自己就像大面积投了，然后希望能有个好的结果吧。</p>
+<p>更新于4.22</p>
+<h2 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h2><h3 id="一面-2"><a href="#一面-2" class="headerlink" title="一面"></a>一面</h3><p>昨天面了百度的一面，记录一下。</p>
+<pre><code>c和c++部分：
+特地复习了一下c++，可能我不是特别熟悉c++问的也比较简单
+    虚函数和全虚函数
+    引用和指针的区别（引用必须初始化，引用是别名）
+    菱形继承了解吗（no
+    malloc、free和new、delete区别
+    static应用场景
+网络部分：
+    网络七层模型以及每层的协议举例
+    TCP三次握手、四次挥手的状态转移（挥手的状态记得不是特别清楚。TIME_WAIT的2MSL当初记成2ms。。汗，当时尴尬的一批）
+    写过RPC吗？（没有
+OS部分：
+    进程和线程通信的方式（答得不是很好，完全是想到啥说啥）
+算法题：
+    50亿数据找中位数（答得不是很好，给了提示后（按位），杂七杂八说了个大概，但当时说的不对，复杂度常数级高了不少），浪费了不少时间
+    编程题：一道简单的贪心策略题，更重思路，一开始想法有缺陷，后来n方最后一秒过了（最后的心情……连问的问题都。。）
+</code></pre><p>等消息中……待更</p>
+<h2 id="华为"><a href="#华为" class="headerlink" title="华为"></a>华为</h2><h3 id="技术面"><a href="#技术面" class="headerlink" title="技术面"></a>技术面</h3><pre><code>操作系统部分：
+    几大部分（答得杂七杂八）
+    进程和线程（区别、通信方式、）
+    实模式和保护模式
+
+网络：
+    七层模型、每层协议
+    http长连接和短连接区别、应用场景（区别是http头部connection，场景猜了一点
+
+java部分：
+    排序（实现比较接口
+    线程池了解吗（听过，没用过
+</code></pre><p>技术部分是这些，还有比赛、平常总结习惯、项目等（考研与否</p>
+<p>感觉面试官人挺好，但最后一面完了被告知今天结束了，很尴尬。答得挺好的啊，最后朋友说是我说的考研没想清楚，没有明确回答不考研）。。</p>
+<p>然后等待的时候也发生了点插曲，不知道是性格测试出了问题还是我的技面太差。</p>
+<p>本来听同学说华为面试不怎么刷人的，忽然自己就被刷了，真的是贼郁闷。不过也学到了不少东西，第一次现场面，没出什么大意外，也算增强了信心吧。</p>
 
                     
                         
@@ -253,54 +712,7 @@
                     
                         <p>
                             <a href="/2018/03/23/Java研发工程师面试之路/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/03/14/JAVA内存模型JMM/">
-                            (kein Titel)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-03-14T22:43:46+08:00">
-	
-		    14 3月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>JAVA内存模型</p>
-<p>JMM为JVM一部分</p>
-<p>并发编程 – 两个关键问题：线程之间的通信和同步</p>
-<p>线程间通信 –共享内存 和 消息传递</p>
-<p>共享对象：隐式通信 – 如共享对象</p>
-<p>消息传递： 显示通信  – wait()和notify()</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/03/14/JAVA内存模型JMM/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -325,7 +737,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-02-26T10:01:09+08:00">
 	
-		    26 2月 2018
+		    2月 26, 2018
     	
     </time>
     
@@ -346,7 +758,7 @@
                     
                         <p>
                             <a href="/2018/02/26/js学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -371,7 +783,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-02-25T10:39:45+08:00">
 	
-		    25 2月 2018
+		    2月 25, 2018
     	
     </time>
     
@@ -396,7 +808,7 @@
                     
                         <p>
                             <a href="/2018/02/25/实习总结/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -421,7 +833,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-01-15T20:55:34+08:00">
 	
-		    15 1月 2018
+		    1月 15, 2018
     	
     </time>
     
@@ -684,7 +1096,7 @@
                     
                         <p>
                             <a href="/2018/01/15/实习记录-2018寒假/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -709,7 +1121,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-01-12T23:13:00+08:00">
 	
-		    12 1月 2018
+		    1月 12, 2018
     	
     </time>
     
@@ -796,96 +1208,7 @@ C类192.168.0.0--192.168.255.255
                     
                         <p>
                             <a href="/2018/01/12/计网复习摘要/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/01/12/Android大作业-移动电子字典设计/">
-                            Android大作业--移动电子字典设计
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-01-12T22:51:59+08:00">
-	
-		    12 1月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="Android课大作业"><a href="#Android课大作业" class="headerlink" title="Android课大作业"></a>Android课大作业</h2><p>只是个大作业，不是项目，属于练习性质，错误或者设计缺陷欢迎大家批评指正。</p>
-<h2 id="同组成员"><a href="#同组成员" class="headerlink" title="同组成员"></a>同组成员</h2><p>三名Android课同学。<br>负责部分：</p>
-<h2 id="成品截图"><a href="#成品截图" class="headerlink" title="成品截图"></a>成品截图</h2><p>占坑。。。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/01/12/Android大作业-移动电子字典设计/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/01/12/flag：定时更新blog/">
-                            flag：定时更新blog
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-01-12T22:51:03+08:00">
-	
-		    12 1月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="永不倒的flag"><a href="#永不倒的flag" class="headerlink" title="永不倒的flag"></a>永不倒的flag</h2><p>&emsp;&emsp;今天第一次坐飞机，其实感触挺多的，周马劳碌的一天，不过终于还是完成了预期的目标，也没有发生什么意外，挺不错的。</p>
-<p>&emsp;&emsp;接下来就是我实习的一个月了，希望这一个月里，我能够学到些东西，收获自己满意的第一份实习答卷。<br>下面就是flag：定时更新blog，最近在补之前欠下的一系列报告的blog，希望能把我自己的博客先填满一页。</p>
-<p>&emsp;&emsp;over!</p>
-<p>&emsp;&emsp;愿flag不倒。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/01/12/flag：定时更新blog/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -899,7 +1222,14 @@ C类192.168.0.0--192.168.255.255
     <ul class="pagination">
         
         
-        <li class="pagination-number">Seite 1 von 1</li>
+        <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="/all-archives/2018/page/2/">
+                    <span>OLDER POSTS</span>
+                <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+        </li>
+        
+        <li class="pagination-number">page 1 of 2</li>
     </ul>
 </div>
 
@@ -929,7 +1259,7 @@ C类192.168.0.0--192.168.255.255
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Abner</h4>
         
@@ -970,7 +1300,7 @@ C类192.168.0.0--192.168.255.255
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">keinen Beitrag gefunden</div>
+            <div class="no-result text-color-light text-center">no post found</div>
             <div class="results">
                 
                 <div class="media">
@@ -1167,10 +1497,10 @@ C类192.168.0.0--192.168.255.255
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="keinen Beitrag gefunden"
-                data-message-one="1 Beitrag gefunden"
-                data-message-other="{n} Einträge gefunden">
-                20 Einträge gefunden
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                23 posts found
             </p>
         </div>
     </div>

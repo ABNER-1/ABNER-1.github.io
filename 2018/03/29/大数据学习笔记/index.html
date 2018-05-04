@@ -6,24 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>Hello,Abner - Abner&#39;s blog</title>
+    <title>大数据学习笔记 - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
         <link rel="icon" href="http://yoursite.com/assets/images/favicon.jpg">
     
     
-    <meta name="description" content="This is my first blog on Github Pages. May I have a good travel here.">
-<meta name="keywords" content="随笔">
+    <meta name="description" content="Hbase基于google BigTable基于Apache Hadoop的 Hbase基本架构Hmaster HRegionServer  Hlog BlockCache HRegion MemStore  Region 根据字典序Region是Hbase调度的基本单位，被分配在HRegionServer达到阈值，split再次分割，重分配，上线Region数目最好不超过100  依赖Zooke">
+<meta name="keywords" content="学习笔记">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Hello,Abner">
-<meta property="og:url" content="http://yoursite.com/2017/07/09/Hello-Abner/index.html">
+<meta property="og:title" content="大数据学习笔记">
+<meta property="og:url" content="http://yoursite.com/2018/03/29/大数据学习笔记/index.html">
 <meta property="og:site_name" content="Abner&#39;s blog">
-<meta property="og:description" content="This is my first blog on Github Pages. May I have a good travel here.">
-<meta property="og:updated_time" content="2017-07-09T16:34:09.871Z">
+<meta property="og:description" content="Hbase基于google BigTable基于Apache Hadoop的 Hbase基本架构Hmaster HRegionServer  Hlog BlockCache HRegion MemStore  Region 根据字典序Region是Hbase调度的基本单位，被分配在HRegionServer达到阈值，split再次分割，重分配，上线Region数目最好不超过100  依赖Zooke">
+<meta property="og:updated_time" content="2018-05-04T14:12:05.700Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello,Abner">
-<meta name="twitter:description" content="This is my first blog on Github Pages. May I have a good travel here.">
+<meta name="twitter:title" content="大数据学习笔记">
+<meta name="twitter:description" content="Hbase基于google BigTable基于Apache Hadoop的 Hbase基本架构Hmaster HRegionServer  Hlog BlockCache HRegion MemStore  Region 根据字典序Region是Hbase调度的基本单位，被分配在HRegionServer达到阈值，split再次分割，重分配，上线Region数目最好不超过100  依赖Zooke">
     
     
         
@@ -198,14 +198,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Hello,Abner
+            大数据学习笔记
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2017-07-09T23:59:38+08:00">
+    <time itemprop="datePublished" datetime="2018-03-29T21:17:29+08:00">
 	
-		    7月 09, 2017
+		    3月 29, 2018
     	
     </time>
     
@@ -216,8 +216,44 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>This is my first blog on Github Pages.</p>
-<p>May I have a good travel here.</p>
+            <p>Hbase<br>基于google BigTable<br>基于Apache Hadoop的</p>
+<p>Hbase基本架构<br>Hmaster</p>
+<p>HRegionServer</p>
+<ul>
+<li>Hlog</li>
+<li>BlockCache</li>
+<li>HRegion</li>
+<li>MemStore</li>
+</ul>
+<p>Region 根据字典序<br>Region是Hbase调度的基本单位，被分配在HRegionServer<br>达到阈值，split再次分割，重分配，上线<br>Region数目最好不超过100 </p>
+<p>依赖Zookeeper</p>
+<p>公式 (regionserver * 0.4）/max<br>避免写入磁盘 </p>
+<p>上线：</p>
+<ul>
+<li>assign</li>
+<li>update meta  </li>
+<li>State Treansition</li>
+</ul>
+<p>meta表   ？？<br>meta表的地址存放在zookeeper</p>
+<p>一个Region  Store   Store file</p>
+<p>PUT upset  update+insert<br>DELETE 假删除</p>
+<p>GET<br>SCAN</p>
+<p>LSM ？？？</p>
+<p>内存中</p>
+<p>达到一定数量后异步磁盘</p>
+<p>Compaction  StoreFile合并</p>
+<p>minor compaction 合并部分<br>major compaction  合并所有 delete marker会被删除</p>
+<p>HBASE</p>
+<p>高可靠性、高可用性<br>不适合场景</p>
+<ul>
+<li>非关系型数据库、高度耦合的数据</li>
+<li>事务处理</li>
+<li>非主键索引</li>
+<li>大对象</li>
+<li>主键递增</li>
+</ul>
+<p>新特性：<br>multiWAL<br>ZK-less assignment<br>multi-tenancy<br>Read replica</p>
+<p>HDFS<br>Erasure Coding</p>
 
             
         </div>
@@ -227,7 +263,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/all-tags/随笔/">随笔</a>
+    <a class="tag tag--primary tag--small t-link" href="/all-tags/学习笔记/">学习笔记</a>
 
             </div>
         
@@ -237,7 +273,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/14/写于大二小学期课程最后一天/"  data-tooltip="写于大二小学期课程最后一天">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/04/20/华为网技相关eNSP学习笔记/"  data-tooltip="eNSP学习笔记">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -245,7 +281,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/23/JAVA内存模型JMM/" data-tooltip="Java内存模型">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -263,7 +299,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/29/大数据学习笔记/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -271,7 +307,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/03/29/大数据学习笔记/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -279,7 +315,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/29/大数据学习笔记/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -319,7 +355,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/14/写于大二小学期课程最后一天/"  data-tooltip="写于大二小学期课程最后一天">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/04/20/华为网技相关eNSP学习笔记/"  data-tooltip="eNSP学习笔记">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -327,7 +363,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/23/JAVA内存模型JMM/" data-tooltip="Java内存模型">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -345,7 +381,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/29/大数据学习笔记/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -353,7 +389,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/03/29/大数据学习笔记/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -361,7 +397,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/29/大数据学习笔记/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -386,7 +422,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/29/大数据学习笔记/">
                     <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
                 </a>
             </li>
@@ -394,7 +430,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/03/29/大数据学习笔记/">
                     <i class="fa fa-twitter"></i><span>Share on Twitter</span>
                 </a>
             </li>
@@ -402,7 +438,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/29/大数据学习笔记/">
                     <i class="fa fa-google-plus"></i><span>Share on Google+</span>
                 </a>
             </li>

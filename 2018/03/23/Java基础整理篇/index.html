@@ -6,24 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>Hello,Abner - Abner&#39;s blog</title>
+    <title>Java基础整理篇 - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
         <link rel="icon" href="http://yoursite.com/assets/images/favicon.jpg">
     
     
-    <meta name="description" content="This is my first blog on Github Pages. May I have a good travel here.">
-<meta name="keywords" content="随笔">
+    <meta name="description" content="Java基础整理Object类java所有类的基类是Object类 方法列表 构造方法Object() finalize()方法 : 垃圾回收 clone() ： native方法，实现对象的拷贝而不是new equals(): 判断相等 getClass()：反回包名+类名  用于java反射机制 hashCode() 用来获取对象的hash值 toString() ：返回一个String标识自">
+<meta name="keywords" content="学习笔记">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Hello,Abner">
-<meta property="og:url" content="http://yoursite.com/2017/07/09/Hello-Abner/index.html">
+<meta property="og:title" content="Java基础整理篇">
+<meta property="og:url" content="http://yoursite.com/2018/03/23/Java基础整理篇/index.html">
 <meta property="og:site_name" content="Abner&#39;s blog">
-<meta property="og:description" content="This is my first blog on Github Pages. May I have a good travel here.">
-<meta property="og:updated_time" content="2017-07-09T16:34:09.871Z">
+<meta property="og:description" content="Java基础整理Object类java所有类的基类是Object类 方法列表 构造方法Object() finalize()方法 : 垃圾回收 clone() ： native方法，实现对象的拷贝而不是new equals(): 判断相等 getClass()：反回包名+类名  用于java反射机制 hashCode() 用来获取对象的hash值 toString() ：返回一个String标识自">
+<meta property="og:updated_time" content="2018-04-13T08:27:21.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello,Abner">
-<meta name="twitter:description" content="This is my first blog on Github Pages. May I have a good travel here.">
+<meta name="twitter:title" content="Java基础整理篇">
+<meta name="twitter:description" content="Java基础整理Object类java所有类的基类是Object类 方法列表 构造方法Object() finalize()方法 : 垃圾回收 clone() ： native方法，实现对象的拷贝而不是new equals(): 判断相等 getClass()：反回包名+类名  用于java反射机制 hashCode() 用来获取对象的hash值 toString() ：返回一个String标识自">
     
     
         
@@ -198,14 +198,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            Hello,Abner
+            Java基础整理篇
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2017-07-09T23:59:38+08:00">
+    <time itemprop="datePublished" datetime="2018-03-23T21:17:29+08:00">
 	
-		    7月 09, 2017
+		    3月 23, 2018
     	
     </time>
     
@@ -216,8 +216,66 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <p>This is my first blog on Github Pages.</p>
-<p>May I have a good travel here.</p>
+            <h1 id="Java基础整理"><a href="#Java基础整理" class="headerlink" title="Java基础整理"></a>Java基础整理</h1><h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><p>java所有类的基类是Object类</p>
+<p>方法列表</p>
+<pre><code>构造方法Object()
+finalize()方法 : 垃圾回收
+clone() ： native方法，实现对象的拷贝而不是new
+equals(): 判断相等
+getClass()：反回包名+类名  用于java反射机制
+hashCode() 用来获取对象的hash值
+toString() ：返回一个String标识自己，（一般重写，好像是序列化需要）
+notify()  : 多线程相关 ，唤醒一个线程
+notifyAll()
+wait()：使当前进程进入等待状态
+wait(long)
+wait(long, int)
+</code></pre><h2 id="多线程相关"><a href="#多线程相关" class="headerlink" title="多线程相关"></a>多线程相关</h2><p>实现方法</p>
+<pre><code>1：继承Thread类
+    需要重写run方法
+    PS ： 运行run()只是指执行一次该方法，和其他方法运行一样
+        而start()方法是将该进程变为就绪状态 --即加入线程队列
+2：实现Runnable接，口
+    实现run函数，
+    Thread(Runnable)创建Thread对象
+    start()
+3：进程池
+    new ThreadPoolExecutor(corePoolSize, maximumPoolSize,
+        keepAliveTime, milliseconds,runnableTaskQueue, threadFactory,handler);
+    首先线程池判断 __基本线程池__ 是否已满？没满，创建一个工作线程来执行任务。满了，则进入下个流程。
+    其次线程池判断 __ 工作队列 __ 是否已满？没满，则将新提交的任务存储在工作队列里。满了，则进入下个流程。
+    最后线程池判断整个__线程池__是否已满？没满，则创建一个新的工作线程来执行任务，满了，则交给饱和策略来处理这个任务。
+</code></pre><h2 id="异常Exception"><a href="#异常Exception" class="headerlink" title="异常Exception"></a>异常Exception</h2><ul>
+<li><p>Error和Exception</p>
+<p>  Throwable 代表是可抛出的.<br>  throws和throw的区别</p>
+<ul>
+<li><p>Error代表的是严重错误,这种错误程序员无法进行处理, 例如操作系统崩溃,jvm出错, 动态链接库失败等.Error并不是异常,不是本文的重点.</p>
+</li>
+<li><p>Exception代表的就是异常了.它下面很多派生类,其中它的派生类也分两种, </p>
+<ul>
+<li><p>一种是RuntimeException(运行时异常)</p>
+<ul>
+<li>RuntimeException  :包括除数为0, 数组下标超界等. 运行时异常的派生类有很多, 其产生频率较高.  它的派生类可以由程序处理或者抛给(throw) 给jvm处理. 例如上面的例子就是抛给了jvm处理, jvm把程序中断执行, 并把错误信息输出到终端上<br>类转换异常等，编译可以通过，虚拟机运行时抛出异常</li>
+</ul>
+</li>
+<li><p>其他的都是非运行时异常</p>
+<ul>
+<li>非RuntimeExcption :这种异常属于Excepion的派生类(上面红色的xxx), 但是不是RuntimeException的派生类,  这种异常必须由程序员手动处理,否则不通过编译.    编译异常、自定义的、IOException、SQLException</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Exception</p>
+<p>  参考博客 <a href="https://www.cnblogs.com/cvst/p/5822373.html" target="_blank" rel="external">https://www.cnblogs.com/cvst/p/5822373.html</a></p>
+<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>JAVA序列化，java是支持对象文件读写的，但那需要对其进行序列化(可以理解为规范化)</p>
+</li>
+</ul>
+<p>实现：<br>实现Serializable接口</p>
+<p>作用或原理<br>jre中规定 如果被写对象的类型是String，或数组，或Enum，或Serializable，那么就可以对该对象进行序列化，否则将抛出NotSerializableException。</p>
+<p>隐私数据不希望被序列化</p>
+<p>使用默认序列化不符合要求，重写toString（）方法，或者使用transient关键字<br>    参考博客 <a href="http://www.blogjava.net/jiangshachina/archive/2012/02/13/369898.html" target="_blank" rel="external">http://www.blogjava.net/jiangshachina/archive/2012/02/13/369898.html</a></p>
 
             
         </div>
@@ -227,7 +285,7 @@
             <div class="post-footer-tags">
                 <span class="text-color-light text-small">TAGGED IN</span><br/>
                 
-    <a class="tag tag--primary tag--small t-link" href="/all-tags/随笔/">随笔</a>
+    <a class="tag tag--primary tag--small t-link" href="/all-tags/学习笔记/">学习笔记</a>
 
             </div>
         
@@ -237,7 +295,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/14/写于大二小学期课程最后一天/"  data-tooltip="写于大二小学期课程最后一天">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/23/JAVA内存模型JMM/"  data-tooltip="Java内存模型">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -245,7 +303,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/23/Java研发工程师面试之路/" data-tooltip="Java研发工程师面试之路">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -263,7 +321,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/23/Java基础整理篇/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -271,7 +329,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/03/23/Java基础整理篇/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -279,7 +337,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/23/Java基础整理篇/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -319,7 +377,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2017/07/14/写于大二小学期课程最后一天/"  data-tooltip="写于大二小学期课程最后一天">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/23/JAVA内存模型JMM/"  data-tooltip="Java内存模型">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">PREVIOUS</span>
@@ -327,7 +385,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--disabled">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/03/23/Java研发工程师面试之路/" data-tooltip="Java研发工程师面试之路">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NEXT</span>
                     <i class="fa fa-angle-right"></i>
@@ -345,7 +403,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/23/Java基础整理篇/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -353,7 +411,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/03/23/Java基础整理篇/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -361,7 +419,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/23/Java基础整理篇/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -386,7 +444,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/23/Java基础整理篇/">
                     <i class="fa fa-facebook-official"></i><span>Share on Facebook</span>
                 </a>
             </li>
@@ -394,7 +452,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/03/23/Java基础整理篇/">
                     <i class="fa fa-twitter"></i><span>Share on Twitter</span>
                 </a>
             </li>
@@ -402,7 +460,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2017/07/09/Hello-Abner/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/23/Java基础整理篇/">
                     <i class="fa fa-google-plus"></i><span>Share on Google+</span>
                 </a>
             </li>
