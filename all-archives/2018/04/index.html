@@ -258,15 +258,21 @@
 <p>Trunk允许多个VLAN通过 （多面向交换机、路由器）</p>
 <p>VLAN间通信方式:单臂路由、三层交换机</p>
 <hr>
-<h3 id="单臂路由"><a href="#单臂路由" class="headerlink" title="单臂路由"></a>单臂路由</h3><pre><code>interface ethernet 0/1 .1   建立子接口
+<h3 id="单臂路由"><a href="#单臂路由" class="headerlink" title="单臂路由"></a>单臂路由</h3><p>交换机上配置trunk端口：</p>
+<pre><code>进入对应端口
+port link-type trunk
+port trunk allow-pass vlan all
+</code></pre><p>路由器上：</p>
+<pre><code>interface ethernet 0/1.1   建立子接口
 control-vid 100 dot1q-termination   
-控制vlan  vlan编号100  协议
+控制vlan  编号100  协议
 
 dot1q termination vid 100
-
+                  vlan编号
 arp broadcast enable
 ip address 192.168.10.1 255.255.255.0  分配网关
-</code></pre><h3 id="路由聚合"><a href="#路由聚合" class="headerlink" title="路由聚合"></a>路由聚合</h3><p>创建eth-trunk</p>
+</code></pre><h3 id="端口聚合"><a href="#端口聚合" class="headerlink" title="端口聚合"></a>端口聚合</h3><p>用于交换机之间，增加带宽、冗余的好处等</p>
+<p>创建eth-trunk</p>
 <pre><code>interface Eth-Trunk1 
 </code></pre><p>进入interface 0/0/2并将其加入trunk1</p>
 <pre><code>interface G 0/0/2    
@@ -579,7 +585,7 @@ display ip routing-table
                 data-message-zero="keinen Beitrag gefunden"
                 data-message-one="1 Beitrag gefunden"
                 data-message-other="{n} Einträge gefunden">
-                23 Einträge gefunden
+                26 Einträge gefunden
             </p>
         </div>
     </div>

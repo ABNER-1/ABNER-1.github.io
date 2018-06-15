@@ -198,6 +198,425 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2017/08/07/2017百度之星解题报告/">
+                            2017百度之星解题报告
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-08-07T21:57:38+08:00">
+	
+		    07 8月 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="2017百度之星资格赛解题报告"><a href="#2017百度之星资格赛解题报告" class="headerlink" title="2017百度之星资格赛解题报告"></a>2017百度之星资格赛解题报告</h1><p>这次的题目比我预想中要难一点，毕竟只是一个资格赛。当然，水题还是有的，AC一道就有资格进初赛还是可以的。</p>
+<p>不多说，先上链接<a href="http://bestcoder.hdu.edu.cn/contests/contest_show.php?cid=774" target="_blank" rel="external">2017百度之星资格赛</a></p>
+<hr>
+<h2 id="C题"><a href="#C题" class="headerlink" title="C题"></a>C题</h2><p>当然是水题优先啦。<br>从数据范围可以看出，这是一道极为暴力的dp，参考完全背包模型，最多就是需要dp一下11个防御值时候的情况，O(b<em>a</em>m)的复杂度，大概是10^7，妥妥的过。</p>
+<p>AC代码：</p>
+<pre><code> /*
+    time:234 MS 
+    Memory:3208 K
+ */ 
+#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+
+int n,m;
+LL INF;
+vector&lt;pair&lt;int,int&gt; &gt;v;
+LL dp[12][1005];
+vector&lt;pair&lt;int,int &gt; &gt;sk;
+void DP(){
+    memset(dp,127,sizeof(dp));
+    INF = dp[0][0];
+    for(int i = 0; i&lt;= 10; ++i){
+        dp[i][0] = 0;
+        for(int j = 0; j &lt; m; ++j){
+            int termx = sk[j].first;
+            int termy = sk[j].second - i;
+            if(termy &lt;= 0)continue;
+            for(int k = 0; k &lt;= 1000; ++k){
+                LL term = k &gt;= termy ? dp[i][k - termy] : 0;
+                dp[i][k] = min(dp[i][k], term + termx);    
+            }
+        }
+    }
+}
+int main(){
+    while(scanf(&quot;%d %d&quot;,&amp;n,&amp;m)!= EOF){
+        int x,y;
+        v.clear();sk.clear();
+        for(int i = 0; i &lt; n; ++i){
+            scanf(&quot;%d %d&quot;,&amp;x,&amp;y);
+            v.push_back(make_pair(x,y));
+        } 
+        for(int i = 0; i &lt; m; ++i){
+            scanf(&quot;%d %d&quot;,&amp;x,&amp;y);
+            sk.push_back(make_pair(x,y));
+        } 
+        DP();
+        LL ans = 0;
+        bool ok = true;
+        for(int i = 0; i &lt; v.size(); ++i){
+            if(dp[v[i].second][v[i].first] != INF)
+                ans += dp[v[i].second][v[i].first];
+            else {
+                ok = false;
+                break;
+            } 
+        }
+        if(ok)printf(&quot;%lld\n&quot;,ans);
+        else printf(&quot;-1\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre><h2 id="D题"><a href="#D题" class="headerlink" title="D题"></a>D题</h2><p>也是一道DP水题，参考01背包模型，只是多了个输出路径，其实也是水水的，本来以为至少会卡一下空间啥的，但是暴力vector直接过了，惊讶。</p>
+<p>AC代码：</p>
+<pre><code>/*
+    time:   0 MS  
+    memory: 1460 K
+*/
+#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+
+int B,N;
+int INF;
+vector&lt;pair&lt;int,int&gt; &gt;v;
+vector&lt;int&gt;ans;
+int dp[1005];
+struct point{
+    vector&lt;int&gt;vec;
+}p[1005];
+void DP(){
+    memset(dp,0,sizeof(dp));
+    INF = dp[0];
+    dp[0] = 0;
+    for(int i = 0; i &lt;= 1000; ++i)
+        p[i].vec.clear();
+    for(int i = 0;i &lt; N; ++i){
+        int x = v[i].first;
+        int y = v[i].second;
+        for(int j = B; j &gt;= y; --j){
+            if(dp[j] &lt; dp[j - y] + x){
+                dp[j] = dp[j - y] + x;
+                p[j].vec = p[j-y].vec;
+                p[j].vec.push_back(i);
+
+            }
+        }
+    }
+}
+int main(){
+    int T;
+    cin&gt;&gt;T;
+    int xu = 0;
+    while(++xu &lt;= T){
+        cin&gt;&gt;B&gt;&gt;N;
+        v.clear();
+        int x,y;
+        for(int i = 1; i &lt;= N; ++i){
+            scanf(&quot;%d %d&quot;,&amp;x,&amp;y);
+            v.push_back(make_pair(x,y));
+        }
+        DP();
+        int now = B;
+        LL sum = 0;
+        ans =p[B].vec; 
+
+        sort(ans.begin(),ans.end());
+        for(int i = 0; i &lt; ans.size(); ++i)sum += v[ans[i]].second;    
+        printf(&quot;Case #%d:\n%d %d\n&quot;,xu,dp[B],sum);
+        for(int i = 0; i &lt; ans.size(); ++i){
+            if(i == ans.size() -1)printf(&quot;%d\n&quot;,ans[i]+1);
+            else printf(&quot;%d &quot;,ans[i]+1);
+        }
+    }
+    return 0;
+}
+</code></pre><h2 id="B题"><a href="#B题" class="headerlink" title="B题"></a>B题</h2><p>这是一道出题人得气死的题。<br>本来看了数据范围和时间限制，根本就是个不可做题，全局最小割加优化大概才可以过。但在乱搞面前，什么都是浮云。<br>真心，出题人数据一开始卡死了认认真真写SW最小割的，但败在各种瞎搞的过题姿势下。<br>你能想像那种求每个点的边权和最小的就是正解？？？这么简单的漏洞，出题人都没卡，绝壁是道假题，吓得我当时题都不敢看。。<br>各种代码就不贴了，正解我还没搞懂，有空补，不过估计是没空了。</p>
+<h2 id="E题"><a href="#E题" class="headerlink" title="E题"></a>E题</h2><p>这是一道我认为的最有价值的题。学到了很多，难度应该是真B题之外最难的。<br>不过模型很常见：<a href="https://baike.baidu.com/item/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/6125746?fr=aladdin" target="_blank" rel="external">卡特兰数-百度百科</a>。<br>当时我是一点头绪都没有的，结束之后参考了几位大牛的博客，get了不少。<br><a href="http://blog.csdn.net/qq_36797743/article/details/76794804" target="_blank" rel="external">参考大牛OZY</a><br><a href="http://blog.csdn.net/jaihk662/article/details/76737701" target="_blank" rel="external">另一个大牛的</a><br>两位大牛的思路类似，又稍有区别，实现大同小异，值得学习一波。<br>AC代码就算了，这题也就思路很不错，仿照两位大牛的博客试试就行。</p>
+<h2 id="A题"><a href="#A题" class="headerlink" title="A题"></a>A题</h2><p>这题只是匆匆一瞥，大致的思路类似于凸包吧，看dalao们的AC代码都是求最小环，最后设边权为1的去跑floyd，也没深究，不是很感兴趣，有空会补上。<br>缺点太多，要补的东西成堆，都麻木了。<br>附上<a href="http://blog.csdn.net/qq_36346262/article/details/76851297" target="_blank" rel="external">dalao博客</a></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/08/07/2017百度之星解题报告/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2017/07/28/7-22网络赛补题报告/">
+                            7.22网络赛补题报告
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-07-28T16:32:54+08:00">
+	
+		    28 7月 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="补题报告"><a href="#补题报告" class="headerlink" title="补题报告"></a>补题报告</h1><p>&emsp;&emsp;之所以交补题报告，当然是之后补题的心路历程咯。比较遗憾，当时开了两题都因为莫名bug WA了，感觉自己贼菜。</p>
+<h2 id="A题"><a href="#A题" class="headerlink" title="A题"></a>A题</h2><p><strong><em>**</em></strong>有误，得空发现这题出错了，所有AC代码都翻车。之后再补一发。<strong><strong>**</strong></strong><br>题目给个链接吧<a href="https://oj.neu.edu.cn/problem/1203" target="_blank" rel="external">A题</a></p>
+<pre><code>题意大概就是要你解决            
+    1）两个字符串的包含问题
+    2）字符串的最大长度
+</code></pre><p>&emsp;&emsp;其实真正理解了题意将两个小问题拆开真的是两个不难的问题。<br>&emsp;&emsp;第1）问其实就是KMP匹配，只不过要注意的就是字符a的特殊性，其实也就是匹配的时候字符a可以直接匹配，稍微改改KMP模板就可以实现。<br>&emsp;&emsp;第2）问其实更水啦，就是一个简单的dp，即使暴力去搞其实也是可以的，当然啦，一不小心还是会跪的。<br>&emsp;&emsp;菜菜的我当时就是倒在第2）问上，但一直在抠KMP，也是醉醉的。其实我当时一直在怀疑我对KMP的理解是不是出现了什么差错。</p>
+<h3 id="AC代码："><a href="#AC代码：" class="headerlink" title="AC代码："></a>AC代码：</h3><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;    
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+const int maxn = 2e5+20;
+int fail[maxn];
+int n;
+void makefail(string s){
+    for(int i = 1, j= 0; s[i]; ++i){
+        while(j &amp; s[i] != s[j])j = fail[j-1];
+        if(s[i] == s[j])fail[i] = ++j;
+        else fail[i] = 0;
+    }
+}
+int search(string str,string s){
+    str += str;
+    int ans = 0;
+    for(int i = 0, j = 0;str[i]; ++i){
+        while(j &amp;&amp; str[i]!=&apos;a&apos; &amp;&amp; str[i] != s[j])j = fail[j-1];
+        if((str[i]==&apos;a&apos;||str[i] == s[j]) &amp;&amp; !s[++j]){
+            ++ans;
+            j = 0;
+        }
+    }
+    return ans;
+}
+int num(string s) {
+    s = s + s;
+    int ret = 0, tmp = 0, last = -1;
+    char cur = &apos;a&apos;;
+    for(int i =0; i &lt; n*2-1; ++i){ 
+        if (cur == s[i] || s[i] == &apos;a&apos; || cur == &apos;a&apos;) {
+            tmp++;
+            if (s[i] != &apos;a&apos;) {
+                cur = s[i];
+                last = i;
+            }
+            ret = max(tmp, ret);
+            if (ret &gt;= n) return n;
+        } else {
+            tmp = i-last;
+            cur = s[i];
+            last = i;
+        }
+    }
+    return ret;
+}
+int main(){
+//    freopen(&quot;a.in&quot;,&quot;r&quot;,stdin);
+
+    string a,b;
+    while(cin&gt;&gt;n){
+        int sign = 0;
+        cin&gt;&gt;a&gt;&gt;b;
+        makefail(a);
+        if(search(b,a) &gt; 0)sign += 1;
+        makefail(b);
+        if(search(a,b) &gt; 0)sign += 2;
+        if(sign == 1)printf(&quot;Y-WIN\n&quot;);
+        else if(sign == 2)printf(&quot;X-WIN\n&quot;);
+        else if(sign == 3)printf(&quot;DRAW\n&quot;);
+        else printf(&quot;PEACE\n&quot;);
+
+        printf(&quot;%d\n&quot;,num(a));  
+        printf(&quot;%d\n&quot;,num(b));
+
+
+    }
+    return 0;
+}
+</code></pre><p>这题真的是出题人背锅，最后想了半天，交了一发O(n*n)的代码上去，竟然过了，敢信？而且过得贼快，比KMP都快，惊得我笑哭了。真心，标程这题都错了，而且没卡住暴力，当时都没几人开这题，简直开的玩笑。</p>
+<h2 id="H题"><a href="#H题" class="headerlink" title="H题"></a>H题</h2><p>照样上链接<a href="https://oj.neu.edu.cn/problem/1211" target="_blank" rel="external">H题</a></p>
+<pre><code>题意大致如下：
+    给你n个工作时间段，每一个时间段有着开始时间，结束时间和报酬，要求你找出两个时间段满足其报酬之和为m且工作时间最短。
+</code></pre><p>&emsp;&emsp;很明显，这是一个dp，当然贪心也可以处理。<br>&emsp;&emsp;我的做法有点非常规，和标程有点区别。毕竟这也是一道简单题，随便搞搞就过了。<br>&emsp;&emsp;因为是找两个时间段且其和确定，那我们是否可以考虑折半一下，即枚举前m/2个时间段去后m/2中找符合的那个并维护一下最小时间。时间复杂度O （ nlogn + m/2 * logm/2）。显然理论上肯定是可以过的。</p>
+<p>&emsp;&emsp;因为当时处理的时候写跪了，在维护当前m-i的最小值时用了while语句，大概是被卡了，时间爆表，空间爆表，还是靠队友才过了，白白浪费了那么长的时间。之后补题时有点不甘心，优化了一下，在每个时间段排序时我直接把时间长度也作为优先级加进去，竟然就过了。hhhhh，当时怎么就没。。。</p>
+<h3 id="AC代码：-1"><a href="#AC代码：-1" class="headerlink" title="AC代码："></a>AC代码：</h3><pre><code>#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+const int INF = 1e8+10;
+const int maxn = 2e5+10;
+struct work{
+    int st;
+    int et;
+    int len; 
+    int w;
+    bool operator &lt; (const work &amp;a)const{
+        if(w == a.w)return len &lt; a.len;
+        return w &lt; a.w;
+    }
+
+}job[maxn];
+
+int n,m;
+int minn;
+int vec[maxn];
+inline void cal(work i,work j){
+    int time = -1; 
+    if(i.st &lt; j.st &amp;&amp;i.et &lt; j.st){
+        time = i.et - i.st + j.et - j.st+2;
+    }else if(i.st&gt;j.st &amp;&amp; i.st &gt; j.et){
+        time = i.et - i.st + j.et - j.st+2;    
+    }
+    if(time != -1 &amp;&amp; time &lt; minn)minn= time;
+}
+
+int main(){
+    while(scanf(&quot;%d %d&quot;,&amp;n,&amp;m)!=EOF){
+        minn = INF;
+        for(int i = 0; i &lt; n; ++i){
+            scanf(&quot;%d %d %d&quot;,&amp;job[i].st,&amp;job[i].et,&amp;job[i].w);
+            job[i].len = job[i].et - job[i].st;
+        }
+        sort(job,job+n);
+
+        for(int i = 0; i &lt;n; ++i){
+            vec[i] = job[i].w;
+        }
+        int mid = upper_bound(vec,vec+n,m/2) - vec;
+        int k = upper_bound(vec,vec+n,m) - vec;
+
+        for(int i = 0; i &lt; mid; ++i){
+            int term = lower_bound(vec + mid,vec + k, m - vec[i]) - vec;
+//            while(job[term].w &lt;= m - job[i].w){
+//                if(job[term].w == m - job[i].w){
+//                    cal(job[term],job[i]);    
+//                }
+//                ++term;
+//            }
+            if(job[term].w == m - job[i].w)
+                cal(job[term],job[i]);
+        }
+        if(minn != INF)printf(&quot;%d\n&quot;,minn);
+        else printf(&quot;oh no!\n&quot;);
+    }
+
+    return 0;
+}
+</code></pre><hr>
+<p>其他题后续再更新，先占个坑。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/07/28/7-22网络赛补题报告/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2017/07/21/有点感受想说/">
+                            有点感受想说
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-07-21T15:24:43+08:00">
+	
+		    21 7月 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="最近真的是糟心的事一堆堆"><a href="#最近真的是糟心的事一堆堆" class="headerlink" title="最近真的是糟心的事一堆堆"></a>最近真的是糟心的事一堆堆</h2><p>&emsp;&emsp;先是因为感冒的缘故难受了好几天，这几天稍微好过了一点，却因为一点小插曲度过了一个很奇妙的周五。</p>
+<p>&emsp;&emsp;要学会拒绝，这是我一进校时就被告知的话。拒绝不合理的要求，拒绝委屈自己的要求。当然啦，我虽然知道这句话，但本来就信奉多个朋友多条路的我又有点心软。这次这件事的确好好的给我上了深刻的一课。<br>&emsp;&emsp;帮人总是比得罪人来德容易。但为了之后不得罪人其实很多事情还是要一开始就决定不帮。</p>
+<p>&emsp;&emsp;其次，我其实很能说，真的，不自夸，我总是知道该说什么话。一直以来的表现其实只是因为我的心里那道坎自己还没跨过去。每次遇到哑口无言的场景，其实我是有话说的，或许脑子里空白过，但更多的还是我想说的话真的说不出来。极度烦恼着。</p>
+<p>&emsp;&emsp;可能真的是我的得失心太重，越是看重的越是想做到最完美，但最后甚至连最基本的要求都达不到。</p>
+<p>&emsp;&emsp;可能锻炼的还不够多，脸皮还不够厚。</p>
+<hr>
+<p>&emsp;&emsp;一段感受，一点牢骚，一些想说出来的话。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/07/21/有点感受想说/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2017/07/19/小学期ACM解题报告/">
                             小学期ACM解题报告
                         </a>
@@ -643,7 +1062,7 @@ f(1) = f(2) = f(3) = t;
                 data-message-zero="keinen Beitrag gefunden"
                 data-message-one="1 Beitrag gefunden"
                 data-message-other="{n} Einträge gefunden">
-                23 Einträge gefunden
+                26 Einträge gefunden
             </p>
         </div>
     </div>

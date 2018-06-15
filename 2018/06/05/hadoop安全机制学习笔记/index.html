@@ -6,24 +6,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>实习总结 - Abner&#39;s blog</title>
+    <title> - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
         <link rel="icon" href="http://yoursite.com/assets/images/favicon.jpg">
     
     
-    <meta name="description" content="寒假实习总结  &amp;emsp;&amp;emsp;1.12到达杭州，前一天刚考完试，做着人生第一班飞机飞到杭州，并到达公司，办理了一部分入职手续，了解了一部分职责和任务。  开始的几天开始了解spring框架及一些java并行的实现原理和代码。稍显枯燥。   &amp;emsp;&amp;emsp;之后从第三天开始实际接触药妆项目。从一个pc端页面开始，后交接给另一个从学校考试回来的实习生，开始负责编写微信端H5页面。">
-<meta name="keywords" content="随笔">
+    <meta name="description" content="Hadoop安全机制   加密部分   常见加密算法    对称加密算法        DES  56位密钥长度  运算较快   安全性低        3DES 112、168位密钥长度   运算慢   安全度中        AES  128、192、156位    运算快   安全度高    AES算法模式        CBC  CTR  OFB  CFB  GCM  XTS  ECB">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="实习总结">
-<meta property="og:url" content="http://yoursite.com/2018/02/25/实习总结/index.html">
+<meta property="og:title" content="Abner&#39;s blog">
+<meta property="og:url" content="http://yoursite.com/2018/06/05/hadoop安全机制学习笔记/index.html">
 <meta property="og:site_name" content="Abner&#39;s blog">
-<meta property="og:description" content="寒假实习总结  &amp;emsp;&amp;emsp;1.12到达杭州，前一天刚考完试，做着人生第一班飞机飞到杭州，并到达公司，办理了一部分入职手续，了解了一部分职责和任务。  开始的几天开始了解spring框架及一些java并行的实现原理和代码。稍显枯燥。   &amp;emsp;&amp;emsp;之后从第三天开始实际接触药妆项目。从一个pc端页面开始，后交接给另一个从学校考试回来的实习生，开始负责编写微信端H5页面。">
-<meta property="og:updated_time" content="2018-02-25T02:44:28.750Z">
+<meta property="og:description" content="Hadoop安全机制   加密部分   常见加密算法    对称加密算法        DES  56位密钥长度  运算较快   安全性低        3DES 112、168位密钥长度   运算慢   安全度中        AES  128、192、156位    运算快   安全度高    AES算法模式        CBC  CTR  OFB  CFB  GCM  XTS  ECB">
+<meta property="og:updated_time" content="2018-06-10T15:33:29.571Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="实习总结">
-<meta name="twitter:description" content="寒假实习总结  &amp;emsp;&amp;emsp;1.12到达杭州，前一天刚考完试，做着人生第一班飞机飞到杭州，并到达公司，办理了一部分入职手续，了解了一部分职责和任务。  开始的几天开始了解spring框架及一些java并行的实现原理和代码。稍显枯燥。   &amp;emsp;&amp;emsp;之后从第三天开始实际接触药妆项目。从一个pc端页面开始，后交接给另一个从学校考试回来的实习生，开始负责编写微信端H5页面。">
+<meta name="twitter:title" content="Abner&#39;s blog">
+<meta name="twitter:description" content="Hadoop安全机制   加密部分   常见加密算法    对称加密算法        DES  56位密钥长度  运算较快   安全性低        3DES 112、168位密钥长度   运算慢   安全度中        AES  128、192、156位    运算快   安全度高    AES算法模式        CBC  CTR  OFB  CFB  GCM  XTS  ECB">
     
     
         
@@ -198,14 +197,14 @@
         <div class="post-header main-content-wrap text-left">
     
         <h1 class="post-title" itemprop="headline">
-            实习总结
+            (kein Titel)
         </h1>
     
     
         <div class="post-meta">
-    <time itemprop="datePublished" datetime="2018-02-25T10:39:45+08:00">
+    <time itemprop="datePublished" datetime="2018-06-05T17:08:28+08:00">
 	
-		    25 2月 2018
+		    05 6月 2018
     	
     </time>
     
@@ -216,27 +215,140 @@
     
     <div class="post-content markdown" itemprop="articleBody">
         <div class="main-content-wrap">
-            <h2 id="寒假实习总结"><a href="#寒假实习总结" class="headerlink" title="寒假实习总结"></a>寒假实习总结</h2><p>  &emsp;&emsp;1.12到达杭州，前一天刚考完试，做着人生第一班飞机飞到杭州，并到达公司，办理了一部分入职手续，了解了一部分职责和任务。<br>  开始的几天开始了解spring框架及一些java并行的实现原理和代码。稍显枯燥。</p>
-<p>  &emsp;&emsp;之后从第三天开始实际接触药妆项目。从一个pc端页面开始，后交接给另一个从学校考试回来的实习生，开始负责编写微信端H5页面。</p>
-<p>  &emsp;&emsp;从最开始的仿照代码编写ModelAndView类型的（在后台获取数据并用ftl渲染页面并回传给前端）带后来ajax请求在前端渲染整个页面。更深入了解了前端页面的访问过程，并对整个前端体系有了个整体的认识（粗浅）。</p>
-<p>  &emsp;&emsp;后来因为行中项目的重要性，除我之外的所有人全部抽调进入行中项目（因为年后开学的缘故，我无法参与行中项目的联调，不适合负责模块），接受药妆项目的残余工作。在完成微信端所有任务之后开始整体查看整个项目，寻找待解决问题，（涉及到这个项目的是整个实习生团队，大家都不是很成熟的代码风格和思路）多次反复寻找bug并寻求解决。</p>
-<p>  &emsp;&emsp;最后离职之前还因为一点小插曲残余一个任务模块的审核部分的权限问题（相关代码涉及两人且两人意见有分歧）最终没能收尾成功，也是一个遗憾。</p>
-<p>  &emsp;&emsp;以上都是关于工作的总结，尽管当初是想来接触人工智能相关的，但机缘巧合接触了整个建站的过程（开头一部分因为报道之前已开始没能亲眼目睹），也是一次不错的实习经历。其中的几次分享讲座也是非常不错，虽因内容的新颖未能全get，不过总的来说接触了目前企业化的前沿的热点技术，对之后的着力方法有了清晰的认识。</p>
-<p>  &emsp;&emsp;Ok。不谈工作了，聊点别的。公司体格不大，毕竟是一个创业公司，不过氛围很舒服。周围的同事身上有不少我要学习的优点。还有每天的日会尽管有些波折，但还是持续挺了下来，越发的有了自信。认识了不少朋友呢。</p>
-<p>  &emsp;&emsp;尽管不确定暑假究竟去不去了，但接下来的这学期也是很重要的一个学期了。我几乎是决定要考研了。前段时间还在畏惧着考研失败的后果，但且不说会不会失败，如果这点勇气都没有，如果追求未来更美好的生活。大不了就是失败了，找个不如意的学校调剂一下或者找个过渡的工作。这学期的打算就是先把驾照提上日程，有了驾照还是很方便的。其次就是开始准备数学和英语（不花太多时间，就是间带着提上日程）。另外就是之前的专业课基础要打实了。最后就是上好课的同时努力提升自己，了解试下的热点技术和新技术。</p>
-<p>  &emsp;&emsp;本来只是一个实习总结的，既然写在了开学的前一天，那就当是连同下学期展望一起了。</p>
+            <p>  Hadoop安全机制</p>
+<p>  加密部分</p>
+<p>  常见加密算法<br>    对称加密算法<br>        DES  56位密钥长度  运算较快   安全性低<br>        3DES 112、168位密钥长度   运算慢   安全度中<br>        AES  128、192、156位    运算快   安全度高<br>    AES算法模式<br>        CBC  CTR  OFB  CFB  GCM  XTS  ECB</p>
+<pre><code>CBC加密部分 （密码分组链接）
+    思想： 明文块与前一个密文块 进行异或操作
+    第一个明文块和初始化向量异或，通过加密密钥加密得到密文块1
+    第i个明文块和第i-1个密文块异或操作，然后通过加密密钥得到密文块i （i &gt; 1）
+解密过程
+    密文块1先用加密密钥进行解密，再通过和初始化向量进行异或得到明文块1
+    密文块i 用加密密钥进行解密， 再通过异或密文块i-1  得到明文块i
+
+CTR算法模式 （计数器模式）
+
+    加密过程
+        （初始化文本+counter）用key加密，异或明文，得到密文
+            counter++;
+    解密过程
+        （初始化文本+counter）用key加密，异或密文，得到明文
+            counter++;
+
+
+异同：CBC需要填充，CTR不需要填充
+    CTR任意block不需要与前面的链接，适用流式处理的加密场景
+</code></pre><p>  高级加密指令集AES-NI<br>    Intel高级加密新指令 （08年提出）<br>    基于X86指令集的扩展，用于提高AES算法的执行速度 （17倍）</p>
+<p>  静态数据 加密<br>    解决方案<br>    应用层   最安全最灵活的方式，不能应用已有的应用<br>    HDFS层   提供很好的部署性、对于应用是透明的  不能很好的根据用户的需求建模<br>    硬盘层   易部署、性能高、不灵活</p>
+<pre><code>KMS  key manangement server
+
+创建一个hadoop key
+主要命令
+工作流程
+namenode请求kms生成一个EDEK，持久化存储在namenode
+client请求hdfs
+kms生成EDEK并发送给HDFS
+HDFS把EDEK发送给client
+client把EDEK发送给  KMS 请求解密EDEK
+KMS发送DEK
+client用DEK加解密
+
+
+
+namenode   edek 
+client
+</code></pre><p>  通讯的加密<br>    REST web access  HTTPS thoughSLL/TLS<br>    RPS  SASL协商出的安全信道<br>    HDFS数据传输   SASL  传输密钥  自定义的AES加密算法进行数据加密</p>
+<p>  密钥的管理<br>    KMS 密钥管理<br>    数据与密钥分开存储<br>    对外提供标准API进行存储和获取密钥<br>    标准的API设计保证了第三方可实现自定义的密钥管理方式<br>    细粒度的访问控制管理  Per Key  Per Operator<br>        hadoop.apache.org/docs/stable/hadoop-kms/index.html</p>
+<p>  Apache Commons Crypto介绍<br>        Spark shuffle<br>    原名Chinmera<br>    源自Apache Hadoop<br>    Intel贡献<br>    加入到Apache Commons<br>    使用AES-NI优化的Cryptograohic library<br>    提供了Cipher和Stream层次的java api<br>    提供了安全随机数的API</p>
+<pre><code>shuffle 
+mapper 产生数据
+reducer  消费数据
+shuffle  发生在mapper和reducer之间
+
+why 加密shuffle
+网络安全 本地文件安全
+</code></pre><p>包括两部分：<br>    RPC：网络传输<br>    Shuffle文件 Spill的文件和Shuffle结果文件</p>
+<pre><code>Hadoop安全机制  认证
+
+Apache Haddoop介绍
+    HDFS 分布式文件系统
+    YARN 资源管理和调度
+    MapReduce 计算
+
+    Client 向Name Node请求元数据信息  得到后向Data Node请求自己的数据
+    Name Node
+    Data Node
+    NameNode和DataNode之间通过心跳  传递数据
+
+    Yarn架构
+
+大数据安全介绍
+    敏感数据
+        安全相关
+        使用不当或泄露造成巨大损害
+    符合安全标准
+        Hippa PIC-DSS要求保护个人信息
+        符合企业安全策略
+
+    2009年以前没有
+    用户和服务的认证
+
+    架构：
+    系统高度分布
+    被多种框架和组件共享
+    数据在线
+
+    部署在内网
+    数据访问供内部人员服务
+    没有原生的安全部署，依靠传统的安全防御
+
+
+    认证
+
+    授权
+
+    数据保护
+    数据审计
+    受信平台
+
+大数据安全：认证
+    user到service认证
+    service到service认证
+    性能损耗不超过3%
+    Simple （不安全
+        默认模式
+        适用当前用户的系统账号
+        避免错误操作
+        不是真正的安全
+    Kerberos（强） + Delegation Token (内部)
+        根据 需求 创建实体
+        密码不在网络中传递
+        集成现有的管理系统  LDAP
+        principals
+
+        Kerberos工作流程
+
+    LDAP（弱） 适用某些组件
+</code></pre><p>RPC协议<br>    Kerberos  gssapi<br>    Tokens  DIGEST MD5<br>Block transfer protocol    </p>
+<p>Http<br> 浏览器<br> web services</p>
+<pre><code>大数据安全：授权
+    权限
+
+    ACLs
+</code></pre><p>授权管理组件<br>        Sentry<br>        Ranger<br>        Service<br>        Knox</p>
+<p>分布式一致性算法</p>
+<p>Paxos历史<br>  Leslie Lamport论文</p>
+<p>  proposer</p>
+<p>  Leader</p>
+<p>3个原理</p>
+<p>多数派决议<br>    超过半数</p>
+<p>选举<br>    纪元</p>
+<p>失效时的一致性</p>
 
             
         </div>
     </div>
     <div id="post-footer" class="post-footer main-content-wrap">
-        
-            <div class="post-footer-tags">
-                <span class="text-color-light text-small">GETAGGT IN</span><br/>
-                
-    <a class="tag tag--primary tag--small t-link" href="/all-tags/随笔/">随笔</a>
-
-            </div>
         
         
             <div class="post-actions-wrap">
@@ -244,7 +356,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/02/26/js学习笔记/"  data-tooltip="js学习笔记">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/16/修改linux-profile目录错误后恢复方法/"  data-tooltip="修改linux profile目录错误后恢复方法">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">FRÜHER</span>
@@ -252,7 +364,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/01/15/实习记录-2018寒假/" data-tooltip="实习记录--2018寒假">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/05/04/计算机视觉学习笔记/" data-tooltip="计算机视觉学习笔记">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NÄCHSTER</span>
                     <i class="fa fa-angle-right"></i>
@@ -270,7 +382,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/25/实习总结/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/05/hadoop安全机制学习笔记/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -278,7 +390,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/02/25/实习总结/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/06/05/hadoop安全机制学习笔记/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -286,7 +398,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/25/实习总结/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/05/hadoop安全机制学习笔记/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -326,7 +438,7 @@
         <ul class="post-actions post-action-nav">
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/02/26/js学习笔记/"  data-tooltip="js学习笔记">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/16/修改linux-profile目录错误后恢复方法/"  data-tooltip="修改linux profile目录错误后恢复方法">
                 
                     <i class="fa fa-angle-left"></i>
                     <span class="hide-xs hide-sm text-small icon-ml">FRÜHER</span>
@@ -334,7 +446,7 @@
             </li>
             <li class="post-action">
                 
-                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/01/15/实习记录-2018寒假/" data-tooltip="实习记录--2018寒假">
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/05/04/计算机视觉学习笔记/" data-tooltip="计算机视觉学习笔记">
                 
                     <span class="hide-xs hide-sm text-small icon-mr">NÄCHSTER</span>
                     <i class="fa fa-angle-right"></i>
@@ -352,7 +464,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/25/实习总结/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/05/hadoop安全机制学习笔记/">
                     <i class="fa fa-facebook-official"></i>
                 </a>
             </li>
@@ -360,7 +472,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/02/25/实习总结/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/06/05/hadoop安全机制学习笔记/">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
@@ -368,7 +480,7 @@
             
             
             <li class="post-action hide-xs">
-                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/25/实习总结/">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/05/hadoop安全机制学习笔记/">
                     <i class="fa fa-google-plus"></i>
                 </a>
             </li>
@@ -393,7 +505,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/25/实习总结/">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/06/05/hadoop安全机制学习笔记/">
                     <i class="fa fa-facebook-official"></i><span>Teilen auf Facebook</span>
                 </a>
             </li>
@@ -401,7 +513,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/02/25/实习总结/">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/06/05/hadoop安全机制学习笔记/">
                     <i class="fa fa-twitter"></i><span>Teilen auf Twitter</span>
                 </a>
             </li>
@@ -409,7 +521,7 @@
             
             
             <li class="share-option">
-                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/25/实习总结/">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/06/05/hadoop安全机制学习笔记/">
                     <i class="fa fa-google-plus"></i><span>Teilen auf Google Plus</span>
                 </a>
             </li>
