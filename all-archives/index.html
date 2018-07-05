@@ -872,81 +872,6 @@ display ip routing-table
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link-unstyled" href="/2018/03/23/JAVA内存模型JMM/">
-                            Java内存模型
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-03-23T21:17:29+08:00">
-	
-		    23 3月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>JAVA内存模型</p>
-<p>JMM为JVM一部分</p>
-<p>并发编程 – 两个关键问题：线程之间的通信和同步</p>
-<p>线程间通信 –共享内存 和 消息传递</p>
-<p>共享对象：隐式通信 – 如共享对象</p>
-<p>消息传递： 显示通信  – wait()和notify()</p>
-<p>内存间交互操作</p>
-<ul>
-<li>Lock：锁定，作用于主内存的变量，他把变量标识为一个线程独占的状态。</li>
-<li>Unlock: 解锁，作用于主内存的变量，把一个变量的值从主内存读取到线程工作内存中，以便随后的load动作使用</li>
-<li>read：读取，作用于主内存的变量，把一个处于锁定状态的变量释放出来，释放后的变量才可以被其他线程锁定</li>
-<li>load：载入，作用于工作内存的变量，把read操作从主内存中得到的变量值放入工作内存的变量副本中</li>
-<li>use：使用，作用于工作内存的变量，把工作内存中一个变量的值传递给执行引擎，每当虚拟机遇到一个需要使用的变量的值的字节码指令将会之星这个操作</li>
-<li>assign：赋值，作用于工作内存的变量，把从执行引擎收到的值赋给工作内存的变量，每当虚拟机遇到一个给变量赋值的字节码指令时执行这个操作。</li>
-<li>store：存储，作用于工作内存的变量，把工作内存中的一个变量的值赋给主内存中，以便随后的write操作使用</li>
-<li>write：写入，作用于主内存的变量，把store操作从工作内存中得到的变量的值放入主内存的变量之中。</li>
-</ul>
-<h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><ul>
-<li><p>程序计数器</p>
-<p>  每个线程有要有一个独立的程序计数器，记录下一条要运行的指令。线程私有的内存区域。如果执行的是JAVA方法，计数器记录正在执行的java字节码地址，如果执行的是native方法，则计数器为空。</p>
-</li>
-<li><p>虚拟机栈</p>
-<p>  线程私有的，与线程在同一时间创建。管理JAVA方法执行的内存模型。</p>
-</li>
-<li><p>本地方法区</p>
-<p>  和虚拟机栈功能相似，但管理的不是JAVA方法，是本地方法</p>
-</li>
-<li><p>方法区</p>
-<p>  线程共享的，用于存放被虚拟机加载的类的元数据信息：如常量、静态变量、即时编译器编译后的代码。也称为永久代。</p>
-</li>
-<li><p>JAVA 堆</p>
-<p>  线程共享的，存放所有对象实例和数组。垃圾回收的主要区域。可以分为新生代和老年代(tenured)。</p>
-</li>
-</ul>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/03/23/JAVA内存模型JMM/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
                         <a class="link-unstyled" href="/2018/03/23/Java基础整理篇/">
                             Java基础整理篇
                         </a>
@@ -1031,6 +956,81 @@ wait(long, int)
                     
                         <p>
                             <a href="/2018/03/23/Java基础整理篇/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/03/23/JAVA内存模型JMM/">
+                            Java内存模型
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-03-23T21:17:29+08:00">
+	
+		    23 3月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>JAVA内存模型</p>
+<p>JMM为JVM一部分</p>
+<p>并发编程 – 两个关键问题：线程之间的通信和同步</p>
+<p>线程间通信 –共享内存 和 消息传递</p>
+<p>共享对象：隐式通信 – 如共享对象</p>
+<p>消息传递： 显示通信  – wait()和notify()</p>
+<p>内存间交互操作</p>
+<ul>
+<li>Lock：锁定，作用于主内存的变量，他把变量标识为一个线程独占的状态。</li>
+<li>Unlock: 解锁，作用于主内存的变量，把一个变量的值从主内存读取到线程工作内存中，以便随后的load动作使用</li>
+<li>read：读取，作用于主内存的变量，把一个处于锁定状态的变量释放出来，释放后的变量才可以被其他线程锁定</li>
+<li>load：载入，作用于工作内存的变量，把read操作从主内存中得到的变量值放入工作内存的变量副本中</li>
+<li>use：使用，作用于工作内存的变量，把工作内存中一个变量的值传递给执行引擎，每当虚拟机遇到一个需要使用的变量的值的字节码指令将会之星这个操作</li>
+<li>assign：赋值，作用于工作内存的变量，把从执行引擎收到的值赋给工作内存的变量，每当虚拟机遇到一个给变量赋值的字节码指令时执行这个操作。</li>
+<li>store：存储，作用于工作内存的变量，把工作内存中的一个变量的值赋给主内存中，以便随后的write操作使用</li>
+<li>write：写入，作用于主内存的变量，把store操作从工作内存中得到的变量的值放入主内存的变量之中。</li>
+</ul>
+<h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><ul>
+<li><p>程序计数器</p>
+<p>  每个线程有要有一个独立的程序计数器，记录下一条要运行的指令。线程私有的内存区域。如果执行的是JAVA方法，计数器记录正在执行的java字节码地址，如果执行的是native方法，则计数器为空。</p>
+</li>
+<li><p>虚拟机栈</p>
+<p>  线程私有的，与线程在同一时间创建。管理JAVA方法执行的内存模型。</p>
+</li>
+<li><p>本地方法区</p>
+<p>  和虚拟机栈功能相似，但管理的不是JAVA方法，是本地方法</p>
+</li>
+<li><p>方法区</p>
+<p>  线程共享的，用于存放被虚拟机加载的类的元数据信息：如常量、静态变量、即时编译器编译后的代码。也称为永久代。</p>
+</li>
+<li><p>JAVA 堆</p>
+<p>  线程共享的，存放所有对象实例和数组。垃圾回收的主要区域。可以分为新生代和老年代(tenured)。</p>
+</li>
+</ul>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/03/23/JAVA内存模型JMM/#post-footer" class="postShorten-excerpt_link link">
                                 Kommentieren und teilen
                             </a>
                         </p>
