@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>Archiv: 2017 - Abner&#39;s blog</title>
+    <title>Archiv: 2018/7 - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
@@ -16,7 +16,7 @@
     <meta name="description" content="学习中进步。">
 <meta property="og:type" content="blog">
 <meta property="og:title" content="Abner&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/all-archives/2017/page/2/index.html">
+<meta property="og:url" content="http://yoursite.com/all-archives/2018/07/index.html">
 <meta property="og:site_name" content="Abner&#39;s blog">
 <meta property="og:description" content="学习中进步。">
 <meta name="twitter:card" content="summary">
@@ -199,15 +199,15 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link-unstyled" href="/2017/07/09/Hello-Abner/">
-                            Hello,Abner
+                        <a class="link-unstyled" href="/2018/07/05/关于SSM框架的一些理解/">
+                            关于SSM框架的一些理解
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-07-09T23:59:38+08:00">
+    <time itemprop="datePublished" datetime="2018-07-05T21:47:24+08:00">
 	
-		    09 7月 2017
+		    05 7月 2018
     	
     </time>
     
@@ -216,15 +216,27 @@
             </div>
             
                 <div class="postShorten-content" itemprop="articleBody">
-                    <p>This is my first blog on Github Pages.</p>
-<p>May I have a good travel here.</p>
+                    <h2 id="SSM框架"><a href="#SSM框架" class="headerlink" title="SSM框架"></a>SSM框架</h2><p>最近一段时间都在接触SSM框架，之前可能对其理解不到位，有了很多错误的理解。这次实训也的的确确学到了不少。</p>
+<p>SSM 由 Spring MVC + Spring boot + Mybatis三部分组成。</p>
+<ul>
+<li>Spring MVC负责view层的显示</li>
+<li>Spring boot负责业务模型</li>
+<li>Mybatis负责与数据库的交互</li>
+</ul>
+<p>值得一提的是maven，maven是搭建框架的底层，我的理解是为项目引入种种包，若不适用maven进行配置，可以参考写代码时手动引入依赖包的过程。具体实现方面不算是特别了解，应该和gradle差不多。</p>
+<p>maven中最重要的是pom.xml文件，里面定义了整个项目的maven配置，其中包括版本、jdk版本、tomcat版本以及包依赖等等。</p>
+<p>web项目中重要的配置文件是web.xml，其中定义了spring的配置、springMVC的配置以及前端到controller层的字符类型（若不进行配置，默认的编码会导致中文乱码）</p>
+<p>通常web.xml中几个文件会单独写一个xml文件方便配置。<br>如 spring-mvc.xml文件中包含的是springmvc的配置，包含了controller层的扫描位置（方便url解析），以及controller层中跳转的string处理，例如加前缀后缀等。</p>
+<p>applicationContext.xml包含了spring中各种配置，包含各层的扫描位置，数据库配置文件的引入，数据库处理类型的声明等。</p>
+<p>更多的log4j等配置暂时没有了解的更详细。</p>
+<p>关于在maven目录中引入的kaptcha验证码组件等、以及如何在ssm项目中引入开源项目库等还需要更多的练习去学习。</p>
 
                     
                         
                     
                     
                         <p>
-                            <a href="/2017/07/09/Hello-Abner/#post-footer" class="postShorten-excerpt_link link">
+                            <a href="/2018/07/05/关于SSM框架的一些理解/#post-footer" class="postShorten-excerpt_link link">
                                 Kommentieren und teilen
                             </a>
                         </p>
@@ -238,17 +250,8 @@
     <div class="pagination-bar">
     <ul class="pagination">
         
-        <li class="pagination-prev">
-            
-                <a class="btn btn--default btn--small" href="/ ">
-            
-                <i class="fa fa-angle-left text-base icon-mr"></i>
-                    <span>NEUERE BEITRÄGE</span>
-            </a>
-        </li>
         
-        
-        <li class="pagination-number">Seite 2 von 2</li>
+        <li class="pagination-number">Seite 1 von 1</li>
     </ul>
 </div>
 

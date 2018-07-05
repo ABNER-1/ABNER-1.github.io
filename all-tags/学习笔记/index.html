@@ -199,6 +199,61 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2018/07/05/关于SSM框架的一些理解/">
+                            关于SSM框架的一些理解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-07-05T21:47:24+08:00">
+	
+		    05 7月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="SSM框架"><a href="#SSM框架" class="headerlink" title="SSM框架"></a>SSM框架</h2><p>最近一段时间都在接触SSM框架，之前可能对其理解不到位，有了很多错误的理解。这次实训也的的确确学到了不少。</p>
+<p>SSM 由 Spring MVC + Spring boot + Mybatis三部分组成。</p>
+<ul>
+<li>Spring MVC负责view层的显示</li>
+<li>Spring boot负责业务模型</li>
+<li>Mybatis负责与数据库的交互</li>
+</ul>
+<p>值得一提的是maven，maven是搭建框架的底层，我的理解是为项目引入种种包，若不适用maven进行配置，可以参考写代码时手动引入依赖包的过程。具体实现方面不算是特别了解，应该和gradle差不多。</p>
+<p>maven中最重要的是pom.xml文件，里面定义了整个项目的maven配置，其中包括版本、jdk版本、tomcat版本以及包依赖等等。</p>
+<p>web项目中重要的配置文件是web.xml，其中定义了spring的配置、springMVC的配置以及前端到controller层的字符类型（若不进行配置，默认的编码会导致中文乱码）</p>
+<p>通常web.xml中几个文件会单独写一个xml文件方便配置。<br>如 spring-mvc.xml文件中包含的是springmvc的配置，包含了controller层的扫描位置（方便url解析），以及controller层中跳转的string处理，例如加前缀后缀等。</p>
+<p>applicationContext.xml包含了spring中各种配置，包含各层的扫描位置，数据库配置文件的引入，数据库处理类型的声明等。</p>
+<p>更多的log4j等配置暂时没有了解的更详细。</p>
+<p>关于在maven目录中引入的kaptcha验证码组件等、以及如何在ssm项目中引入开源项目库等还需要更多的练习去学习。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/07/05/关于SSM框架的一些理解/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2018/05/04/计算机视觉学习笔记/">
                             计算机视觉学习笔记
                         </a>
@@ -223,58 +278,6 @@
                     
                         <p>
                             <a href="/2018/05/04/计算机视觉学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/05/04/SPRING-BOOT搭建网站/">
-                            SPRING-BOOT搭建网站笔记
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-05-04T00:35:17+08:00">
-	
-		    04 5月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="SPRING-BOOT搭建网站"><a href="#SPRING-BOOT搭建网站" class="headerlink" title="SPRING-BOOT搭建网站"></a>SPRING-BOOT搭建网站</h1><h2 id="spring-boot基本操作"><a href="#spring-boot基本操作" class="headerlink" title="spring-boot基本操作"></a>spring-boot基本操作</h2><p>基于maven的spring-boot</p>
-<p>关于Hql的使用（因为列名和表名出错）</p>
-<h2 id="服务器端数据库操作"><a href="#服务器端数据库操作" class="headerlink" title="服务器端数据库操作"></a>服务器端数据库操作</h2><p>安装下载mysql</p>
-<p>新建表</p>
-<p>修改mysql权限允许远程连接</p>
-<ul>
-<li>修改文件，找到 bind-address  =127.0.0.1  将其注释掉；//作用是使得不再只允许本地访问；</li>
-<li><p>新建一个用户并赋权</p>
-<p>  GRANT ALL PRIVILEGES ON <em>.</em> TO ‘myuser’@’%’ IDENTIFIED BY ‘mypassword’ WITH GRANT OPTION;<br>  FLUSH   PRIVILEGES;</p>
-</li>
-</ul>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/05/04/SPRING-BOOT搭建网站/#post-footer" class="postShorten-excerpt_link link">
                                 Kommentieren und teilen
                             </a>
                         </p>
@@ -1039,7 +1042,7 @@ finally:
                 data-message-zero="keinen Beitrag gefunden"
                 data-message-one="1 Beitrag gefunden"
                 data-message-other="{n} Einträge gefunden">
-                26 Einträge gefunden
+                28 Einträge gefunden
             </p>
         </div>
     </div>

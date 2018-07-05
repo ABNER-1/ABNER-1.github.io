@@ -6,22 +6,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>Archiv: 2017 - Abner&#39;s blog</title>
+    <title>关于SSM框架的一些理解 - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
         <link rel="icon" href="http://yoursite.com/assets/images/favicon.jpg">
     
     
-    <meta name="description" content="学习中进步。">
+    <meta name="description" content="SSM框架最近一段时间都在接触SSM框架，之前可能对其理解不到位，有了很多错误的理解。这次实训也的的确确学到了不少。 SSM 由 Spring MVC + Spring boot + Mybatis三部分组成。  Spring MVC负责view层的显示 Spring boot负责业务模型 Mybatis负责与数据库的交互  值得一提的是maven，maven是搭建框架的底层，我的理解是为项目引入">
+<meta name="keywords" content="学习笔记">
 <meta property="og:type" content="blog">
-<meta property="og:title" content="Abner&#39;s blog">
-<meta property="og:url" content="http://yoursite.com/all-archives/2017/page/2/index.html">
+<meta property="og:title" content="关于SSM框架的一些理解">
+<meta property="og:url" content="http://yoursite.com/2018/07/05/关于SSM框架的一些理解/index.html">
 <meta property="og:site_name" content="Abner&#39;s blog">
-<meta property="og:description" content="学习中进步。">
+<meta property="og:description" content="SSM框架最近一段时间都在接触SSM框架，之前可能对其理解不到位，有了很多错误的理解。这次实训也的的确确学到了不少。 SSM 由 Spring MVC + Spring boot + Mybatis三部分组成。  Spring MVC负责view层的显示 Spring boot负责业务模型 Mybatis负责与数据库的交互  值得一提的是maven，maven是搭建框架的底层，我的理解是为项目引入">
+<meta property="og:updated_time" content="2018-07-05T16:09:55.868Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Abner&#39;s blog">
-<meta name="twitter:description" content="学习中进步。">
+<meta name="twitter:title" content="关于SSM框架的一些理解">
+<meta name="twitter:description" content="SSM框架最近一段时间都在接触SSM框架，之前可能对其理解不到位，有了很多错误的理解。这次实训也的的确确学到了不少。 SSM 由 Spring MVC + Spring boot + Mybatis三部分组成。  Spring MVC负责view层的显示 Spring boot负责业务模型 Mybatis负责与数据库的交互  值得一提的是maven，maven是搭建框架的底层，我的理解是为项目引入">
     
     
         
@@ -53,7 +55,7 @@
         
     
 
-<header id="header" data-behavior="1">
+<header id="header" data-behavior="4">
     <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
     <div class="header-title">
         <a class="header-title-link" href="/ ">Abner&#39;s blog</a>
@@ -77,7 +79,7 @@
         
     
 
-<nav id="sidebar" data-behavior="1">
+<nav id="sidebar" data-behavior="4">
     <div class="sidebar-container">
         
             <div class="sidebar-profile">
@@ -185,74 +187,133 @@
 </nav>
 
             
-            <div id="main" data-behavior="1"
+            <div id="main" data-behavior="4"
                  class="
                         hasCoverMetaIn
                         ">
                 
-    <section class="postShorten-group main-content-wrap">
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
     
     
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/07/09/Hello-Abner/">
-                            Hello,Abner
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-07-09T23:59:38+08:00">
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            关于SSM框架的一些理解
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time itemprop="datePublished" datetime="2018-07-05T21:47:24+08:00">
 	
-		    09 7月 2017
+		    05 7月 2018
     	
     </time>
     
 </div>
 
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>This is my first blog on Github Pages.</p>
-<p>May I have a good travel here.</p>
+    
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <h2 id="SSM框架"><a href="#SSM框架" class="headerlink" title="SSM框架"></a>SSM框架</h2><p>最近一段时间都在接触SSM框架，之前可能对其理解不到位，有了很多错误的理解。这次实训也的的确确学到了不少。</p>
+<p>SSM 由 Spring MVC + Spring boot + Mybatis三部分组成。</p>
+<ul>
+<li>Spring MVC负责view层的显示</li>
+<li>Spring boot负责业务模型</li>
+<li>Mybatis负责与数据库的交互</li>
+</ul>
+<p>值得一提的是maven，maven是搭建框架的底层，我的理解是为项目引入种种包，若不适用maven进行配置，可以参考写代码时手动引入依赖包的过程。具体实现方面不算是特别了解，应该和gradle差不多。</p>
+<p>maven中最重要的是pom.xml文件，里面定义了整个项目的maven配置，其中包括版本、jdk版本、tomcat版本以及包依赖等等。</p>
+<p>web项目中重要的配置文件是web.xml，其中定义了spring的配置、springMVC的配置以及前端到controller层的字符类型（若不进行配置，默认的编码会导致中文乱码）</p>
+<p>通常web.xml中几个文件会单独写一个xml文件方便配置。<br>如 spring-mvc.xml文件中包含的是springmvc的配置，包含了controller层的扫描位置（方便url解析），以及controller层中跳转的string处理，例如加前缀后缀等。</p>
+<p>applicationContext.xml包含了spring中各种配置，包含各层的扫描位置，数据库配置文件的引入，数据库处理类型的声明等。</p>
+<p>更多的log4j等配置暂时没有了解的更详细。</p>
+<p>关于在maven目录中引入的kaptcha验证码组件等、以及如何在ssm项目中引入开源项目库等还需要更多的练习去学习。</p>
 
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/07/09/Hello-Abner/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
             
         </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
         
-    </article>
-    
-    <div class="pagination-bar">
-    <ul class="pagination">
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">GETAGGT IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/all-tags/学习笔记/">学习笔记</a>
+
+            </div>
         
-        <li class="pagination-prev">
-            
-                <a class="btn btn--default btn--small" href="/ ">
-            
-                <i class="fa fa-angle-left text-base icon-mr"></i>
-                    <span>NEUERE BEITRÄGE</span>
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">FRÜHER</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/28/java排序方法/" data-tooltip="java排序方法">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NÄCHSTER</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
             </a>
         </li>
         
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/05/关于SSM框架的一些理解/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
         
-        <li class="pagination-number">Seite 2 von 2</li>
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/07/05/关于SSM框架的一些理解/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/05/关于SSM框架的一些理解/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
     </ul>
 </div>
 
-</section>
+
+        
+        
+            
+        
+    </div>
+</article>
 
 
 
@@ -263,6 +324,104 @@
 </footer>
 
             </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--disabled">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">FRÜHER</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/06/28/java排序方法/" data-tooltip="java排序方法">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NÄCHSTER</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/05/关于SSM框架的一些理解/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/07/05/关于SSM框架的一些理解/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/05/关于SSM框架的一些理解/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-close"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/05/关于SSM框架的一些理解/">
+                    <i class="fa fa-facebook-official"></i><span>Teilen auf Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/07/05/关于SSM框架的一些理解/">
+                    <i class="fa fa-twitter"></i><span>Teilen auf Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/05/关于SSM框架的一些理解/">
+                    <i class="fa fa-google-plus"></i><span>Teilen auf Google Plus</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
             
         </div>
         
@@ -533,6 +692,8 @@
 <script src="/assets/js/jquery.fancybox-thumbs.js"></script>
 <script src="/assets/js/tranquilpeak.js"></script>
 <!--SCRIPTS END-->
+
+    
 
 
     </body>
