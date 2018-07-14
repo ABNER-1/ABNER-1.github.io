@@ -64,7 +64,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+            <img class="header-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -82,7 +82,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
                 </a>
                 <h4 class="sidebar-profile-name">Abner</h4>
                 
@@ -198,6 +198,108 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2017/08/24/博弈论-k倍取数/">
+                            博弈论-k倍取数
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-08-24T09:28:42+08:00">
+	
+		    8月 24, 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="斐波那契取数"><a href="#斐波那契取数" class="headerlink" title="斐波那契取数"></a>斐波那契取数</h2><p>&emsp;&emsp; 训练时遇到一道博弈题，经典博弈模型-k倍取数。直接入手比较难理解，于是去找了下 “k = 2” 的斐波那契取数模型先了解一波。</p>
+<h3 id="原理引入"><a href="#原理引入" class="headerlink" title="原理引入"></a>原理引入</h3><pre><code>(1):齐肯多夫定理： 任意数可分解为斐波那契数列中数的和
+(2)当石头总数n为斐波那契数的时候，后手必赢。
+</code></pre><p><a href="http://blog.csdn.net/dgq8211/article/details/7602807" target="_blank" rel="external">证明2参考</a></p>
+<p>好像又说绕回来了。。。有点迷</p>
+<h2 id="k倍动态减法游戏"><a href="#k倍动态减法游戏" class="headerlink" title="k倍动态减法游戏"></a>k倍动态减法游戏</h2><p>&emsp;&emsp;<a href="http://blog.csdn.net/dgq8211/article/details/7602807" target="_blank" rel="external">原理详述</a> 这篇博客讲的非常清晰。推荐。<br>将k倍动态减数问题和斐波那契数列结合起来，仿照斐波那契数列来构造a数组。</p>
+<p>&emsp;&emsp;&emsp;&emsp;即  a[ i + 1 ] = a[ i ] + sgma( j = 1,a[j] <em>k &lt; a[i]&gt;)  ( a[ j ] + 1);<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;其中a[ j ] </em> k &lt; a[ i ]。<br>&emsp;&emsp;引入b数组表示a[ i ] + a[ j ], 表示a数组前i项所能构造的最大数.</p>
+<p>&emsp;&emsp;简化为</p>
+<p>&emsp;&emsp;&emsp;&emsp; a[ i + 1] = a[ i ] + b[ j ];<br>&emsp;&emsp;&emsp;&emsp;其中代表所有满足 a[j] * k &lt; a[i] 的a[ j ]和</p>
+<p>&emsp;&emsp;不过之后的确搞通了，感谢前行者们无私的分享。</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code>//2008年北京区域赛B - A simple stone game 
+#include&lt;iostream&gt;
+#include&lt;cstdio&gt;
+#include&lt;bits/stdc++.h&gt;
+#define mp make_pair
+#define pb push_back
+#define lowbit(i) (i&amp;(-i))
+#define LL long long
+using namespace std;
+
+const int maxn = 3e7+10;
+int a[maxn],b[maxn];
+
+int main(){
+    int T,n,k,num = 0;
+    cin &gt;&gt; T;
+    while(++num &lt;= T){
+        cin&gt;&gt;n&gt;&gt;k;
+        a[0] = b[0] = 1;
+//        有误 
+//        int i = 0,j;
+//        while(a[i] &lt; n){
+//            ++i;
+//            a[i] = b[i-1] + 1;
+//            j = i-1;
+//            while(j &gt;= 0&amp;&amp;a[j] * k &gt;= a[i])--j;
+//            if(j &lt; 0)b[i] = a[i];
+//            else b[i] = a[i] + b[j];
+//        } 
+        int i = 0, j = 0;  
+        while(a[i]) &lt; n{         // 构建数列  
+            ++i;
+            a[i] = b[i - 1] + 1;  
+            while(a[j + 1] * k &lt; a[i])++j;  
+            if(k * a[j] &lt; a[i])  
+                b[i] = b[j] + a[i];  
+            else b[i] = a[i];  
+        }  
+        printf(&quot;Case %d: &quot;,num);
+        if(a[i] == n)printf(&quot;lose\n&quot;);
+        else {
+            int ans;
+            while(n){
+                if(n &gt;= a[i])n -= a[i],ans = a[i];
+                --i;
+            }
+            printf(&quot;%d\n&quot;,ans);
+        }
+    } 
+    return 0;
+}
+</code></pre>
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/08/24/博弈论-k倍取数/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2017/08/13/8-13随感/">
                             8-13随感
                         </a>
@@ -206,7 +308,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-08-13T23:33:49+08:00">
 	
-		    13 8月 2017
+		    8月 13, 2017
     	
     </time>
     
@@ -226,7 +328,7 @@
                     
                         <p>
                             <a href="/2017/08/13/8-13随感/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -251,7 +353,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-08-08T10:46:44+08:00">
 	
-		    08 8月 2017
+		    8月 08, 2017
     	
     </time>
     
@@ -287,7 +389,7 @@ finally:
                     
                         <p>
                             <a href="/2017/08/08/Python学习之路/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -312,7 +414,7 @@ finally:
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-08-07T21:57:38+08:00">
 	
-		    07 8月 2017
+		    8月 07, 2017
     	
     </time>
     
@@ -465,7 +567,7 @@ int main(){
                     
                         <p>
                             <a href="/2017/08/07/2017百度之星解题报告/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -490,7 +592,7 @@ int main(){
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-28T16:32:54+08:00">
 	
-		    28 7月 2017
+		    7月 28, 2017
     	
     </time>
     
@@ -658,7 +760,7 @@ int main(){
                     
                         <p>
                             <a href="/2017/07/28/7-22网络赛补题报告/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -683,7 +785,7 @@ int main(){
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-21T15:24:43+08:00">
 	
-		    21 7月 2017
+		    7月 21, 2017
     	
     </time>
     
@@ -706,7 +808,7 @@ int main(){
                     
                         <p>
                             <a href="/2017/07/21/有点感受想说/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -731,7 +833,7 @@ int main(){
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-19T08:36:15+08:00">
 	
-		    19 7月 2017
+		    7月 19, 2017
     	
     </time>
     
@@ -765,7 +867,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/19/小学期ACM解题报告/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -790,7 +892,7 @@ f(1) = f(2) = f(3) = t;
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-14T00:35:17+08:00">
 	
-		    14 7月 2017
+		    7月 14, 2017
     	
     </time>
     
@@ -832,7 +934,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/14/写于大二小学期课程最后一天/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -857,7 +959,7 @@ f(1) = f(2) = f(3) = t;
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-09T23:59:38+08:00">
 	
-		    09 7月 2017
+		    7月 09, 2017
     	
     </time>
     
@@ -875,7 +977,7 @@ f(1) = f(2) = f(3) = t;
                     
                         <p>
                             <a href="/2017/07/09/Hello-Abner/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -893,12 +995,12 @@ f(1) = f(2) = f(3) = t;
                 <a class="btn btn--default btn--small" href="/page/2/">
             
                 <i class="fa fa-angle-left text-base icon-mr"></i>
-                    <span>NEUERE BEITRÄGE</span>
+                    <span>NEWER POSTS</span>
             </a>
         </li>
         
         
-        <li class="pagination-number">Seite 3 von 3</li>
+        <li class="pagination-number">page 3 of 3</li>
     </ul>
 </div>
 
@@ -927,7 +1029,7 @@ f(1) = f(2) = f(3) = t;
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Abner</h4>
         
@@ -968,7 +1070,7 @@ f(1) = f(2) = f(3) = t;
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">keinen Beitrag gefunden</div>
+            <div class="no-result text-color-light text-center">no post found</div>
             <div class="results">
                 
                 <div class="media">
@@ -1165,10 +1267,10 @@ f(1) = f(2) = f(3) = t;
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="keinen Beitrag gefunden"
-                data-message-one="1 Beitrag gefunden"
-                data-message-other="{n} Einträge gefunden">
-                28 Einträge gefunden
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                29 posts found
             </p>
         </div>
     </div>

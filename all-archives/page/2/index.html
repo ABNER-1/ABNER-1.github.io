@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>Archiv - Abner&#39;s blog</title>
+    <title>Archives - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
@@ -64,7 +64,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+            <img class="header-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
         
         </a>
     
@@ -82,7 +82,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
                 </a>
                 <h4 class="sidebar-profile-name">Abner</h4>
                 
@@ -199,6 +199,107 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2018/03/23/Java基础整理篇/">
+                            Java基础整理篇
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-03-23T21:17:29+08:00">
+	
+		    3月 23, 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="Java基础整理"><a href="#Java基础整理" class="headerlink" title="Java基础整理"></a>Java基础整理</h1><p>面向对象三大特性：封装、继承、多态<br>八大数据结构：byte\short\int\long\float\double\char\boolean</p>
+<h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><p>java所有类的基类是Object类<br>方法列表</p>
+<pre><code>构造方法Object()
+finalize()方法 : 垃圾回收
+clone() ： native方法，实现对象的拷贝而不是new
+equals(): 判断相等
+getClass()：反回包名+类名  用于java反射机制
+hashCode() 用来获取对象的hash值
+toString() ：返回一个String标识自己，（一般重写，好像是序列化需要）
+notify()  : 多线程相关 ，唤醒一个线程
+notifyAll()
+wait()：使当前进程进入等待状态
+wait(long)
+wait(long, int)
+</code></pre><h2 id="多线程相关"><a href="#多线程相关" class="headerlink" title="多线程相关"></a>多线程相关</h2><p>实现方法</p>
+<pre><code>1：继承Thread类
+    需要重写run方法
+    PS ： 运行run()只是指执行一次该方法，和其他方法运行一样
+        而start()方法是将该进程变为就绪状态 --即加入线程队列
+2：实现Runnable接口
+    实现run函数，
+    Thread(Runnable)创建Thread对象
+    start()
+3：进程池
+    new ThreadPoolExecutor(corePoolSize, maximumPoolSize,
+        keepAliveTime, milliseconds,runnableTaskQueue, threadFactory,handler);
+    首先线程池判断 __基本线程池__ 是否已满？没满，创建一个工作线程来执行任务。满了，则进入下个流程。
+    其次线程池判断 __ 工作队列 __ 是否已满？没满，则将新提交的任务存储在工作队列里。满了，则进入下个流程。
+    最后线程池判断整个__线程池__是否已满？没满，则创建一个新的工作线程来执行任务，满了，则交给饱和策略来处理这个任务。
+</code></pre><h2 id="异常Exception"><a href="#异常Exception" class="headerlink" title="异常Exception"></a>异常Exception</h2><ul>
+<li><p>Error和Exception</p>
+<p>  Throwable 代表是可抛出的.<br>  throws和throw的区别</p>
+<ul>
+<li><p>Error代表的是严重错误,这种错误程序员无法进行处理, 例如操作系统崩溃,jvm出错, 动态链接库失败等.Error并不是异常,不是本文的重点.</p>
+</li>
+<li><p>Exception代表的就是异常了.它下面很多派生类,其中它的派生类也分两种, </p>
+<ul>
+<li><p>一种是RuntimeException(运行时异常)</p>
+<ul>
+<li>RuntimeException  :包括除数为0, 数组下标超界等. 运行时异常的派生类有很多, 其产生频率较高.  它的派生类可以由程序处理或者抛给(throw) 给jvm处理. 例如上面的例子就是抛给了jvm处理, jvm把程序中断执行, 并把错误信息输出到终端上<br>类转换异常等，编译可以通过，虚拟机运行时抛出异常</li>
+</ul>
+</li>
+<li><p>其他的都是非运行时异常</p>
+<ul>
+<li>非RuntimeExcption :这种异常属于Excepion的派生类(上面红色的xxx), 但是不是RuntimeException的派生类,  这种异常必须由程序员手动处理,否则不通过编译.    编译异常、自定义的、IOException、SQLException</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>Exception</p>
+<p>  参考博客 <a href="https://www.cnblogs.com/cvst/p/5822373.html" target="_blank" rel="external">https://www.cnblogs.com/cvst/p/5822373.html</a></p>
+<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>JAVA序列化，java是支持对象文件读写的，但那需要对其进行序列化(可以理解为规范化)</p>
+</li>
+</ul>
+<p>实现：<br>实现Serializable接口</p>
+<p>作用或原理<br>jre中规定 如果被写对象的类型是String，或数组，或Enum，或Serializable，那么就可以对该对象进行序列化，否则将抛出NotSerializableException。</p>
+<p>隐私数据不希望被序列化</p>
+<p>使用默认序列化不符合要求，重写toString（）方法，或者使用transient关键字<br>    参考博客 <a href="http://www.blogjava.net/jiangshachina/archive/2012/02/13/369898.html" target="_blank" rel="external">http://www.blogjava.net/jiangshachina/archive/2012/02/13/369898.html</a></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/03/23/Java基础整理篇/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2018/03/23/Java研发工程师面试之路/">
                             Java研发工程师面试之路
                         </a>
@@ -207,7 +308,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-03-23T19:57:34+08:00">
 	
-		    23 3月 2018
+		    3月 23, 2018
     	
     </time>
     
@@ -293,7 +394,7 @@ java部分：
                     
                         <p>
                             <a href="/2018/03/23/Java研发工程师面试之路/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -318,7 +419,7 @@ java部分：
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-02-26T10:01:09+08:00">
 	
-		    26 2月 2018
+		    2月 26, 2018
     	
     </time>
     
@@ -339,7 +440,7 @@ java部分：
                     
                         <p>
                             <a href="/2018/02/26/js学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -364,7 +465,7 @@ java部分：
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-02-25T10:39:45+08:00">
 	
-		    25 2月 2018
+		    2月 25, 2018
     	
     </time>
     
@@ -389,7 +490,7 @@ java部分：
                     
                         <p>
                             <a href="/2018/02/25/实习总结/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -406,7 +507,7 @@ java部分：
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link-unstyled" href="/2018/01/15/实习记录-2018寒假/">
+                        <a class="link-unstyled" href="/2018/01/15/日志/实习记录-2018寒假/">
                             实习记录--2018寒假
                         </a>
                     
@@ -414,7 +515,7 @@ java部分：
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-01-15T20:55:34+08:00">
 	
-		    15 1月 2018
+		    1月 15, 2018
     	
     </time>
     
@@ -676,8 +777,8 @@ java部分：
                     
                     
                         <p>
-                            <a href="/2018/01/15/实习记录-2018寒假/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                            <a href="/2018/01/15/日志/实习记录-2018寒假/#post-footer" class="postShorten-excerpt_link link">
+                                Comment and share
                             </a>
                         </p>
                     
@@ -702,7 +803,7 @@ java部分：
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-01-12T23:13:00+08:00">
 	
-		    12 1月 2018
+		    1月 12, 2018
     	
     </time>
     
@@ -789,7 +890,7 @@ C类192.168.0.0--192.168.255.255
                     
                         <p>
                             <a href="/2018/01/12/计网复习摘要/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -814,7 +915,7 @@ C类192.168.0.0--192.168.255.255
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-01-12T22:51:59+08:00">
 	
-		    12 1月 2018
+		    1月 12, 2018
     	
     </time>
     
@@ -833,7 +934,7 @@ C类192.168.0.0--192.168.255.255
                     
                         <p>
                             <a href="/2018/01/12/Android大作业-移动电子字典设计/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -858,7 +959,7 @@ C类192.168.0.0--192.168.255.255
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-01-12T22:51:03+08:00">
 	
-		    12 1月 2018
+		    1月 12, 2018
     	
     </time>
     
@@ -878,7 +979,7 @@ C类192.168.0.0--192.168.255.255
                     
                         <p>
                             <a href="/2018/01/12/flag：定时更新blog/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -903,7 +1004,7 @@ C类192.168.0.0--192.168.255.255
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-09-17T08:58:11+08:00">
 	
-		    17 9月 2017
+		    9月 17, 2017
     	
     </time>
     
@@ -922,7 +1023,7 @@ C类192.168.0.0--192.168.255.255
                     
                         <p>
                             <a href="/2017/09/17/最大流入门/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -947,7 +1048,7 @@ C类192.168.0.0--192.168.255.255
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-08-26T23:37:20+08:00">
 	
-		    26 8月 2017
+		    8月 26, 2017
     	
     </time>
     
@@ -1059,109 +1160,7 @@ int main(){
                     
                         <p>
                             <a href="/2017/08/26/8-26练习赛/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/08/24/博弈论-k倍取数/">
-                            博弈论-k倍取数
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-08-24T09:28:42+08:00">
-	
-		    24 8月 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="斐波那契取数"><a href="#斐波那契取数" class="headerlink" title="斐波那契取数"></a>斐波那契取数</h2><p>&emsp;&emsp; 训练时遇到一道博弈题，经典博弈模型-k倍取数。直接入手比较难理解，于是去找了下 “k = 2” 的斐波那契取数模型先了解一波。</p>
-<h3 id="原理引入"><a href="#原理引入" class="headerlink" title="原理引入"></a>原理引入</h3><pre><code>(1):齐肯多夫定理： 任意数可分解为斐波那契数列中数的和
-(2)当石头总数n为斐波那契数的时候，后手必赢。
-</code></pre><p><a href="http://blog.csdn.net/dgq8211/article/details/7602807" target="_blank" rel="external">证明2参考</a></p>
-<p>好像又说绕回来了。。。有点迷</p>
-<h2 id="k倍动态减法游戏"><a href="#k倍动态减法游戏" class="headerlink" title="k倍动态减法游戏"></a>k倍动态减法游戏</h2><p>&emsp;&emsp;<a href="http://blog.csdn.net/dgq8211/article/details/7602807" target="_blank" rel="external">原理详述</a> 这篇博客讲的非常清晰。推荐。<br>将k倍动态减数问题和斐波那契数列结合起来，仿照斐波那契数列来构造a数组。</p>
-<p>&emsp;&emsp;&emsp;&emsp;即  a[ i + 1 ] = a[ i ] + sgma( j = 1,a[j] <em>k &lt; a[i]&gt;)  ( a[ j ] + 1);<br>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;其中a[ j ] </em> k &lt; a[ i ]。<br>&emsp;&emsp;引入b数组表示a[ i ] + a[ j ], 表示a数组前i项所能构造的最大数.</p>
-<p>&emsp;&emsp;简化为</p>
-<p>&emsp;&emsp;&emsp;&emsp; a[ i + 1] = a[ i ] + b[ j ];<br>&emsp;&emsp;&emsp;&emsp;其中代表所有满足 a[j] * k &lt; a[i] 的a[ j ]和</p>
-<p>&emsp;&emsp;不过之后的确搞通了，感谢前行者们无私的分享。</p>
-<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><pre><code>//2008年北京区域赛B - A simple stone game 
-#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;bits/stdc++.h&gt;
-#define mp make_pair
-#define pb push_back
-#define lowbit(i) (i&amp;(-i))
-#define LL long long
-using namespace std;
-
-const int maxn = 3e7+10;
-int a[maxn],b[maxn];
-
-int main(){
-    int T,n,k,num = 0;
-    cin &gt;&gt; T;
-    while(++num &lt;= T){
-        cin&gt;&gt;n&gt;&gt;k;
-        a[0] = b[0] = 1;
-//        有误 
-//        int i = 0,j;
-//        while(a[i] &lt; n){
-//            ++i;
-//            a[i] = b[i-1] + 1;
-//            j = i-1;
-//            while(j &gt;= 0&amp;&amp;a[j] * k &gt;= a[i])--j;
-//            if(j &lt; 0)b[i] = a[i];
-//            else b[i] = a[i] + b[j];
-//        } 
-        int i = 0, j = 0;  
-        while(a[i]) &lt; n{         // 构建数列  
-            ++i;
-            a[i] = b[i - 1] + 1;  
-            while(a[j + 1] * k &lt; a[i])++j;  
-            if(k * a[j] &lt; a[i])  
-                b[i] = b[j] + a[i];  
-            else b[i] = a[i];  
-        }  
-        printf(&quot;Case %d: &quot;,num);
-        if(a[i] == n)printf(&quot;lose\n&quot;);
-        else {
-            int ans;
-            while(n){
-                if(n &gt;= a[i])n -= a[i],ans = a[i];
-                --i;
-            }
-            printf(&quot;%d\n&quot;,ans);
-        }
-    } 
-    return 0;
-}
-</code></pre>
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/08/24/博弈论-k倍取数/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
+                                Comment and share
                             </a>
                         </p>
                     
@@ -1179,19 +1178,19 @@ int main(){
                 <a class="btn btn--default btn--small" href="/ ">
             
                 <i class="fa fa-angle-left text-base icon-mr"></i>
-                    <span>NEUERE BEITRÄGE</span>
+                    <span>NEWER POSTS</span>
             </a>
         </li>
         
         
         <li class="pagination-next">
             <a class="btn btn--default btn--small" href="/all-archives/page/3/">
-                    <span>ÄLTERE BEITRÄGE</span>
+                    <span>OLDER POSTS</span>
                 <i class="fa fa-angle-right text-base icon-ml"></i>
             </a>
         </li>
         
-        <li class="pagination-number">Seite 2 von 3</li>
+        <li class="pagination-number">page 2 of 3</li>
     </ul>
 </div>
 
@@ -1221,7 +1220,7 @@ int main(){
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
         
             <h4 id="about-card-name">Abner</h4>
         
@@ -1262,7 +1261,7 @@ int main(){
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">keinen Beitrag gefunden</div>
+            <div class="no-result text-color-light text-center">no post found</div>
             <div class="results">
                 
                 <div class="media">
@@ -1459,10 +1458,10 @@ int main(){
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="keinen Beitrag gefunden"
-                data-message-one="1 Beitrag gefunden"
-                data-message-other="{n} Einträge gefunden">
-                28 Einträge gefunden
+                data-message-zero="no post found"
+                data-message-one="1 post found"
+                data-message-other="{n} posts found">
+                29 posts found
             </p>
         </div>
     </div>
