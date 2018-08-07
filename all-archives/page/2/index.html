@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="generator" content="Abner&#39;s blog">
-    <title>Archives - Abner&#39;s blog</title>
+    <title>Archiv - Abner&#39;s blog</title>
     <meta name="author" content="Abner">
     
     
@@ -64,7 +64,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+            <img class="header-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
         
         </a>
     
@@ -82,7 +82,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
                 </a>
                 <h4 class="sidebar-profile-name">Abner</h4>
                 
@@ -199,6 +199,957 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2018/07/26/httpClient工具类接口文档/">
+                            (kein Titel)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-07-26T11:29:55+08:00">
+	
+		    26 7月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="http工具类使用文档"><a href="#http工具类使用文档" class="headerlink" title="http工具类使用文档"></a>http工具类使用文档</h1><h2 id="工具类说明"><a href="#工具类说明" class="headerlink" title="工具类说明"></a>工具类说明</h2><p>package 位置 com.aifunai.common.util.httpclientutil</p>
+<p>所有HttpClient方法都需要try HttpProcessException</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">方法名</th>
+<th style="text-align:center">返回值</th>
+<th style="text-align:center">参数列表</th>
+<th style="text-align:center">备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"> public static <b> doGet </b></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(String url, Map<string, string=""> params, Map<string, string=""> headers, String charset)</string,></string,></td>
+<td style="text-align:center">get请求</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static get</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpClient client, String url, Header[] headers, HttpContext context, String encoding)</td>
+<td style="text-align:center">get请求</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static get</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpConfig config)</td>
+<td style="text-align:center">get请求基本方法，可通过配置config完成更多设置</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static <b> doPost </b></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(String url, Map<string, string=""> param)</string,></td>
+<td style="text-align:center">post请求</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static <b> doPost </b></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(String url, Map<string, string=""> param, String charset)</string,></td>
+<td style="text-align:center">post请求</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static <b> doPost </b></td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(String url, Map<string, string=""> param, String charset,Header[] headers, CookieStore cookieStore)</string,></td>
+<td style="text-align:center">post请求</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static post</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpClient client, String url, Header[] headers, Map<string,object> parasMap, HttpContext context, String encoding)</string,object></td>
+<td style="text-align:center">post请求   </td>
+</tr>
+<tr>
+<td style="text-align:center"> public static post</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpConfig config)</td>
+<td style="text-align:center">post请求基本方法，可通过配置config完成更多设置</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static put</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpClient client, String url, Map<string,object>parasMap,Header[] headers, HttpContext context,String encoding)</string,object></td>
+<td style="text-align:center">put请求</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static put</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpConfig config)</td>
+<td style="text-align:center">put请求基本方法，可通过配置config完成更多设置</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static delete</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpClient client, String url, Header[] headers, HttpContext context,String encoding)</td>
+<td style="text-align:center">delete请求</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static delete</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpConfig config)</td>
+<td style="text-align:center">delete请求基本方法，可通过配置config完成更多设置</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static patch</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpClient client, String url, Map<string,object>parasMap, Header[] headers, HttpContext context,String encoding)</string,object></td>
+<td style="text-align:center">patch请求</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static patch</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpConfig config)</td>
+<td style="text-align:center">patch请求基本方法，可通过配置config完成更多设置</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static head</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpClient client, String url, Header[] headers, HttpContext context,String encoding)</td>
+<td style="text-align:center">head请求</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static head</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpConfig config)</td>
+<td style="text-align:center">head请求基本方法，可通过配置config完成更多设置</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static options</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpClient client, String url, Header[] headers, HttpContext context,String encoding)</td>
+<td style="text-align:center">options请求</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static options</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpConfig config)</td>
+<td style="text-align:center">options请求基本方法，可通过配置config完成更多设置</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static trace</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpClient client, String url, Header[] headers, HttpContext context, String encoding)</td>
+<td style="text-align:center">trace请求</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static trace</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpConfig config)</td>
+<td style="text-align:center">trace请求基本方法，可通过配置config完成更多设置</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static down</td>
+<td style="text-align:center">OutputStream</td>
+<td style="text-align:center">(HttpClient client, String url, Header[] headers, HttpContext context, OutputStream out)</td>
+<td style="text-align:center">down请求下载文件</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static down</td>
+<td style="text-align:center">OutputStream</td>
+<td style="text-align:center">(HttpConfig config)</td>
+<td style="text-align:center">down请求下载文件基本方法，可通过配置config完成更多设置</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static upload</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpClient client, String url, Header[] headers, HttpContext context)</td>
+<td style="text-align:center">upload上传文件</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static upload</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpConfig config)</td>
+<td style="text-align:center">upload上传文件基本方法，可通过配置config完成更多设置</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static status</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">(HttpClient client, String url, Header[] headers, HttpContext context, HttpMethods method)</td>
+<td style="text-align:center">查看资源链接情况,返回状态码</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static status</td>
+<td style="text-align:center">int</td>
+<td style="text-align:center">(HttpConfig config)</td>
+<td style="text-align:center">查看链接情况基本方法，可通过配置config完成更多设置</td>
+</tr>
+<tr>
+<td style="text-align:center"> public static send</td>
+<td style="text-align:center">String</td>
+<td style="text-align:center">(HttpConfig config)</td>
+<td style="text-align:center">请求资源或服务，是最基本的连接入口，若有需求可配置config实现</td>
+</tr>
+</tbody>
+</table>
+<h2 id="参数含义"><a href="#参数含义" class="headerlink" title="参数含义"></a>参数含义</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">参数名</th>
+<th style="text-align:center">参数解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"> url</td>
+<td style="text-align:center">请求的链接地址</td>
+</tr>
+<tr>
+<td style="text-align:center"> params</td>
+<td style="text-align:center">请求的参数及对应值</td>
+</tr>
+<tr>
+<td style="text-align:center"> headers</td>
+<td style="text-align:center">请求headers的参数及对应值</td>
+</tr>
+<tr>
+<td style="text-align:center"> charset</td>
+<td style="text-align:center">字符集</td>
+</tr>
+<tr>
+<td style="text-align:center"> HttpClient</td>
+<td style="text-align:center">请求的Client，可选项对应为Http和Https</td>
+</tr>
+<tr>
+<td style="text-align:center"> HttpConfig</td>
+<td style="text-align:center">可配置所有config的类，最终由execute执行后返回HttpRespone对象</td>
+</tr>
+<tr>
+<td style="text-align:center"> HttpContext</td>
+<td style="text-align:center">HttpContext表示HTTP进程的执行状态。它是一种可用于将属性名称映射到属性值的结构。</td>
+</tr>
+<tr>
+<td style="text-align:center"> headers(Headers)</td>
+<td style="text-align:center">请求的headers的参数及对应值,用apache.http.Header进行封装</td>
+</tr>
+<tr>
+<td style="text-align:center"> cookieStore</td>
+<td style="text-align:center">CookieStore类对象,Cookies的抽象存储</td>
+</tr>
+</tbody>
+</table>
+<p> execute()方法 对 request、charset进行处理后调用HttpClient.execute方法执行请求操作</p>
+<p>示例</p>
+<pre><code>try {
+    res = HttpClientUtil.doPost(MATRIX_URL, map);
+} catch (Exception e) {
+    e.printStackTrace();
+}
+
+//必须try-catch处理 或者 上抛异常
+
+public  String search1(String condition) throws HttpProcessException {
+    return HttpClientUtil.doGet(BAIDU_SUGGESTION,getParams(condition), null,PlanServiceConstants.CHARSET_DEFAULT);
+}
+</code></pre>
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/07/26/httpClient工具类接口文档/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/07/13/http工具类/">
+                            (kein Titel)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-07-13T17:59:43+08:00">
+	
+		    13 7月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>封装的Http版本 HTTP4.4.1</p>
+<p>HCB HttpConnectionBuilder  connect builder的类</p>
+<pre><code>连接池？  反射？
+
+http和https两种协议
+
+sslpv  ssl protocol version版本号
+
+sslpv()两种方法，参数分别为 String构造和SSLProtocolVersion类型，任选其一
+
+retry 失败重试设置
+
+proxy 代理设置
+
+pool 连接池 ？？工厂模式？
+
+ssl SSLs
+
+timeout 超时设置  自动跳转？
+</code></pre><p>HttpHeader </p>
+<pre><code>HttpReqHead类
+accept 能够接受的内容类型
+acceptCharset 可以接收的字符编码集
+acceptEncoding 返回内容压缩编码类型
+acceptLanguage 可接受的语言
+acceptRanges 多个子范围字段
+authorization 授权证书
+cacheControl 缓存机制
+connection 是否持久链接 短连接、长连接
+cookie cookie设置
+contentLength 内容长度
+contentType 返回格式
+date 请求发送的日期和时间
+expect
+from 发送请求用户的email
+……
+
+public static final String ACCEPT = &quot;Accept&quot;;
+    public static final String ACCEPT_CHARSET = &quot;Accept-Charset&quot;;
+    public static final String ACCEPT_ENCODING = &quot;Accept-Encoding&quot;;
+    public static final String ACCEPT_LANGUAGE = &quot;Accept-Language&quot;;
+    public static final String ACCEPT_RANGES = &quot;Accept-Ranges&quot;;
+    public static final String AUTHORIZATION = &quot;Authorization&quot;;
+    public static final String CACHE_CONTROL = &quot;Cache-Control&quot;;
+    public static final String CONNECTION = &quot;Connection&quot;;
+    public static final String COOKIE = &quot;Cookie&quot;;
+    public static final String CONTENT_LENGTH = &quot;Content-Length&quot;;
+    public static final String CONTENT_TYPE = &quot;Content-Type&quot;;
+    public static final String DATE= &quot;Date&quot;;
+    public static final String EXPECT = &quot;Expect&quot;;
+    public static final String FROM = &quot;From&quot;;
+    public static final String HOST = &quot;Host&quot;;
+    public static final String IF_MATCH = &quot;If-Match &quot;;
+    public static final String IF_MODIFIED_SINCE = &quot;If-Modified-Since&quot;;
+    public static final String IF_NONE_MATCH = &quot;If-None-Match&quot;;
+    public static final String IF_RANGE = &quot;If-Range&quot;;
+    public static final String IF_UNMODIFIED_SINCE = &quot;If-Unmodified-Since&quot;;
+    public static final String KEEP_ALIVE = &quot;Keep-Alive&quot;;
+    public static final String MAX_FORWARDS = &quot;Max-Forwards&quot;;
+    public static final String PRAGMA = &quot;Pragma&quot;;
+    public static final String PROXY_AUTHORIZATION = &quot;Proxy-Authorization&quot;;
+    public static final String RANGE = &quot;Range&quot;;
+    public static final String REFERER = &quot;Referer&quot;;
+    public static final String TE = &quot;TE&quot;;
+    public static final String UPGRADE = &quot;Upgrade&quot;;
+    public static final String USER_AGENT = &quot;User-Agent&quot;;
+    public static final String VIA = &quot;Via&quot;;
+    public static final String WARNING = &quot;Warning&quot;;
+</code></pre><p>HttpClient</p>
+<p>HttpConfig<br>    synchronized 修饰代码块</p>
+<p>HttpCookies </p>
+<pre><code>Cookies 和 CookieStore
+</code></pre><p><a href="https://baike.baidu.com/item/%E8%BF%9E%E6%8E%A5%E6%B1%A0/1699713?fr=aladdin" target="_blank" rel="external">连接池-百度百科</a></p>
+<p>get和post的区别</p>
+<p>get参数构造在url中，而post参数则包含在request body中</p>
+<p>get请求会产生一个TCP包，post请求会产生两个TCP包（先发送header，服务器响应100后继续发送data，服务器响应200）网络差的情况下两次包在验证数据包完整性上有非常大的优点。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/07/13/http工具类/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/07/05/关于SSM框架的一些理解/">
+                            关于SSM框架的一些理解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-07-05T21:47:24+08:00">
+	
+		    05 7月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="SSM框架"><a href="#SSM框架" class="headerlink" title="SSM框架"></a>SSM框架</h2><p>最近一段时间都在接触SSM框架，之前可能对其理解不到位，有了很多错误的理解。这次实训也的的确确学到了不少。</p>
+<p>SSM 由 Spring MVC + Spring boot + Mybatis三部分组成。</p>
+<ul>
+<li>Spring MVC负责view层的显示</li>
+<li>Spring boot负责业务模型</li>
+<li>Mybatis负责与数据库的交互</li>
+</ul>
+<p>值得一提的是maven，maven是搭建框架的底层，我的理解是为项目引入种种包，若不适用maven进行配置，可以参考写代码时手动引入依赖包的过程。具体实现方面不算是特别了解，应该和gradle差不多。</p>
+<p>maven中最重要的是pom.xml文件，里面定义了整个项目的maven配置，其中包括版本、jdk版本、tomcat版本以及包依赖等等。</p>
+<p>web项目中重要的配置文件是web.xml，其中定义了spring的配置、springMVC的配置以及前端到controller层的字符类型（若不进行配置，默认的编码会导致中文乱码）</p>
+<p>通常web.xml中几个文件会单独写一个xml文件方便配置。<br>如 spring-mvc.xml文件中包含的是springmvc的配置，包含了controller层的扫描位置（方便url解析），以及controller层中跳转的string处理，例如加前缀后缀等。</p>
+<p>applicationContext.xml包含了spring中各种配置，包含各层的扫描位置，数据库配置文件的引入，数据库处理类型的声明等。</p>
+<p>更多的log4j等配置暂时没有了解的更详细。</p>
+<p>关于在maven目录中引入的kaptcha验证码组件等、以及如何在ssm项目中引入开源项目库等还需要更多的练习去学习。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/07/05/关于SSM框架的一些理解/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/06/28/java排序方法/">
+                            java排序方法
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-06-28T00:00:00+08:00">
+	
+		    28 6月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>java实现排序的几种方法</p>
+<p>对数组进行排序</p>
+<ul>
+<li><p>Arrays.sort()</p>
+<p>  举例 </p>
+<pre><code>int []array =  {9,10,11,2,3,4,5,6,7,8};
+Arrays.sort(array);
+</code></pre></li>
+</ul>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/06/28/java排序方法/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/06/16/修改linux-profile目录错误后恢复方法/">
+                            修改linux profile目录错误后恢复方法
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-06-16T01:01:55+08:00">
+	
+		    16 6月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>如题，没有备份就修改了系统的环境变量，且改错了，导致了日常应用打不开了，无法rollback</p>
+<p>快绝望时，找到了正解。</p>
+<p><img src="../img/18-6-16-1.png" alt=""></p>
+<p>以后再也不在不备份情况下修改重要文件了，虽然这次即使备份了也没法mv恢复，不过快照倒比这个好得多。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/06/16/修改linux-profile目录错误后恢复方法/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/06/05/hadoop安全机制学习笔记/">
+                            (kein Titel)
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-06-05T17:08:28+08:00">
+	
+		    05 6月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>  Hadoop安全机制</p>
+<p>  加密部分</p>
+<p>  常见加密算法<br>    对称加密算法<br>        DES  56位密钥长度  运算较快   安全性低<br>        3DES 112、168位密钥长度   运算慢   安全度中<br>        AES  128、192、156位    运算快   安全度高<br>    AES算法模式<br>        CBC  CTR  OFB  CFB  GCM  XTS  ECB</p>
+<pre><code>CBC加密部分 （密码分组链接）
+    思想： 明文块与前一个密文块 进行异或操作
+    第一个明文块和初始化向量异或，通过加密密钥加密得到密文块1
+    第i个明文块和第i-1个密文块异或操作，然后通过加密密钥得到密文块i （i &gt; 1）
+解密过程
+    密文块1先用加密密钥进行解密，再通过和初始化向量进行异或得到明文块1
+    密文块i 用加密密钥进行解密， 再通过异或密文块i-1  得到明文块i
+
+CTR算法模式 （计数器模式）
+
+    加密过程
+        （初始化文本+counter）用key加密，异或明文，得到密文
+            counter++;
+    解密过程
+        （初始化文本+counter）用key加密，异或密文，得到明文
+            counter++;
+
+
+异同：CBC需要填充，CTR不需要填充
+    CTR任意block不需要与前面的链接，适用流式处理的加密场景
+</code></pre><p>  高级加密指令集AES-NI<br>    Intel高级加密新指令 （08年提出）<br>    基于X86指令集的扩展，用于提高AES算法的执行速度 （17倍）</p>
+<p>  静态数据 加密<br>    解决方案<br>    应用层   最安全最灵活的方式，不能应用已有的应用<br>    HDFS层   提供很好的部署性、对于应用是透明的  不能很好的根据用户的需求建模<br>    硬盘层   易部署、性能高、不灵活</p>
+<pre><code>KMS  key manangement server
+
+创建一个hadoop key
+主要命令
+工作流程
+namenode请求kms生成一个EDEK，持久化存储在namenode
+client请求hdfs
+kms生成EDEK并发送给HDFS
+HDFS把EDEK发送给client
+client把EDEK发送给  KMS 请求解密EDEK
+KMS发送DEK
+client用DEK加解密
+
+
+
+namenode   edek 
+client
+</code></pre><p>  通讯的加密<br>    REST web access  HTTPS thoughSLL/TLS<br>    RPS  SASL协商出的安全信道<br>    HDFS数据传输   SASL  传输密钥  自定义的AES加密算法进行数据加密</p>
+<p>  密钥的管理<br>    KMS 密钥管理<br>    数据与密钥分开存储<br>    对外提供标准API进行存储和获取密钥<br>    标准的API设计保证了第三方可实现自定义的密钥管理方式<br>    细粒度的访问控制管理  Per Key  Per Operator<br>        hadoop.apache.org/docs/stable/hadoop-kms/index.html</p>
+<p>  Apache Commons Crypto介绍<br>        Spark shuffle<br>    原名Chinmera<br>    源自Apache Hadoop<br>    Intel贡献<br>    加入到Apache Commons<br>    使用AES-NI优化的Cryptograohic library<br>    提供了Cipher和Stream层次的java api<br>    提供了安全随机数的API</p>
+<pre><code>shuffle 
+mapper 产生数据
+reducer  消费数据
+shuffle  发生在mapper和reducer之间
+
+why 加密shuffle
+网络安全 本地文件安全
+</code></pre><p>包括两部分：<br>    RPC：网络传输<br>    Shuffle文件 Spill的文件和Shuffle结果文件</p>
+<pre><code>Hadoop安全机制  认证
+
+Apache Haddoop介绍
+    HDFS 分布式文件系统
+    YARN 资源管理和调度
+    MapReduce 计算
+
+    Client 向Name Node请求元数据信息  得到后向Data Node请求自己的数据
+    Name Node
+    Data Node
+    NameNode和DataNode之间通过心跳  传递数据
+
+    Yarn架构
+
+大数据安全介绍
+    敏感数据
+        安全相关
+        使用不当或泄露造成巨大损害
+    符合安全标准
+        Hippa PIC-DSS要求保护个人信息
+        符合企业安全策略
+
+    2009年以前没有
+    用户和服务的认证
+
+    架构：
+    系统高度分布
+    被多种框架和组件共享
+    数据在线
+
+    部署在内网
+    数据访问供内部人员服务
+    没有原生的安全部署，依靠传统的安全防御
+
+
+    认证
+
+    授权
+
+    数据保护
+    数据审计
+    受信平台
+
+大数据安全：认证
+    user到service认证
+    service到service认证
+    性能损耗不超过3%
+    Simple （不安全
+        默认模式
+        适用当前用户的系统账号
+        避免错误操作
+        不是真正的安全
+    Kerberos（强） + Delegation Token (内部)
+        根据 需求 创建实体
+        密码不在网络中传递
+        集成现有的管理系统  LDAP
+        principals
+
+        Kerberos工作流程
+
+    LDAP（弱） 适用某些组件
+</code></pre><p>RPC协议<br>    Kerberos  gssapi<br>    Tokens  DIGEST MD5<br>Block transfer protocol    </p>
+<p>Http<br> 浏览器<br> web services</p>
+<pre><code>大数据安全：授权
+    权限
+
+    ACLs
+</code></pre><p>授权管理组件<br>        Sentry<br>        Ranger<br>        Service<br>        Knox</p>
+<p>分布式一致性算法</p>
+<p>Paxos历史<br>  Leslie Lamport论文</p>
+<p>  proposer</p>
+<p>  Leader</p>
+<p>3个原理</p>
+<p>多数派决议<br>    超过半数</p>
+<p>选举<br>    纪元</p>
+<p>失效时的一致性</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/06/05/hadoop安全机制学习笔记/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/05/04/计算机视觉学习笔记/">
+                            计算机视觉学习笔记
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-05-04T22:18:08+08:00">
+	
+		    04 5月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="后向变换与双线性插值"><a href="#后向变换与双线性插值" class="headerlink" title="后向变换与双线性插值"></a>后向变换与双线性插值</h2><h2 id="滤波器"><a href="#滤波器" class="headerlink" title="滤波器"></a>滤波器</h2><h2 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h2>
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/05/04/计算机视觉学习笔记/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/04/20/华为网技相关eNSP学习笔记/">
+                            eNSP学习笔记
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-04-20T00:35:17+08:00">
+	
+		    20 4月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="组网练习命令记录"><a href="#组网练习命令记录" class="headerlink" title="组网练习命令记录"></a>组网练习命令记录</h2><h3 id="VLAN操作"><a href="#VLAN操作" class="headerlink" title="VLAN操作"></a>VLAN操作</h3><p> sys 进入系统模式</p>
+<p> 新建vlan</p>
+<p> 分配vlan到端口：</p>
+<ul>
+<li><p>第一种</p>
+<p>修改端口类型 改为access  :  port link-type access<br>分配端口vlan            :  port default vlan 100</p>
+</li>
+<li><p>第二种</p>
+<p>vlan 100<br>port ethernet 0/1   </p>
+</li>
+</ul>
+<p>进入vlanif接口（三层）分配ip</p>
+<pre><code>ip address 10.1.1.1 24
+</code></pre><h3 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h3><ul>
+<li><p>新建loopback口  </p>
+<pre><code>loopback0
+</code></pre></li>
+<li><p>配置router id</p>
+<pre><code>router id + ip地址（loopback地址）
+</code></pre></li>
+<li><p>新建ospf进程</p>
+<pre><code>ospf + 进程号
+</code></pre></li>
+<li><p>创建area</p>
+<pre><code>area + area号
+</code></pre></li>
+<li><p>network宣告  </p>
+<pre><code>network + 路由 + 反掩码
+</code></pre></li>
+<li><p>打印ospf信息</p>
+<pre><code>display ospf peer 
+</code></pre></li>
+</ul>
+<h3 id="VLAN"><a href="#VLAN" class="headerlink" title="VLAN"></a>VLAN</h3><p>vlan 隔离了二层广播域</p>
+<p>vlan头部</p>
+<p>目的地址 源地址 tag信息 + 报文</p>
+<p>基于端口的vlan</p>
+<p>端口类型 Access 、 Trunk 、 Hybrid端口</p>
+<p>Access类型端口只属于一个VLAN，有pvid（多面向主机）</p>
+<p>Trunk允许多个VLAN通过 （多面向交换机、路由器）</p>
+<p>VLAN间通信方式:单臂路由、三层交换机</p>
+<hr>
+<h3 id="单臂路由"><a href="#单臂路由" class="headerlink" title="单臂路由"></a>单臂路由</h3><p>交换机上配置trunk端口：</p>
+<pre><code>进入对应端口
+port link-type trunk
+port trunk allow-pass vlan all
+</code></pre><p>路由器上：</p>
+<pre><code>interface ethernet 0/1.1   建立子接口
+control-vid 100 dot1q-termination   
+控制vlan  编号100  协议
+
+dot1q termination vid 100
+                  vlan编号
+arp broadcast enable
+ip address 192.168.10.1 255.255.255.0  分配网关
+</code></pre><h3 id="端口聚合"><a href="#端口聚合" class="headerlink" title="端口聚合"></a>端口聚合</h3><p>用于交换机之间，增加带宽、冗余的好处等</p>
+<p>创建eth-trunk</p>
+<pre><code>interface Eth-Trunk1 
+</code></pre><p>进入interface 0/0/2并将其加入trunk1</p>
+<pre><code>interface G 0/0/2    
+eth-trunk 1      加入trunk1
+
+interface G 0/0/3
+eth-trunk 1 
+</code></pre><p>进入eth-trunk1接口进行配置</p>
+<pre><code>interface eth-trunk 1  
+port link-type trunk   端口类型为trunk
+port trunk allow-pass vlan 30
+     配置trunk允许vlan30 通过
+</code></pre><h3 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h3><pre><code>配置静态路由
+ip route-static 192.168.1.10 24 10.1.1.2
+                目的ip地址  子网掩码    下一跳地址
+或
+ip route-static 192.168.1.10 24 Ethernet 0/0/0
+                                下一跳出口
+打印路由表信息
+display ip routing-table
+</code></pre>
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/04/20/华为网技相关eNSP学习笔记/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/03/29/大数据学习笔记/">
+                            大数据学习笔记
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-03-29T21:17:29+08:00">
+	
+		    29 3月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>Hbase<br>基于google BigTable<br>基于Apache Hadoop的</p>
+<p>Hbase基本架构<br>Hmaster</p>
+<p>HRegionServer</p>
+<ul>
+<li>Hlog</li>
+<li>BlockCache</li>
+<li>HRegion</li>
+<li>MemStore</li>
+</ul>
+<p>Region 根据字典序<br>Region是Hbase调度的基本单位，被分配在HRegionServer<br>达到阈值，split再次分割，重分配，上线<br>Region数目最好不超过100 </p>
+<p>依赖Zookeeper</p>
+<p>公式 (regionserver * 0.4）/max<br>避免写入磁盘 </p>
+<p>上线：</p>
+<ul>
+<li>assign</li>
+<li>update meta  </li>
+<li>State Treansition</li>
+</ul>
+<p>meta表   ？？<br>meta表的地址存放在zookeeper</p>
+<p>一个Region  Store   Store file</p>
+<p>PUT upset  update+insert<br>DELETE 假删除</p>
+<p>GET<br>SCAN</p>
+<p>LSM ？？？</p>
+<p>内存中</p>
+<p>达到一定数量后异步磁盘</p>
+<p>Compaction  StoreFile合并</p>
+<p>minor compaction 合并部分<br>major compaction  合并所有 delete marker会被删除</p>
+<p>HBASE</p>
+<p>高可靠性、高可用性<br>不适合场景</p>
+<ul>
+<li>非关系型数据库、高度耦合的数据</li>
+<li>事务处理</li>
+<li>非主键索引</li>
+<li>大对象</li>
+<li>主键递增</li>
+</ul>
+<p>新特性：<br>multiWAL<br>ZK-less assignment<br>multi-tenancy<br>Read replica</p>
+<p>HDFS<br>Erasure Coding</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/03/29/大数据学习笔记/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2018/03/23/Java基础整理篇/">
                             Java基础整理篇
                         </a>
@@ -207,7 +1158,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-03-23T21:17:29+08:00">
 	
-		    3月 23, 2018
+		    23 3月 2018
     	
     </time>
     
@@ -283,884 +1234,7 @@ wait(long, int)
                     
                         <p>
                             <a href="/2018/03/23/Java基础整理篇/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/03/23/Java研发工程师面试之路/">
-                            Java研发工程师面试之路
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-03-23T19:57:34+08:00">
-	
-		    3月 23, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>有点难受，最近在春招，投了两份简历，两次远程面试后都在等结果。</p>
-<h1 id="阿里"><a href="#阿里" class="headerlink" title="阿里"></a>阿里</h1><h2 id="一面"><a href="#一面" class="headerlink" title="一面"></a>一面</h2><p>一面了两次，都是结合简历和项目，第一次比较紧张，第二次就发挥的比较不错，第二次聊的很开心。主要是有了第一次的经验，也问了点java基础部分，还可以。<br>等了三天以为凉了。。</p>
-<h2 id="二面"><a href="#二面" class="headerlink" title="二面"></a>二面</h2><p>周五晚上阿里第二轮面试，感觉有点凉。</p>
-<p>自我介绍，然后是介绍自己的有点和长处，<br>我作死般说了个我好学。。。（要求举例）<br>中间问到了安全的一些东西、没细问<br>研发岗你的优势<br>之后就是问了些JAVA基础，回答的有点惨。</p>
-<pre><code>JAVA类的基类是什么？（Object类）
-有哪些方法？（不会，记不得了）
-判断两个对象相等怎么判（只记得好像是判断两个地址要相等，具体的不会）
-问到equals和==的区别（扯半天没说出啥来）
-多线程的实现方法（三种，继承Thread类、实现接口、线程池）{
-    run和start方法的作用（反了，太久没碰过这些了，有点懵）
-    线程池只是听说过
-}
-</code></pre><p>一个数学题，没计算说了个错答案，后来计算之后给了正确答案（有点紧张、当时很不确定）</p>
-<p>还没出结果，怀着侥幸心理愿过。</p>
-<p>更新： 3-27 官网上信息已更新为rejected  阿里算是无缘了。</p>
-<p>java面试题：<br>    java为什么是平台无关的？  （java虚拟机，.class字节码文件。半编译半解释）<br>    .class文件和.java文件的区别<br>    .class文件执行的过程（扯了半天没说对）<br>    classpath<br>    java异常<br>    面向对象语言的特点（继承、多态、封装）  多态 （编译时多态：函数重载  运行时多态：继承和接口）</p>
-<pre><code>树的遍历
-hash  hash冲突处理  （开放寻址法、再哈希法、链地址法、公共溢出区）
-tcp三次握手过程   （为什么非得三次握手      
-</code></pre><hr>
-<h1 id="momemta"><a href="#momemta" class="headerlink" title="momemta"></a>momemta</h1><h2 id="一面-1"><a href="#一面-1" class="headerlink" title="一面"></a>一面</h2><p>一面也是面了两个人。</p>
-<p>第一个面试官是做C++研发的，聊了点简历上的项目，知道我C++工程方面没接触过之后放弃了给我的代码题。</p>
-<p>第二个面试官是做视觉算法的，聊了点后，开始给我出算法题。</p>
-<p>1.求两个矩形的交叉面积</p>
-<pre><code>（一下子联想到了矩形面积并）扩展开来讲了好久的实现原理，最后还扯了点线段树的原理（好像讲到了树状数组，有点。。）
-其实答案后来面试后仔细考虑了挺简单的，就是先max、min判一下交叉，然后中间两个x的差乘中间两个y的差。。。
-</code></pre><p>2.求两条平行线段的距离</p>
-<pre><code>1）平行于x的
-2）斜着的
-3）曲线的（弯道）
-3）曲率不相同的
-</code></pre><p>总结：</p>
-<p>其实最后两道题都是迷迷糊糊的没给出实际的正解，大概是沟通的不到位，可能误解了面试官的意思。总的来说面试官真的很和善的，没有太过于紧张。之后就是等结果了。</p>
-<p>就感觉momemta的面试官问的问题都给出了实际的应用场景，是属于需要解决的实际需求，然后自己也没给出实际的正解，第二道题满脑子想的全是骚骚的数学方法，醉醉的。后来自己都说不下去了。</p>
-<p>最近等面试打乱了自己的复习计划，有点累，有点忐忑。<br>可能这些就是找工作的痛吧。<br>如果这两家没过，自己就像大面积投了，然后希望能有个好的结果吧。</p>
-<p>更新于4.22</p>
-<h2 id="百度"><a href="#百度" class="headerlink" title="百度"></a>百度</h2><h3 id="一面-2"><a href="#一面-2" class="headerlink" title="一面"></a>一面</h3><p>昨天面了百度的一面，记录一下。</p>
-<pre><code>c和c++部分：
-特地复习了一下c++，可能我不是特别熟悉c++问的也比较简单
-    虚函数和全虚函数
-    引用和指针的区别（引用必须初始化，引用是别名）
-    菱形继承了解吗（no
-    malloc、free和new、delete区别
-    static应用场景
-网络部分：
-    网络七层模型以及每层的协议举例
-    TCP三次握手、四次挥手的状态转移（挥手的状态记得不是特别清楚。TIME_WAIT的2MSL当初记成2ms。。汗，当时尴尬的一批）
-    写过RPC吗？（没有
-OS部分：
-    进程和线程通信的方式（答得不是很好，完全是想到啥说啥）
-算法题：
-    50亿数据找中位数（答得不是很好，给了提示后（按位），杂七杂八说了个大概，但当时说的不对，复杂度常数级高了不少），浪费了不少时间
-    编程题：一道简单的贪心策略题，更重思路，一开始想法有缺陷，后来n方最后一秒过了（最后的心情……连问的问题都。。）
-</code></pre><p>等消息中……待更</p>
-<h2 id="华为"><a href="#华为" class="headerlink" title="华为"></a>华为</h2><h3 id="技术面"><a href="#技术面" class="headerlink" title="技术面"></a>技术面</h3><pre><code>操作系统部分：
-    几大部分（答得杂七杂八）
-    进程和线程（区别、通信方式、）
-    实模式和保护模式
-
-网络：
-    七层模型、每层协议
-    http长连接和短连接区别、应用场景（区别是http头部connection，场景猜了一点
-
-java部分：
-    排序（实现比较接口
-    线程池了解吗（听过，没用过
-</code></pre><p>技术部分是这些，还有比赛、平常总结习惯、项目等（考研与否</p>
-<p>感觉面试官人挺好，但最后一面完了被告知今天结束了，很尴尬。答得挺好的啊，最后朋友说是我说的考研没想清楚，没有明确回答不考研）。。</p>
-<p>然后等待的时候也发生了点插曲，不知道是性格测试出了问题还是我的技面太差。</p>
-<p>本来听同学说华为面试不怎么刷人的，忽然自己就被刷了，真的是贼郁闷。不过也学到了不少东西，第一次现场面，没出什么大意外，也算增强了信心吧。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/03/23/Java研发工程师面试之路/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/02/26/js学习笔记/">
-                            js学习笔记
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-02-26T10:01:09+08:00">
-	
-		    2月 26, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="js学习笔记"><a href="#js学习笔记" class="headerlink" title="js学习笔记"></a>js学习笔记</h1><p>数组[]<br>对象{}</p>
-<p>正则表达式</p>
-<p>简单模式</p>
-<p>特殊字符<br>|字符|含义|<br>|- | -|<br>|\ |匹配将依照下列规则：在非特殊字符之前的反斜杠表示下一个字符是特殊的，不能从字面上解释。例如，没有前面’\’的’b’通常匹配小写’b’，无论它们出现在哪里。如果加了’\’,这个字符变成了一个特殊意义的字符，意思是匹配一个字符边界。反斜杠也可以将其后的特殊字符，转义为字面量。例如，模式 /a<em>/ 代表会匹配 0 个或者多个 a。相反，模式 /a\\</em>/ 将 ‘<em>‘ 的特殊性移除，从而可以匹配像 “a</em>“ 这样的字符串。使用 new RegExp(“pattern”) 的时候不要忘记将 \ 进行转义，因为 \ 在字符串里面也是一个转义字符。|<br>|^ |  匹配输入的开始。如果多行标志被设置为true，那么也匹配换行符后紧跟的位置。例如，/^A/ 并不会匹配 “an A” 中的 ‘A’，但是会匹配 “An E” 中的 ‘A’。当 ‘^’ 作为第一个字符出现在一个字符集合模式时，它将会有不同的含义。补充字符集合 一节有详细介绍和示例。|<br>|$ | 匹配输入的结束。如果多行标示被设置为true，那么也匹配换行符前的位置。例如，/t$/ 并不会匹配 “eater” 中的 ‘t’，但是会匹配 “eat” 中的 ‘t’。|<br>|<em> |匹配前一个表达式0次或多次。等价于 {0,}。|<br>|+ |匹配前面一个表达式1次或者多次。等价于 {1,}。|<br>|? |匹配前面一个表达式0次或者1次。等价于 {0,1}。|<br>|. |匹配除换行符之外的任何单个字符。|<br>|(x) |匹配 ‘x’并且记住匹配项，括号被称为捕获括号。|<br>|(?:x) |匹配 ‘x’ 但是不记住匹配项。这种叫作非捕获括号，使得你能够定义为与正则表达式运算符一起使用的子表达式。|<br>|x(?=y) |匹配’x’仅仅当’x’后面跟着’y’.这种叫做正向肯定查找。|<br>|x(?!y) |匹配’x’仅仅当’x’后面不跟着’y’,这个叫做正向否定查找。|<br>|x|y |匹配‘x’或者‘y’。|<br>|{n} |n是一个正整数，匹配了前面一个字符刚好发生了n次。|<br>|{n,m} |    n 和 m 都是整数。匹配前面的字符至少n次，最多m次。如果 n 或者 m 的值是0， 这个值被忽略。|<br>|[xyz] |一个字符集合。匹配方括号的中任意字符，包括转义序列。你可以使用破折号（-）来指定一个字符范围。对于点（.）和星号（</em>）这样的特殊符号在一个字符集中没有特殊的意义。他们不必进行转义，不过转义也是起作用的。|<br>|[^xyz] |一个反向字符集。也就是说， 它匹配任何没有包含在方括号中的字符。你可以使用破折号（-）来指定一个字符范围。任何普通字符在这里都是起作用的。|<br>|[\b] |匹配一个退格(U+0008)。（不要和\b混淆了。）|<br>|\b |匹配一个词的边界。一个词的边界就是一个词不被另外一个词跟随的位置或者不是另一个词汇字符前边的位置。注意，一个匹配的词的边界并不包含在匹配的内容中。换句话说，一个匹配的词的边界的内容的长度是0。（不要和[\b]混淆了）|<br>|\B | 匹配一个非单词边界。他匹配一个前后字符都是相同类型的位置：都是单词或者都不是单词。一个字符串的开始和结尾都被认为是非单词。|<br>|\cX |当X是处于A到Z之间的字符的时候，匹配字符串中的一个控制符。|<br>|\d | 匹配一个数字。|<br>|\D | 匹配一个非数字。|<br>|\f | 匹配一个换页符 (U+000C)。|<br>|\n | 匹配一个换行符 (U+000A)。|<br>|\r | 匹配一个回车符 (U+000D)。|<br>|\s | 匹配一个空白字符，包括空格、制表符、换页符和换行符。|<br>|\S | 匹配一个非空白字符。|<br>|\t | 匹配一个水平制表符 (U+0009)。|<br>|\v | 匹配一个垂直制表符 (U+000B)。|<br>|\w | 匹配一个单字字符（字母、数字或者下划线）。|<br>|\W | 匹配一个非单字字符。 如%|<br>|\n | 当 n 是一个正整数，一个返回引用到最后一个与有n插入的正则表达式(counting left parentheses)匹配的副字符串。|<br>|\0 |匹配 NULL (U+0000) 字符， 不要在这后面跟其它小数，因为 \0<digits> 是一个八进制转义序列。|<br>|\xhh |与代码 hh 匹配字符（两个十六进制数字）|<br>|\uhhhh |与代码 hhhh 匹配字符（四个十六进制数字）。|<br>|\u{hhhh} |(仅当设置了u标志时) 使用Unicode值hhhh匹配字符 (十六进制数字).|</digits></p>
-<p>占坑。。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/02/26/js学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/02/25/实习总结/">
-                            实习总结
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-02-25T10:39:45+08:00">
-	
-		    2月 25, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="寒假实习总结"><a href="#寒假实习总结" class="headerlink" title="寒假实习总结"></a>寒假实习总结</h2><p>  &emsp;&emsp;1.12到达杭州，前一天刚考完试，做着人生第一班飞机飞到杭州，并到达公司，办理了一部分入职手续，了解了一部分职责和任务。<br>  开始的几天开始了解spring框架及一些java并行的实现原理和代码。稍显枯燥。</p>
-<p>  &emsp;&emsp;之后从第三天开始实际接触药妆项目。从一个pc端页面开始，后交接给另一个从学校考试回来的实习生，开始负责编写微信端H5页面。</p>
-<p>  &emsp;&emsp;从最开始的仿照代码编写ModelAndView类型的（在后台获取数据并用ftl渲染页面并回传给前端）带后来ajax请求在前端渲染整个页面。更深入了解了前端页面的访问过程，并对整个前端体系有了个整体的认识（粗浅）。</p>
-<p>  &emsp;&emsp;后来因为行中项目的重要性，除我之外的所有人全部抽调进入行中项目（因为年后开学的缘故，我无法参与行中项目的联调，不适合负责模块），接受药妆项目的残余工作。在完成微信端所有任务之后开始整体查看整个项目，寻找待解决问题，（涉及到这个项目的是整个实习生团队，大家都不是很成熟的代码风格和思路）多次反复寻找bug并寻求解决。</p>
-<p>  &emsp;&emsp;最后离职之前还因为一点小插曲残余一个任务模块的审核部分的权限问题（相关代码涉及两人且两人意见有分歧）最终没能收尾成功，也是一个遗憾。</p>
-<p>  &emsp;&emsp;以上都是关于工作的总结，尽管当初是想来接触人工智能相关的，但机缘巧合接触了整个建站的过程（开头一部分因为报道之前已开始没能亲眼目睹），也是一次不错的实习经历。其中的几次分享讲座也是非常不错，虽因内容的新颖未能全get，不过总的来说接触了目前企业化的前沿的热点技术，对之后的着力方法有了清晰的认识。</p>
-<p>  &emsp;&emsp;Ok。不谈工作了，聊点别的。公司体格不大，毕竟是一个创业公司，不过氛围很舒服。周围的同事身上有不少我要学习的优点。还有每天的日会尽管有些波折，但还是持续挺了下来，越发的有了自信。认识了不少朋友呢。</p>
-<p>  &emsp;&emsp;尽管不确定暑假究竟去不去了，但接下来的这学期也是很重要的一个学期了。我几乎是决定要考研了。前段时间还在畏惧着考研失败的后果，但且不说会不会失败，如果这点勇气都没有，如果追求未来更美好的生活。大不了就是失败了，找个不如意的学校调剂一下或者找个过渡的工作。这学期的打算就是先把驾照提上日程，有了驾照还是很方便的。其次就是开始准备数学和英语（不花太多时间，就是间带着提上日程）。另外就是之前的专业课基础要打实了。最后就是上好课的同时努力提升自己，了解试下的热点技术和新技术。</p>
-<p>  &emsp;&emsp;本来只是一个实习总结的，既然写在了开学的前一天，那就当是连同下学期展望一起了。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/02/25/实习总结/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/01/15/日志/实习记录-2018寒假/">
-                            实习记录--2018寒假
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-01-15T20:55:34+08:00">
-	
-		    1月 15, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="实习记录"><a href="#实习记录" class="headerlink" title="实习记录"></a>实习记录</h1><h2 id="时间-：-1-15-2-11"><a href="#时间-：-1-15-2-11" class="headerlink" title="时间 ： 1.15-2.11"></a>时间 ： 1.15-2.11</h2><h3 id="日期：1-15"><a href="#日期：1-15" class="headerlink" title="日期：1.15"></a>日期：1.15</h3><p>今天完成：</p>
-<blockquote>
-<p>熟悉了项目的内容，搭建好了个人电脑的环境，并成功clone下项目代码，对其进行了大致的preview；</p>
-<p>了解了项目需求与进度。</p>
-<p>阅读了java规范，（2/3进度）。</p>
-</blockquote>
-<p>明天的进度计划：</p>
-<blockquote>
-<p>jvm、线程安全，JDK的 hashmap 和concurrenthashmap </p>
-<p>看spring IOC  MVC 的源码   </p>
-<p>数据库postgreSQL     </p>
-<p>还有hive </p>
-</blockquote>
-<p>花费：<br>早饭：7 + 中饭： 15.56 + 晚饭16.25 + 夜宵：10 + 路费2  共计：50.81 </p>
-<h3 id="日期：1-16"><a href="#日期：1-16" class="headerlink" title="日期：1.16"></a>日期：1.16</h3><p>学习笔记：</p>
-<h4 id="jvm："><a href="#jvm：" class="headerlink" title="jvm："></a>jvm：</h4><pre><code>java虚拟机，java代码和硬件、系统的中间层，隔离了一切物理环境，为所有java代码运行提供相同的环境。（看博客，jvm的实现机制、涉及编译和系统）
-</code></pre><h4 id="线程安全："><a href="#线程安全：" class="headerlink" title="线程安全："></a>线程安全：</h4><ul>
-<li>最简单的方式，使用Synchronization关键字</li>
-<li>使用java.util.concurrent.atomic 包中的原子类，例如 AtomicInteger<ul>
-<li>使用java.util.concurrent.locks 包中的锁</li>
-</ul>
-</li>
-<li>使用线程安全的集合ConcurrentHashMap</li>
-<li>使用volatile关键字，保证变量可见性（直接从内存读，而不是从线程cache读）</li>
-</ul>
-<p>tips：线程安全往往要加synchronization修饰符保证数据安全，但降低了性能，所以不是并发（多线程时）不适用并发函数。</p>
-<h4 id="Hashmap和concurrentHashmaps实现的区别"><a href="#Hashmap和concurrentHashmaps实现的区别" class="headerlink" title="Hashmap和concurrentHashmaps实现的区别"></a>Hashmap和concurrentHashmaps实现的区别</h4><blockquote>
-<p>Hashmap</p>
-</blockquote>
-<p>线程不安全的实现方法。</p>
-<blockquote>
-<p>Hashtable</p>
-</blockquote>
-<p>在Hashmap的基础上，所有关于Hashmap中涉及到hash表的操作都加了Synchronization，效率变低了。</p>
-<blockquote>
-<p>ConcurrentHashmap</p>
-</blockquote>
-<ul>
-<li>jdk1.7版本：利用段锁进行优化。即段与段之间独立，段之内加锁，同时只允许一个操作。</li>
-<li><p>jdk1.8版本: CAS技术 ……</p>
-<p>  分段锁<br>  get不加锁，通过volatilex实现，较HashTable提高了效率<br>  put加锁。</p>
-</li>
-</ul>
-<h4 id="postgreSQL"><a href="#postgreSQL" class="headerlink" title="postgreSQL:"></a>postgreSQL:</h4><pre><code>没看到太多内容，基本的关于数据库的几条语句：select\add\delete\update
-基本操作与其他关系型数据库类似。
-</code></pre><h4 id="Spring框架：IoC和MVC源码"><a href="#Spring框架：IoC和MVC源码" class="headerlink" title="Spring框架：IoC和MVC源码"></a>Spring框架：IoC和MVC源码</h4><p>明天的进度计划：</p>
-<ul>
-<li>spring框架源码</li>
-<li>hive</li>
-<li>postgreSQL</li>
-</ul>
-<p>花费：早饭：9.2 + 中饭：37 + 晚饭：14.5 + 车费：2  总计 62.7</p>
-<h3 id="日期：1-17"><a href="#日期：1-17" class="headerlink" title="日期：1.17"></a>日期：1.17</h3><p>工作电脑迁移，安装、测试环境<br>听postgreSQL分享，对postgreSQL有了一定的了解，（很多内容需吸收）</p>
-<blockquote>
-<p>Spring框架源码</p>
-</blockquote>
-<p>接了任务，开始接触任务–品名管理。</p>
-<p>明日计划：<br>    和任务结合熟悉Spring流程和步骤。<br>    做完品名管理页面，开始处理dao层。</p>
-<p>花费：早饭：7 + 中饭：17 + 晚饭：21.2 + 车费：2 总计：47.2</p>
-<h3 id="日期：1-18"><a href="#日期：1-18" class="headerlink" title="日期：1.18"></a>日期：1.18</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>上午开会重新分配任务</li>
-<li>品名管理页面部分交接</li>
-<li>开始查看微信前端部分组件，边熟悉组件边开始写“我的任务”页面，</li>
-</ul>
-<p>明日计划</p>
-<ul>
-<li>完成“我的任务”页面，</li>
-<li>开始做后面的页面，边熟悉边写。</li>
-</ul>
-</blockquote>
-<p>花费：早饭7 + 中饭：15 + 晚饭：6.9 + 车费 2 +（出租车11.58） 总计：42.5</p>
-<h3 id="日期：1-19"><a href="#日期：1-19" class="headerlink" title="日期：1.19"></a>日期：1.19</h3><blockquote>
-<p>今天完成：</p>
-</blockquote>
-<ul>
-<li>微信端“我的任务”部分做完</li>
-<li>详细任务做了1/3<blockquote>
-<p>明日计划</p>
-</blockquote>
-</li>
-<li>详细任务做完</li>
-</ul>
-<h3 id="日期：1-22"><a href="#日期：1-22" class="headerlink" title="日期：1.22"></a>日期：1.22</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>微信 商品详情中“价格更新”、“新增规格”</li>
-<li>任务详情中 “更新店铺”</li>
-<li>整理后台controller 链接思路</li>
-</ul>
-<p>明日计划</p>
-<ul>
-<li>完成更新店铺、上传凭证（）</li>
-<li>需结合后端代码重写controller层</li>
-</ul>
-</blockquote>
-<p>花费 ：7 + 14.56 + 13 + 2 合计 36.56</p>
-<h3 id="日期：1-23"><a href="#日期：1-23" class="headerlink" title="日期：1.23"></a>日期：1.23</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>更新店铺2/3(等oss接口)图片部分</li>
-<li>重写controller层1/3(等后台接口)<br>明天计划</li>
-<li>controller重写完成</li>
-<li>写完更新店铺</li>
-</ul>
-</blockquote>
-<p>花费 7.5 + 24 + 14 + 2  + (两个kfc优惠包)<br>合计 47.5</p>
-<h3 id="日期：1-24"><a href="#日期：1-24" class="headerlink" title="日期：1.24"></a>日期：1.24</h3><blockquote>
-<p>今日完成  </p>
-<ul>
-<li>商铺更新界面前后端联调，</li>
-<li>凭证上传(进度50%)，</li>
-<li>图片上传部分已调通<br>明日计划</li>
-<li>凭证上传页面完成   </li>
-<li>根据后台接口重写微信端controller层，</li>
-<li>商铺表添加字段并调好后台接口</li>
-</ul>
-</blockquote>
-<h3 id="日期：1-25"><a href="#日期：1-25" class="headerlink" title="日期：1.25"></a>日期：1.25</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>完成图片上传所有部分包括调试验证</li>
-<li>正在写Controller层代码</li>
-</ul>
-<p>明日计划</p>
-<ul>
-<li>把Controller全部写完</li>
-<li>把细节部分ajax请求完善</li>
-</ul>
-</blockquote>
-<h3 id="日期：1-26"><a href="#日期：1-26" class="headerlink" title="日期：1.26"></a>日期：1.26</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>价格更新，</li>
-<li>新增规格 </li>
-<li>提交功能和跳转实现</li>
-<li>讨论查询需求<br>明日计划</li>
-<li>实现微信端联通剩下部分</li>
-</ul>
-</blockquote>
-<h3 id="日期1-29"><a href="#日期1-29" class="headerlink" title="日期1.29"></a>日期1.29</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>凭证上传提交按钮的前后端响应事件</li>
-<li>更新店铺的提交按钮的前后端联调<br>明日计划</li>
-<li>任务记录、我的钱包前后端联调</li>
-<li>微信端小细节测试与优化</li>
-</ul>
-</blockquote>
-<h3 id="日期-1-30"><a href="#日期-1-30" class="headerlink" title="日期 1.30"></a>日期 1.30</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>任务记录、我的钱包controller层</li>
-<li>联通微信页面</li>
-<li>图片压缩相关<br>明日计划</li>
-<li>继续完成图片压缩相关</li>
-<li>测试微信端</li>
-</ul>
-</blockquote>
-<h3 id="日期：1-31"><a href="#日期：1-31" class="headerlink" title="日期：1.31"></a>日期：1.31</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>微信端图片的压缩和测试</li>
-<li>微信界面的联调、修正了其中一部分bug<br>明日计划</li>
-<li>药妆项目收尾</li>
-<li>待分配新任务</li>
-</ul>
-</blockquote>
-<h3 id="日期：-2-5"><a href="#日期：-2-5" class="headerlink" title="日期： 2.5"></a>日期： 2.5</h3><blockquote>
-<p>今日完成：</p>
-<ul>
-<li>店铺管理模块下bug修正<ul>
-<li>三级联初始值设定</li>
-<li>商品、规格删除联调</li>
-<li>新增商铺bug修正</li>
-</ul>
-</li>
-<li>pc端测试+bug修正</li>
-</ul>
-<p>明日计划</p>
-<ul>
-<li>部署到服务器，进行测试</li>
-<li>收尾（剩余几个小bug，视情况修正）</li>
-</ul>
-</blockquote>
-<h2 id="问题集中："><a href="#问题集中：" class="headerlink" title="问题集中："></a>问题集中：</h2><ul>
-<li>微客经账户管理新增后  区域管理员在哪分配、或者根据区域自动分配（也没有填写区域）</li>
-<li>去掉区域管理员（根据区域id显示管理员）</li>
-<li>账号管理中新增账号   和区域管理员的添加   区别？</li>
-<li>商品库图片添加</li>
-<li>雇员 权限？怎么定的，可以同意微客审核</li>
-<li>区域管理员可以进（账户管理页面进行操作）权限方面</li>
-<li>微客分配店铺时  分配失败 提示更准确 （直接显示尚未分配的店铺）</li>
-<li>pc端头像及账号名</li>
-<li>根据所属区域id来显示、不显示区域管理员（接口）</li>
-<li>pc端微客管理、店铺管理 任务审核 权限问题 —— 只能看到自己所属地区的微客及任务</li>
-<li>?区域管理员 删除后 其区域仍不可被分配</li>
-</ul>
-<h3 id="日期：-2-6"><a href="#日期：-2-6" class="headerlink" title="日期： 2.6"></a>日期： 2.6</h3><h3 id="日期：-2-7"><a href="#日期：-2-7" class="headerlink" title="日期： 2.7"></a>日期： 2.7</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>根据区域id查询省市区的后台从mapper.xml到service层服务，了解spring框架的层级结构</li>
-<li>调整区域管理员模块中 店铺管理 的查询权限问题</li>
-<li>待修正 微信端 店铺更新界面 地址三级联选项</li>
-<li>区域管理员 任务审核 查询权限</li>
-<li>微客管理的查询权限</li>
-</ul>
-</blockquote>
-<h3 id="日期：-2-8"><a href="#日期：-2-8" class="headerlink" title="日期： 2.8"></a>日期： 2.8</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>店铺管理 查询权限 有bug</li>
-<li>我的钱包页面 null值处理</li>
-</ul>
-</blockquote>
-<p>漏洞：<br>微客修改了店铺的地区id，那么区域管理员看不到该店铺。可否修改的问题<br>—— 一期不考虑</p>
-<ul>
-<li>进度<ul>
-<li>pc端  <ul>
-<li>微客管理、店铺管理、任务审核 区域管理员的可视权限</li>
-</ul>
-</li>
-<li>数据库去重，字段不重复</li>
-<li>微信端 更新店铺界面  经纬度为空<h2 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h2>ps：截止11号晚离职的事项。</li>
-</ul>
-</li>
-<li>店铺中商品怎么添加？缺少一个入口 – 一期不做？ 任务模块理解有误</li>
-<li>店铺管理中添加规格 美观优化  –完成</li>
-<li>新增店铺时间显示为1970年  错误    –暂缓</li>
-<li>任务审核界面文案  任务审核部分 逻辑有误   –因某些原因最后残余</li>
-<li>微信端 图片上传 过程的提示 即 上传loading，错误提示更具体等 –暂缓</li>
-<li>任务进行测试   –完成</li>
-<li>可视权限进行测试   –完成</li>
-<li>跳转问题验证 –完成</li>
-<li>数据库清理  –完成</li>
-<li>（代码review –未完成<h2 id="一期残余与上线修改"><a href="#一期残余与上线修改" class="headerlink" title="一期残余与上线修改"></a>一期残余与上线修改</h2>略<h2 id="二期带解决"><a href="#二期带解决" class="headerlink" title="二期带解决"></a>二期带解决</h2>略</li>
-</ul>
-<h2 id="寒假实习总结"><a href="#寒假实习总结" class="headerlink" title="寒假实习总结"></a>寒假实习总结</h2><p>  &emsp;&emsp;1.12到达杭州，前一天刚考完试，做着人生第一班飞机飞到杭州，并到达公司，办理了一部分入职手续，了解了一部分职责和任务。<br>  开始的几天开始了解spring框架及一些java并行的实现原理和代码。稍显枯燥。</p>
-<p>  &emsp;&emsp;之后从第三天开始实际接触药妆项目。从一个pc端页面开始，后交接给另一个从学校考试回来的实习生，开始负责编写微信端H5页面。</p>
-<p>  &emsp;&emsp;从最开始的仿照代码编写ModelAndView类型的（在后台获取数据并用ftl渲染页面并回传给前端）带后来ajax请求在前端渲染整个页面。更深入了解了前端页面的访问过程，并对整个前端体系有了个整体的认识（粗浅）。</p>
-<p>  &emsp;&emsp;后来因为行中项目的重要性，除我之外的所有人全部抽调进入行中项目（因为年后开学的缘故，我无法参与行中项目的联调，不适合负责模块），接受药妆项目的残余工作。在完成微信端所有任务之后开始整体查看整个项目，寻找待解决问题，（涉及到这个项目的是整个实习生团队，大家都不是很成熟的代码风格和思路）多次反复寻找bug并寻求解决。</p>
-<p>  &emsp;&emsp;最后离职之前还因为一点小插曲残余一个任务模块的审核部分的权限问题（相关代码涉及两人且两人意见有分歧）最终没能收尾成功，也是一个遗憾。</p>
-<p>  &emsp;&emsp;以上都是关于工作的总结，尽管当初是想来接触人工智能相关的，但机缘巧合接触了整个建站的过程（开头一部分因为报道之前已开始没能亲眼目睹），也是一次不错的实习经历。其中的几次分享讲座也是非常不错，虽因内容的新颖未能全get，不过总的来说接触了目前企业化的前沿的热点技术，对之后的着力方法有了清晰的认识。</p>
-<p>  &emsp;&emsp;Ok。不谈工作了，聊点别的。公司体格不大，毕竟是一个创业公司，不过氛围很舒服。周围的同事身上有不少我要学习的优点。还有每天的日会尽管有些波折，但还是持续挺了下来，越发的有了自信。认识了不少朋友呢。</p>
-<p>  &emsp;&emsp;尽管不确定暑假究竟去不去了，但接下来的这学期也是很重要的一个学期了。我几乎是决定要考研了。前段时间还在畏惧着考研失败的后果，但且不说会不会失败，如果这点勇气都没有，如果追求未来更美好的生活。大不了就是失败了，找个不如意的学校调剂一下或者找个过渡的工作。这学期的打算就是先把驾照提上日程，有了驾照还是很方便的。其次就是开始准备数学和英语（不花太多时间，就是间带着提上日程）。另外就是之前的专业课基础要打实了。最后就是上好课的同时努力提升自己，了解试下的热点技术和新技术。</p>
-<p>  &emsp;&emsp;本来只是一个实习总结的，既然写在了开学的前一天，那就当是连同下学期展望一起了。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/01/15/日志/实习记录-2018寒假/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/01/12/计网复习摘要/">
-                            计网复习摘要
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-01-12T23:13:00+08:00">
-	
-		    1月 12, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>这是考试前的复习笔记，现在草草整理一下，有空详细整理。</p>
-<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><p>计算机网络定义：已能够相互共享资源的方式互联起来的自治计算机系统的集合。<br>特征：共享软件、硬件以及数据等资源；分布在不同地理位置的“自治系统”；遵循一定的规则——协议</p>
-<p>计算机网络和分布式系统区别：计算机网络目的是共享资源，对外呈现分散，分布式系统目的是以提高整体性能，对外呈现整体。</p>
-<p>分层的优点：各层独立、灵活性好、结构上分开、促进标准化</p>
-<h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><p>数据链路层协议提供的最基本的功能：数据在数据链路上的正常传输、帧定界（帧同步）、差错控制、流量控制、寻址</p>
-<p>向网络层提供的三种基本服务：无确认无连接服务、有确认无连接服务、面向连接确认服务</p>
-<p>应答方式：正向应答、负向应答、双向应答</p>
-<p>成帧：字符计数法、带字符填充的首尾字符定界法、带位填充的首尾标记定界法（+01111110，五个1后加0）、物理层编码违例法</p>
-<p>差错控制<br>随机、连续突发<br>帧出错、帧丢失<br>方法：自动纠错机制（FEC）,检错反馈重发机制（ARQ）<br>码字、纠错码、检错码</p>
-<p>编码的海明距离<br>海明定理<br>检测d位错误，编码海明距离至少为d+1<br>纠正                        2d+1</p>
-<p>差错码举例：奇偶校验码、垂直水平奇偶校验码、交织奇偶校验码<br>循环冗余码CRC<br>检验和算法</p>
-<p>单工停等协议<br>连续ARQ协议<br>滑动窗口协议：控制已发送但未确认的数据帧的个数（滑动窗口的大小）<br>接受窗口</p>
-<p>SLIP协议<br>PPP协议（包括链路控制协议LCP、网络控制协议NCP）</p>
-<h2 id="局域网"><a href="#局域网" class="headerlink" title="局域网"></a>局域网</h2><p>局域网是一种将小区域内的各种通信设备互联在一起的通信网络</p>
-<p>IEEE 802局域网：数据链路层（逻辑链路控制子层、介质访问控制子层）、物理层</p>
-<p>物理层功能：信号编码\译码、前导码的生成\去除、比特的发送\接收</p>
-<p>数据链路层的功能：</p>
-<pre><code>MAC子层：成帧\拆帧，实现、维护MAC协议，位差错检测，寻址
-
-LLC子层：向高层提供SAP，建立/释放逻辑连接，差错控制，帧序号处理，提供某些网络层功能
-</code></pre><p>信道共享技术<br>关键问题：如何解决对信道争用</p>
-<p>解决信道争用的协议：介质访问控制协议MAC，是数据链路层协议的一部分</p>
-<p>静态分配：频分多路复用FDM（波分复用WDM）、时分多路复用TDM<br>动态分配：冲突协议、无冲突协议</p>
-<p>冲突协议</p>
-<p>ALOHA协议：纯ALOHA协议和时间片ALOHA协议</p>
-<p>载波监听多路访问协议CSMA：1-坚持性CSMA、非坚持型CSMA（有冲突时是否继续监听\等待随机时间）、p-坚持性CSMA（p的概率发送，1-p的概率延迟）</p>
-<p>带冲突检测的载波监听多路协议CSMA/CD（有冲突就发送干扰信号并退避）</p>
-<p>令牌协议：有令牌才可发送</p>
-<p>传统以太网<br>最短帧长<br>二进制指数后退算法<br>帧格式：前导码（时钟同步）、帧首定界符<br>范围46-1500<br>编码：曼彻斯特编码</p>
-<p>网桥：工作在数据链路层的一种网络互连设备，在互连的LAN之间实现帧的存储和转发<br>基本特征:</p>
-<p>交换式以太网<br>交换式集线器的交换方式：存储转发式交换、直通式交换、碎片交换方式<br>全双工以太网：MAC层中CSMA/CD不再有效，分离的网络介质、专门的链路、网卡和网络交换机的支持</p>
-<p>高速以太网<br>千兆以太网：载波扩展、帧突发、<br>10G比特以太网</p>
-<p>虚拟局域网</p>
-<p>无线局域网<br>拓扑：有中心拓扑、无中心拓扑<br>802.11定义了两种运作模式：特殊模式（Ad hoc）和基础设施模式<br>CSMA/CA<br>IEEE 802.16 宽带无线网络</p>
-<p>蓝牙2.4GHz频段<br>ZigBee网络<br>RFID</p>
-<h2 id="广域网"><a href="#广域网" class="headerlink" title="广域网"></a>广域网</h2><p>网络层设计的焦点是：提供面向连接的服务还是无连接服务<br>虚电路和数据报</p>
-<p>路由算法<br>按转发方式：全路路由算法、多路路由算法、单路路由算法<br>按健壮性和简单性：非自适应算法、自适应算法</p>
-<p>距离向量路由算法：动态路由算法、被RIP协议采用<br>链路状态路由算法</p>
-<p>分层路由<br>广播路由  算法：无控制的洪泛算法、受控的洪泛算法<br>组播路由算法</p>
-<p>按需距离矢量路由算法</p>
-<p>拥塞控制<br>拥塞控制基本原理：开环控制、闭环控制<br>链路算法、源算法<br>常用算法：漏桶算法和令牌桶算法</p>
-<p>网络互连设备：中继器、网桥、路由器、网关（传输网关、应用网关）</p>
-<p>QoS服务模型：尽力而为服务模型、综合服务模型、区分服务模型</p>
-<p>广域网实例：帧中继<br>ATM（异步传输模式）：虚电路交换方式（虚路径连接、虚通道连接）<br>VP交换<br>VC交换<br>ATM信元</p>
-<h2 id="Internet"><a href="#Internet" class="headerlink" title="Internet"></a>Internet</h2><p>网际层协议：IP协议<br>IP协议：无连接数据包传输、数据包路由、分组的分段和重组<br>5类IP地址</p>
-<p>A：0 + ..   0-127</p>
-<p>B: 10 + ..   128-191</p>
-<p>C: 110 + .. 192</p>
-<p>D:</p>
-<p>E:</p>
-<p>特殊地址<br>主机号全1：指定网络广播地址<br>主机号全0：网络本身<br>网络号全0：本网络<br>32位全1：本网广播，有限广播地址</p>
-<p>A类127为保留地址，用于网络软件测试，回送地址</p>
-<p>NIC保留地址</p>
-<pre><code>A类10.0.0.0--10.255.255.255
-
-B类172.16.0.0--172.31.255.255
-
-C类192.168.0.0--192.168.255.255
-</code></pre><p>子网掩码</p>
-<p>子网划分</p>
-<p>IP分组和转发<br>IP头<br>生存期TTL：8位，经过路由器-1，位0则丢弃，并给源主机发送一个告警包</p>
-<p>ARP地址解析协议</p>
-<p>无类域间路由CIDR<br>最长匹配原则<br>NAT<br>网际控制报文协议ICMP：封装在IP数据包，用来发送差错报告和控制信息<br>IP组管理协议IGMP—</p>
-<p>Internet路由协议分类<br>内部网关协议IGP：自治系统AS内使用的路由算法，RIP、OSPF<br>外部网关协议EGP：自治系统AS间使用的路由算法，BGP</p>
-<p>TCP拥塞控制<br>慢启动算法和拥塞避免算法</p>
-<p>慢启动算法:</p>
-<p>拥塞窗口和阈值<br>发出一个正确确认 拥塞窗口+1最大段长<br>发送一个(拥塞窗口/最大断长)个最大段长的tcp段,拥塞窗口*2 (第一个扩展)<br>直至发生超时或大于阈值</p>
-<p>拥塞避免算法</p>
-<p>拥塞窗口大于阈值– 拥塞窗口线性增长,-个RTT周期增加一个最大段长,直至发生超时</p>
-<p>超时事件之后–阈值设置为拥塞窗口一半,拥塞窗口reset为一个最大段长<br>执行慢启动</p>
-<p>MIME用于解决二进制文件的传输问题，补充SMTP只能发送7位ASCII码的规定</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/01/12/计网复习摘要/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/01/12/Android大作业-移动电子字典设计/">
-                            Android大作业--移动电子字典设计
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-01-12T22:51:59+08:00">
-	
-		    1月 12, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="Android课大作业"><a href="#Android课大作业" class="headerlink" title="Android课大作业"></a>Android课大作业</h2><p>只是个大作业，不是项目，属于练习性质，错误或者设计缺陷欢迎大家批评指正。</p>
-<h2 id="同组成员"><a href="#同组成员" class="headerlink" title="同组成员"></a>同组成员</h2><p>三名Android课同学。<br>负责部分：</p>
-<h2 id="成品截图"><a href="#成品截图" class="headerlink" title="成品截图"></a>成品截图</h2><p>占坑。。。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/01/12/Android大作业-移动电子字典设计/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/01/12/flag：定时更新blog/">
-                            flag：定时更新blog
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-01-12T22:51:03+08:00">
-	
-		    1月 12, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="永不倒的flag"><a href="#永不倒的flag" class="headerlink" title="永不倒的flag"></a>永不倒的flag</h2><p>&emsp;&emsp;今天第一次坐飞机，其实感触挺多的，周马劳碌的一天，不过终于还是完成了预期的目标，也没有发生什么意外，挺不错的。</p>
-<p>&emsp;&emsp;接下来就是我实习的一个月了，希望这一个月里，我能够学到些东西，收获自己满意的第一份实习答卷。<br>下面就是flag：定时更新blog，最近在补之前欠下的一系列报告的blog，希望能把我自己的博客先填满一页。</p>
-<p>&emsp;&emsp;over!</p>
-<p>&emsp;&emsp;愿flag不倒。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/01/12/flag：定时更新blog/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/09/17/最大流入门/">
-                            最大流入门
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-09-17T08:58:11+08:00">
-	
-		    9月 17, 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>网络流是图论中的经典模型，有很多题目可以在建图之后套模型解决。</p>
-<p>hdu 6214<br>题目翻译：<br>给定一个n个点m条边的网络，有源点s和汇点t。一个s-t的割集把所有的节点集合V划分为两个部分且s和t属于不同的划分。这个割集是所有的边的子集，包含了所有连接不同划分的节点之间的边。最小割是所有割集中边的容量之和最小的。一个割集的大小为割集中所有边的数量。请计算最小割的最小大小。</p>
-<p>大意：求一个图中最小割的最小边数。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/09/17/最大流入门/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/08/26/8-26练习赛/">
-                            8-26练习赛
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-08-26T23:37:20+08:00">
-	
-		    8月 26, 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="8-26练习赛解题报告"><a href="#8-26练习赛解题报告" class="headerlink" title="8-26练习赛解题报告"></a>8-26练习赛解题报告</h1><p>一周的训练终于到了周末休息的时候，于是完美的把训练赛翘了，不过欠的总是要还的。</p>
-<h2 id="Snow"><a href="#Snow" class="headerlink" title="Snow"></a>Snow</h2><p><a href="https://nanti.jisuanke.com/t/16662" target="_blank" rel="external">Snow</a><br>签到题，贪心，总是取当前数目最大的三种，各种解法。</p>
-<h3 id="AC代码"><a href="#AC代码" class="headerlink" title="AC代码"></a>AC代码</h3><pre><code>#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;bits/stdc++.h&gt;
-#define mp make_pair
-#define pb push_back
-#define lowbit(i) (i&amp;(-i))
-#define LL long long
-using namespace std;
-struct point{
-    int num,cnt;
-    bool operator &lt; (const point &amp; a)const {
-        if(cnt == a.cnt)return num &lt; a.num; 
-        return cnt &lt; a.cnt;
-    }
-}; 
-priority_queue&lt;point&gt;q;
-vector&lt;int &gt;v;
-int main(){
-    std::ios::sync_with_stdio(false);
-    int T;
-    cin&gt;&gt;T;
-    while(T--){
-        int n,term;
-        v.clear(); 
-        while(q.size() &gt;0)q.pop();
-        cin&gt;&gt;n;
-        for(int i = 1; i &lt;= n ; ++i){
-            cin&gt;&gt;term;
-            v.pb(term);
-        }
-        sort(v.begin(), v.end());
-        int temp = -1; point nn;
-        for(auto i : v){
-            if(temp == -1){
-                temp = i;
-                nn.num = i; nn.cnt = 1;
-            }else if(temp != i){
-                q.push(nn);
-                nn.num = i; temp = i;
-                nn.cnt = 1;
-            }else ++nn.cnt; 
-        }
-        q.push(nn);
-        LL ans = 0;
-        while(q.size() &gt;= 3){
-            point a = q.top(); q.pop();
-            point b = q.top(); q.pop();
-            point c = q.top(); q.pop();
-        //    cout&lt;&lt;a.num&lt;&lt;&quot; &quot;&lt;&lt;b.num &lt;&lt;&quot; &quot;&lt;&lt;c.num&lt;&lt;endl;
-//每次只能取一个，不然不满足贪心正确性
-//            a.cnt -= c.cnt;
-//            b.cnt -= c.cnt;
-//            ans += c.cnt;
-            --a.cnt; --b.cnt;--c.cnt;
-            ++ans;
-            if(a.cnt &gt; 0)q.push(a);
-            if(b.cnt &gt; 0)q.push(b);
-            if(c.cnt &gt; 0)q.push(c); 
-        }
-        cout&lt;&lt;ans&lt;&lt;endl;
-
-    }
-
-    return 0;
-}
-</code></pre><h2 id="Plates"><a href="#Plates" class="headerlink" title="Plates"></a>Plates</h2><p><a href="https://nanti.jisuanke.com/t/16685" target="_blank" rel="external">Plates</a></p>
-<p>数学题，简单思维。<br>只要把n个圆的圆心围成正多边形,然后求出这个正多边形的外切圆半径再加上小圆的半径就解决了。记得特判一下n&lt;=2的情况。</p>
-<pre><code>### AC代码 ###
-#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;bits/stdc++.h&gt;
-#define mp make_pair
-#define pb push_back
-#define lowbit(i) (i&amp;(-i))
-#define LL long long
-using namespace std;
-const double pi = acos(-1.0);
-
-int main(){
-    std::ios::sync_with_stdio(false);
-    int n,r,R;
-    while(cin&gt;&gt;n&gt;&gt;R&gt;&gt;r){
-        if(n &lt;= 2)cout&lt;&lt;(R &gt;= r * n ? &quot;yes&quot;:&quot;no&quot;) &lt;&lt;endl;
-        else{
-            double du = (n-2)*1.0/n * pi;
-            double m = r + r / cos(du/2);
-            //cout&lt;&lt;m&lt;&lt;endl;
-            if(m &gt; R)cout&lt;&lt;&quot;no&quot;&lt;&lt;endl;
-            else cout&lt;&lt;&quot;yes&quot;&lt;&lt;endl;    
-        }
-
-    } 
-    return 0;
-}
-</code></pre>
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/08/26/8-26练习赛/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -1178,19 +1252,19 @@ int main(){
                 <a class="btn btn--default btn--small" href="/ ">
             
                 <i class="fa fa-angle-left text-base icon-mr"></i>
-                    <span>NEWER POSTS</span>
+                    <span>NEUERE BEITRÄGE</span>
             </a>
         </li>
         
         
         <li class="pagination-next">
             <a class="btn btn--default btn--small" href="/all-archives/page/3/">
-                    <span>OLDER POSTS</span>
+                    <span>ÄLTERE BEITRÄGE</span>
                 <i class="fa fa-angle-right text-base icon-ml"></i>
             </a>
         </li>
         
-        <li class="pagination-number">page 2 of 3</li>
+        <li class="pagination-number">Seite 2 von 4</li>
     </ul>
 </div>
 
@@ -1220,7 +1294,7 @@ int main(){
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
         
             <h4 id="about-card-name">Abner</h4>
         
@@ -1261,7 +1335,7 @@ int main(){
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="no-result text-color-light text-center">keinen Beitrag gefunden</div>
             <div class="results">
                 
                 <div class="media">
@@ -1458,10 +1532,10 @@ int main(){
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="no post found"
-                data-message-one="1 post found"
-                data-message-other="{n} posts found">
-                29 posts found
+                data-message-zero="keinen Beitrag gefunden"
+                data-message-one="1 Beitrag gefunden"
+                data-message-other="{n} Einträge gefunden">
+                40 Einträge gefunden
             </p>
         </div>
     </div>

@@ -64,7 +64,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+            <img class="header-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
         
         </a>
     
@@ -82,7 +82,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
                 </a>
                 <h4 class="sidebar-profile-name">Abner</h4>
                 
@@ -207,7 +207,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-03-23T19:57:34+08:00">
 	
-		    3月 23, 2018
+		    23 3月 2018
     	
     </time>
     
@@ -293,7 +293,7 @@ java部分：
                     
                         <p>
                             <a href="/2018/03/23/Java研发工程师面试之路/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -318,7 +318,7 @@ java部分：
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-02-25T10:39:45+08:00">
 	
-		    2月 25, 2018
+		    25 2月 2018
     	
     </time>
     
@@ -343,295 +343,7 @@ java部分：
                     
                         <p>
                             <a href="/2018/02/25/实习总结/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/01/15/日志/实习记录-2018寒假/">
-                            实习记录--2018寒假
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-01-15T20:55:34+08:00">
-	
-		    1月 15, 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="实习记录"><a href="#实习记录" class="headerlink" title="实习记录"></a>实习记录</h1><h2 id="时间-：-1-15-2-11"><a href="#时间-：-1-15-2-11" class="headerlink" title="时间 ： 1.15-2.11"></a>时间 ： 1.15-2.11</h2><h3 id="日期：1-15"><a href="#日期：1-15" class="headerlink" title="日期：1.15"></a>日期：1.15</h3><p>今天完成：</p>
-<blockquote>
-<p>熟悉了项目的内容，搭建好了个人电脑的环境，并成功clone下项目代码，对其进行了大致的preview；</p>
-<p>了解了项目需求与进度。</p>
-<p>阅读了java规范，（2/3进度）。</p>
-</blockquote>
-<p>明天的进度计划：</p>
-<blockquote>
-<p>jvm、线程安全，JDK的 hashmap 和concurrenthashmap </p>
-<p>看spring IOC  MVC 的源码   </p>
-<p>数据库postgreSQL     </p>
-<p>还有hive </p>
-</blockquote>
-<p>花费：<br>早饭：7 + 中饭： 15.56 + 晚饭16.25 + 夜宵：10 + 路费2  共计：50.81 </p>
-<h3 id="日期：1-16"><a href="#日期：1-16" class="headerlink" title="日期：1.16"></a>日期：1.16</h3><p>学习笔记：</p>
-<h4 id="jvm："><a href="#jvm：" class="headerlink" title="jvm："></a>jvm：</h4><pre><code>java虚拟机，java代码和硬件、系统的中间层，隔离了一切物理环境，为所有java代码运行提供相同的环境。（看博客，jvm的实现机制、涉及编译和系统）
-</code></pre><h4 id="线程安全："><a href="#线程安全：" class="headerlink" title="线程安全："></a>线程安全：</h4><ul>
-<li>最简单的方式，使用Synchronization关键字</li>
-<li>使用java.util.concurrent.atomic 包中的原子类，例如 AtomicInteger<ul>
-<li>使用java.util.concurrent.locks 包中的锁</li>
-</ul>
-</li>
-<li>使用线程安全的集合ConcurrentHashMap</li>
-<li>使用volatile关键字，保证变量可见性（直接从内存读，而不是从线程cache读）</li>
-</ul>
-<p>tips：线程安全往往要加synchronization修饰符保证数据安全，但降低了性能，所以不是并发（多线程时）不适用并发函数。</p>
-<h4 id="Hashmap和concurrentHashmaps实现的区别"><a href="#Hashmap和concurrentHashmaps实现的区别" class="headerlink" title="Hashmap和concurrentHashmaps实现的区别"></a>Hashmap和concurrentHashmaps实现的区别</h4><blockquote>
-<p>Hashmap</p>
-</blockquote>
-<p>线程不安全的实现方法。</p>
-<blockquote>
-<p>Hashtable</p>
-</blockquote>
-<p>在Hashmap的基础上，所有关于Hashmap中涉及到hash表的操作都加了Synchronization，效率变低了。</p>
-<blockquote>
-<p>ConcurrentHashmap</p>
-</blockquote>
-<ul>
-<li>jdk1.7版本：利用段锁进行优化。即段与段之间独立，段之内加锁，同时只允许一个操作。</li>
-<li><p>jdk1.8版本: CAS技术 ……</p>
-<p>  分段锁<br>  get不加锁，通过volatilex实现，较HashTable提高了效率<br>  put加锁。</p>
-</li>
-</ul>
-<h4 id="postgreSQL"><a href="#postgreSQL" class="headerlink" title="postgreSQL:"></a>postgreSQL:</h4><pre><code>没看到太多内容，基本的关于数据库的几条语句：select\add\delete\update
-基本操作与其他关系型数据库类似。
-</code></pre><h4 id="Spring框架：IoC和MVC源码"><a href="#Spring框架：IoC和MVC源码" class="headerlink" title="Spring框架：IoC和MVC源码"></a>Spring框架：IoC和MVC源码</h4><p>明天的进度计划：</p>
-<ul>
-<li>spring框架源码</li>
-<li>hive</li>
-<li>postgreSQL</li>
-</ul>
-<p>花费：早饭：9.2 + 中饭：37 + 晚饭：14.5 + 车费：2  总计 62.7</p>
-<h3 id="日期：1-17"><a href="#日期：1-17" class="headerlink" title="日期：1.17"></a>日期：1.17</h3><p>工作电脑迁移，安装、测试环境<br>听postgreSQL分享，对postgreSQL有了一定的了解，（很多内容需吸收）</p>
-<blockquote>
-<p>Spring框架源码</p>
-</blockquote>
-<p>接了任务，开始接触任务–品名管理。</p>
-<p>明日计划：<br>    和任务结合熟悉Spring流程和步骤。<br>    做完品名管理页面，开始处理dao层。</p>
-<p>花费：早饭：7 + 中饭：17 + 晚饭：21.2 + 车费：2 总计：47.2</p>
-<h3 id="日期：1-18"><a href="#日期：1-18" class="headerlink" title="日期：1.18"></a>日期：1.18</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>上午开会重新分配任务</li>
-<li>品名管理页面部分交接</li>
-<li>开始查看微信前端部分组件，边熟悉组件边开始写“我的任务”页面，</li>
-</ul>
-<p>明日计划</p>
-<ul>
-<li>完成“我的任务”页面，</li>
-<li>开始做后面的页面，边熟悉边写。</li>
-</ul>
-</blockquote>
-<p>花费：早饭7 + 中饭：15 + 晚饭：6.9 + 车费 2 +（出租车11.58） 总计：42.5</p>
-<h3 id="日期：1-19"><a href="#日期：1-19" class="headerlink" title="日期：1.19"></a>日期：1.19</h3><blockquote>
-<p>今天完成：</p>
-</blockquote>
-<ul>
-<li>微信端“我的任务”部分做完</li>
-<li>详细任务做了1/3<blockquote>
-<p>明日计划</p>
-</blockquote>
-</li>
-<li>详细任务做完</li>
-</ul>
-<h3 id="日期：1-22"><a href="#日期：1-22" class="headerlink" title="日期：1.22"></a>日期：1.22</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>微信 商品详情中“价格更新”、“新增规格”</li>
-<li>任务详情中 “更新店铺”</li>
-<li>整理后台controller 链接思路</li>
-</ul>
-<p>明日计划</p>
-<ul>
-<li>完成更新店铺、上传凭证（）</li>
-<li>需结合后端代码重写controller层</li>
-</ul>
-</blockquote>
-<p>花费 ：7 + 14.56 + 13 + 2 合计 36.56</p>
-<h3 id="日期：1-23"><a href="#日期：1-23" class="headerlink" title="日期：1.23"></a>日期：1.23</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>更新店铺2/3(等oss接口)图片部分</li>
-<li>重写controller层1/3(等后台接口)<br>明天计划</li>
-<li>controller重写完成</li>
-<li>写完更新店铺</li>
-</ul>
-</blockquote>
-<p>花费 7.5 + 24 + 14 + 2  + (两个kfc优惠包)<br>合计 47.5</p>
-<h3 id="日期：1-24"><a href="#日期：1-24" class="headerlink" title="日期：1.24"></a>日期：1.24</h3><blockquote>
-<p>今日完成  </p>
-<ul>
-<li>商铺更新界面前后端联调，</li>
-<li>凭证上传(进度50%)，</li>
-<li>图片上传部分已调通<br>明日计划</li>
-<li>凭证上传页面完成   </li>
-<li>根据后台接口重写微信端controller层，</li>
-<li>商铺表添加字段并调好后台接口</li>
-</ul>
-</blockquote>
-<h3 id="日期：1-25"><a href="#日期：1-25" class="headerlink" title="日期：1.25"></a>日期：1.25</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>完成图片上传所有部分包括调试验证</li>
-<li>正在写Controller层代码</li>
-</ul>
-<p>明日计划</p>
-<ul>
-<li>把Controller全部写完</li>
-<li>把细节部分ajax请求完善</li>
-</ul>
-</blockquote>
-<h3 id="日期：1-26"><a href="#日期：1-26" class="headerlink" title="日期：1.26"></a>日期：1.26</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>价格更新，</li>
-<li>新增规格 </li>
-<li>提交功能和跳转实现</li>
-<li>讨论查询需求<br>明日计划</li>
-<li>实现微信端联通剩下部分</li>
-</ul>
-</blockquote>
-<h3 id="日期1-29"><a href="#日期1-29" class="headerlink" title="日期1.29"></a>日期1.29</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>凭证上传提交按钮的前后端响应事件</li>
-<li>更新店铺的提交按钮的前后端联调<br>明日计划</li>
-<li>任务记录、我的钱包前后端联调</li>
-<li>微信端小细节测试与优化</li>
-</ul>
-</blockquote>
-<h3 id="日期-1-30"><a href="#日期-1-30" class="headerlink" title="日期 1.30"></a>日期 1.30</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>任务记录、我的钱包controller层</li>
-<li>联通微信页面</li>
-<li>图片压缩相关<br>明日计划</li>
-<li>继续完成图片压缩相关</li>
-<li>测试微信端</li>
-</ul>
-</blockquote>
-<h3 id="日期：1-31"><a href="#日期：1-31" class="headerlink" title="日期：1.31"></a>日期：1.31</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>微信端图片的压缩和测试</li>
-<li>微信界面的联调、修正了其中一部分bug<br>明日计划</li>
-<li>药妆项目收尾</li>
-<li>待分配新任务</li>
-</ul>
-</blockquote>
-<h3 id="日期：-2-5"><a href="#日期：-2-5" class="headerlink" title="日期： 2.5"></a>日期： 2.5</h3><blockquote>
-<p>今日完成：</p>
-<ul>
-<li>店铺管理模块下bug修正<ul>
-<li>三级联初始值设定</li>
-<li>商品、规格删除联调</li>
-<li>新增商铺bug修正</li>
-</ul>
-</li>
-<li>pc端测试+bug修正</li>
-</ul>
-<p>明日计划</p>
-<ul>
-<li>部署到服务器，进行测试</li>
-<li>收尾（剩余几个小bug，视情况修正）</li>
-</ul>
-</blockquote>
-<h2 id="问题集中："><a href="#问题集中：" class="headerlink" title="问题集中："></a>问题集中：</h2><ul>
-<li>微客经账户管理新增后  区域管理员在哪分配、或者根据区域自动分配（也没有填写区域）</li>
-<li>去掉区域管理员（根据区域id显示管理员）</li>
-<li>账号管理中新增账号   和区域管理员的添加   区别？</li>
-<li>商品库图片添加</li>
-<li>雇员 权限？怎么定的，可以同意微客审核</li>
-<li>区域管理员可以进（账户管理页面进行操作）权限方面</li>
-<li>微客分配店铺时  分配失败 提示更准确 （直接显示尚未分配的店铺）</li>
-<li>pc端头像及账号名</li>
-<li>根据所属区域id来显示、不显示区域管理员（接口）</li>
-<li>pc端微客管理、店铺管理 任务审核 权限问题 —— 只能看到自己所属地区的微客及任务</li>
-<li>?区域管理员 删除后 其区域仍不可被分配</li>
-</ul>
-<h3 id="日期：-2-6"><a href="#日期：-2-6" class="headerlink" title="日期： 2.6"></a>日期： 2.6</h3><h3 id="日期：-2-7"><a href="#日期：-2-7" class="headerlink" title="日期： 2.7"></a>日期： 2.7</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>根据区域id查询省市区的后台从mapper.xml到service层服务，了解spring框架的层级结构</li>
-<li>调整区域管理员模块中 店铺管理 的查询权限问题</li>
-<li>待修正 微信端 店铺更新界面 地址三级联选项</li>
-<li>区域管理员 任务审核 查询权限</li>
-<li>微客管理的查询权限</li>
-</ul>
-</blockquote>
-<h3 id="日期：-2-8"><a href="#日期：-2-8" class="headerlink" title="日期： 2.8"></a>日期： 2.8</h3><blockquote>
-<p>今日完成</p>
-<ul>
-<li>店铺管理 查询权限 有bug</li>
-<li>我的钱包页面 null值处理</li>
-</ul>
-</blockquote>
-<p>漏洞：<br>微客修改了店铺的地区id，那么区域管理员看不到该店铺。可否修改的问题<br>—— 一期不考虑</p>
-<ul>
-<li>进度<ul>
-<li>pc端  <ul>
-<li>微客管理、店铺管理、任务审核 区域管理员的可视权限</li>
-</ul>
-</li>
-<li>数据库去重，字段不重复</li>
-<li>微信端 更新店铺界面  经纬度为空<h2 id="汇总"><a href="#汇总" class="headerlink" title="汇总"></a>汇总</h2>ps：截止11号晚离职的事项。</li>
-</ul>
-</li>
-<li>店铺中商品怎么添加？缺少一个入口 – 一期不做？ 任务模块理解有误</li>
-<li>店铺管理中添加规格 美观优化  –完成</li>
-<li>新增店铺时间显示为1970年  错误    –暂缓</li>
-<li>任务审核界面文案  任务审核部分 逻辑有误   –因某些原因最后残余</li>
-<li>微信端 图片上传 过程的提示 即 上传loading，错误提示更具体等 –暂缓</li>
-<li>任务进行测试   –完成</li>
-<li>可视权限进行测试   –完成</li>
-<li>跳转问题验证 –完成</li>
-<li>数据库清理  –完成</li>
-<li>（代码review –未完成<h2 id="一期残余与上线修改"><a href="#一期残余与上线修改" class="headerlink" title="一期残余与上线修改"></a>一期残余与上线修改</h2>略<h2 id="二期带解决"><a href="#二期带解决" class="headerlink" title="二期带解决"></a>二期带解决</h2>略</li>
-</ul>
-<h2 id="寒假实习总结"><a href="#寒假实习总结" class="headerlink" title="寒假实习总结"></a>寒假实习总结</h2><p>  &emsp;&emsp;1.12到达杭州，前一天刚考完试，做着人生第一班飞机飞到杭州，并到达公司，办理了一部分入职手续，了解了一部分职责和任务。<br>  开始的几天开始了解spring框架及一些java并行的实现原理和代码。稍显枯燥。</p>
-<p>  &emsp;&emsp;之后从第三天开始实际接触药妆项目。从一个pc端页面开始，后交接给另一个从学校考试回来的实习生，开始负责编写微信端H5页面。</p>
-<p>  &emsp;&emsp;从最开始的仿照代码编写ModelAndView类型的（在后台获取数据并用ftl渲染页面并回传给前端）带后来ajax请求在前端渲染整个页面。更深入了解了前端页面的访问过程，并对整个前端体系有了个整体的认识（粗浅）。</p>
-<p>  &emsp;&emsp;后来因为行中项目的重要性，除我之外的所有人全部抽调进入行中项目（因为年后开学的缘故，我无法参与行中项目的联调，不适合负责模块），接受药妆项目的残余工作。在完成微信端所有任务之后开始整体查看整个项目，寻找待解决问题，（涉及到这个项目的是整个实习生团队，大家都不是很成熟的代码风格和思路）多次反复寻找bug并寻求解决。</p>
-<p>  &emsp;&emsp;最后离职之前还因为一点小插曲残余一个任务模块的审核部分的权限问题（相关代码涉及两人且两人意见有分歧）最终没能收尾成功，也是一个遗憾。</p>
-<p>  &emsp;&emsp;以上都是关于工作的总结，尽管当初是想来接触人工智能相关的，但机缘巧合接触了整个建站的过程（开头一部分因为报道之前已开始没能亲眼目睹），也是一次不错的实习经历。其中的几次分享讲座也是非常不错，虽因内容的新颖未能全get，不过总的来说接触了目前企业化的前沿的热点技术，对之后的着力方法有了清晰的认识。</p>
-<p>  &emsp;&emsp;Ok。不谈工作了，聊点别的。公司体格不大，毕竟是一个创业公司，不过氛围很舒服。周围的同事身上有不少我要学习的优点。还有每天的日会尽管有些波折，但还是持续挺了下来，越发的有了自信。认识了不少朋友呢。</p>
-<p>  &emsp;&emsp;尽管不确定暑假究竟去不去了，但接下来的这学期也是很重要的一个学期了。我几乎是决定要考研了。前段时间还在畏惧着考研失败的后果，但且不说会不会失败，如果这点勇气都没有，如果追求未来更美好的生活。大不了就是失败了，找个不如意的学校调剂一下或者找个过渡的工作。这学期的打算就是先把驾照提上日程，有了驾照还是很方便的。其次就是开始准备数学和英语（不花太多时间，就是间带着提上日程）。另外就是之前的专业课基础要打实了。最后就是上好课的同时努力提升自己，了解试下的热点技术和新技术。</p>
-<p>  &emsp;&emsp;本来只是一个实习总结的，既然写在了开学的前一天，那就当是连同下学期展望一起了。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/01/15/日志/实习记录-2018寒假/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -656,7 +368,7 @@ java部分：
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-01-12T22:51:03+08:00">
 	
-		    1月 12, 2018
+		    12 1月 2018
     	
     </time>
     
@@ -676,7 +388,7 @@ java部分：
                     
                         <p>
                             <a href="/2018/01/12/flag：定时更新blog/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -701,7 +413,7 @@ java部分：
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-08-13T23:33:49+08:00">
 	
-		    8月 13, 2017
+		    13 8月 2017
     	
     </time>
     
@@ -721,7 +433,7 @@ java部分：
                     
                         <p>
                             <a href="/2017/08/13/8-13随感/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -746,7 +458,7 @@ java部分：
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-21T15:24:43+08:00">
 	
-		    7月 21, 2017
+		    21 7月 2017
     	
     </time>
     
@@ -769,7 +481,7 @@ java部分：
                     
                         <p>
                             <a href="/2017/07/21/有点感受想说/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -794,7 +506,7 @@ java部分：
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-14T00:35:17+08:00">
 	
-		    7月 14, 2017
+		    14 7月 2017
     	
     </time>
     
@@ -836,7 +548,7 @@ java部分：
                     
                         <p>
                             <a href="/2017/07/14/写于大二小学期课程最后一天/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -861,7 +573,7 @@ java部分：
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-07-09T23:59:38+08:00">
 	
-		    7月 09, 2017
+		    09 7月 2017
     	
     </time>
     
@@ -879,7 +591,7 @@ java部分：
                     
                         <p>
                             <a href="/2017/07/09/Hello-Abner/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -893,7 +605,7 @@ java部分：
     <ul class="pagination">
         
         
-        <li class="pagination-number">page 1 of 1</li>
+        <li class="pagination-number">Seite 1 von 1</li>
     </ul>
 </div>
 
@@ -922,7 +634,7 @@ java部分：
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
         
             <h4 id="about-card-name">Abner</h4>
         
@@ -963,7 +675,7 @@ java部分：
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="no-result text-color-light text-center">keinen Beitrag gefunden</div>
             <div class="results">
                 
                 <div class="media">
@@ -1160,10 +872,10 @@ java部分：
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="no post found"
-                data-message-one="1 post found"
-                data-message-other="{n} posts found">
-                29 posts found
+                data-message-zero="keinen Beitrag gefunden"
+                data-message-one="1 Beitrag gefunden"
+                data-message-other="{n} Einträge gefunden">
+                40 Einträge gefunden
             </p>
         </div>
     </div>

@@ -64,7 +64,7 @@
                 href="#about">
         
         
-            <img class="header-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+            <img class="header-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
         
         </a>
     
@@ -82,7 +82,7 @@
         
             <div class="sidebar-profile">
                 <a href="/#about">
-                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
                 </a>
                 <h4 class="sidebar-profile-name">Abner</h4>
                 
@@ -199,6 +199,114 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2018/08/01/geohash理解/">
+                            geohash的理解（未完）
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
+	
+		    01 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>关于geohash<br>今天在数据库字段中发现有个字段是geohash，地理位置hash？？<br>于是了解了一波，大概的思路是将经纬度等信息通过某种算法进行hash，进行前缀匹配可以快速计算距离的远近</p>
+<p>大致是吧二维信息转化为一维并通过B树进行索引</p>
+<p>对线、树等数据采用R树索引更有优势</p>
+<p><a href="&#39;https://www.cnblogs.com/LBSer/p/3310455.html&#39;">参考文档</a></p>
+<hr>
+<p>(待增加样例及比较)</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/01/geohash理解/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/08/01/设计模式笔记/">
+                            设计模式学习笔记（待更新）
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
+	
+		    01 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h2 id="单一职责原则-SRP"><a href="#单一职责原则-SRP" class="headerlink" title="单一职责原则  SRP"></a>单一职责原则  SRP</h2><p><b>就一个类而言，应该仅有一个引起它变化的原因</b>  </p>
+<p>软件设计真正要做的很多内容，就是<b>发现职责并把这些职责相互分离</b><br><br>如果你想到多于一个动机去改变一个类，那这个类就具有多于一个的职责</p>
+<h2 id="开放-封闭原则-OCP"><a href="#开放-封闭原则-OCP" class="headerlink" title="开放-封闭原则  OCP"></a>开放-封闭原则  OCP</h2><p>开放-封闭原则，是说软件实体（类、模块、函数等）应该可以扩展，但是不可修改<br><br>面对新的需求，对程序的改动是通过增加新代码进行的，而不是更改现有代码<br><br>&emsp;&emsp;可维护，可扩展，可复用，灵活性好</p>
+<h2 id="依赖倒转原则"><a href="#依赖倒转原则" class="headerlink" title="依赖倒转原则"></a>依赖倒转原则</h2><ol>
+<li>高层模块不应该依赖底层模块，两个都应该依赖抽象</li>
+<li>抽象不应该依赖细节，细节应该依赖抽象</li>
+</ol>
+<h2 id="里氏代换原则"><a href="#里氏代换原则" class="headerlink" title="里氏代换原则"></a>里氏代换原则</h2><pre><code>子类型必须能够替换掉它们的父类型
+</code></pre><h2 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h2><pre><code>如果两个类不必彼此直接通信，那么这两个类就不应当发生直接的相互作用。
+如果其中一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用。
+</code></pre><h2 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h2><p>不应该依赖它不需要的接口；一个类对另一个类的依赖应该建立在<b>最小</b>的接口上。</p>
+<h1 id="常见设计模式"><a href="#常见设计模式" class="headerlink" title="常见设计模式"></a>常见设计模式</h1><h2 id="单例模式-Singleton"><a href="#单例模式-Singleton" class="headerlink" title="单例模式 Singleton"></a>单例模式 Singleton</h2><pre><code>单例模式，保证一个类只有一个实例，并提供一个访问它的全局访问点。
+</code></pre><ul>
+<li>饿汉式单例类<br>  <br>在自己被加载时就将自己实例化</li>
+<li>懒汉式单例类<br>  <br>在第一次被引用时才会自己实例化<br><br>  多线程环境下，双重锁定保证单例且提高性能</li>
+</ul>
+<h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p> <b>将一个类的接口转换成客户希望的另外一个接口。</b><br> Adapter模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</p>
+<p>两种模式：类适配器模式、对象适配器模式</p>
+<hr>
+<p>待更新</p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><h3 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h3><h3 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h3><h2 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h2>
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/01/设计模式笔记/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2018/07/05/关于SSM框架的一些理解/">
                             关于SSM框架的一些理解
                         </a>
@@ -207,7 +315,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-07-05T21:47:24+08:00">
 	
-		    7月 05, 2018
+		    05 7月 2018
     	
     </time>
     
@@ -237,7 +345,7 @@
                     
                         <p>
                             <a href="/2018/07/05/关于SSM框架的一些理解/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -262,7 +370,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-05-04T22:18:08+08:00">
 	
-		    5月 04, 2018
+		    04 5月 2018
     	
     </time>
     
@@ -278,7 +386,7 @@
                     
                         <p>
                             <a href="/2018/05/04/计算机视觉学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -303,7 +411,7 @@
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-04-20T00:35:17+08:00">
 	
-		    4月 20, 2018
+		    20 4月 2018
     	
     </time>
     
@@ -396,7 +504,7 @@ display ip routing-table
                     
                         <p>
                             <a href="/2018/04/20/华为网技相关eNSP学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -421,7 +529,7 @@ display ip routing-table
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-03-29T21:17:29+08:00">
 	
-		    3月 29, 2018
+		    29 3月 2018
     	
     </time>
     
@@ -475,7 +583,7 @@ display ip routing-table
                     
                         <p>
                             <a href="/2018/03/29/大数据学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -500,7 +608,7 @@ display ip routing-table
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-03-23T21:17:29+08:00">
 	
-		    3月 23, 2018
+		    23 3月 2018
     	
     </time>
     
@@ -576,7 +684,7 @@ wait(long, int)
                     
                         <p>
                             <a href="/2018/03/23/Java基础整理篇/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -601,7 +709,7 @@ wait(long, int)
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-03-23T21:17:29+08:00">
 	
-		    3月 23, 2018
+		    23 3月 2018
     	
     </time>
     
@@ -651,7 +759,7 @@ wait(long, int)
                     
                         <p>
                             <a href="/2018/03/23/JAVA内存模型JMM/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -676,7 +784,7 @@ wait(long, int)
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2018-02-26T10:01:09+08:00">
 	
-		    2月 26, 2018
+		    26 2月 2018
     	
     </time>
     
@@ -697,7 +805,7 @@ wait(long, int)
                     
                         <p>
                             <a href="/2018/02/26/js学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -722,7 +830,7 @@ wait(long, int)
                 <div class="postShorten-meta">
     <time itemprop="datePublished" datetime="2017-08-08T10:46:44+08:00">
 	
-		    8月 08, 2017
+		    08 8月 2017
     	
     </time>
     
@@ -758,7 +866,7 @@ finally:
                     
                         <p>
                             <a href="/2017/08/08/Python学习之路/#post-footer" class="postShorten-excerpt_link link">
-                                Comment and share
+                                Kommentieren und teilen
                             </a>
                         </p>
                     
@@ -772,7 +880,7 @@ finally:
     <ul class="pagination">
         
         
-        <li class="pagination-number">page 1 of 1</li>
+        <li class="pagination-number">Seite 1 von 1</li>
     </ul>
 </div>
 
@@ -801,7 +909,7 @@ finally:
             <i class="fa fa-remove"></i>
         </div>
         
-            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Author&#39;s picture"/>
+            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
         
             <h4 id="about-card-name">Abner</h4>
         
@@ -842,7 +950,7 @@ finally:
             </form>
         </div>
         <div class="modal-body">
-            <div class="no-result text-color-light text-center">no post found</div>
+            <div class="no-result text-color-light text-center">keinen Beitrag gefunden</div>
             <div class="results">
                 
                 <div class="media">
@@ -1039,10 +1147,10 @@ finally:
         </div>
         <div class="modal-footer">
             <p class="results-count text-medium"
-                data-message-zero="no post found"
-                data-message-one="1 post found"
-                data-message-other="{n} posts found">
-                29 posts found
+                data-message-zero="keinen Beitrag gefunden"
+                data-message-one="1 Beitrag gefunden"
+                data-message-other="{n} Einträge gefunden">
+                40 Einträge gefunden
             </p>
         </div>
     </div>
