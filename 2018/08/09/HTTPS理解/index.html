@@ -1,0 +1,698 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+    
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="generator" content="Abner&#39;s blog">
+    <title>HTTPS理解 - Abner&#39;s blog</title>
+    <meta name="author" content="Abner">
+    
+    
+        <link rel="icon" href="http://yoursite.com/assets/images/favicon.jpg">
+    
+    
+    <meta name="description" content="加密算法加密领域的密码算法可大致分为两类，对称加密和非对称加密 对称加密包括DES、3DES、AES等非对称加密包括RSA算法等 之前一直不了解，对称加密算法是如何保证传递秘钥时是如何保证秘钥不被泄露的，没了解过还以为没有办法，只能说这世界上聪明人是真的多，问题永远没有办法多。 HTTPS对Https之前的理解仅仅是Http+SSL，至于什么是SSL，怎么起作用的，为什么是安全的等等一知半解。 只">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="blog">
+<meta property="og:title" content="HTTPS理解">
+<meta property="og:url" content="http://yoursite.com/2018/08/09/HTTPS理解/index.html">
+<meta property="og:site_name" content="Abner&#39;s blog">
+<meta property="og:description" content="加密算法加密领域的密码算法可大致分为两类，对称加密和非对称加密 对称加密包括DES、3DES、AES等非对称加密包括RSA算法等 之前一直不了解，对称加密算法是如何保证传递秘钥时是如何保证秘钥不被泄露的，没了解过还以为没有办法，只能说这世界上聪明人是真的多，问题永远没有办法多。 HTTPS对Https之前的理解仅仅是Http+SSL，至于什么是SSL，怎么起作用的，为什么是安全的等等一知半解。 只">
+<meta property="og:updated_time" content="2018-08-23T09:35:46.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="HTTPS理解">
+<meta name="twitter:description" content="加密算法加密领域的密码算法可大致分为两类，对称加密和非对称加密 对称加密包括DES、3DES、AES等非对称加密包括RSA算法等 之前一直不了解，对称加密算法是如何保证传递秘钥时是如何保证秘钥不被泄露的，没了解过还以为没有办法，只能说这世界上聪明人是真的多，问题永远没有办法多。 HTTPS对Https之前的理解仅仅是Http+SSL，至于什么是SSL，怎么起作用的，为什么是安全的等等一知半解。 只">
+    
+    
+        
+    
+    
+        <meta property="og:image" content="http://yoursite.com/assets/images/me.jpg"/>
+    
+    
+    
+    
+    <!--STYLES-->
+    <link rel="stylesheet" href="/assets/css/font-awesome.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="/assets/css/jquery.fancybox-thumbs.css">
+    <link rel="stylesheet" href="/assets/css/tranquilpeak.css">
+    <!--STYLES END-->
+    
+    
+</head>
+
+    <body>
+        <div id="blog">
+            <!-- Define author's picture -->
+
+
+    
+        
+            
+        
+    
+
+<header id="header" data-behavior="4">
+    <i id="btn-open-sidebar" class="fa fa-lg fa-bars"></i>
+    <div class="header-title">
+        <a class="header-title-link" href="/ ">Abner&#39;s blog</a>
+    </div>
+    
+        
+            <a  class="header-right-picture "
+                href="#about">
+        
+        
+            <img class="header-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+        
+        </a>
+    
+</header>
+
+            <!-- Define author's picture -->
+
+
+
+        
+    
+
+<nav id="sidebar" data-behavior="4">
+    <div class="sidebar-container">
+        
+            <div class="sidebar-profile">
+                <a href="/#about">
+                    <img class="sidebar-profile-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+                </a>
+                <h4 class="sidebar-profile-name">Abner</h4>
+                
+                    <h5 class="sidebar-profile-bio"><p>author.bio</p>
+</h5>
+                
+            </div>
+        
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/ "
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-home"></i>
+                        <span class="sidebar-button-desc">首页</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-categories"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-bookmark"></i>
+                        <span class="sidebar-button-desc">分类</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-tags"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-tags"></i>
+                        <span class="sidebar-button-desc">标签</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="/all-archives"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-archive"></i>
+                        <span class="sidebar-button-desc">归档</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link open-algolia-search"
+                             href="#search"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-search"></i>
+                        <span class="sidebar-button-desc">搜索</span>
+                    </a>
+            </li>
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link "
+                             href="#about"
+                            
+                        >
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-question"></i>
+                        <span class="sidebar-button-desc">关于</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+            <ul class="sidebar-buttons">
+            
+                <li class="sidebar-button">
+                    
+                        <a  class="sidebar-button-link " href="https://github.com/ABNER-1" target="_blank" rel="noopener">
+                    
+                        <i class="sidebar-button-icon fa fa-lg fa-github"></i>
+                        <span class="sidebar-button-desc">Github</span>
+                    </a>
+            </li>
+            
+        </ul>
+        
+    </div>
+</nav>
+
+            
+            <div id="main" data-behavior="4"
+                 class="
+                        hasCoverMetaIn
+                        ">
+                
+<article class="post" itemscope itemType="http://schema.org/BlogPosting">
+    
+    
+        <div class="post-header main-content-wrap text-left">
+    
+        <h1 class="post-title" itemprop="headline">
+            HTTPS理解
+        </h1>
+    
+    
+        <div class="post-meta">
+    <time itemprop="datePublished" datetime="2018-08-09T17:21:03+08:00">
+	
+		    09 8月 2018
+    	
+    </time>
+    
+</div>
+
+    
+</div>
+    
+    <div class="post-content markdown" itemprop="articleBody">
+        <div class="main-content-wrap">
+            <h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><p>加密领域的密码算法可大致分为两类，对称加密和非对称加密</p>
+<p>对称加密包括DES、3DES、AES等<br>非对称加密包括RSA算法等</p>
+<p>之前一直不了解，对称加密算法是如何保证传递秘钥时是如何保证秘钥不被泄露的，没了解过还以为没有办法，只能说这世界上聪明人是真的多，问题永远没有办法多。</p>
+<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>对Https之前的理解仅仅是Http+SSL，至于什么是SSL，怎么起作用的，为什么是安全的等等一知半解。 <b>只知道这是安全的通信方法</b></p>
+<h3 id="传输过程"><a href="#传输过程" class="headerlink" title="传输过程"></a>传输过程</h3><p><a href="https://segmentfault.com/a/1190000000476876" target="_blank" rel="external">HTTPS通信流程参考博客</a></p>
+<p><a href="https://www.jianshu.com/p/671e3cf26974" target="_blank" rel="external">参考博客2</a></p>
+<p>通过非对称加密传输对称加密的秘钥<b>（客户端产生的）</b>，并用对称加密的加密方式进行通信。</p>
+<h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><p>SSL 是指安全套接字层，简而言之，它是一项标准技术，可确保互联网连接安全，保护两个系统之间发送的任何敏感数据，防止网络犯罪分子读取和修改任何传输信息，包括个人资料。两个系统可能是指服务器和客户端（例如，浏览器和购物网站），或两个服务器之间（例如，含个人身份信息或工资单信息的应用程序）。</p>
+<hr>
+<p>待添加个人理解</p>
+<h2 id="HTTP长连接和短连接"><a href="#HTTP长连接和短连接" class="headerlink" title="HTTP长连接和短连接"></a>HTTP长连接和短连接</h2><p>主要是为了减少频繁通信时若干次握手的消耗。采用心跳的方法去维持。</p>
+<p><a href="https://www.cnblogs.com/beifei/archive/2011/06/26/2090611.html" target="_blank" rel="external">参考博客</a></p>
+
+            
+        </div>
+    </div>
+    <div id="post-footer" class="post-footer main-content-wrap">
+        
+            <div class="post-footer-tags">
+                <span class="text-color-light text-small">GETAGGT IN</span><br/>
+                
+    <a class="tag tag--primary tag--small t-link" href="/all-tags/学习笔记/">学习笔记</a>
+
+            </div>
+        
+        
+            <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/08/28/几种锁的分类解释/"  data-tooltip="几种锁">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">FRÜHER</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/08/09/java多线程通信及常用操作理解/" data-tooltip="java 多线程通信及常用操作理解">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NÄCHSTER</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/08/09/HTTPS理解/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/08/09/HTTPS理解/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/08/09/HTTPS理解/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+        
+        
+            
+        
+    </div>
+</article>
+
+
+
+                <footer id="footer" class="main-content-wrap">
+    <span class="copyrights">
+        Copyrights &copy; 2018 Abner. All Rights Reserved.
+    </span>
+</footer>
+
+            </div>
+            
+                <div id="bottom-bar" class="post-bottom-bar" data-behavior="4">
+                    <div class="post-actions-wrap">
+    <nav>
+        <ul class="post-actions post-action-nav">
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/08/28/几种锁的分类解释/"  data-tooltip="几种锁">
+                
+                    <i class="fa fa-angle-left"></i>
+                    <span class="hide-xs hide-sm text-small icon-ml">FRÜHER</span>
+                </a>
+            </li>
+            <li class="post-action">
+                
+                    <a class="post-action-btn btn btn--default tooltip--top" href="/2018/08/09/java多线程通信及常用操作理解/" data-tooltip="java 多线程通信及常用操作理解">
+                
+                    <span class="hide-xs hide-sm text-small icon-mr">NÄCHSTER</span>
+                    <i class="fa fa-angle-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <ul class="post-actions post-action-share">
+        <li class="post-action hide-lg hide-md hide-sm">
+            <a class="post-action-btn btn btn--default btn-open-shareoptions"  href="#btn-open-shareoptions">
+                <i class="fa fa-share-alt"></i>
+            </a>
+        </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/08/09/HTTPS理解/">
+                    <i class="fa fa-facebook-official"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/08/09/HTTPS理解/">
+                    <i class="fa fa-twitter"></i>
+                </a>
+            </li>
+        
+            
+            
+            <li class="post-action hide-xs">
+                <a class="post-action-btn btn btn--default" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/08/09/HTTPS理解/">
+                    <i class="fa fa-google-plus"></i>
+                </a>
+            </li>
+        
+        
+        <li class="post-action">
+            
+                <a class="post-action-btn btn btn--default" href="#">
+            
+                <i class="fa fa-list"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+                </div>
+                <div id="share-options-bar" class="share-options-bar" data-behavior="4">
+    <i id="btn-close-shareoptions" class="fa fa-close"></i>
+    <ul class="share-options">
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/08/09/HTTPS理解/">
+                    <i class="fa fa-facebook-official"></i><span>Teilen auf Facebook</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://twitter.com/intent/tweet?text=http://yoursite.com/2018/08/09/HTTPS理解/">
+                    <i class="fa fa-twitter"></i><span>Teilen auf Twitter</span>
+                </a>
+            </li>
+        
+            
+            
+            <li class="share-option">
+                <a class="share-option-btn" target="new" href="https://plus.google.com/share?url=http://yoursite.com/2018/08/09/HTTPS理解/">
+                    <i class="fa fa-google-plus"></i><span>Teilen auf Google Plus</span>
+                </a>
+            </li>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        
+
+
+    
+        
+    
+
+<div id="about">
+    <div id="about-card">
+        <div id="about-btn-close">
+            <i class="fa fa-remove"></i>
+        </div>
+        
+            <img id="about-card-picture" src="/assets/images/me.jpg" alt="Bild des Autors"/>
+        
+            <h4 id="about-card-name">Abner</h4>
+        
+            <div id="about-card-bio"><p>author.bio</p>
+</div>
+        
+        
+            <div id="about-card-job">
+                <i class="fa fa-briefcase"></i>
+                <br/>
+                <p>author.job</p>
+
+            </div>
+        
+        
+            <div id="about-card-location">
+                <i class="fa fa-map-marker"></i>
+                <br/>
+                CHINA
+            </div>
+        
+    </div>
+</div>
+
+        <div id="algolia-search-modal" class="modal-container">
+    <div class="modal">
+        <div class="modal-header">
+            <span class="close-button"><i class="fa fa-close"></i></span>
+            <a href="https://algolia.com" target="_blank" rel="noopener" class="searchby-algolia text-color-light link-unstyled">
+                <span class="searchby-algolia-text text-color-light text-small">by</span>
+                <img class="searchby-algolia-logo" src="https://www.algolia.com/static_assets/images/press/downloads/algolia-light.svg">
+            </a>
+            <i class="search-icon fa fa-search"></i>
+            <form id="algolia-search-form">
+                <input type="text" id="algolia-search-input" name="search"
+                    class="form-control input--large search-input" placeholder="Search "
+                    />
+            </form>
+        </div>
+        <div class="modal-body">
+            <div class="no-result text-color-light text-center">keinen Beitrag gefunden</div>
+            <div class="results">
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/07/09/Hello-Abner/">
+                            <h3 class="media-heading">Hello,Abner</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年7月9日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/07/14/写于大二小学期课程最后一天/">
+                            <h3 class="media-heading">写于大二小学期课程最后一天</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年7月14日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/07/19/小学期ACM解题报告/">
+                            <h3 class="media-heading">小学期ACM解题报告</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年7月19日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/07/21/有点感受想说/">
+                            <h3 class="media-heading">有点感受想说</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年7月21日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/07/28/7-22网络赛补题报告/">
+                            <h3 class="media-heading">7.22网络赛补题报告</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年7月28日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/08/07/2017百度之星解题报告/">
+                            <h3 class="media-heading">2017百度之星解题报告</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年8月7日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/08/08/Python学习之路/">
+                            <h3 class="media-heading">Python学习之路</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年8月8日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/08/13/8-13随感/">
+                            <h3 class="media-heading">8-13随感</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年8月13日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/08/24/博弈论-k倍取数/">
+                            <h3 class="media-heading">博弈论-k倍取数</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年8月24日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+                <div class="media">
+                    
+                    <div class="media-body">
+                        <a class="link-unstyled" href="http://yoursite.com/2017/08/26/8-26练习赛/">
+                            <h3 class="media-heading">8-26练习赛</h3>
+                        </a>
+                        <span class="media-meta">
+                            <span class="media-date text-small">
+                                
+                                    2017年8月26日
+                                
+                            </span>
+                        </span>
+                        <div class="media-content hide-xs font-merryweather"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                    <hr>
+                </div>
+                
+            </div>
+        </div>
+        <div class="modal-footer">
+            <p class="results-count text-medium"
+                data-message-zero="keinen Beitrag gefunden"
+                data-message-one="1 Beitrag gefunden"
+                data-message-other="{n} Einträge gefunden">
+                47 Einträge gefunden
+            </p>
+        </div>
+    </div>
+</div>
+
+        
+<div id="cover" style="background-image:url('/assets/images/cover.jpg');"></div>
+        <!--SCRIPTS-->
+<script src="/assets/js/jquery.js"></script>
+<script src="/assets/js/jquery.fancybox.js"></script>
+<script src="/assets/js/jquery.fancybox-thumbs.js"></script>
+<script src="/assets/js/tranquilpeak.js"></script>
+<!--SCRIPTS END-->
+
+    
+
+
+    </body>
+</html>

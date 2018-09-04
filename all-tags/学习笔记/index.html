@@ -199,15 +199,15 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link-unstyled" href="/2018/08/01/geohash理解/">
-                            geohash的理解（未完）
+                        <a class="link-unstyled" href="/2018/08/28/几种锁的分类解释/">
+                            几种锁
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
+    <time itemprop="datePublished" datetime="2018-08-28T22:51:03+08:00">
 	
-		    01 8月 2018
+		    28 8月 2018
     	
     </time>
     
@@ -216,19 +216,72 @@
             </div>
             
                 <div class="postShorten-content" itemprop="articleBody">
-                    <p>关于geohash<br>今天在数据库字段中发现有个字段是geohash，地理位置hash？？<br>于是了解了一波，大概的思路是将经纬度等信息通过某种算法进行hash，进行前缀匹配可以快速计算距离的远近</p>
-<p>大致是吧二维信息转化为一维并通过B树进行索引</p>
-<p>对线、树等数据采用R树索引更有优势</p>
-<p><a href="&#39;https://www.cnblogs.com/LBSer/p/3310455.html&#39;">参考文档</a></p>
-<hr>
-<p>(待增加样例及比较)</p>
+                    <h2 id="可重入锁、不可重入锁"><a href="#可重入锁、不可重入锁" class="headerlink" title="可重入锁、不可重入锁"></a>可重入锁、不可重入锁</h2><p>可重入  拥有对象的锁后可重复进入</p>
+<p>不可冲入  拥有后不可再次进入</p>
+<p>主要区别是锁的时候不光记录对象是否被锁，还记录拥有改对象的线程。</p>
+<p><a href="https://blog.csdn.net/qyp199312/article/details/70598480" target="_blank" rel="external">参考博客</a></p>
+<h2 id="公平锁和不公平锁"><a href="#公平锁和不公平锁" class="headerlink" title="公平锁和不公平锁"></a>公平锁和不公平锁</h2><p>公平锁  用队列  实现先到先得</p>
+<p>不公平锁  随机获取锁</p>
 
                     
                         
                     
                     
                         <p>
-                            <a href="/2018/08/01/geohash理解/#post-footer" class="postShorten-excerpt_link link">
+                            <a href="/2018/08/28/几种锁的分类解释/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/08/09/HTTPS理解/">
+                            HTTPS理解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-09T17:21:03+08:00">
+	
+		    09 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><p>加密领域的密码算法可大致分为两类，对称加密和非对称加密</p>
+<p>对称加密包括DES、3DES、AES等<br>非对称加密包括RSA算法等</p>
+<p>之前一直不了解，对称加密算法是如何保证传递秘钥时是如何保证秘钥不被泄露的，没了解过还以为没有办法，只能说这世界上聪明人是真的多，问题永远没有办法多。</p>
+<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>对Https之前的理解仅仅是Http+SSL，至于什么是SSL，怎么起作用的，为什么是安全的等等一知半解。 <b>只知道这是安全的通信方法</b></p>
+<h3 id="传输过程"><a href="#传输过程" class="headerlink" title="传输过程"></a>传输过程</h3><p><a href="https://segmentfault.com/a/1190000000476876" target="_blank" rel="external">HTTPS通信流程参考博客</a></p>
+<p><a href="https://www.jianshu.com/p/671e3cf26974" target="_blank" rel="external">参考博客2</a></p>
+<p>通过非对称加密传输对称加密的秘钥<b>（客户端产生的）</b>，并用对称加密的加密方式进行通信。</p>
+<h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><p>SSL 是指安全套接字层，简而言之，它是一项标准技术，可确保互联网连接安全，保护两个系统之间发送的任何敏感数据，防止网络犯罪分子读取和修改任何传输信息，包括个人资料。两个系统可能是指服务器和客户端（例如，浏览器和购物网站），或两个服务器之间（例如，含个人身份信息或工资单信息的应用程序）。</p>
+<hr>
+<p>待添加个人理解</p>
+<h2 id="HTTP长连接和短连接"><a href="#HTTP长连接和短连接" class="headerlink" title="HTTP长连接和短连接"></a>HTTP长连接和短连接</h2><p>主要是为了减少频繁通信时若干次握手的消耗。采用心跳的方法去维持。</p>
+<p><a href="https://www.cnblogs.com/beifei/archive/2011/06/26/2090611.html" target="_blank" rel="external">参考博客</a></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/09/HTTPS理解/#post-footer" class="postShorten-excerpt_link link">
                                 Kommentieren und teilen
                             </a>
                         </p>
@@ -290,6 +343,53 @@
                     
                         <p>
                             <a href="/2018/08/01/设计模式笔记/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/08/01/geohash理解/">
+                            geohash的理解（未完）
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
+	
+		    01 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>关于geohash<br>今天在数据库字段中发现有个字段是geohash，地理位置hash？？<br>于是了解了一波，大概的思路是将经纬度等信息通过某种算法进行hash，进行前缀匹配可以快速计算距离的远近</p>
+<p>大致是吧二维信息转化为一维并通过B树进行索引</p>
+<p>对线、树等数据采用R树索引更有优势</p>
+<p><a href="&#39;https://www.cnblogs.com/LBSer/p/3310455.html&#39;">参考文档</a></p>
+<hr>
+<p>(待增加样例及比较)</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/01/geohash理解/#post-footer" class="postShorten-excerpt_link link">
                                 Kommentieren und teilen
                             </a>
                         </p>
@@ -600,6 +700,81 @@ display ip routing-table
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2018/03/23/JAVA内存模型JMM/">
+                            Java内存模型
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-03-23T21:17:29+08:00">
+	
+		    23 3月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>JAVA内存模型</p>
+<p>JMM为JVM一部分</p>
+<p>并发编程 – 两个关键问题：线程之间的通信和同步</p>
+<p>线程间通信 –共享内存 和 消息传递</p>
+<p>共享对象：隐式通信 – 如共享对象</p>
+<p>消息传递： 显示通信  – wait()和notify()</p>
+<p>内存间交互操作</p>
+<ul>
+<li>Lock：锁定，作用于主内存的变量，他把变量标识为一个线程独占的状态。</li>
+<li>Unlock: 解锁，作用于主内存的变量，把一个变量的值从主内存读取到线程工作内存中，以便随后的load动作使用</li>
+<li>read：读取，作用于主内存的变量，把一个处于锁定状态的变量释放出来，释放后的变量才可以被其他线程锁定</li>
+<li>load：载入，作用于工作内存的变量，把read操作从主内存中得到的变量值放入工作内存的变量副本中</li>
+<li>use：使用，作用于工作内存的变量，把工作内存中一个变量的值传递给执行引擎，每当虚拟机遇到一个需要使用的变量的值的字节码指令将会之星这个操作</li>
+<li>assign：赋值，作用于工作内存的变量，把从执行引擎收到的值赋给工作内存的变量，每当虚拟机遇到一个给变量赋值的字节码指令时执行这个操作。</li>
+<li>store：存储，作用于工作内存的变量，把工作内存中的一个变量的值赋给主内存中，以便随后的write操作使用</li>
+<li>write：写入，作用于主内存的变量，把store操作从工作内存中得到的变量的值放入主内存的变量之中。</li>
+</ul>
+<h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><ul>
+<li><p>程序计数器</p>
+<p>  每个线程有要有一个独立的程序计数器，记录下一条要运行的指令。线程私有的内存区域。如果执行的是JAVA方法，计数器记录正在执行的java字节码地址，如果执行的是native方法，则计数器为空。</p>
+</li>
+<li><p>虚拟机栈</p>
+<p>  线程私有的，与线程在同一时间创建。管理JAVA方法执行的内存模型。</p>
+</li>
+<li><p>本地方法区</p>
+<p>  和虚拟机栈功能相似，但管理的不是JAVA方法，是本地方法</p>
+</li>
+<li><p>方法区</p>
+<p>  线程共享的，用于存放被虚拟机加载的类的元数据信息：如常量、静态变量、即时编译器编译后的代码。也称为永久代。</p>
+</li>
+<li><p>JAVA 堆</p>
+<p>  线程共享的，存放所有对象实例和数组。垃圾回收的主要区域。可以分为新生代和老年代(tenured)。</p>
+</li>
+</ul>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/03/23/JAVA内存模型JMM/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2018/03/23/Java基础整理篇/">
                             Java基础整理篇
                         </a>
@@ -694,193 +869,18 @@ wait(long, int)
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/03/23/JAVA内存模型JMM/">
-                            Java内存模型
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-03-23T21:17:29+08:00">
-	
-		    23 3月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>JAVA内存模型</p>
-<p>JMM为JVM一部分</p>
-<p>并发编程 – 两个关键问题：线程之间的通信和同步</p>
-<p>线程间通信 –共享内存 和 消息传递</p>
-<p>共享对象：隐式通信 – 如共享对象</p>
-<p>消息传递： 显示通信  – wait()和notify()</p>
-<p>内存间交互操作</p>
-<ul>
-<li>Lock：锁定，作用于主内存的变量，他把变量标识为一个线程独占的状态。</li>
-<li>Unlock: 解锁，作用于主内存的变量，把一个变量的值从主内存读取到线程工作内存中，以便随后的load动作使用</li>
-<li>read：读取，作用于主内存的变量，把一个处于锁定状态的变量释放出来，释放后的变量才可以被其他线程锁定</li>
-<li>load：载入，作用于工作内存的变量，把read操作从主内存中得到的变量值放入工作内存的变量副本中</li>
-<li>use：使用，作用于工作内存的变量，把工作内存中一个变量的值传递给执行引擎，每当虚拟机遇到一个需要使用的变量的值的字节码指令将会之星这个操作</li>
-<li>assign：赋值，作用于工作内存的变量，把从执行引擎收到的值赋给工作内存的变量，每当虚拟机遇到一个给变量赋值的字节码指令时执行这个操作。</li>
-<li>store：存储，作用于工作内存的变量，把工作内存中的一个变量的值赋给主内存中，以便随后的write操作使用</li>
-<li>write：写入，作用于主内存的变量，把store操作从工作内存中得到的变量的值放入主内存的变量之中。</li>
-</ul>
-<h1 id="内存模型"><a href="#内存模型" class="headerlink" title="内存模型"></a>内存模型</h1><ul>
-<li><p>程序计数器</p>
-<p>  每个线程有要有一个独立的程序计数器，记录下一条要运行的指令。线程私有的内存区域。如果执行的是JAVA方法，计数器记录正在执行的java字节码地址，如果执行的是native方法，则计数器为空。</p>
-</li>
-<li><p>虚拟机栈</p>
-<p>  线程私有的，与线程在同一时间创建。管理JAVA方法执行的内存模型。</p>
-</li>
-<li><p>本地方法区</p>
-<p>  和虚拟机栈功能相似，但管理的不是JAVA方法，是本地方法</p>
-</li>
-<li><p>方法区</p>
-<p>  线程共享的，用于存放被虚拟机加载的类的元数据信息：如常量、静态变量、即时编译器编译后的代码。也称为永久代。</p>
-</li>
-<li><p>JAVA 堆</p>
-<p>  线程共享的，存放所有对象实例和数组。垃圾回收的主要区域。可以分为新生代和老年代(tenured)。</p>
-</li>
-</ul>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/03/23/JAVA内存模型JMM/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/02/26/js学习笔记/">
-                            js学习笔记
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-02-26T10:01:09+08:00">
-	
-		    26 2月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="js学习笔记"><a href="#js学习笔记" class="headerlink" title="js学习笔记"></a>js学习笔记</h1><p>数组[]<br>对象{}</p>
-<p>正则表达式</p>
-<p>简单模式</p>
-<p>特殊字符<br>|字符|含义|<br>|- | -|<br>|\ |匹配将依照下列规则：在非特殊字符之前的反斜杠表示下一个字符是特殊的，不能从字面上解释。例如，没有前面’\’的’b’通常匹配小写’b’，无论它们出现在哪里。如果加了’\’,这个字符变成了一个特殊意义的字符，意思是匹配一个字符边界。反斜杠也可以将其后的特殊字符，转义为字面量。例如，模式 /a<em>/ 代表会匹配 0 个或者多个 a。相反，模式 /a\\</em>/ 将 ‘<em>‘ 的特殊性移除，从而可以匹配像 “a</em>“ 这样的字符串。使用 new RegExp(“pattern”) 的时候不要忘记将 \ 进行转义，因为 \ 在字符串里面也是一个转义字符。|<br>|^ |  匹配输入的开始。如果多行标志被设置为true，那么也匹配换行符后紧跟的位置。例如，/^A/ 并不会匹配 “an A” 中的 ‘A’，但是会匹配 “An E” 中的 ‘A’。当 ‘^’ 作为第一个字符出现在一个字符集合模式时，它将会有不同的含义。补充字符集合 一节有详细介绍和示例。|<br>|$ | 匹配输入的结束。如果多行标示被设置为true，那么也匹配换行符前的位置。例如，/t$/ 并不会匹配 “eater” 中的 ‘t’，但是会匹配 “eat” 中的 ‘t’。|<br>|<em> |匹配前一个表达式0次或多次。等价于 {0,}。|<br>|+ |匹配前面一个表达式1次或者多次。等价于 {1,}。|<br>|? |匹配前面一个表达式0次或者1次。等价于 {0,1}。|<br>|. |匹配除换行符之外的任何单个字符。|<br>|(x) |匹配 ‘x’并且记住匹配项，括号被称为捕获括号。|<br>|(?:x) |匹配 ‘x’ 但是不记住匹配项。这种叫作非捕获括号，使得你能够定义为与正则表达式运算符一起使用的子表达式。|<br>|x(?=y) |匹配’x’仅仅当’x’后面跟着’y’.这种叫做正向肯定查找。|<br>|x(?!y) |匹配’x’仅仅当’x’后面不跟着’y’,这个叫做正向否定查找。|<br>|x|y |匹配‘x’或者‘y’。|<br>|{n} |n是一个正整数，匹配了前面一个字符刚好发生了n次。|<br>|{n,m} |    n 和 m 都是整数。匹配前面的字符至少n次，最多m次。如果 n 或者 m 的值是0， 这个值被忽略。|<br>|[xyz] |一个字符集合。匹配方括号的中任意字符，包括转义序列。你可以使用破折号（-）来指定一个字符范围。对于点（.）和星号（</em>）这样的特殊符号在一个字符集中没有特殊的意义。他们不必进行转义，不过转义也是起作用的。|<br>|[^xyz] |一个反向字符集。也就是说， 它匹配任何没有包含在方括号中的字符。你可以使用破折号（-）来指定一个字符范围。任何普通字符在这里都是起作用的。|<br>|[\b] |匹配一个退格(U+0008)。（不要和\b混淆了。）|<br>|\b |匹配一个词的边界。一个词的边界就是一个词不被另外一个词跟随的位置或者不是另一个词汇字符前边的位置。注意，一个匹配的词的边界并不包含在匹配的内容中。换句话说，一个匹配的词的边界的内容的长度是0。（不要和[\b]混淆了）|<br>|\B | 匹配一个非单词边界。他匹配一个前后字符都是相同类型的位置：都是单词或者都不是单词。一个字符串的开始和结尾都被认为是非单词。|<br>|\cX |当X是处于A到Z之间的字符的时候，匹配字符串中的一个控制符。|<br>|\d | 匹配一个数字。|<br>|\D | 匹配一个非数字。|<br>|\f | 匹配一个换页符 (U+000C)。|<br>|\n | 匹配一个换行符 (U+000A)。|<br>|\r | 匹配一个回车符 (U+000D)。|<br>|\s | 匹配一个空白字符，包括空格、制表符、换页符和换行符。|<br>|\S | 匹配一个非空白字符。|<br>|\t | 匹配一个水平制表符 (U+0009)。|<br>|\v | 匹配一个垂直制表符 (U+000B)。|<br>|\w | 匹配一个单字字符（字母、数字或者下划线）。|<br>|\W | 匹配一个非单字字符。 如%|<br>|\n | 当 n 是一个正整数，一个返回引用到最后一个与有n插入的正则表达式(counting left parentheses)匹配的副字符串。|<br>|\0 |匹配 NULL (U+0000) 字符， 不要在这后面跟其它小数，因为 \0<digits> 是一个八进制转义序列。|<br>|\xhh |与代码 hh 匹配字符（两个十六进制数字）|<br>|\uhhhh |与代码 hhhh 匹配字符（四个十六进制数字）。|<br>|\u{hhhh} |(仅当设置了u标志时) 使用Unicode值hhhh匹配字符 (十六进制数字).|</digits></p>
-<p>占坑。。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/02/26/js学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/08/08/Python学习之路/">
-                            Python学习之路
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-08-08T10:46:44+08:00">
-	
-		    08 8月 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="Python学习"><a href="#Python学习" class="headerlink" title="Python学习"></a>Python学习</h1><p>其实Python从很久之前就开始接触，这篇只是相当于自己的学习笔记。</p>
-<h3 id="Python基础"><a href="#Python基础" class="headerlink" title="Python基础"></a>Python基础</h3><p>序列：</p>
-<ul>
-<li>列表： 可变大小，可保存任何类型[]</li>
-<li>字符串： ‘’ . “”</li>
-<li>元组： 不可改变，任意类型()</li>
-<li><p>字典： 映射类型，可变、无序、大小可变的键值映射{}</p>
-<p>异常处理：</p>
-<pre><code>try:
-
-except Exception e:
-
-finally:
-</code></pre><p>raise抛出异常</p>
-</li>
-</ul>
-<p>文件读写</p>
-<p>函数</p>
-<p>正则表达式： re模块</p>
-<p>占坑。。。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/08/08/Python学习之路/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
         
-        <li class="pagination-number">Seite 1 von 1</li>
+        <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="/all-tags/学习笔记/page/2/">
+                    <span>ÄLTERE BEITRÄGE</span>
+                <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+        </li>
+        
+        <li class="pagination-number">Seite 1 von 2</li>
     </ul>
 </div>
 
@@ -1150,7 +1150,7 @@ finally:
                 data-message-zero="keinen Beitrag gefunden"
                 data-message-one="1 Beitrag gefunden"
                 data-message-other="{n} Einträge gefunden">
-                40 Einträge gefunden
+                47 Einträge gefunden
             </p>
         </div>
     </div>

@@ -199,15 +199,15 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link-unstyled" href="/2018/08/01/JAVA抽象方法和接口/">
-                            java 抽象类和接口的比较
+                        <a class="link-unstyled" href="/2018/09/04/JAVA类 加载顺序/">
+                            (kein Titel)
                         </a>
                     
                 </h1>
                 <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
+    <time itemprop="datePublished" datetime="2018-09-04T18:49:41+08:00">
 	
-		    01 8月 2018
+		    04 9月 2018
     	
     </time>
     
@@ -216,22 +216,18 @@
             </div>
             
                 <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="JAVA抽象类和接口"><a href="#JAVA抽象类和接口" class="headerlink" title="JAVA抽象类和接口"></a>JAVA抽象类和接口</h1><p>继承抽象类的子类可以实现一部分抽象方法，但只要还有抽象方法没有实现，就必须用abstract修饰</p>
-<p>实现接口的类必须实现所有接口中的方法。</p>
-<p>接口可以多继承，但抽象类只可以单继承</p>
-<p><a href="https://www.jianshu.com/p/038f0b356e9a" target="_blank" rel="external">参考博客</a></p>
-<p>设计层次的不同</p>
-<p>1、 抽象层次不同。抽象类是对类抽象，而接口是对行为的抽象。抽象类是对整个类整体进行抽象，包括属性、行为，但是接口却是对类局部（行为）进行抽象。</p>
-<p>2、 跨域不同。抽象类所跨域的是具有相似特点的类，而接口却可以跨域不同的类。我们知道抽象类是从子类中发现公共部分，然后泛化成抽象类，子类继承该父类即可，但是接口不同。实现它的子类可以不存在任何关系，共同之处。例如猫、狗可以抽象成一个动物类抽象类，具备叫的方法。鸟、飞机可以实现飞Fly接口，具备飞的行为，这里我们总不能将鸟、飞机共用一个父类吧！所以说抽象类所体现的是一种继承关系，要想使得继承关系合理，父类和派生类之间必须存在”is-a” 关系，即父类和派生类在概念本质上应该是相同的。对于接口则不然，并不要求接口的实现者和接口定义在概念本质上是一致的， 仅仅是实现了接口定义的契约而已。</p>
-<p>3、 设计层次不同。对于抽象类而言，它是自下而上来设计的，我们要先知道子类才能抽象出父类，而接口则不同，它根本就不需要知道子类的存在，只需要定义一个规则即可，至于什么子类、什么时候怎么实现它一概不知。比如我们只有一个猫类在这里，如果你这是就抽象成一个动物类，是不是设计有点儿过度？我们起码要有两个动物类，猫、狗在这里，我们在抽象他们的共同点形成动物抽象类吧！所以说抽象类往往都是通过重构而来的！但是接口就不同，比如说飞，我们根本就不知道会有什么东西来实现这个飞接口，怎么实现也不得而知，我们要做的就是事前定义好飞的行为接口。所以说抽象类是自底向上抽象而来的，接口是自顶向下设计出来的。</p>
-<p><a href="https://blog.csdn.net/chenssy/article/details/12858267" target="_blank" rel="external">参考博客2</a></p>
+                    <p>JAVA代码 加载顺序</p>
+<hr>
+<p>待实验+解释</p>
+<p><a href="https://www.zhihu.com/question/49196023" target="_blank" rel="external">知乎解释</a></p>
+<p><a href="https://blog.csdn.net/macheng365/article/details/6403050" target="_blank" rel="external">参考博客</a></p>
 
                     
                         
                     
                     
                         <p>
-                            <a href="/2018/08/01/JAVA抽象方法和接口/#post-footer" class="postShorten-excerpt_link link">
+                            <a href="/2018/09/04/JAVA类 加载顺序/#post-footer" class="postShorten-excerpt_link link">
                                 Kommentieren und teilen
                             </a>
                         </p>
@@ -249,8 +245,215 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
-                        <a class="link-unstyled" href="/2018/08/01/设计模式笔记/">
-                            设计模式学习笔记（待更新）
+                        <a class="link-unstyled" href="/2018/08/28/几种锁的分类解释/">
+                            几种锁
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-28T22:51:03+08:00">
+	
+		    28 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="可重入锁、不可重入锁"><a href="#可重入锁、不可重入锁" class="headerlink" title="可重入锁、不可重入锁"></a>可重入锁、不可重入锁</h2><p>可重入  拥有对象的锁后可重复进入</p>
+<p>不可冲入  拥有后不可再次进入</p>
+<p>主要区别是锁的时候不光记录对象是否被锁，还记录拥有改对象的线程。</p>
+<p><a href="https://blog.csdn.net/qyp199312/article/details/70598480" target="_blank" rel="external">参考博客</a></p>
+<h2 id="公平锁和不公平锁"><a href="#公平锁和不公平锁" class="headerlink" title="公平锁和不公平锁"></a>公平锁和不公平锁</h2><p>公平锁  用队列  实现先到先得</p>
+<p>不公平锁  随机获取锁</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/28/几种锁的分类解释/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/08/09/HTTPS理解/">
+                            HTTPS理解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-09T17:21:03+08:00">
+	
+		    09 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="加密算法"><a href="#加密算法" class="headerlink" title="加密算法"></a>加密算法</h2><p>加密领域的密码算法可大致分为两类，对称加密和非对称加密</p>
+<p>对称加密包括DES、3DES、AES等<br>非对称加密包括RSA算法等</p>
+<p>之前一直不了解，对称加密算法是如何保证传递秘钥时是如何保证秘钥不被泄露的，没了解过还以为没有办法，只能说这世界上聪明人是真的多，问题永远没有办法多。</p>
+<h2 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h2><p>对Https之前的理解仅仅是Http+SSL，至于什么是SSL，怎么起作用的，为什么是安全的等等一知半解。 <b>只知道这是安全的通信方法</b></p>
+<h3 id="传输过程"><a href="#传输过程" class="headerlink" title="传输过程"></a>传输过程</h3><p><a href="https://segmentfault.com/a/1190000000476876" target="_blank" rel="external">HTTPS通信流程参考博客</a></p>
+<p><a href="https://www.jianshu.com/p/671e3cf26974" target="_blank" rel="external">参考博客2</a></p>
+<p>通过非对称加密传输对称加密的秘钥<b>（客户端产生的）</b>，并用对称加密的加密方式进行通信。</p>
+<h2 id="SSL"><a href="#SSL" class="headerlink" title="SSL"></a>SSL</h2><p>SSL 是指安全套接字层，简而言之，它是一项标准技术，可确保互联网连接安全，保护两个系统之间发送的任何敏感数据，防止网络犯罪分子读取和修改任何传输信息，包括个人资料。两个系统可能是指服务器和客户端（例如，浏览器和购物网站），或两个服务器之间（例如，含个人身份信息或工资单信息的应用程序）。</p>
+<hr>
+<p>待添加个人理解</p>
+<h2 id="HTTP长连接和短连接"><a href="#HTTP长连接和短连接" class="headerlink" title="HTTP长连接和短连接"></a>HTTP长连接和短连接</h2><p>主要是为了减少频繁通信时若干次握手的消耗。采用心跳的方法去维持。</p>
+<p><a href="https://www.cnblogs.com/beifei/archive/2011/06/26/2090611.html" target="_blank" rel="external">参考博客</a></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/09/HTTPS理解/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/08/09/java多线程通信及常用操作理解/">
+                            java 多线程通信及常用操作理解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-09T17:21:03+08:00">
+	
+		    09 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="多线程同步机制"><a href="#多线程同步机制" class="headerlink" title="多线程同步机制"></a>多线程同步机制</h2><ul>
+<li>wait()和 notify()\notifyAll()</li>
+<li>synchronized关键字<ul>
+<li>synchronized方法</li>
+<li>synchronized块：可以修饰任意代码段、也可以指定上锁的对象</li>
+</ul>
+</li>
+<li>Lock(待具体示例去验证联系)<ul>
+<li>lock()</li>
+<li>tryLock()</li>
+<li>tryLock(long timeout, TimeUnit unit)</li>
+<li>lockInterruptibly()</li>
+</ul>
+</li>
+</ul>
+<h2 id="常见操作"><a href="#常见操作" class="headerlink" title="常见操作"></a>常见操作</h2><h3 id="join和CountdownLatch的理解"><a href="#join和CountdownLatch的理解" class="headerlink" title="join和CountdownLatch的理解"></a>join和CountdownLatch的理解</h3><p>join()方法是当前线程等待子线程结束</p>
+<p>而CountDownLatch则很灵活，虽也是等待子线程完成工作，但到哪个阶段去countdown则是自己定义的。适用于更多的场景。</p>
+<p><a href="https://blog.csdn.net/zhutulang/article/details/48504487" target="_blank" rel="external">参考博客</a></p>
+<p><a href="https://blog.csdn.net/Nemo__/article/details/71507269" target="_blank" rel="external">更全面的解释</a></p>
+<p>PS: CyclicBarrier的用法和  区别】</p>
+<p> CyclicBarrier初始化时规定一个数目，然后计算调用了CyclicBarrier.await()进入等待的线程数。当线程数达到了这个数目时，所有进入等待状态的线程被唤醒并继续。<br> CyclicBarrier就象它名字的意思一样，可看成是个障碍， 所有的线程必须到齐后才能一起通过这个障碍。<br> CyclicBarrier初始时还可带一个Runnable的参数， 此Runnable任务在CyclicBarrier的数目达到后，所有其它线程被唤醒前被执行。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/09/java多线程通信及常用操作理解/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/08/08/java异步调用/">
+                            java 异步调用
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-08T18:51:03+08:00">
+	
+		    08 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>java Spring 注解实现异步调用</p>
+<p>及 异步调用实现实例</p>
+<p><a href="https://www.cnblogs.com/zhengbin/p/6104502.html" target="_blank" rel="external">博客</a></p>
+<p>异步调用用Future类去捕捉运行结果</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/08/java异步调用/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/08/01/接口中变量的作用/">
+                            java 接口中定义变量的意义
                         </a>
                     
                 </h1>
@@ -266,33 +469,22 @@
             </div>
             
                 <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h2 id="单一职责原则-SRP"><a href="#单一职责原则-SRP" class="headerlink" title="单一职责原则  SRP"></a>单一职责原则  SRP</h2><p><b>就一个类而言，应该仅有一个引起它变化的原因</b>  </p>
-<p>软件设计真正要做的很多内容，就是<b>发现职责并把这些职责相互分离</b><br><br>如果你想到多于一个动机去改变一个类，那这个类就具有多于一个的职责</p>
-<h2 id="开放-封闭原则-OCP"><a href="#开放-封闭原则-OCP" class="headerlink" title="开放-封闭原则  OCP"></a>开放-封闭原则  OCP</h2><p>开放-封闭原则，是说软件实体（类、模块、函数等）应该可以扩展，但是不可修改<br><br>面对新的需求，对程序的改动是通过增加新代码进行的，而不是更改现有代码<br><br>&emsp;&emsp;可维护，可扩展，可复用，灵活性好</p>
-<h2 id="依赖倒转原则"><a href="#依赖倒转原则" class="headerlink" title="依赖倒转原则"></a>依赖倒转原则</h2><ol>
-<li>高层模块不应该依赖底层模块，两个都应该依赖抽象</li>
-<li>抽象不应该依赖细节，细节应该依赖抽象</li>
-</ol>
-<h2 id="里氏代换原则"><a href="#里氏代换原则" class="headerlink" title="里氏代换原则"></a>里氏代换原则</h2><pre><code>子类型必须能够替换掉它们的父类型
-</code></pre><h2 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h2><pre><code>如果两个类不必彼此直接通信，那么这两个类就不应当发生直接的相互作用。
-如果其中一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用。
-</code></pre><h2 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h2><p>不应该依赖它不需要的接口；一个类对另一个类的依赖应该建立在<b>最小</b>的接口上。</p>
-<h1 id="常见设计模式"><a href="#常见设计模式" class="headerlink" title="常见设计模式"></a>常见设计模式</h1><h2 id="单例模式-Singleton"><a href="#单例模式-Singleton" class="headerlink" title="单例模式 Singleton"></a>单例模式 Singleton</h2><pre><code>单例模式，保证一个类只有一个实例，并提供一个访问它的全局访问点。
-</code></pre><ul>
-<li>饿汉式单例类<br>  <br>在自己被加载时就将自己实例化</li>
-<li>懒汉式单例类<br>  <br>在第一次被引用时才会自己实例化<br><br>  多线程环境下，双重锁定保证单例且提高性能</li>
-</ul>
-<h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p> <b>将一个类的接口转换成客户希望的另外一个接口。</b><br> Adapter模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</p>
-<p>两种模式：类适配器模式、对象适配器模式</p>
-<hr>
-<p>待更新</p>
-<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><h3 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h3><h3 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h3><h2 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h2>
+                    <h1 id="JAVA-interface中定义变量"><a href="#JAVA-interface中定义变量" class="headerlink" title="JAVA interface中定义变量"></a>JAVA interface中定义变量</h1><p><b>接口定义了行为的协议，而不是行为如何执行实现。实现接口的类支持该接口中定义的行为协议。</b></p>
+<p>个人理解<br>接口中定义的变量可以视为是要被实现类所认可的协议，<br>其默认用public static final修饰，具体解释如下。<br>所有此变量和在所有实现类中定义的变量于功能和性质上是有区别的。</p>
+<pre><code>接口中声明的所有字段都是public static final的。为什么？
+如果一个变量没有被定义为final，任何类的实现都可以改变变量的值。同时他就会变成类的实现的一部分，而接口是一个不带任何实现的&lt;b&gt;纯粹的规范&lt;/b&gt;；
+如果变量是静态的，那么这个变量就是属于接口的，而不是属于实例对象或者运行时的对象的。（注：由于接口不能被实例化，所以，定义为非静态，其实也没有意义。）；
+接口定义了调用者如何跟接口的实现类的实例对象交互，所以如果成员不是public，那么调用者没办法去访问它；
+接口的每一个字段的声明都必须是pubic static final 的，它允许我们在声明时指定所有或者部分修饰符。同时，任何字段的声明必须有一个初始化表达式，它可以不用一定是一个常量表达式，它的计算和赋值只会进行一次，然后这个接口字段就被初始化了
+</code></pre><p>PS：接口中不可使用static代码块。</p>
+<p><a href="https://www.cnblogs.com/scutwang/p/4120749.html" target="_blank" rel="external">参考博客</a></p>
+
                     
                         
                     
                     
                         <p>
-                            <a href="/2018/08/01/设计模式笔记/#post-footer" class="postShorten-excerpt_link link">
+                            <a href="/2018/08/01/接口中变量的作用/#post-footer" class="postShorten-excerpt_link link">
                                 Kommentieren und teilen
                             </a>
                         </p>
@@ -407,6 +599,83 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2018/08/01/java正则/">
+                            java 正则
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
+	
+		    01 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h3 id="句点符号"><a href="#句点符号" class="headerlink" title="句点符号"></a>句点符号</h3><p>通配符，匹配所有符号</p>
+<h3 id="方括号符号"><a href="#方括号符号" class="headerlink" title="方括号符号"></a>方括号符号</h3><p>[],匹配方括号里面指定的字符才参与匹配，只匹配单字符</p>
+<h3 id="或符号"><a href="#或符号" class="headerlink" title="或符号 |"></a>或符号 |</h3><p>解决[]只能匹配一个字符的问题，可匹配多个 单字符或多字符</p>
+<h3 id="代表匹配次数的符号"><a href="#代表匹配次数的符号" class="headerlink" title="代表匹配次数的符号"></a>代表匹配次数的符号</h3><ul>
+<li><p>*   0或多次</p>
+</li>
+<li><p>+  1或多次</p>
+</li>
+<li><p>?   0或1次</p>
+</li>
+<li><p>{n} 恰好n次</p>
+</li>
+<li><p>{n,m} 从n到m次都可以</p>
+</li>
+</ul>
+<p>- 和 \- 区别<br>  -表示一个范围 。如[0-9]代表匹配0-9的数字<br>  \-则是代表匹配”-“字符本身<br>  即用转义符\处理。</p>
+<h3 id="否符号"><a href="#否符号" class="headerlink" title="否符号^"></a>否符号^</h3><p>[^x]匹配不是x的字符</p>
+<h3 id="圆括号与空白符号"><a href="#圆括号与空白符号" class="headerlink" title="圆括号与空白符号"></a>圆括号与空白符号</h3><p>圆括号可以创建一个组，然后可以用ORO API提取（？？）</p>
+<p>常用符号</p>
+<ul>
+<li>\d [0-9] 数字</li>
+<li>\D [^0-9]</li>
+<li>\w [A-Z0-9] 字母和数字</li>
+<li>\W [^A-Z0-9]</li>
+<li>\s [\t\n\r\f] </li>
+<li>\S [^\t\n\r\f]</li>
+</ul>
+<p>大写字母是小写字母的反</p>
+<p>简单实例</p>
+<pre><code>Pattern p = new Pattern.compile(&quot;这里是你的正则&quot;);
+Matcher m = p.matcher();
+if(m.find()){
+  //找到了
+}else {
+  //没找到
+}
+</code></pre>
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/01/java正则/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2018/08/01/分层应用中Java异常的应用/">
                             java异常 在分层设计中的理解
                         </a>
@@ -447,261 +716,6 @@
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/08/01/geohash理解/">
-                            geohash的理解（未完）
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
-	
-		    01 8月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>关于geohash<br>今天在数据库字段中发现有个字段是geohash，地理位置hash？？<br>于是了解了一波，大概的思路是将经纬度等信息通过某种算法进行hash，进行前缀匹配可以快速计算距离的远近</p>
-<p>大致是吧二维信息转化为一维并通过B树进行索引</p>
-<p>对线、树等数据采用R树索引更有优势</p>
-<p><a href="&#39;https://www.cnblogs.com/LBSer/p/3310455.html&#39;">参考文档</a></p>
-<hr>
-<p>(待增加样例及比较)</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/08/01/geohash理解/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/08/01/JAVA内部类/">
-                            java 内部类的意义
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
-	
-		    01 8月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="JAVA内部类的应用"><a href="#JAVA内部类的应用" class="headerlink" title="JAVA内部类的应用"></a>JAVA内部类的应用</h1><ol>
-<li><p>每个内部类都能独立的继承一个接口的实现，所以无论外部类是否已经继承了某个(接口的)实现，对于内部类都没有影响。内部类使得多继承的解决方案变得完整，</p>
-</li>
-<li><p>方便将存在一定逻辑关系的类组织在一起，又可以对外界隐藏。</p>
-</li>
-<li><p>方便编写事件驱动程序</p>
-</li>
-<li><p>方便编写线程代码</p>
-</li>
-</ol>
-<p><a href="https://www.cnblogs.com/chenssy/p/3388487.html" target="_blank" rel="external">参考博客</a></p>
-<p><a href="http://www.cnblogs.com/dolphin0520/p/3811445.html" target="_blank" rel="external">参考博客</a></p>
-<hr>
-<p>待添加样例</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/08/01/JAVA内部类/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/08/01/JAVA序列化/">
-                            java 序列化中serialVersionUID的意义
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
-	
-		    01 8月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="serialVersionUID作用"><a href="#serialVersionUID作用" class="headerlink" title="serialVersionUID作用"></a>serialVersionUID作用</h2><p>serialVersionUID 用来表明类的不同版本间的兼容性 </p>
-<p>简单来说，Java的序列化机制是通过在运行时判断类的serialVersionUID来验证版本一致性的。在进行反序列化时，JVM会把传来 的字节流中的serialVersionUID与本地相应实体（类）的serialVersionUID进行比较，如果相同就认为是一致的，可以进行反序 列化，否则就会出现序列化版本不一致的异常。 </p>
-<p>当实现java.io.Serializable接口的实体（类）没有显式地定义一个名为serialVersionUID，类型为long的变 量时，Java序列化机制会根据编译的class<b>自动生成</b>一个serialVersionUID作序列化版本比较用，这种情况下，只有<b>同一次</b>编译生成的 class才会生成相同的serialVersionUID 。 </p>
-<p>如果我们不希望通过编译来强制划分软件版本，即实现序列化接口的实体能够兼容先前版本，未作更改的类，就需要显式地定义一个名为serialVersionUID，类型为long的变量，不修改这个变量值的序列化实体都可以相互进行串行化和反串行化。</p>
-<p><a href="https://blog.csdn.net/kakaxi_77/article/details/8129070" target="_blank" rel="external">参考博客</a></p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/08/01/JAVA序列化/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/08/01/buiulder用法/">
-                            java 基础类中common包中各种builder的作用
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
-	
-		    01 8月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="各种builder的作用"><a href="#各种builder的作用" class="headerlink" title="各种builder的作用"></a>各种builder的作用</h2><p>org.apache.commons.lang.builder</p>
-<p>　　CompareToBuilder – 用于辅助实现Comparable.compareTo(Object)方法；
-　　</p>
-<p>　　EqualsBuilder – 用于辅助实现Object.equals()方法；
-　　</p>
-<p>　　HashCodeBuilder – 用于辅助实现Object.hashCode()方法；
-　　</p>
-<p>　　ToStringBuilder – 用于辅助实现Object.toString()方法；
-　　</p>
-<p>　　ReflectionToStringBuilder – 使用反射机制辅助实现Object.toString()方法；
-　　</p>
-<p>　　ToStringStyle – 辅助ToStringBuilder控制输出格式；
-　　</p>
-<p>　　StandardToStringStyle – 辅助ToStringBuilder控制标准格式。</p>
-<p><a href="https://www.cnblogs.com/softidea/p/5952419.html" target="_blank" rel="external">参考博客</a></p>
-<p><a href="https://blog.csdn.net/luoyanglizi/article/details/51137704" target="_blank" rel="external">强软弱虚</a></p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/08/01/buiulder用法/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/08/01/接口中变量的作用/">
-                            java 接口中定义变量的意义
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
-	
-		    01 8月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="JAVA-interface中定义变量"><a href="#JAVA-interface中定义变量" class="headerlink" title="JAVA interface中定义变量"></a>JAVA interface中定义变量</h1><p><b>接口定义了行为的协议，而不是行为如何执行实现。实现接口的类支持该接口中定义的行为协议。</b></p>
-<p>个人理解<br>接口中定义的变量可以视为是要被实现类所认可的协议，<br>其默认用public static final修饰，具体解释如下。<br>所有此变量和在所有实现类中定义的变量于功能和性质上是有区别的。</p>
-<pre><code>接口中声明的所有字段都是public static final的。为什么？
-如果一个变量没有被定义为final，任何类的实现都可以改变变量的值。同时他就会变成类的实现的一部分，而接口是一个不带任何实现的&lt;b&gt;纯粹的规范&lt;/b&gt;；
-如果变量是静态的，那么这个变量就是属于接口的，而不是属于实例对象或者运行时的对象的。（注：由于接口不能被实例化，所以，定义为非静态，其实也没有意义。）；
-接口定义了调用者如何跟接口的实现类的实例对象交互，所以如果成员不是public，那么调用者没办法去访问它；
-接口的每一个字段的声明都必须是pubic static final 的，它允许我们在声明时指定所有或者部分修饰符。同时，任何字段的声明必须有一个初始化表达式，它可以不用一定是一个常量表达式，它的计算和赋值只会进行一次，然后这个接口字段就被初始化了
-</code></pre><p>PS：接口中不可使用static代码块。</p>
-<p><a href="https://www.cnblogs.com/scutwang/p/4120749.html" target="_blank" rel="external">参考博客</a></p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/08/01/接口中变量的作用/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -713,7 +727,7 @@
             </a>
         </li>
         
-        <li class="pagination-number">Seite 1 von 3</li>
+        <li class="pagination-number">Seite 1 von 4</li>
     </ul>
 </div>
 
@@ -984,7 +998,7 @@
                 data-message-zero="keinen Beitrag gefunden"
                 data-message-one="1 Beitrag gefunden"
                 data-message-other="{n} Einträge gefunden">
-                40 Einträge gefunden
+                47 Einträge gefunden
             </p>
         </div>
     </div>

@@ -198,6 +198,404 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2018/01/12/计网复习摘要/">
+                            计网复习摘要
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-01-12T23:13:00+08:00">
+	
+		    12 1月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>这是考试前的复习笔记，现在草草整理一下，有空详细整理。</p>
+<h2 id="计算机网络"><a href="#计算机网络" class="headerlink" title="计算机网络"></a>计算机网络</h2><p>计算机网络定义：已能够相互共享资源的方式互联起来的自治计算机系统的集合。<br>特征：共享软件、硬件以及数据等资源；分布在不同地理位置的“自治系统”；遵循一定的规则——协议</p>
+<p>计算机网络和分布式系统区别：计算机网络目的是共享资源，对外呈现分散，分布式系统目的是以提高整体性能，对外呈现整体。</p>
+<p>分层的优点：各层独立、灵活性好、结构上分开、促进标准化</p>
+<h2 id="数据链路层"><a href="#数据链路层" class="headerlink" title="数据链路层"></a>数据链路层</h2><p>数据链路层协议提供的最基本的功能：数据在数据链路上的正常传输、帧定界（帧同步）、差错控制、流量控制、寻址</p>
+<p>向网络层提供的三种基本服务：无确认无连接服务、有确认无连接服务、面向连接确认服务</p>
+<p>应答方式：正向应答、负向应答、双向应答</p>
+<p>成帧：字符计数法、带字符填充的首尾字符定界法、带位填充的首尾标记定界法（+01111110，五个1后加0）、物理层编码违例法</p>
+<p>差错控制<br>随机、连续突发<br>帧出错、帧丢失<br>方法：自动纠错机制（FEC）,检错反馈重发机制（ARQ）<br>码字、纠错码、检错码</p>
+<p>编码的海明距离<br>海明定理<br>检测d位错误，编码海明距离至少为d+1<br>纠正                        2d+1</p>
+<p>差错码举例：奇偶校验码、垂直水平奇偶校验码、交织奇偶校验码<br>循环冗余码CRC<br>检验和算法</p>
+<p>单工停等协议<br>连续ARQ协议<br>滑动窗口协议：控制已发送但未确认的数据帧的个数（滑动窗口的大小）<br>接受窗口</p>
+<p>SLIP协议<br>PPP协议（包括链路控制协议LCP、网络控制协议NCP）</p>
+<h2 id="局域网"><a href="#局域网" class="headerlink" title="局域网"></a>局域网</h2><p>局域网是一种将小区域内的各种通信设备互联在一起的通信网络</p>
+<p>IEEE 802局域网：数据链路层（逻辑链路控制子层、介质访问控制子层）、物理层</p>
+<p>物理层功能：信号编码\译码、前导码的生成\去除、比特的发送\接收</p>
+<p>数据链路层的功能：</p>
+<pre><code>MAC子层：成帧\拆帧，实现、维护MAC协议，位差错检测，寻址
+
+LLC子层：向高层提供SAP，建立/释放逻辑连接，差错控制，帧序号处理，提供某些网络层功能
+</code></pre><p>信道共享技术<br>关键问题：如何解决对信道争用</p>
+<p>解决信道争用的协议：介质访问控制协议MAC，是数据链路层协议的一部分</p>
+<p>静态分配：频分多路复用FDM（波分复用WDM）、时分多路复用TDM<br>动态分配：冲突协议、无冲突协议</p>
+<p>冲突协议</p>
+<p>ALOHA协议：纯ALOHA协议和时间片ALOHA协议</p>
+<p>载波监听多路访问协议CSMA：1-坚持性CSMA、非坚持型CSMA（有冲突时是否继续监听\等待随机时间）、p-坚持性CSMA（p的概率发送，1-p的概率延迟）</p>
+<p>带冲突检测的载波监听多路协议CSMA/CD（有冲突就发送干扰信号并退避）</p>
+<p>令牌协议：有令牌才可发送</p>
+<p>传统以太网<br>最短帧长<br>二进制指数后退算法<br>帧格式：前导码（时钟同步）、帧首定界符<br>范围46-1500<br>编码：曼彻斯特编码</p>
+<p>网桥：工作在数据链路层的一种网络互连设备，在互连的LAN之间实现帧的存储和转发<br>基本特征:</p>
+<p>交换式以太网<br>交换式集线器的交换方式：存储转发式交换、直通式交换、碎片交换方式<br>全双工以太网：MAC层中CSMA/CD不再有效，分离的网络介质、专门的链路、网卡和网络交换机的支持</p>
+<p>高速以太网<br>千兆以太网：载波扩展、帧突发、<br>10G比特以太网</p>
+<p>虚拟局域网</p>
+<p>无线局域网<br>拓扑：有中心拓扑、无中心拓扑<br>802.11定义了两种运作模式：特殊模式（Ad hoc）和基础设施模式<br>CSMA/CA<br>IEEE 802.16 宽带无线网络</p>
+<p>蓝牙2.4GHz频段<br>ZigBee网络<br>RFID</p>
+<h2 id="广域网"><a href="#广域网" class="headerlink" title="广域网"></a>广域网</h2><p>网络层设计的焦点是：提供面向连接的服务还是无连接服务<br>虚电路和数据报</p>
+<p>路由算法<br>按转发方式：全路路由算法、多路路由算法、单路路由算法<br>按健壮性和简单性：非自适应算法、自适应算法</p>
+<p>距离向量路由算法：动态路由算法、被RIP协议采用<br>链路状态路由算法</p>
+<p>分层路由<br>广播路由  算法：无控制的洪泛算法、受控的洪泛算法<br>组播路由算法</p>
+<p>按需距离矢量路由算法</p>
+<p>拥塞控制<br>拥塞控制基本原理：开环控制、闭环控制<br>链路算法、源算法<br>常用算法：漏桶算法和令牌桶算法</p>
+<p>网络互连设备：中继器、网桥、路由器、网关（传输网关、应用网关）</p>
+<p>QoS服务模型：尽力而为服务模型、综合服务模型、区分服务模型</p>
+<p>广域网实例：帧中继<br>ATM（异步传输模式）：虚电路交换方式（虚路径连接、虚通道连接）<br>VP交换<br>VC交换<br>ATM信元</p>
+<h2 id="Internet"><a href="#Internet" class="headerlink" title="Internet"></a>Internet</h2><p>网际层协议：IP协议<br>IP协议：无连接数据包传输、数据包路由、分组的分段和重组<br>5类IP地址</p>
+<p>A：0 + ..   0-127</p>
+<p>B: 10 + ..   128-191</p>
+<p>C: 110 + .. 192</p>
+<p>D:</p>
+<p>E:</p>
+<p>特殊地址<br>主机号全1：指定网络广播地址<br>主机号全0：网络本身<br>网络号全0：本网络<br>32位全1：本网广播，有限广播地址</p>
+<p>A类127为保留地址，用于网络软件测试，回送地址</p>
+<p>NIC保留地址</p>
+<pre><code>A类10.0.0.0--10.255.255.255
+
+B类172.16.0.0--172.31.255.255
+
+C类192.168.0.0--192.168.255.255
+</code></pre><p>子网掩码</p>
+<p>子网划分</p>
+<p>IP分组和转发<br>IP头<br>生存期TTL：8位，经过路由器-1，位0则丢弃，并给源主机发送一个告警包</p>
+<p>ARP地址解析协议</p>
+<p>无类域间路由CIDR<br>最长匹配原则<br>NAT<br>网际控制报文协议ICMP：封装在IP数据包，用来发送差错报告和控制信息<br>IP组管理协议IGMP—</p>
+<p>Internet路由协议分类<br>内部网关协议IGP：自治系统AS内使用的路由算法，RIP、OSPF<br>外部网关协议EGP：自治系统AS间使用的路由算法，BGP</p>
+<p>TCP拥塞控制<br>慢启动算法和拥塞避免算法</p>
+<p>慢启动算法:</p>
+<p>拥塞窗口和阈值<br>发出一个正确确认 拥塞窗口+1最大段长<br>发送一个(拥塞窗口/最大断长)个最大段长的tcp段,拥塞窗口*2 (第一个扩展)<br>直至发生超时或大于阈值</p>
+<p>拥塞避免算法</p>
+<p>拥塞窗口大于阈值– 拥塞窗口线性增长,-个RTT周期增加一个最大段长,直至发生超时</p>
+<p>超时事件之后–阈值设置为拥塞窗口一半,拥塞窗口reset为一个最大段长<br>执行慢启动</p>
+<p>MIME用于解决二进制文件的传输问题，补充SMTP只能发送7位ASCII码的规定</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/01/12/计网复习摘要/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/01/12/Android大作业-移动电子字典设计/">
+                            Android大作业--移动电子字典设计
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-01-12T22:51:59+08:00">
+	
+		    12 1月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="Android课大作业"><a href="#Android课大作业" class="headerlink" title="Android课大作业"></a>Android课大作业</h2><p>只是个大作业，不是项目，属于练习性质，错误或者设计缺陷欢迎大家批评指正。</p>
+<h2 id="同组成员"><a href="#同组成员" class="headerlink" title="同组成员"></a>同组成员</h2><p>三名Android课同学。<br>负责部分：</p>
+<h2 id="成品截图"><a href="#成品截图" class="headerlink" title="成品截图"></a>成品截图</h2><p>占坑。。。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/01/12/Android大作业-移动电子字典设计/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/01/12/强弱类型、静态动态类型语言/">
+                            强弱、动静、显隐类型的理解
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-01-12T22:51:03+08:00">
+	
+		    12 1月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h1><h2 id="强类型、弱类型"><a href="#强类型、弱类型" class="headerlink" title="强类型、弱类型"></a>强类型、弱类型</h2><ul>
+<li><p>强类型strongly typed: 如果一种语言的所有程序都是well behaved——即不可能出现forbidden behaviors，则该语言为strongly typed。</p>
+</li>
+<li><p>弱类型weakly typed: 否则为weakly typed。比如C语言的缓冲区溢出，属于trapped errors，即属于forbidden behaviors..故C是弱类型前面的人也说了，弱类型语言，类型检查更不严格，如偏向于容忍隐式类型转换。譬如说C语言的int可以变成double。这样的结果是：容易产生forbidden behaviours，所以是弱类型的</p>
+</li>
+</ul>
+<h2 id="动态、静态类型"><a href="#动态、静态类型" class="headerlink" title="动态、静态类型"></a>动态、静态类型</h2><ul>
+<li><p>静态类型 statically: 如果在编译时拒绝ill behaved程序，则是statically typed;</p>
+</li>
+<li><p>动态类型dynamiclly: 如果在运行时拒绝ill behaviors, 则是dynamiclly typed</p>
+</li>
+</ul>
+<h2 id="显式与隐式"><a href="#显式与隐式" class="headerlink" title="显式与隐式"></a>显式与隐式</h2><pre><code>显式定义类型和隐式定义类型
+</code></pre><h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><p>无类型： 汇编<br>弱类型、静态类型 ： C/C++<br>弱类型、动态类型检查： Perl/PHP<br>强类型、静态类型检查 ：Java/C#<br>强类型、动态类型检查 ：Python, Scheme<br>静态显式类型 ：Java/C<br>静态隐式类型 ：Ocaml, Haskell   </p>
+<p><a href="https://www.zhihu.com/question/19918532/answer/21647195" target="_blank" rel="external">链接</a></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/01/12/强弱类型、静态动态类型语言/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/01/12/flag：定时更新blog/">
+                            flag：定时更新blog
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-01-12T22:51:03+08:00">
+	
+		    12 1月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="永不倒的flag"><a href="#永不倒的flag" class="headerlink" title="永不倒的flag"></a>永不倒的flag</h2><p>&emsp;&emsp;今天第一次坐飞机，其实感触挺多的，周马劳碌的一天，不过终于还是完成了预期的目标，也没有发生什么意外，挺不错的。</p>
+<p>&emsp;&emsp;接下来就是我实习的一个月了，希望这一个月里，我能够学到些东西，收获自己满意的第一份实习答卷。<br>下面就是flag：定时更新blog，最近在补之前欠下的一系列报告的blog，希望能把我自己的博客先填满一页。</p>
+<p>&emsp;&emsp;over!</p>
+<p>&emsp;&emsp;愿flag不倒。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/01/12/flag：定时更新blog/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/01/12/几种常见树的比较/">
+                            几种常见树的比较
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-01-12T22:51:03+08:00">
+	
+		    12 1月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>有几种树模型经常应用在各种jdk实现中<br>但因为时间久远，印象都很浅</p>
+<h2 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h2><p>5个特性  自平衡树的一种</p>
+<h2 id="2-3树"><a href="#2-3树" class="headerlink" title="2-3树"></a>2-3树</h2><p>自平衡树的一种</p>
+<h2 id="B树-（B-树）"><a href="#B树-（B-树）" class="headerlink" title="B树 （B-树）"></a>B树 （B-树）</h2><p>扩展的2-3树</p>
+<h2 id="B-树"><a href="#B-树" class="headerlink" title="B+树"></a>B+树</h2><p>B树的变形树，<br>所有叶节点构成有序链表</p>
+<hr>
+<p>待增加总结和样例</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/01/12/几种常见树的比较/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/01/12/JAVA私有构造函数/">
+                            java 私有构造函数的意义与相关的设计模式
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-01-12T22:51:03+08:00">
+	
+		    12 1月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>java 私有构造函数</p>
+<p>构造函数一般都是公有的，但如果构造函数是私有的，一般是有一些妙用的<br>如果类名为Shape，这样的好处</p>
+<ul>
+<li>可以返回任何的Shape类型，包括Shape的子类。<br>  工厂模式<br>  单例模式 singleton<br>  池 （有一定数量限制）</li>
+<li>构造函数的异常被JVM丢弃、</li>
+</ul>
+<p>这样带来的后果就是该类成了 final的，不可能再被任何类继承了，要被继承，得提供一个公有（public）的或者保护（protect）的构造函数，这样才能被子类调用。</p>
+<p><a href="https://blog.csdn.net/my_dream_fly/article/details/3857887" target="_blank" rel="external">参考链接1</a><br><a href="https://blog.csdn.net/u013126379/article/details/57463285" target="_blank" rel="external">参考链接2</a></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/01/12/JAVA私有构造函数/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2017/09/17/最大流入门/">
+                            最大流入门
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2017-09-17T08:58:11+08:00">
+	
+		    17 9月 2017
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>网络流是图论中的经典模型，有很多题目可以在建图之后套模型解决。</p>
+<p>hdu 6214<br>题目翻译：<br>给定一个n个点m条边的网络，有源点s和汇点t。一个s-t的割集把所有的节点集合V划分为两个部分且s和t属于不同的划分。这个割集是所有的边的子集，包含了所有连接不同划分的节点之间的边。最小割是所有割集中边的容量之和最小的。一个割集的大小为割集中所有边的数量。请计算最小割的最小大小。</p>
+<p>大意：求一个图中最小割的最小边数。</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2017/09/17/最大流入门/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2017/08/26/8-26练习赛/">
                             8-26练习赛
                         </a>
@@ -475,655 +873,6 @@ int main(){
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/08/08/Python学习之路/">
-                            Python学习之路
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-08-08T10:46:44+08:00">
-	
-		    08 8月 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="Python学习"><a href="#Python学习" class="headerlink" title="Python学习"></a>Python学习</h1><p>其实Python从很久之前就开始接触，这篇只是相当于自己的学习笔记。</p>
-<h3 id="Python基础"><a href="#Python基础" class="headerlink" title="Python基础"></a>Python基础</h3><p>序列：</p>
-<ul>
-<li>列表： 可变大小，可保存任何类型[]</li>
-<li>字符串： ‘’ . “”</li>
-<li>元组： 不可改变，任意类型()</li>
-<li><p>字典： 映射类型，可变、无序、大小可变的键值映射{}</p>
-<p>异常处理：</p>
-<pre><code>try:
-
-except Exception e:
-
-finally:
-</code></pre><p>raise抛出异常</p>
-</li>
-</ul>
-<p>文件读写</p>
-<p>函数</p>
-<p>正则表达式： re模块</p>
-<p>占坑。。。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/08/08/Python学习之路/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/08/07/2017百度之星解题报告/">
-                            2017百度之星解题报告
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-08-07T21:57:38+08:00">
-	
-		    07 8月 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="2017百度之星资格赛解题报告"><a href="#2017百度之星资格赛解题报告" class="headerlink" title="2017百度之星资格赛解题报告"></a>2017百度之星资格赛解题报告</h1><p>这次的题目比我预想中要难一点，毕竟只是一个资格赛。当然，水题还是有的，AC一道就有资格进初赛还是可以的。</p>
-<p>不多说，先上链接<a href="http://bestcoder.hdu.edu.cn/contests/contest_show.php?cid=774" target="_blank" rel="external">2017百度之星资格赛</a></p>
-<hr>
-<h2 id="C题"><a href="#C题" class="headerlink" title="C题"></a>C题</h2><p>当然是水题优先啦。<br>从数据范围可以看出，这是一道极为暴力的dp，参考完全背包模型，最多就是需要dp一下11个防御值时候的情况，O(b<em>a</em>m)的复杂度，大概是10^7，妥妥的过。</p>
-<p>AC代码：</p>
-<pre><code> /*
-    time:234 MS 
-    Memory:3208 K
- */ 
-#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;bits/stdc++.h&gt;
-#define lowbit(i) (i&amp;(-i))
-#define LL long long
-using namespace std;
-
-int n,m;
-LL INF;
-vector&lt;pair&lt;int,int&gt; &gt;v;
-LL dp[12][1005];
-vector&lt;pair&lt;int,int &gt; &gt;sk;
-void DP(){
-    memset(dp,127,sizeof(dp));
-    INF = dp[0][0];
-    for(int i = 0; i&lt;= 10; ++i){
-        dp[i][0] = 0;
-        for(int j = 0; j &lt; m; ++j){
-            int termx = sk[j].first;
-            int termy = sk[j].second - i;
-            if(termy &lt;= 0)continue;
-            for(int k = 0; k &lt;= 1000; ++k){
-                LL term = k &gt;= termy ? dp[i][k - termy] : 0;
-                dp[i][k] = min(dp[i][k], term + termx);    
-            }
-        }
-    }
-}
-int main(){
-    while(scanf(&quot;%d %d&quot;,&amp;n,&amp;m)!= EOF){
-        int x,y;
-        v.clear();sk.clear();
-        for(int i = 0; i &lt; n; ++i){
-            scanf(&quot;%d %d&quot;,&amp;x,&amp;y);
-            v.push_back(make_pair(x,y));
-        } 
-        for(int i = 0; i &lt; m; ++i){
-            scanf(&quot;%d %d&quot;,&amp;x,&amp;y);
-            sk.push_back(make_pair(x,y));
-        } 
-        DP();
-        LL ans = 0;
-        bool ok = true;
-        for(int i = 0; i &lt; v.size(); ++i){
-            if(dp[v[i].second][v[i].first] != INF)
-                ans += dp[v[i].second][v[i].first];
-            else {
-                ok = false;
-                break;
-            } 
-        }
-        if(ok)printf(&quot;%lld\n&quot;,ans);
-        else printf(&quot;-1\n&quot;);
-    }
-
-    return 0;
-}
-</code></pre><h2 id="D题"><a href="#D题" class="headerlink" title="D题"></a>D题</h2><p>也是一道DP水题，参考01背包模型，只是多了个输出路径，其实也是水水的，本来以为至少会卡一下空间啥的，但是暴力vector直接过了，惊讶。</p>
-<p>AC代码：</p>
-<pre><code>/*
-    time:   0 MS  
-    memory: 1460 K
-*/
-#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;bits/stdc++.h&gt;
-
-#define lowbit(i) (i&amp;(-i))
-#define LL long long
-using namespace std;
-
-int B,N;
-int INF;
-vector&lt;pair&lt;int,int&gt; &gt;v;
-vector&lt;int&gt;ans;
-int dp[1005];
-struct point{
-    vector&lt;int&gt;vec;
-}p[1005];
-void DP(){
-    memset(dp,0,sizeof(dp));
-    INF = dp[0];
-    dp[0] = 0;
-    for(int i = 0; i &lt;= 1000; ++i)
-        p[i].vec.clear();
-    for(int i = 0;i &lt; N; ++i){
-        int x = v[i].first;
-        int y = v[i].second;
-        for(int j = B; j &gt;= y; --j){
-            if(dp[j] &lt; dp[j - y] + x){
-                dp[j] = dp[j - y] + x;
-                p[j].vec = p[j-y].vec;
-                p[j].vec.push_back(i);
-
-            }
-        }
-    }
-}
-int main(){
-    int T;
-    cin&gt;&gt;T;
-    int xu = 0;
-    while(++xu &lt;= T){
-        cin&gt;&gt;B&gt;&gt;N;
-        v.clear();
-        int x,y;
-        for(int i = 1; i &lt;= N; ++i){
-            scanf(&quot;%d %d&quot;,&amp;x,&amp;y);
-            v.push_back(make_pair(x,y));
-        }
-        DP();
-        int now = B;
-        LL sum = 0;
-        ans =p[B].vec; 
-
-        sort(ans.begin(),ans.end());
-        for(int i = 0; i &lt; ans.size(); ++i)sum += v[ans[i]].second;    
-        printf(&quot;Case #%d:\n%d %d\n&quot;,xu,dp[B],sum);
-        for(int i = 0; i &lt; ans.size(); ++i){
-            if(i == ans.size() -1)printf(&quot;%d\n&quot;,ans[i]+1);
-            else printf(&quot;%d &quot;,ans[i]+1);
-        }
-    }
-    return 0;
-}
-</code></pre><h2 id="B题"><a href="#B题" class="headerlink" title="B题"></a>B题</h2><p>这是一道出题人得气死的题。<br>本来看了数据范围和时间限制，根本就是个不可做题，全局最小割加优化大概才可以过。但在乱搞面前，什么都是浮云。<br>真心，出题人数据一开始卡死了认认真真写SW最小割的，但败在各种瞎搞的过题姿势下。<br>你能想像那种求每个点的边权和最小的就是正解？？？这么简单的漏洞，出题人都没卡，绝壁是道假题，吓得我当时题都不敢看。。<br>各种代码就不贴了，正解我还没搞懂，有空补，不过估计是没空了。</p>
-<h2 id="E题"><a href="#E题" class="headerlink" title="E题"></a>E题</h2><p>这是一道我认为的最有价值的题。学到了很多，难度应该是真B题之外最难的。<br>不过模型很常见：<a href="https://baike.baidu.com/item/%E5%8D%A1%E7%89%B9%E5%85%B0%E6%95%B0/6125746?fr=aladdin" target="_blank" rel="external">卡特兰数-百度百科</a>。<br>当时我是一点头绪都没有的，结束之后参考了几位大牛的博客，get了不少。<br><a href="http://blog.csdn.net/qq_36797743/article/details/76794804" target="_blank" rel="external">参考大牛OZY</a><br><a href="http://blog.csdn.net/jaihk662/article/details/76737701" target="_blank" rel="external">另一个大牛的</a><br>两位大牛的思路类似，又稍有区别，实现大同小异，值得学习一波。<br>AC代码就算了，这题也就思路很不错，仿照两位大牛的博客试试就行。</p>
-<h2 id="A题"><a href="#A题" class="headerlink" title="A题"></a>A题</h2><p>这题只是匆匆一瞥，大致的思路类似于凸包吧，看dalao们的AC代码都是求最小环，最后设边权为1的去跑floyd，也没深究，不是很感兴趣，有空会补上。<br>缺点太多，要补的东西成堆，都麻木了。<br>附上<a href="http://blog.csdn.net/qq_36346262/article/details/76851297" target="_blank" rel="external">dalao博客</a></p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/08/07/2017百度之星解题报告/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/07/28/7-22网络赛补题报告/">
-                            7.22网络赛补题报告
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-07-28T16:32:54+08:00">
-	
-		    28 7月 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="补题报告"><a href="#补题报告" class="headerlink" title="补题报告"></a>补题报告</h1><p>&emsp;&emsp;之所以交补题报告，当然是之后补题的心路历程咯。比较遗憾，当时开了两题都因为莫名bug WA了，感觉自己贼菜。</p>
-<h2 id="A题"><a href="#A题" class="headerlink" title="A题"></a>A题</h2><p><strong><em>**</em></strong>有误，得空发现这题出错了，所有AC代码都翻车。之后再补一发。<strong><strong>**</strong></strong><br>题目给个链接吧<a href="https://oj.neu.edu.cn/problem/1203" target="_blank" rel="external">A题</a></p>
-<pre><code>题意大概就是要你解决            
-    1）两个字符串的包含问题
-    2）字符串的最大长度
-</code></pre><p>&emsp;&emsp;其实真正理解了题意将两个小问题拆开真的是两个不难的问题。<br>&emsp;&emsp;第1）问其实就是KMP匹配，只不过要注意的就是字符a的特殊性，其实也就是匹配的时候字符a可以直接匹配，稍微改改KMP模板就可以实现。<br>&emsp;&emsp;第2）问其实更水啦，就是一个简单的dp，即使暴力去搞其实也是可以的，当然啦，一不小心还是会跪的。<br>&emsp;&emsp;菜菜的我当时就是倒在第2）问上，但一直在抠KMP，也是醉醉的。其实我当时一直在怀疑我对KMP的理解是不是出现了什么差错。</p>
-<h3 id="AC代码："><a href="#AC代码：" class="headerlink" title="AC代码："></a>AC代码：</h3><pre><code>#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;bits/stdc++.h&gt;    
-#define lowbit(i) (i&amp;(-i))
-#define LL long long
-using namespace std;
-const int maxn = 2e5+20;
-int fail[maxn];
-int n;
-void makefail(string s){
-    for(int i = 1, j= 0; s[i]; ++i){
-        while(j &amp; s[i] != s[j])j = fail[j-1];
-        if(s[i] == s[j])fail[i] = ++j;
-        else fail[i] = 0;
-    }
-}
-int search(string str,string s){
-    str += str;
-    int ans = 0;
-    for(int i = 0, j = 0;str[i]; ++i){
-        while(j &amp;&amp; str[i]!=&apos;a&apos; &amp;&amp; str[i] != s[j])j = fail[j-1];
-        if((str[i]==&apos;a&apos;||str[i] == s[j]) &amp;&amp; !s[++j]){
-            ++ans;
-            j = 0;
-        }
-    }
-    return ans;
-}
-int num(string s) {
-    s = s + s;
-    int ret = 0, tmp = 0, last = -1;
-    char cur = &apos;a&apos;;
-    for(int i =0; i &lt; n*2-1; ++i){ 
-        if (cur == s[i] || s[i] == &apos;a&apos; || cur == &apos;a&apos;) {
-            tmp++;
-            if (s[i] != &apos;a&apos;) {
-                cur = s[i];
-                last = i;
-            }
-            ret = max(tmp, ret);
-            if (ret &gt;= n) return n;
-        } else {
-            tmp = i-last;
-            cur = s[i];
-            last = i;
-        }
-    }
-    return ret;
-}
-int main(){
-//    freopen(&quot;a.in&quot;,&quot;r&quot;,stdin);
-
-    string a,b;
-    while(cin&gt;&gt;n){
-        int sign = 0;
-        cin&gt;&gt;a&gt;&gt;b;
-        makefail(a);
-        if(search(b,a) &gt; 0)sign += 1;
-        makefail(b);
-        if(search(a,b) &gt; 0)sign += 2;
-        if(sign == 1)printf(&quot;Y-WIN\n&quot;);
-        else if(sign == 2)printf(&quot;X-WIN\n&quot;);
-        else if(sign == 3)printf(&quot;DRAW\n&quot;);
-        else printf(&quot;PEACE\n&quot;);
-
-        printf(&quot;%d\n&quot;,num(a));  
-        printf(&quot;%d\n&quot;,num(b));
-
-
-    }
-    return 0;
-}
-</code></pre><p>这题真的是出题人背锅，最后想了半天，交了一发O(n*n)的代码上去，竟然过了，敢信？而且过得贼快，比KMP都快，惊得我笑哭了。真心，标程这题都错了，而且没卡住暴力，当时都没几人开这题，简直开的玩笑。</p>
-<h2 id="H题"><a href="#H题" class="headerlink" title="H题"></a>H题</h2><p>照样上链接<a href="https://oj.neu.edu.cn/problem/1211" target="_blank" rel="external">H题</a></p>
-<pre><code>题意大致如下：
-    给你n个工作时间段，每一个时间段有着开始时间，结束时间和报酬，要求你找出两个时间段满足其报酬之和为m且工作时间最短。
-</code></pre><p>&emsp;&emsp;很明显，这是一个dp，当然贪心也可以处理。<br>&emsp;&emsp;我的做法有点非常规，和标程有点区别。毕竟这也是一道简单题，随便搞搞就过了。<br>&emsp;&emsp;因为是找两个时间段且其和确定，那我们是否可以考虑折半一下，即枚举前m/2个时间段去后m/2中找符合的那个并维护一下最小时间。时间复杂度O （ nlogn + m/2 * logm/2）。显然理论上肯定是可以过的。</p>
-<p>&emsp;&emsp;因为当时处理的时候写跪了，在维护当前m-i的最小值时用了while语句，大概是被卡了，时间爆表，空间爆表，还是靠队友才过了，白白浪费了那么长的时间。之后补题时有点不甘心，优化了一下，在每个时间段排序时我直接把时间长度也作为优先级加进去，竟然就过了。hhhhh，当时怎么就没。。。</p>
-<h3 id="AC代码：-1"><a href="#AC代码：-1" class="headerlink" title="AC代码："></a>AC代码：</h3><pre><code>#include&lt;iostream&gt;
-#include&lt;cstdio&gt;
-#include&lt;bits/stdc++.h&gt;
-
-#define lowbit(i) (i&amp;(-i))
-#define LL long long
-using namespace std;
-const int INF = 1e8+10;
-const int maxn = 2e5+10;
-struct work{
-    int st;
-    int et;
-    int len; 
-    int w;
-    bool operator &lt; (const work &amp;a)const{
-        if(w == a.w)return len &lt; a.len;
-        return w &lt; a.w;
-    }
-
-}job[maxn];
-
-int n,m;
-int minn;
-int vec[maxn];
-inline void cal(work i,work j){
-    int time = -1; 
-    if(i.st &lt; j.st &amp;&amp;i.et &lt; j.st){
-        time = i.et - i.st + j.et - j.st+2;
-    }else if(i.st&gt;j.st &amp;&amp; i.st &gt; j.et){
-        time = i.et - i.st + j.et - j.st+2;    
-    }
-    if(time != -1 &amp;&amp; time &lt; minn)minn= time;
-}
-
-int main(){
-    while(scanf(&quot;%d %d&quot;,&amp;n,&amp;m)!=EOF){
-        minn = INF;
-        for(int i = 0; i &lt; n; ++i){
-            scanf(&quot;%d %d %d&quot;,&amp;job[i].st,&amp;job[i].et,&amp;job[i].w);
-            job[i].len = job[i].et - job[i].st;
-        }
-        sort(job,job+n);
-
-        for(int i = 0; i &lt;n; ++i){
-            vec[i] = job[i].w;
-        }
-        int mid = upper_bound(vec,vec+n,m/2) - vec;
-        int k = upper_bound(vec,vec+n,m) - vec;
-
-        for(int i = 0; i &lt; mid; ++i){
-            int term = lower_bound(vec + mid,vec + k, m - vec[i]) - vec;
-//            while(job[term].w &lt;= m - job[i].w){
-//                if(job[term].w == m - job[i].w){
-//                    cal(job[term],job[i]);    
-//                }
-//                ++term;
-//            }
-            if(job[term].w == m - job[i].w)
-                cal(job[term],job[i]);
-        }
-        if(minn != INF)printf(&quot;%d\n&quot;,minn);
-        else printf(&quot;oh no!\n&quot;);
-    }
-
-    return 0;
-}
-</code></pre><hr>
-<p>其他题后续再更新，先占个坑。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/07/28/7-22网络赛补题报告/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/07/21/有点感受想说/">
-                            有点感受想说
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-07-21T15:24:43+08:00">
-	
-		    21 7月 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="最近真的是糟心的事一堆堆"><a href="#最近真的是糟心的事一堆堆" class="headerlink" title="最近真的是糟心的事一堆堆"></a>最近真的是糟心的事一堆堆</h2><p>&emsp;&emsp;先是因为感冒的缘故难受了好几天，这几天稍微好过了一点，却因为一点小插曲度过了一个很奇妙的周五。</p>
-<p>&emsp;&emsp;要学会拒绝，这是我一进校时就被告知的话。拒绝不合理的要求，拒绝委屈自己的要求。当然啦，我虽然知道这句话，但本来就信奉多个朋友多条路的我又有点心软。这次这件事的确好好的给我上了深刻的一课。<br>&emsp;&emsp;帮人总是比得罪人来德容易。但为了之后不得罪人其实很多事情还是要一开始就决定不帮。</p>
-<p>&emsp;&emsp;其次，我其实很能说，真的，不自夸，我总是知道该说什么话。一直以来的表现其实只是因为我的心里那道坎自己还没跨过去。每次遇到哑口无言的场景，其实我是有话说的，或许脑子里空白过，但更多的还是我想说的话真的说不出来。极度烦恼着。</p>
-<p>&emsp;&emsp;可能真的是我的得失心太重，越是看重的越是想做到最完美，但最后甚至连最基本的要求都达不到。</p>
-<p>&emsp;&emsp;可能锻炼的还不够多，脸皮还不够厚。</p>
-<hr>
-<p>&emsp;&emsp;一段感受，一点牢骚，一些想说出来的话。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/07/21/有点感受想说/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/07/19/小学期ACM解题报告/">
-                            小学期ACM解题报告
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-07-19T08:36:15+08:00">
-	
-		    19 7月 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>#拖了这么久的解题报告#</p>
-<p>##Day1##</p>
-<p>##A题##<br>&emsp;&emsp;是个简单的贪心题，如果题目要求改成要求是不同的素数的和要就稍微需要考虑一点东西了，很遗憾，一开始就题目读错了，水题反而wa了。<br>&emsp;&emsp;因为是要拆分成最多个数的素数和，所以以2和3去拆就好，做到O（1）的并不难。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line"></div><div class="line">#define LL long long</div><div class="line">using namespace std;</div><div class="line">const int maxn = 1e6+10;</div><div class="line"></div><div class="line">bool check[maxn];</div><div class="line">int main()&#123;</div><div class="line">int n;</div><div class="line">vector&lt;int&gt;v;</div><div class="line">for(int i = 2;i &lt;=maxn; i++)&#123;</div><div class="line">	int k = (int)sqrt(i);</div><div class="line">	for(int j = i+1;j &lt;= k;j++)&#123;</div><div class="line">		if(i%j==0)&#123;</div><div class="line">			check[i] = false;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	check[i]= true;</div><div class="line">&#125;</div><div class="line">int ans,sign;</div><div class="line">while(cin&gt;&gt;n)&#123;</div><div class="line">	if(n &amp; 1)&#123;</div><div class="line">		ans = (n-3)/2 + 1;</div><div class="line">		sign = 1;</div><div class="line">	&#125;else &#123;</div><div class="line">		ans = n/2;</div><div class="line">		sign = 2;</div><div class="line">	&#125;</div><div class="line">	printf(&quot;%d\n&quot;,ans);</div><div class="line">	if(sign == 1)&#123;</div><div class="line">		for(int i = 1;i &lt; ans;i++)&#123;</div><div class="line">			printf(&quot;2 &quot;);</div><div class="line">		&#125;</div><div class="line">		printf(&quot;3\n&quot;);</div><div class="line">	&#125;else &#123;</div><div class="line">		for(int i =1;i&lt; ans;i++)&#123;</div><div class="line">			printf(&quot;2 &quot;);</div><div class="line">		&#125;</div><div class="line">		printf(&quot;2\n&quot;);</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125; </div><div class="line"></div><div class="line">return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="B题"><a href="#B题" class="headerlink" title="B题"></a>B题</h2><p>这是一个纯粹新手题，不管是暴力枚举还是排序后二分查找思路都是很清晰的。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line"></div><div class="line">#define LL long long</div><div class="line">using namespace std;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">int n;</div><div class="line">vector&lt;int&gt;v;</div><div class="line">int ans,term;</div><div class="line">	while(cin&gt;&gt;n)&#123;</div><div class="line">		for(int i =1; i&lt;= n;i++)&#123;</div><div class="line">			scanf(&quot;%d&quot;,&amp;term);</div><div class="line">			v.push_back(term);</div><div class="line">		&#125;</div><div class="line">		sort(v.begin(),v.end());</div><div class="line"></div><div class="line">		ans =  lower_bound(v.begin(),v.end(),v[n-1]) - upper_bound(v.begin(),v.end(),v[0]);</div><div class="line">		if(ans &lt; 0 )ans = 0;</div><div class="line">		cout&lt;&lt;ans&lt;&lt;endl;</div><div class="line">		v.clear();</div><div class="line">	&#125; </div><div class="line"></div><div class="line">return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="C题"><a href="#C题" class="headerlink" title="C题"></a>C题</h2><p>思路很好想，稍微写下几次操作之后就会发现6次一个循环，所以剩下的思路就是把opt次数模6然后剩下无论是暴力还是打表都是很轻松的。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line"></div><div class="line">/*</div><div class="line">1 2 3</div><div class="line">2 1 3</div><div class="line">2 3 1</div><div class="line">3 2 1</div><div class="line">3 1 2</div><div class="line">1 3 2</div><div class="line">1 2 3</div><div class="line">*/</div><div class="line"></div><div class="line">#define LL long long</div><div class="line">using namespace std;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">int n;</div><div class="line">int a;</div><div class="line">int ans[7][3]=&#123;</div><div class="line">	1,2,3,</div><div class="line">	2,1,3,</div><div class="line">	2,3,1,</div><div class="line">	3,2,1,</div><div class="line">	3,1,2,</div><div class="line">	1,3,2</div><div class="line">&#125;;</div><div class="line">while(cin&gt;&gt;n&gt;&gt;a)&#123;</div><div class="line">	n = n%6;</div><div class="line">	cout&lt;&lt;ans[n][a]-1&lt;&lt;endl;	</div><div class="line">&#125;</div><div class="line">return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="D-题"><a href="#D-题" class="headerlink" title="D 题"></a>D 题</h2><p>&emsp;&emsp;Day1的题毕竟是为了营造友好氛围的，没什么难度。写题解不过是为了完整性。<br>&emsp;&emsp;这道题其实就是权重平衡之后最少的那个。很粗暴的计算就好。</p>
-<pre><code>ans = min(a,b/2,c/4)*7。
-</code></pre><h2 id="E-题"><a href="#E-题" class="headerlink" title="E 题"></a>E 题</h2><p>其实还是很有难度的，但对于时间不是很限制，那就是一个抖机灵的题。因为是按行按列翻转，所以很容易想到每行每列最多翻转一次。所以从行上考虑，只要保证不符合最终状态的都翻转1次，最后统计所有列是否是符合的就好。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line">#define LL long long</div><div class="line">using namespace std;</div><div class="line">vector&lt;vector&lt;int&gt; &gt;v;</div><div class="line">vector&lt;int &gt;h;</div><div class="line">int num;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">//freopen(&quot;a.in&quot;,&quot;r&quot;,stdin);</div><div class="line">int n,m,term;</div><div class="line">while(cin&gt;&gt;n&gt;&gt;m)&#123;</div><div class="line">	for(int i = 1; i&lt;= n;i++)&#123;</div><div class="line">		h.clear();</div><div class="line">		num = 0;</div><div class="line">		for(int j = 1; j &lt;= m;j ++)&#123;</div><div class="line">			scanf(&quot;%d&quot;,&amp;term);</div><div class="line">			h.push_back(term);</div><div class="line">			//if(term == 0)num++;</div><div class="line">		&#125;</div><div class="line">		v.push_back(h);</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	for(int i = 0 ;i &lt; m;i ++)&#123;</div><div class="line">		h[i] = 0;</div><div class="line">	&#125;</div><div class="line">	for(int i = 0 ;i &lt; m;i ++)&#123;</div><div class="line">		</div><div class="line">		if(v[0][i] == 0)h[i] = 1;</div><div class="line">		//cout&lt;&lt;i&lt;&lt;&quot; &quot;&lt;&lt;h[i]&lt;&lt;endl;</div><div class="line">	&#125;</div><div class="line">	int sign = 1;</div><div class="line">	for(int i = 1; i &lt; n; i++)&#123;</div><div class="line">		num = 0;</div><div class="line">		for(int j = 0; j &lt; m;j++)&#123;</div><div class="line">		//	cout&lt;&lt;i&lt;&lt;&quot; &quot;&lt;&lt;j&lt;&lt;&quot; &quot;&lt;&lt;v[i][j]&lt;&lt;&quot; &quot;&lt;&lt;h[j]&lt;&lt;&quot; &quot;&lt;&lt;num&lt;&lt;endl;</div><div class="line">			if( (v[i][j] == 0 &amp;&amp; h[j] == 0) || ( v[i][j] == 1 &amp;&amp; h[j] == 1) )num ++;</div><div class="line">			</div><div class="line">		&#125;</div><div class="line">		if(num == 0||num == m);</div><div class="line">		else &#123;</div><div class="line">			sign = 0;</div><div class="line">			break;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	if(sign == 0)cout&lt;&lt;&quot;No&quot;&lt;&lt;endl;</div><div class="line">	else cout&lt;&lt;&quot;Yes&quot;&lt;&lt;endl;</div><div class="line">	v.clear();</div><div class="line">&#125; </div><div class="line">return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="F-题"><a href="#F-题" class="headerlink" title="F 题"></a>F 题</h2><p>这是一道裸的矩阵快速幂。</p>
-<pre><code>f(x) = a * f(x - 1)  + b * f(x - 2) + c * f(x - 3)
-
-f(1) = f(2) = f(3) = t;
-
-[f(x+1),f(x),f(x-1)]T = [a,b,c][f(x),f(x-1),f(x-2)]T
-</code></pre><p>上代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">#include&lt;iostream&gt;</div><div class="line">#include&lt;cstdio&gt;</div><div class="line">#include&lt;cstring&gt;</div><div class="line">#include&lt;cmath&gt;</div><div class="line">#include&lt;algorithm&gt;</div><div class="line">#include&lt;stack&gt;</div><div class="line">#include&lt;queue&gt;</div><div class="line">#include&lt;set&gt;</div><div class="line">#include&lt;map&gt;</div><div class="line">#include&lt;vector&gt;</div><div class="line">#include&lt;string&gt;</div><div class="line"></div><div class="line">#define LL long long</div><div class="line">using namespace std;</div><div class="line"></div><div class="line"></div><div class="line">const LL mod = 1e9+7;</div><div class="line">const LL maxn = 3;</div><div class="line">struct matrix&#123;</div><div class="line">	LL a[maxn][maxn];</div><div class="line">&#125;;</div><div class="line"></div><div class="line">matrix arr_mul(matrix m, matrix n)&#123;</div><div class="line">	matrix ans;</div><div class="line">	for(LL i = 0; i &lt; maxn; i++)</div><div class="line">		for(LL j = 0;j &lt; maxn; j++)&#123;</div><div class="line">			LL sum = 0;</div><div class="line">			for(LL k = 0; k &lt; maxn; k ++)&#123;</div><div class="line">				sum += ( m.a[i][k] * n.a[k][j] )%mod; </div><div class="line">				sum %= mod;</div><div class="line">			&#125;</div><div class="line">			ans.a[i][j] = sum;</div><div class="line">		&#125;</div><div class="line">			return ans;</div><div class="line">	&#125;</div><div class="line">matrix mul(matrix m,LL n)&#123;</div><div class="line">	if(n == 1)return m;</div><div class="line">	if(n &amp; 1)&#123;</div><div class="line">		matrix temp = mul(m,n&gt;&gt;1);</div><div class="line">		return arr_mul(arr_mul(temp,temp),m);</div><div class="line">	&#125;else &#123;</div><div class="line">		matrix temp = mul(m,n&gt;&gt;1);</div><div class="line">		return arr_mul(temp,temp);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">LL qiu_val(matrix m, LL t,LL n)&#123;</div><div class="line">	LL term = n - 3;</div><div class="line">	if(term &lt;= 0)return t; </div><div class="line">	matrix temp = mul(m,term);</div><div class="line">	LL ans = 0;</div><div class="line">	ans += ( temp.a[0][0] * t )%mod;</div><div class="line">	ans += ( temp.a[0][1] * t )%mod;</div><div class="line">	ans += ( temp.a[0][2] * t )%mod;</div><div class="line">	ans %= mod;</div><div class="line">	return (LL )ans;</div><div class="line">&#125;</div><div class="line"></div><div class="line">int main()&#123;</div><div class="line">LL a,b,c,t;</div><div class="line">LL n;</div><div class="line">LL x[3][3]=&#123;</div><div class="line">		0,0,0,</div><div class="line">		1,0,0,</div><div class="line">		0,1,0</div><div class="line">&#125;;</div><div class="line">matrix term;</div><div class="line"></div><div class="line">while(cin&gt;&gt;a&gt;&gt;b&gt;&gt;c&gt;&gt;t&gt;&gt;n)&#123;</div><div class="line">	x[0][0] = a;</div><div class="line">	x[0][1] = b; </div><div class="line">	x[0][2] = c;</div><div class="line">	for(LL i = 0;i &lt; 3; i++)&#123;</div><div class="line">		for(LL j = 0; j &lt; 3; j++)&#123;</div><div class="line">			term.a[i][j] = x[i][j];</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">	LL ans = qiu_val(term,t,n); </div><div class="line">	cout&lt;&lt;ans&lt;&lt;endl;	</div><div class="line">&#125;</div><div class="line">return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;写报告果然是个很麻烦的事，所以我先去做做题，过会儿再来补。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/07/19/小学期ACM解题报告/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/07/14/写于大二小学期课程最后一天/">
-                            写于大二小学期课程最后一天
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-07-14T00:35:17+08:00">
-	
-		    14 7月 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>&emsp;&emsp;小学期课程今天下午之后就全部结束了，大部分小伙伴这周末也该回家了。也正式预示着我大二这一年的完结。<br>毕竟也一年了，写点东西总结一下吧。</p>
-<p>&emsp;&emsp;讲道理，进大学两年了，大学生活的点滴和我进入大学之前想象的完全不一样。没有日常的健身和运动，没有成为那个健壮的少年，没有高绩点，没有什么出彩的履历。拿得出手的还是我自己都不大看得上的几个奖状。当然我不后悔之前的时光，毕竟流逝的已经成为了过去，未来才是我生活的主旋律。</p>
-<p>&emsp;&emsp;大学以来我遇到了种种称心不称心的事：大一竞选班长时的哑口无言让我知道原来我不是想象中的无所不能，自此心中一直有了阴影，至今也没有完全好转；之后的考试，让我知道原来我的智商并不高，我可能需要付出应该付出的努力才能收获想要的结果，虽然绩点还是那么渣；一次次遇到心结无法跨过去，让我明白自己不是超人也不是主角，想要蜕变还需要更多的磨炼。</p>
-<p>&emsp;&emsp;当然啦，除了各种不足和遗憾，更多的肯定是收获：我试着做着我以前没有做过的事情，体验着之前想象不到的生活，交了好多朋友，参加了几次各种各样的比赛，对大学的意义有了更深的了解；对未来的规划，也从毫无头绪的瞎过变成了更有计划的执行。我真的变化很大。至少我觉得自己不再狭隘，变得大气了很多，也不再眼高手低，对生活充满了敬意，身边的任何人都值得我尊重，值得我学习。</p>
-<p>&emsp;&emsp;也许，我还有种种缺点：受不了别人的指责，时常犯的毛病，对自己能力以及过去的不自信；但一切似乎都在往更好的方向发展。是的，我在成长的道路上，而且成长的速度并不慢。</p>
-<hr>
-<p>&emsp;&emsp;说了这么多都是煽情的话，大概也该说说我的大二了。</p>
-<blockquote>
-<ul>
-<li><p>学分成绩有所下降且几乎已失去保研资格，进一步考虑考研和工作问题。</p>
-</li>
-<li><p>大二初的数学建模比赛获得了陕西省一等奖，体验了数模的流程，从中学到了点东西。</p>
-</li>
-<li><p>了解了网络安全方面知识，并正式接触了CTF比赛，了解了网安的一个大致框架。</p>
-</li>
-<li><p>了解了单片机，但因为兴趣及准备不足的原因，最终没有参加电子设计大赛选拔。</p>
-</li>
-<li><p>实验室面试因为紧张（不自信）表现的太不堪，导致被刷，计划over，但已联系其他实验室，准备学习一下并行计算理论与实践。</p>
-</li>
-<li><p>经历ACM校赛、小学期集训进入校队，进一步提升自己的算法理论与实现水平，并争取取得好的成绩。</p>
-</li>
-</ul>
-</blockquote>
-<hr>
-<p>再说点别的，算了太晚了，暂时就不提了，有空再补。还有最近一段时间的ACM题解和CTF writeup，提升一下自己git应用能力吧，也算是对这顿时间努力的一个交代。</p>
-<p>Tips：最近还要申请社团，也不知道能不能在开学之前搞定。搞定了开学才能招新哈，期待小学妹^_^。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/07/14/写于大二小学期课程最后一天/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2017/07/09/Hello-Abner/">
-                            Hello,Abner
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2017-07-09T23:59:38+08:00">
-	
-		    09 7月 2017
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>This is my first blog on Github Pages.</p>
-<p>May I have a good travel here.</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2017/07/09/Hello-Abner/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -1137,7 +886,14 @@ f(1) = f(2) = f(3) = t;
         </li>
         
         
-        <li class="pagination-number">Seite 4 von 4</li>
+        <li class="pagination-next">
+            <a class="btn btn--default btn--small" href="/page/5/">
+                    <span>ÄLTERE BEITRÄGE</span>
+                <i class="fa fa-angle-right text-base icon-ml"></i>
+            </a>
+        </li>
+        
+        <li class="pagination-number">Seite 4 von 5</li>
     </ul>
 </div>
 
@@ -1407,7 +1163,7 @@ f(1) = f(2) = f(3) = t;
                 data-message-zero="keinen Beitrag gefunden"
                 data-message-one="1 Beitrag gefunden"
                 data-message-other="{n} Einträge gefunden">
-                40 Einträge gefunden
+                47 Einträge gefunden
             </p>
         </div>
     </div>

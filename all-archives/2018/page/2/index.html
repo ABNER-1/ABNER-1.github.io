@@ -199,6 +199,322 @@
             <div class="postShorten-header">
                 <h1 class="postShorten-title" itemprop="headline">
                     
+                        <a class="link-unstyled" href="/2018/08/01/geohash理解/">
+                            geohash的理解（未完）
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
+	
+		    01 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <p>关于geohash<br>今天在数据库字段中发现有个字段是geohash，地理位置hash？？<br>于是了解了一波，大概的思路是将经纬度等信息通过某种算法进行hash，进行前缀匹配可以快速计算距离的远近</p>
+<p>大致是吧二维信息转化为一维并通过B树进行索引</p>
+<p>对线、树等数据采用R树索引更有优势</p>
+<p><a href="&#39;https://www.cnblogs.com/LBSer/p/3310455.html&#39;">参考文档</a></p>
+<hr>
+<p>(待增加样例及比较)</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/01/geohash理解/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/08/01/buiulder用法/">
+                            java 基础类中common包中各种builder的作用
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
+	
+		    01 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="各种builder的作用"><a href="#各种builder的作用" class="headerlink" title="各种builder的作用"></a>各种builder的作用</h2><p>org.apache.commons.lang.builder</p>
+<p>　　CompareToBuilder – 用于辅助实现Comparable.compareTo(Object)方法；
+　　</p>
+<p>　　EqualsBuilder – 用于辅助实现Object.equals()方法；
+　　</p>
+<p>　　HashCodeBuilder – 用于辅助实现Object.hashCode()方法；
+　　</p>
+<p>　　ToStringBuilder – 用于辅助实现Object.toString()方法；
+　　</p>
+<p>　　ReflectionToStringBuilder – 使用反射机制辅助实现Object.toString()方法；
+　　</p>
+<p>　　ToStringStyle – 辅助ToStringBuilder控制输出格式；
+　　</p>
+<p>　　StandardToStringStyle – 辅助ToStringBuilder控制标准格式。</p>
+<p><a href="https://www.cnblogs.com/softidea/p/5952419.html" target="_blank" rel="external">参考博客</a></p>
+<p><a href="https://blog.csdn.net/luoyanglizi/article/details/51137704" target="_blank" rel="external">强软弱虚</a></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/01/buiulder用法/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/08/01/JAVA抽象方法和接口/">
+                            java 抽象类和接口的比较
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
+	
+		    01 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="JAVA抽象类和接口"><a href="#JAVA抽象类和接口" class="headerlink" title="JAVA抽象类和接口"></a>JAVA抽象类和接口</h1><p>继承抽象类的子类可以实现一部分抽象方法，但只要还有抽象方法没有实现，就必须用abstract修饰</p>
+<p>实现接口的类必须实现所有接口中的方法。</p>
+<p>接口可以多继承，但抽象类只可以单继承</p>
+<p><a href="https://www.jianshu.com/p/038f0b356e9a" target="_blank" rel="external">参考博客</a></p>
+<p>设计层次的不同</p>
+<p>1、 抽象层次不同。抽象类是对类抽象，而接口是对行为的抽象。抽象类是对整个类整体进行抽象，包括属性、行为，但是接口却是对类局部（行为）进行抽象。</p>
+<p>2、 跨域不同。抽象类所跨域的是具有相似特点的类，而接口却可以跨域不同的类。我们知道抽象类是从子类中发现公共部分，然后泛化成抽象类，子类继承该父类即可，但是接口不同。实现它的子类可以不存在任何关系，共同之处。例如猫、狗可以抽象成一个动物类抽象类，具备叫的方法。鸟、飞机可以实现飞Fly接口，具备飞的行为，这里我们总不能将鸟、飞机共用一个父类吧！所以说抽象类所体现的是一种继承关系，要想使得继承关系合理，父类和派生类之间必须存在”is-a” 关系，即父类和派生类在概念本质上应该是相同的。对于接口则不然，并不要求接口的实现者和接口定义在概念本质上是一致的， 仅仅是实现了接口定义的契约而已。</p>
+<p>3、 设计层次不同。对于抽象类而言，它是自下而上来设计的，我们要先知道子类才能抽象出父类，而接口则不同，它根本就不需要知道子类的存在，只需要定义一个规则即可，至于什么子类、什么时候怎么实现它一概不知。比如我们只有一个猫类在这里，如果你这是就抽象成一个动物类，是不是设计有点儿过度？我们起码要有两个动物类，猫、狗在这里，我们在抽象他们的共同点形成动物抽象类吧！所以说抽象类往往都是通过重构而来的！但是接口就不同，比如说飞，我们根本就不知道会有什么东西来实现这个飞接口，怎么实现也不得而知，我们要做的就是事前定义好飞的行为接口。所以说抽象类是自底向上抽象而来的，接口是自顶向下设计出来的。</p>
+<p><a href="https://blog.csdn.net/chenssy/article/details/12858267" target="_blank" rel="external">参考博客2</a></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/01/JAVA抽象方法和接口/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/08/01/JAVA序列化/">
+                            java 序列化中serialVersionUID的意义
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
+	
+		    01 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h2 id="serialVersionUID作用"><a href="#serialVersionUID作用" class="headerlink" title="serialVersionUID作用"></a>serialVersionUID作用</h2><p>serialVersionUID 用来表明类的不同版本间的兼容性 </p>
+<p>简单来说，Java的序列化机制是通过在运行时判断类的serialVersionUID来验证版本一致性的。在进行反序列化时，JVM会把传来 的字节流中的serialVersionUID与本地相应实体（类）的serialVersionUID进行比较，如果相同就认为是一致的，可以进行反序 列化，否则就会出现序列化版本不一致的异常。 </p>
+<p>当实现java.io.Serializable接口的实体（类）没有显式地定义一个名为serialVersionUID，类型为long的变 量时，Java序列化机制会根据编译的class<b>自动生成</b>一个serialVersionUID作序列化版本比较用，这种情况下，只有<b>同一次</b>编译生成的 class才会生成相同的serialVersionUID 。 </p>
+<p>如果我们不希望通过编译来强制划分软件版本，即实现序列化接口的实体能够兼容先前版本，未作更改的类，就需要显式地定义一个名为serialVersionUID，类型为long的变量，不修改这个变量值的序列化实体都可以相互进行串行化和反串行化。</p>
+<p><a href="https://blog.csdn.net/kakaxi_77/article/details/8129070" target="_blank" rel="external">参考博客</a></p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/01/JAVA序列化/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/08/01/JAVA内部类/">
+                            java 内部类的意义
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
+	
+		    01 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="JAVA内部类的应用"><a href="#JAVA内部类的应用" class="headerlink" title="JAVA内部类的应用"></a>JAVA内部类的应用</h1><ol>
+<li><p>每个内部类都能独立的继承一个接口的实现，所以无论外部类是否已经继承了某个(接口的)实现，对于内部类都没有影响。内部类使得多继承的解决方案变得完整，</p>
+</li>
+<li><p>方便将存在一定逻辑关系的类组织在一起，又可以对外界隐藏。</p>
+</li>
+<li><p>方便编写事件驱动程序</p>
+</li>
+<li><p>方便编写线程代码</p>
+</li>
+</ol>
+<p><a href="https://www.cnblogs.com/chenssy/p/3388487.html" target="_blank" rel="external">参考博客</a></p>
+<p><a href="http://www.cnblogs.com/dolphin0520/p/3811445.html" target="_blank" rel="external">参考博客</a></p>
+<hr>
+<p>待添加样例</p>
+
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/01/JAVA内部类/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
+                        <a class="link-unstyled" href="/2018/08/01/设计模式笔记/">
+                            设计模式学习笔记（待更新）
+                        </a>
+                    
+                </h1>
+                <div class="postShorten-meta">
+    <time itemprop="datePublished" datetime="2018-08-01T22:51:03+08:00">
+	
+		    01 8月 2018
+    	
+    </time>
+    
+</div>
+
+            </div>
+            
+                <div class="postShorten-content" itemprop="articleBody">
+                    <h1 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h1><h2 id="单一职责原则-SRP"><a href="#单一职责原则-SRP" class="headerlink" title="单一职责原则  SRP"></a>单一职责原则  SRP</h2><p><b>就一个类而言，应该仅有一个引起它变化的原因</b>  </p>
+<p>软件设计真正要做的很多内容，就是<b>发现职责并把这些职责相互分离</b><br><br>如果你想到多于一个动机去改变一个类，那这个类就具有多于一个的职责</p>
+<h2 id="开放-封闭原则-OCP"><a href="#开放-封闭原则-OCP" class="headerlink" title="开放-封闭原则  OCP"></a>开放-封闭原则  OCP</h2><p>开放-封闭原则，是说软件实体（类、模块、函数等）应该可以扩展，但是不可修改<br><br>面对新的需求，对程序的改动是通过增加新代码进行的，而不是更改现有代码<br><br>&emsp;&emsp;可维护，可扩展，可复用，灵活性好</p>
+<h2 id="依赖倒转原则"><a href="#依赖倒转原则" class="headerlink" title="依赖倒转原则"></a>依赖倒转原则</h2><ol>
+<li>高层模块不应该依赖底层模块，两个都应该依赖抽象</li>
+<li>抽象不应该依赖细节，细节应该依赖抽象</li>
+</ol>
+<h2 id="里氏代换原则"><a href="#里氏代换原则" class="headerlink" title="里氏代换原则"></a>里氏代换原则</h2><pre><code>子类型必须能够替换掉它们的父类型
+</code></pre><h2 id="迪米特法则"><a href="#迪米特法则" class="headerlink" title="迪米特法则"></a>迪米特法则</h2><pre><code>如果两个类不必彼此直接通信，那么这两个类就不应当发生直接的相互作用。
+如果其中一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用。
+</code></pre><h2 id="接口隔离原则"><a href="#接口隔离原则" class="headerlink" title="接口隔离原则"></a>接口隔离原则</h2><p>不应该依赖它不需要的接口；一个类对另一个类的依赖应该建立在<b>最小</b>的接口上。</p>
+<h1 id="常见设计模式"><a href="#常见设计模式" class="headerlink" title="常见设计模式"></a>常见设计模式</h1><h2 id="单例模式-Singleton"><a href="#单例模式-Singleton" class="headerlink" title="单例模式 Singleton"></a>单例模式 Singleton</h2><pre><code>单例模式，保证一个类只有一个实例，并提供一个访问它的全局访问点。
+</code></pre><ul>
+<li>饿汉式单例类<br>  <br>在自己被加载时就将自己实例化</li>
+<li>懒汉式单例类<br>  <br>在第一次被引用时才会自己实例化<br><br>  多线程环境下，双重锁定保证单例且提高性能</li>
+</ul>
+<h2 id="适配器模式"><a href="#适配器模式" class="headerlink" title="适配器模式"></a>适配器模式</h2><p> <b>将一个类的接口转换成客户希望的另外一个接口。</b><br> Adapter模式使得原本由于接口不兼容而不能一起工作的那些类可以一起工作。</p>
+<p>两种模式：类适配器模式、对象适配器模式</p>
+<hr>
+<p>待更新</p>
+<h2 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h2><h3 id="简单工厂模式"><a href="#简单工厂模式" class="headerlink" title="简单工厂模式"></a>简单工厂模式</h3><h3 id="工厂方法模式"><a href="#工厂方法模式" class="headerlink" title="工厂方法模式"></a>工厂方法模式</h3><h3 id="抽象工厂模式"><a href="#抽象工厂模式" class="headerlink" title="抽象工厂模式"></a>抽象工厂模式</h3><h2 id="模板方法模式"><a href="#模板方法模式" class="headerlink" title="模板方法模式"></a>模板方法模式</h2>
+                    
+                        
+                    
+                    
+                        <p>
+                            <a href="/2018/08/01/设计模式笔记/#post-footer" class="postShorten-excerpt_link link">
+                                Kommentieren und teilen
+                            </a>
+                        </p>
+                    
+                </div>
+            
+        </div>
+        
+    </article>
+    
+    
+    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
+        <div class="postShorten-wrap">
+            
+            <div class="postShorten-header">
+                <h1 class="postShorten-title" itemprop="headline">
+                    
                         <a class="link-unstyled" href="/2018/07/26/httpClient工具类接口文档/">
                             (kein Titel)
                         </a>
@@ -690,560 +1006,6 @@ Arrays.sort(array);
         
     </article>
     
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/06/16/修改linux-profile目录错误后恢复方法/">
-                            修改linux profile目录错误后恢复方法
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-06-16T01:01:55+08:00">
-	
-		    16 6月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>如题，没有备份就修改了系统的环境变量，且改错了，导致了日常应用打不开了，无法rollback</p>
-<p>快绝望时，找到了正解。</p>
-<p><img src="../img/18-6-16-1.png" alt=""></p>
-<p>以后再也不在不备份情况下修改重要文件了，虽然这次即使备份了也没法mv恢复，不过快照倒比这个好得多。</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/06/16/修改linux-profile目录错误后恢复方法/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/06/05/hadoop安全机制学习笔记/">
-                            (kein Titel)
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-06-05T17:08:28+08:00">
-	
-		    05 6月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>  Hadoop安全机制</p>
-<p>  加密部分</p>
-<p>  常见加密算法<br>    对称加密算法<br>        DES  56位密钥长度  运算较快   安全性低<br>        3DES 112、168位密钥长度   运算慢   安全度中<br>        AES  128、192、156位    运算快   安全度高<br>    AES算法模式<br>        CBC  CTR  OFB  CFB  GCM  XTS  ECB</p>
-<pre><code>CBC加密部分 （密码分组链接）
-    思想： 明文块与前一个密文块 进行异或操作
-    第一个明文块和初始化向量异或，通过加密密钥加密得到密文块1
-    第i个明文块和第i-1个密文块异或操作，然后通过加密密钥得到密文块i （i &gt; 1）
-解密过程
-    密文块1先用加密密钥进行解密，再通过和初始化向量进行异或得到明文块1
-    密文块i 用加密密钥进行解密， 再通过异或密文块i-1  得到明文块i
-
-CTR算法模式 （计数器模式）
-
-    加密过程
-        （初始化文本+counter）用key加密，异或明文，得到密文
-            counter++;
-    解密过程
-        （初始化文本+counter）用key加密，异或密文，得到明文
-            counter++;
-
-
-异同：CBC需要填充，CTR不需要填充
-    CTR任意block不需要与前面的链接，适用流式处理的加密场景
-</code></pre><p>  高级加密指令集AES-NI<br>    Intel高级加密新指令 （08年提出）<br>    基于X86指令集的扩展，用于提高AES算法的执行速度 （17倍）</p>
-<p>  静态数据 加密<br>    解决方案<br>    应用层   最安全最灵活的方式，不能应用已有的应用<br>    HDFS层   提供很好的部署性、对于应用是透明的  不能很好的根据用户的需求建模<br>    硬盘层   易部署、性能高、不灵活</p>
-<pre><code>KMS  key manangement server
-
-创建一个hadoop key
-主要命令
-工作流程
-namenode请求kms生成一个EDEK，持久化存储在namenode
-client请求hdfs
-kms生成EDEK并发送给HDFS
-HDFS把EDEK发送给client
-client把EDEK发送给  KMS 请求解密EDEK
-KMS发送DEK
-client用DEK加解密
-
-
-
-namenode   edek 
-client
-</code></pre><p>  通讯的加密<br>    REST web access  HTTPS thoughSLL/TLS<br>    RPS  SASL协商出的安全信道<br>    HDFS数据传输   SASL  传输密钥  自定义的AES加密算法进行数据加密</p>
-<p>  密钥的管理<br>    KMS 密钥管理<br>    数据与密钥分开存储<br>    对外提供标准API进行存储和获取密钥<br>    标准的API设计保证了第三方可实现自定义的密钥管理方式<br>    细粒度的访问控制管理  Per Key  Per Operator<br>        hadoop.apache.org/docs/stable/hadoop-kms/index.html</p>
-<p>  Apache Commons Crypto介绍<br>        Spark shuffle<br>    原名Chinmera<br>    源自Apache Hadoop<br>    Intel贡献<br>    加入到Apache Commons<br>    使用AES-NI优化的Cryptograohic library<br>    提供了Cipher和Stream层次的java api<br>    提供了安全随机数的API</p>
-<pre><code>shuffle 
-mapper 产生数据
-reducer  消费数据
-shuffle  发生在mapper和reducer之间
-
-why 加密shuffle
-网络安全 本地文件安全
-</code></pre><p>包括两部分：<br>    RPC：网络传输<br>    Shuffle文件 Spill的文件和Shuffle结果文件</p>
-<pre><code>Hadoop安全机制  认证
-
-Apache Haddoop介绍
-    HDFS 分布式文件系统
-    YARN 资源管理和调度
-    MapReduce 计算
-
-    Client 向Name Node请求元数据信息  得到后向Data Node请求自己的数据
-    Name Node
-    Data Node
-    NameNode和DataNode之间通过心跳  传递数据
-
-    Yarn架构
-
-大数据安全介绍
-    敏感数据
-        安全相关
-        使用不当或泄露造成巨大损害
-    符合安全标准
-        Hippa PIC-DSS要求保护个人信息
-        符合企业安全策略
-
-    2009年以前没有
-    用户和服务的认证
-
-    架构：
-    系统高度分布
-    被多种框架和组件共享
-    数据在线
-
-    部署在内网
-    数据访问供内部人员服务
-    没有原生的安全部署，依靠传统的安全防御
-
-
-    认证
-
-    授权
-
-    数据保护
-    数据审计
-    受信平台
-
-大数据安全：认证
-    user到service认证
-    service到service认证
-    性能损耗不超过3%
-    Simple （不安全
-        默认模式
-        适用当前用户的系统账号
-        避免错误操作
-        不是真正的安全
-    Kerberos（强） + Delegation Token (内部)
-        根据 需求 创建实体
-        密码不在网络中传递
-        集成现有的管理系统  LDAP
-        principals
-
-        Kerberos工作流程
-
-    LDAP（弱） 适用某些组件
-</code></pre><p>RPC协议<br>    Kerberos  gssapi<br>    Tokens  DIGEST MD5<br>Block transfer protocol    </p>
-<p>Http<br> 浏览器<br> web services</p>
-<pre><code>大数据安全：授权
-    权限
-
-    ACLs
-</code></pre><p>授权管理组件<br>        Sentry<br>        Ranger<br>        Service<br>        Knox</p>
-<p>分布式一致性算法</p>
-<p>Paxos历史<br>  Leslie Lamport论文</p>
-<p>  proposer</p>
-<p>  Leader</p>
-<p>3个原理</p>
-<p>多数派决议<br>    超过半数</p>
-<p>选举<br>    纪元</p>
-<p>失效时的一致性</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/06/05/hadoop安全机制学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/05/04/计算机视觉学习笔记/">
-                            计算机视觉学习笔记
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-05-04T22:18:08+08:00">
-	
-		    04 5月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="后向变换与双线性插值"><a href="#后向变换与双线性插值" class="headerlink" title="后向变换与双线性插值"></a>后向变换与双线性插值</h2><h2 id="滤波器"><a href="#滤波器" class="headerlink" title="滤波器"></a>滤波器</h2><h2 id="傅里叶变换"><a href="#傅里叶变换" class="headerlink" title="傅里叶变换"></a>傅里叶变换</h2>
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/05/04/计算机视觉学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/04/20/华为网技相关eNSP学习笔记/">
-                            eNSP学习笔记
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-04-20T00:35:17+08:00">
-	
-		    20 4月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h2 id="组网练习命令记录"><a href="#组网练习命令记录" class="headerlink" title="组网练习命令记录"></a>组网练习命令记录</h2><h3 id="VLAN操作"><a href="#VLAN操作" class="headerlink" title="VLAN操作"></a>VLAN操作</h3><p> sys 进入系统模式</p>
-<p> 新建vlan</p>
-<p> 分配vlan到端口：</p>
-<ul>
-<li><p>第一种</p>
-<p>修改端口类型 改为access  :  port link-type access<br>分配端口vlan            :  port default vlan 100</p>
-</li>
-<li><p>第二种</p>
-<p>vlan 100<br>port ethernet 0/1   </p>
-</li>
-</ul>
-<p>进入vlanif接口（三层）分配ip</p>
-<pre><code>ip address 10.1.1.1 24
-</code></pre><h3 id="OSPF"><a href="#OSPF" class="headerlink" title="OSPF"></a>OSPF</h3><ul>
-<li><p>新建loopback口  </p>
-<pre><code>loopback0
-</code></pre></li>
-<li><p>配置router id</p>
-<pre><code>router id + ip地址（loopback地址）
-</code></pre></li>
-<li><p>新建ospf进程</p>
-<pre><code>ospf + 进程号
-</code></pre></li>
-<li><p>创建area</p>
-<pre><code>area + area号
-</code></pre></li>
-<li><p>network宣告  </p>
-<pre><code>network + 路由 + 反掩码
-</code></pre></li>
-<li><p>打印ospf信息</p>
-<pre><code>display ospf peer 
-</code></pre></li>
-</ul>
-<h3 id="VLAN"><a href="#VLAN" class="headerlink" title="VLAN"></a>VLAN</h3><p>vlan 隔离了二层广播域</p>
-<p>vlan头部</p>
-<p>目的地址 源地址 tag信息 + 报文</p>
-<p>基于端口的vlan</p>
-<p>端口类型 Access 、 Trunk 、 Hybrid端口</p>
-<p>Access类型端口只属于一个VLAN，有pvid（多面向主机）</p>
-<p>Trunk允许多个VLAN通过 （多面向交换机、路由器）</p>
-<p>VLAN间通信方式:单臂路由、三层交换机</p>
-<hr>
-<h3 id="单臂路由"><a href="#单臂路由" class="headerlink" title="单臂路由"></a>单臂路由</h3><p>交换机上配置trunk端口：</p>
-<pre><code>进入对应端口
-port link-type trunk
-port trunk allow-pass vlan all
-</code></pre><p>路由器上：</p>
-<pre><code>interface ethernet 0/1.1   建立子接口
-control-vid 100 dot1q-termination   
-控制vlan  编号100  协议
-
-dot1q termination vid 100
-                  vlan编号
-arp broadcast enable
-ip address 192.168.10.1 255.255.255.0  分配网关
-</code></pre><h3 id="端口聚合"><a href="#端口聚合" class="headerlink" title="端口聚合"></a>端口聚合</h3><p>用于交换机之间，增加带宽、冗余的好处等</p>
-<p>创建eth-trunk</p>
-<pre><code>interface Eth-Trunk1 
-</code></pre><p>进入interface 0/0/2并将其加入trunk1</p>
-<pre><code>interface G 0/0/2    
-eth-trunk 1      加入trunk1
-
-interface G 0/0/3
-eth-trunk 1 
-</code></pre><p>进入eth-trunk1接口进行配置</p>
-<pre><code>interface eth-trunk 1  
-port link-type trunk   端口类型为trunk
-port trunk allow-pass vlan 30
-     配置trunk允许vlan30 通过
-</code></pre><h3 id="静态路由"><a href="#静态路由" class="headerlink" title="静态路由"></a>静态路由</h3><pre><code>配置静态路由
-ip route-static 192.168.1.10 24 10.1.1.2
-                目的ip地址  子网掩码    下一跳地址
-或
-ip route-static 192.168.1.10 24 Ethernet 0/0/0
-                                下一跳出口
-打印路由表信息
-display ip routing-table
-</code></pre>
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/04/20/华为网技相关eNSP学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/03/29/大数据学习笔记/">
-                            大数据学习笔记
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-03-29T21:17:29+08:00">
-	
-		    29 3月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <p>Hbase<br>基于google BigTable<br>基于Apache Hadoop的</p>
-<p>Hbase基本架构<br>Hmaster</p>
-<p>HRegionServer</p>
-<ul>
-<li>Hlog</li>
-<li>BlockCache</li>
-<li>HRegion</li>
-<li>MemStore</li>
-</ul>
-<p>Region 根据字典序<br>Region是Hbase调度的基本单位，被分配在HRegionServer<br>达到阈值，split再次分割，重分配，上线<br>Region数目最好不超过100 </p>
-<p>依赖Zookeeper</p>
-<p>公式 (regionserver * 0.4）/max<br>避免写入磁盘 </p>
-<p>上线：</p>
-<ul>
-<li>assign</li>
-<li>update meta  </li>
-<li>State Treansition</li>
-</ul>
-<p>meta表   ？？<br>meta表的地址存放在zookeeper</p>
-<p>一个Region  Store   Store file</p>
-<p>PUT upset  update+insert<br>DELETE 假删除</p>
-<p>GET<br>SCAN</p>
-<p>LSM ？？？</p>
-<p>内存中</p>
-<p>达到一定数量后异步磁盘</p>
-<p>Compaction  StoreFile合并</p>
-<p>minor compaction 合并部分<br>major compaction  合并所有 delete marker会被删除</p>
-<p>HBASE</p>
-<p>高可靠性、高可用性<br>不适合场景</p>
-<ul>
-<li>非关系型数据库、高度耦合的数据</li>
-<li>事务处理</li>
-<li>非主键索引</li>
-<li>大对象</li>
-<li>主键递增</li>
-</ul>
-<p>新特性：<br>multiWAL<br>ZK-less assignment<br>multi-tenancy<br>Read replica</p>
-<p>HDFS<br>Erasure Coding</p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/03/29/大数据学习笔记/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
-    
-    <article class="postShorten postShorten--thumbnailimg-bottom" itemscope itemType="http://schema.org/BlogPosting">
-        <div class="postShorten-wrap">
-            
-            <div class="postShorten-header">
-                <h1 class="postShorten-title" itemprop="headline">
-                    
-                        <a class="link-unstyled" href="/2018/03/23/Java基础整理篇/">
-                            Java基础整理篇
-                        </a>
-                    
-                </h1>
-                <div class="postShorten-meta">
-    <time itemprop="datePublished" datetime="2018-03-23T21:17:29+08:00">
-	
-		    23 3月 2018
-    	
-    </time>
-    
-</div>
-
-            </div>
-            
-                <div class="postShorten-content" itemprop="articleBody">
-                    <h1 id="Java基础整理"><a href="#Java基础整理" class="headerlink" title="Java基础整理"></a>Java基础整理</h1><p>面向对象三大特性：封装、继承、多态<br>八大数据结构：byte\short\int\long\float\double\char\boolean</p>
-<h2 id="Object类"><a href="#Object类" class="headerlink" title="Object类"></a>Object类</h2><p>java所有类的基类是Object类<br>方法列表</p>
-<pre><code>构造方法Object()
-finalize()方法 : 垃圾回收
-clone() ： native方法，实现对象的拷贝而不是new
-equals(): 判断相等
-getClass()：反回包名+类名  用于java反射机制
-hashCode() 用来获取对象的hash值
-toString() ：返回一个String标识自己，（一般重写，好像是序列化需要）
-notify()  : 多线程相关 ，唤醒一个线程
-notifyAll()
-wait()：使当前进程进入等待状态
-wait(long)
-wait(long, int)
-</code></pre><h2 id="多线程相关"><a href="#多线程相关" class="headerlink" title="多线程相关"></a>多线程相关</h2><p>实现方法</p>
-<pre><code>1：继承Thread类
-    需要重写run方法
-    PS ： 运行run()只是指执行一次该方法，和其他方法运行一样
-        而start()方法是将该进程变为就绪状态 --即加入线程队列
-2：实现Runnable接口
-    实现run函数，
-    Thread(Runnable)创建Thread对象
-    start()
-3：进程池
-    new ThreadPoolExecutor(corePoolSize, maximumPoolSize,
-        keepAliveTime, milliseconds,runnableTaskQueue, threadFactory,handler);
-    首先线程池判断 __基本线程池__ 是否已满？没满，创建一个工作线程来执行任务。满了，则进入下个流程。
-    其次线程池判断 __ 工作队列 __ 是否已满？没满，则将新提交的任务存储在工作队列里。满了，则进入下个流程。
-    最后线程池判断整个__线程池__是否已满？没满，则创建一个新的工作线程来执行任务，满了，则交给饱和策略来处理这个任务。
-</code></pre><h2 id="异常Exception"><a href="#异常Exception" class="headerlink" title="异常Exception"></a>异常Exception</h2><ul>
-<li><p>Error和Exception</p>
-<p>  Throwable 代表是可抛出的.<br>  throws和throw的区别</p>
-<ul>
-<li><p>Error代表的是严重错误,这种错误程序员无法进行处理, 例如操作系统崩溃,jvm出错, 动态链接库失败等.Error并不是异常,不是本文的重点.</p>
-</li>
-<li><p>Exception代表的就是异常了.它下面很多派生类,其中它的派生类也分两种, </p>
-<ul>
-<li><p>一种是RuntimeException(运行时异常)</p>
-<ul>
-<li>RuntimeException  :包括除数为0, 数组下标超界等. 运行时异常的派生类有很多, 其产生频率较高.  它的派生类可以由程序处理或者抛给(throw) 给jvm处理. 例如上面的例子就是抛给了jvm处理, jvm把程序中断执行, 并把错误信息输出到终端上<br>类转换异常等，编译可以通过，虚拟机运行时抛出异常</li>
-</ul>
-</li>
-<li><p>其他的都是非运行时异常</p>
-<ul>
-<li>非RuntimeExcption :这种异常属于Excepion的派生类(上面红色的xxx), 但是不是RuntimeException的派生类,  这种异常必须由程序员手动处理,否则不通过编译.    编译异常、自定义的、IOException、SQLException</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>Exception</p>
-<p>  参考博客 <a href="https://www.cnblogs.com/cvst/p/5822373.html" target="_blank" rel="external">https://www.cnblogs.com/cvst/p/5822373.html</a></p>
-<h2 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h2><p>JAVA序列化，java是支持对象文件读写的，但那需要对其进行序列化(可以理解为规范化)</p>
-</li>
-</ul>
-<p>实现：<br>实现Serializable接口</p>
-<p>作用或原理<br>jre中规定 如果被写对象的类型是String，或数组，或Enum，或Serializable，那么就可以对该对象进行序列化，否则将抛出NotSerializableException。</p>
-<p>隐私数据不希望被序列化</p>
-<p>使用默认序列化不符合要求，重写toString（）方法，或者使用transient关键字<br>    参考博客 <a href="http://www.blogjava.net/jiangshachina/archive/2012/02/13/369898.html" target="_blank" rel="external">http://www.blogjava.net/jiangshachina/archive/2012/02/13/369898.html</a></p>
-
-                    
-                        
-                    
-                    
-                        <p>
-                            <a href="/2018/03/23/Java基础整理篇/#post-footer" class="postShorten-excerpt_link link">
-                                Kommentieren und teilen
-                            </a>
-                        </p>
-                    
-                </div>
-            
-        </div>
-        
-    </article>
-    
     <div class="pagination-bar">
     <ul class="pagination">
         
@@ -1264,7 +1026,7 @@ wait(long, int)
             </a>
         </li>
         
-        <li class="pagination-number">Seite 2 von 3</li>
+        <li class="pagination-number">Seite 2 von 4</li>
     </ul>
 </div>
 
@@ -1535,7 +1297,7 @@ wait(long, int)
                 data-message-zero="keinen Beitrag gefunden"
                 data-message-one="1 Beitrag gefunden"
                 data-message-other="{n} Einträge gefunden">
-                40 Einträge gefunden
+                47 Einträge gefunden
             </p>
         </div>
     </div>
