@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>grpc优雅的退出 - Hexo</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="grpc 退出的正确做法前面的一些事一般关注是grpc的使用，封装等。但对于c++这门玄学的语言来说，grpc_call的delete机制、退出机制，对于一个追求优雅风格的程序员而言也是非常重要的。
+基于项目的必要，我们需要在自己的系统中对grpc封装一层，便于实际业务代码的开发。
+先简述一下必要的">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="John Doe">
+  
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">Hexo</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+
+  		<div class="row">
+  			<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="grpc优雅的退出">
+</div>
+<div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>grpc优雅的退出</h1>
+</div>
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <h1 id="grpc-退出的正确做法"><a href="#grpc-退出的正确做法" class="headerlink" title="grpc 退出的正确做法"></a>grpc 退出的正确做法</h1><h2 id="前面的一些事"><a href="#前面的一些事" class="headerlink" title="前面的一些事"></a>前面的一些事</h2><p>一般关注是grpc的使用，封装等。但对于c++这门玄学的语言来说，grpc_call的delete机制、退出机制，对于一个追求优雅风格的程序员而言也是非常重要的。</p>
+<p>基于项目的必要，我们需要在自己的系统中对grpc封装一层，便于实际业务代码的开发。</p>
+<p>先简述一下必要的前提：</p>
+<ul>
+<li>grpc_call，抽象出的关于一次通信的概念，包含了一次通信的内容、特定call的回调函数等关于通信所必须的组件。</li>
+<li>grpc_client，抽象出的grpc的client，用于上层直接调用，屏蔽相应的通信细节，包含若干关于一次rpc通信的基本组件。</li>
+<li>grpc_server，抽象出的grpc的server，用于服务器端上层调用，屏蔽响应的通信细节，包含一个server端通信所需的基本组件。</li>
+<li>便于系统工程的实现，call、client、server都分为两层封装，最底层的接口，上层的有类型的类实现。对于用户层而言，只需继承有类型的类，实现回调函数等即可使用。</li>
+</ul>
+<hr>
+<h2 id="shutdown的正确流程"><a href="#shutdown的正确流程" class="headerlink" title="shutdown的正确流程"></a>shutdown的正确流程</h2><p>傻瓜也知道的细节：</p>
+<ul>
+<li>shutdown流程被调用一般处于类的生命周期最后阶段或者程序最后阶段。</li>
+<li>一般需要正确的释放资源，避免因 不恰当释放造成的内存泄漏和端错误等。</li>
+</ul>
+<p>下面针对server和client分别进行描述</p>
+<h3 id="client的析构"><a href="#client的析构" class="headerlink" title="client的析构"></a>client的析构</h3><ul>
+<li>client析构时需要保证所有存在于client中的call全部被释放（源于grpc兼容c的实现，所有保存于completed_queue中的call指针是void*类型，无法使用智能指针管理）</li>
+<li>client析构时保证completed_queue正确shutdown、监测completed_queue的线程正确被释放</li>
+<li>client所占的物理资源的释放（grpc基于http2实现的rpc通信，http2一个特点是共享链路，即：若存在一个常驻的client，同线程中所有另外的cient如果socket一致，则共用底层，很棒的实现，但不正确的使用，有坑！！）</li>
+</ul>
+<h3 id="server的析构"><a href="#server的析构" class="headerlink" title="server的析构"></a>server的析构</h3><ul>
+<li>server析构需要调用grpc::server的Shutdown方法和所有CompletedQueue的shutdownfang方法，且一定是server先shutdown，与之绑定的completed_queue后shutdown。</li>
+<li>所有保存于completed_queue中的call必须全部释放</li>
+<li>假设有比较耗时的call回调调用，需要考虑到结束阶段所有call可能处于的状态，正确处理，避免出现端错误造成进程崩溃</li>
+<li>server所占用的物理资源的释放</li>
+</ul>
+<p>流程示意图如下图<br><img src="../../public/images/grpc_state.png" alt="grpc_state_picture"></p>
+
+</div>
+
+
+      </div>
+      
+  	</div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  </body>
+</html>
