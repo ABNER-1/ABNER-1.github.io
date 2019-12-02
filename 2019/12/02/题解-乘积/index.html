@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Head tag -->
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  
+  <title>题解-乘积 - abner&#39;s blog</title>
+
+  <!--Favicon-->
+  <link rel="icon" href="favicon/favicon.ico">
+
+  <!--Description-->
+  
+      <meta name="description" content="place which I put my study\read\work data">
+  
+
+  <!--Author-->
+  
+      <meta name="author" content="Abner">
+  
+
+  <!-- Pure CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Crimson+Text|Open+Sans:300,800" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Analytics -->
+  
+
+</head>
+
+
+  <body>
+  	<div class="container-fluid navbar-container m-sm-5">
+      <!-- Header -->
+      <nav class="navbar navbar-toggleable-sm navbar-light px-1 py-3 my-3 mb-sm-5">
+  <a class="navbar-brand ml-2" href="/">abner's blog</a>
+  <button class="navbar-toggler navbar-toggler-right py-2" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse text-center" id="navbarCollapse">
+    <ul class="navbar-nav ml-auto my-auto">
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/about">About</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="/contact">Contact</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://gitee.com/abner1997" target="_blank" rel="noopener">Gitee</a>
+        </li>
+      
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ABNER-1" target="_blank" rel="noopener">Github</a>
+        </li>
+      
+    </ul>
+    <hr class="hidden-md-up" />
+  </div>
+</nav>
+
+
+  		<div class="row">
+  			<div class="col-12 mb-4">
+  <img class="img-fluid project-img" src="/images/unsplash.jpg" alt="题解-乘积">
+</div>
+<div class="col-lg-4 col-12 pt-3 px-4 pr-lg-5">
+  <h1>题解-乘积</h1>
+</div>
+<div class="col-lg-8 col-12 pt-lg-3 mb-4 pl-lg-5 px-lg-0 px-4 portfolio-content">
+  <h1 id="牛客网-乘积题解"><a href="#牛客网-乘积题解" class="headerlink" title="牛客网-乘积题解"></a>牛客网-乘积题解</h1><p><a href="https://www.nowcoder.com/questionTerminal/ecf57709fd4e4e91b8738f2c8aec84a2?orderByHotValue=1&mutiTagIds=149&page=1&onlyReference=false" target="_blank" rel="noopener">题目链接</a></p>
+<h3 id="题面简要如下："><a href="#题面简要如下：" class="headerlink" title="题面简要如下："></a>题面简要如下：</h3><p>&emsp;&emsp;小易给定你一个长度为<code>n</code>的正整数序列<code>Ai</code>，你每次可以使用<code>1</code>的代价将某个数加一或者减一，你希望用最少的代价使得所有数的乘积等于<code>B</code>，求最小代价（操作结束后每个数也必须是正整数）。</p>
+<h3 id="简要分析："><a href="#简要分析：" class="headerlink" title="简要分析："></a>简要分析：</h3><p>可以很容易的定义出转移方程：</p>
+<pre><code>f[i][j]: 前i个数乘积为j的最小代价
+b[i]： 可能的a[i]最后的值，范围为[1,B]
+
+f[i][j] = min(f[i][j] , f[i][j/b[i]] + abs(b[i] - a[i]))
+当且仅当 j/b[i] 为整数时有效</code></pre><p>可以很简单的得出时间复杂度<code>O(n * B * B)</code>，大概是<code>10^13</code>的级别，很显然是不可行的。</p>
+<p>简单分析：</p>
+<ul>
+<li>当B确定的时候，所有可能的j的值一定是B的因子，那么b[i]的取值就缩小到<code>log(B)</code>级别。</li>
+<li>那么<code>j/b[i]</code>有效的值 也必然保证了 b[i] 是 j 的因子，其也是 B 的因子的子集。那么对 b[i] 的遍历也一定是<code>log(B)</code>的级别。</li>
+</ul>
+<p>此时的时间复杂度是<code>O(n * log(B) * log(B))</code>，也即是<code>O(n * B)</code>大概是<code>10^8</code>级别，在可通过的范围内。</p>
+<p>当然，这是一个很经典的背包模型，可以对第一维进行优化，将<code>O(n * B)</code>的级别优化到<code>O(B)</code>,甚至可以根据这道题离散化一下的特性，可以优化到<code>O(log(B))</code>,当然这就没太大必要了。</p>
+<h3 id="附代码"><a href="#附代码" class="headerlink" title="附代码"></a>附代码</h3><pre><code>#include&lt;iostream&gt;
+#include&lt;algorithm&gt;
+#include&lt;vector&gt;
+#include&lt;cmath&gt;
+
+using namespace std;
+const int maxn = 1e5 + 5;
+int f[2][maxn];
+
+int main(){
+    int n, B;
+    vector&lt;int&gt; a;
+    vector&lt;int&gt; fac_b;
+
+    cin &gt;&gt; n &gt;&gt; B;
+    a.resize(n);
+    for(int i = 0; i &lt; n; ++i ){
+        cin &gt;&gt; a[i];
+    }
+
+    // calc all factors of B
+    for(int i = 1; i &lt;= B; ++i ) {
+        if(B % i == 0) {
+            fac_b.push_back(i);
+        }
+    }
+    // init f[0][j]
+    for(auto&amp; item : fac_b) {
+        f[0][item] = abs(item - a[0]);
+    }
+
+    for (int i =1; i &lt; n; ++i ) {
+        for( auto&amp; j : fac_b ) {
+            // a[i] -&gt; 1
+            f[i &amp; 1][j] = f[(i -1) &amp; 1][j] + abs(a[i] - 1);
+            // a[i] -&gt; k
+            for( auto&amp; k : fac_b ) {
+                if( j &lt; k ) break;
+                if( j % k &gt; 0 ) continue;
+                f[i &amp; 1][j] = min(f[i&amp;1][j] , f[(i-1) &amp; 1][j / k] + abs(k - a[i]));
+            }
+        }
+    }
+    cout &lt;&lt; f[(n-1)&amp;1][B] &lt;&lt; endl;
+
+    return 0;
+}</code></pre><hr>
+<h2 id="第二种做法"><a href="#第二种做法" class="headerlink" title="第二种做法"></a>第二种做法</h2><h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><ol>
+<li>求出B的所有因子</li>
+<li>遍历出所有乘积为B， 长度为n的因子序列</li>
+<li>算出每个可能的因子序列 与 原数组a的代价</li>
+</ol>
+<p>待补坑</p>
+
+</div>
+
+
+      </div>
+      
+  	</div>
+
+    <!-- After footer scripts -->
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  </body>
+</html>
