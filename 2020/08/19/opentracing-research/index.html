@@ -12,9 +12,9 @@
 <p>open tracing 统一了 tracing 的 api， 使用这套 api 可以在多个 tracing 系统中进行切换。</p>
 <p><a href="https://opentracing.io/docs/supported-tracers/" target="_blank" rel="noopener">支持 opentracing api 的 tracer 列表</a></p>
 <h3 id="opentracing-使用场景"><a href="#opentracing-使用场景" class="headerlink" title="opentracing 使用场景"></a>opentracing 使用场景</h3><h4 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h4><ul>
-<li><p>Span<br><img src="../images/span.jpg" alt="span"></p>
+<li><p>Span<br><img src="/images/span.jpg" alt="span"></p>
 </li>
-<li><p>SpanContext<br><img src="../images/span-context" alt="span-context"></p>
+<li><p>SpanContext<br><img src="/images/span-context.jpg" alt="span-context"></p>
 </li>
 <li><p>Carrier (Inject / Extract)<br>  针对跨进程、跨主机的服务调用，直接传递 SpanContext 是不可能的，那么如何在这种情况下进行 tracing 呢？</p>
 <p>  Inject / Extract 就是官方提供的一种方式，其可以将 Span 的必要信息注入到 TextMap/Http Header/Binary 中，以便传递到下游服务中。</p>
